@@ -40,11 +40,11 @@ export default function Header() {
         <Logo>
           <Link href="/">Agent Field Manual</Link>
         </Logo>
+        <Nav />
       </div>
       <div className="sub-bar">
         <p>Search</p>
       </div>
-      <Nav />
     </HeaderStyles>
   );
 }
