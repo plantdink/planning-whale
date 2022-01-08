@@ -4,6 +4,7 @@ import {
   withItemData,
   statelessSessions,
 } from "@keystone-next/keystone/session";
+import { insertSeedData } from "./seed-data";
 import { User } from "./schemas/User";
 import { AssaultRifle } from "./schemas/AssaultRifle";
 import { LightMachineGun } from "./schemas/LightMachineGun";
@@ -44,7 +45,11 @@ export default withAuth(
     db: {
       adapter: "mongoose",
       url: databaseURL,
-      // TODO: add seeding here
+      async onConnect(keystone) {
+        if (process.argv.includes("--seed-data")) {
+          await insertSeedData(keystone);
+        }
+      },
     },
     lists: createSchema({
       // schema goes here
