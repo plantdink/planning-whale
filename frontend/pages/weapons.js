@@ -1,3 +1,9 @@
-export default function Weapons() {
-  return <h2>Weapons to come</h2>;
+import Weapons from '../components/Weapons';
+
+export default function weapons() {
+  return (
+    <div>
+      <Weapons />
+    </div>
+  );
 }

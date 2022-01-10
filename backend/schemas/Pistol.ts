@@ -5,6 +5,16 @@ export const Pistol = list({
   access: {
     // TODO: add access
   },
+  ui: {
+    labelField: "model",
+    listView: {
+      initialColumns: ["model", "family"],
+      initialSort: {
+        field: "model",
+        direction: "ASC",
+      },
+    },
+  },
   fields: {
     class: select({
       label: "Weapon Class",

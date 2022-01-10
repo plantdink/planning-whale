@@ -5,6 +5,17 @@ export const Shotgun = list({
   access: {
     // TODO: add access
   },
+  ui: {
+    labelField: "model",
+    listView: {
+      initialColumns: ["model", "family"],
+      initialSort: {
+        field: "model",
+        direction: "ASC",
+      },
+      pageSize: 24,
+    },
+  },
   fields: {
     class: select({
       label: "Weapon Class",

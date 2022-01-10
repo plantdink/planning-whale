@@ -17,6 +17,10 @@ const GlobalStyles = createGlobalStyle`
     --namedGold: #eaa213;
     --exoticOrange: #ff6f36;
     --gearsetGreen: #01ff90;
+    --maxWidth: 1000px;
+    --bs: 0 12px 124px 0 rgba(0, 0, 0, 0.09);
+    box-sizing: border-box;
+    font-size: 62.5%;
   }
   *, *:before, *:after {
     box-sizing: inherit;
