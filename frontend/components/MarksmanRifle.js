@@ -12,7 +12,7 @@ export default function MarksmanRifle({ marksmanRifle }) {
         alt={marksmanRifle.model}
       />
       <Title>
-        <Link href={`/marksmanRifle/${marksmanRifle.id}`}>
+        <Link href={`/weapons/marksmanRifle/${marksmanRifle.id}`}>
           {marksmanRifle.model}
         </Link>
         <DamageTag>{marksmanRifle.damageLevel40}</DamageTag>

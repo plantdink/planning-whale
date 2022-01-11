@@ -5,7 +5,7 @@ import MarksmanRifle from './MarksmanRifle';
 
 const ALL_MARKSMAN_RIFLES_QUERY = gql`
   query ALL_MARKSMAN_RIFLES_QUERY {
-    allMarksmanRifles {
+    allWeapons(where: { class: "MARKSMAN RIFLE" }) {
       id
       model
       family
@@ -43,7 +43,7 @@ export default function MarksmanRifles() {
   return (
     <div>
       <MarksmanRiflesListStyles>
-        {data.allMarksmanRifles.map((marksmanRifle) => (
+        {data.allWeapons.map((marksmanRifle) => (
           <MarksmanRifle key={marksmanRifle.id} marksmanRifle={marksmanRifle} />
         ))}
       </MarksmanRiflesListStyles>

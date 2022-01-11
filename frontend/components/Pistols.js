@@ -5,7 +5,7 @@ import Pistol from './Pistol';
 
 const ALL_PISTOLS_QUERY = gql`
   query ALL_PISTOLS_QUERY {
-    allPistols {
+    allWeapons(where: { class: "PISTOL" }) {
       id
       model
       family
@@ -41,7 +41,7 @@ export default function Pistols() {
   return (
     <div>
       <PistolsListStyles>
-        {data.allPistols.map((pistol) => (
+        {data.allWeapons.map((pistol) => (
           <Pistol key={pistol.id} pistol={pistol} />
         ))}
       </PistolsListStyles>

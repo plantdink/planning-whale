@@ -1,5 +1,4 @@
-import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
+import { gql, useQuery } from '@apollo/client';
 import Head from 'next/head';
 import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
@@ -20,29 +19,31 @@ const SingleWeaponStyles = styled.div`
 
 const SINGLE_WEAPON_QUERY = gql`
   query SINGLE_WEAPON_QUERY($id: ID!) {
-    AssaultRifle(where: { id: $id }) {
+    allAssaultRifles(where: { id: $id }) {
       model
-      family
-      magazineSize
-      rpm
-      modSlots
-      reloadSpeed
-      reloadSpeedFromEmpty
-      accuracy
-      stability
-      optimalRange
-      maxRange
-      damageLevel40
-      damageWt5
-      notes
-      isNamed
-      isExotic
+    }
+    allLightMachineGuns(where: { id: $id }) {
+      model
+    }
+    allMarksmanRifles(where: { id: $id }) {
+      model
+    }
+    allPistols(where: { id: $id }) {
+      model
+    }
+    allRifles(where: { id: $id }) {
+      model
+    }
+    allShotguns(where: { id: $id }) {
+      model
+    }
+    allSubMachineGuns(where: { id: $id }) {
+      model
     }
   }
 `;
 
 export default function SingleWeapon({ id }) {
-  console.log();
   const { data, loading, error } = useQuery(SINGLE_WEAPON_QUERY, {
     variables: {
       id,
@@ -50,15 +51,13 @@ export default function SingleWeapon({ id }) {
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
-  const { AssaultRifle } = data;
+  console.log({ data });
+
   return (
     <SingleWeaponStyles>
-      <Head>
-        <title>Agent Field Manual | {AssaultRifle.model}</title>
-      </Head>
       <img />
       <div>
-        <h2>{AssaultRifle.model}</h2>
+        <h2>Info to come</h2>
       </div>
     </SingleWeaponStyles>
   );

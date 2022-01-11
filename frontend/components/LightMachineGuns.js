@@ -5,7 +5,7 @@ import LightMachineGun from './LightMachineGun';
 
 const ALL_LIGHT_MACHINE_GUNS_QUERY = gql`
   query ALL_LIGHT_MACHINE_GUNS_QUERY {
-    allLightMachineGuns {
+    allWeapons(where: { class: "LIGHT MACHINE GUN" }) {
       id
       model
       family
@@ -43,7 +43,7 @@ export default function LightMachineGuns() {
   return (
     <div>
       <LightMachineGunsListStyles>
-        {data.allLightMachineGuns.map((lightMachineGun) => (
+        {data.allWeapons.map((lightMachineGun) => (
           <LightMachineGun
             key={lightMachineGun.id}
             lightMachineGun={lightMachineGun}

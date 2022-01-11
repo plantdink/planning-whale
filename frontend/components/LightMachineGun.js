@@ -12,7 +12,7 @@ export default function LightMachineGun({ lightMachineGun }) {
         alt={lightMachineGun.model}
       />
       <Title>
-        <Link href={`/lightMachineGuns/${lightMachineGun.id}`}>
+        <Link href={`/weapons/lightMachineGun/${lightMachineGun.id}`}>
           {lightMachineGun.model}
         </Link>
         <DamageTag>{lightMachineGun.damageLevel40}</DamageTag>

@@ -5,7 +5,7 @@ import SubMachineGun from './SubMachineGun';
 
 const ALL_SUB_MACHINE_GUNS_QUERY = gql`
   query ALL_SUB_MACHINE_GUNS_QUERY {
-    allSubMachineGuns {
+    allWeapons(where: { class: "SUB MACHINE GUN" }) {
       id
       model
       family
@@ -43,7 +43,7 @@ export default function SubMachineGuns() {
   return (
     <div>
       <SubMachineGunsListStyles>
-        {data.allSubMachineGuns.map((subMachineGun) => (
+        {data.allWeapons.map((subMachineGun) => (
           <SubMachineGun key={subMachineGun.id} subMachineGun={subMachineGun} />
         ))}
       </SubMachineGunsListStyles>

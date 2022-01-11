@@ -5,7 +5,7 @@ import Rifle from './Rifle';
 
 const ALL_RIFLES_QUERY = gql`
   query ALL_RIFLES_QUERY {
-    allRifles {
+    allWeapons(where: { class: "RIFLE" }) {
       id
       model
       family
@@ -43,7 +43,7 @@ export default function Rifles() {
   return (
     <div>
       <RiflesListStyles>
-        {data.allRifles.map((rifle) => (
+        {data.allWeapons.map((rifle) => (
           <Rifle key={rifle.id} rifle={rifle} />
         ))}
       </RiflesListStyles>

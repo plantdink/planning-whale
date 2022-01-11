@@ -6,13 +6,7 @@ import {
 } from "@keystone-next/keystone/session";
 import { insertSeedData } from "./seed-data";
 import { User } from "./schemas/User";
-import { AssaultRifle } from "./schemas/AssaultRifle";
-import { LightMachineGun } from "./schemas/LightMachineGun";
-import { MarksmanRifle } from "./schemas/MarksmanRifle";
-import { SubMachineGun } from "./schemas/SubMachineGun";
-import { Shotgun } from "./schemas/Shotgun";
-import { Pistol } from "./schemas/Pistol";
-import { Rifle } from "./schemas/Rifle";
+import { Weapon } from "./schemas/Weapon";
 import "dotenv/config";
 
 const databaseURL =
@@ -54,13 +48,7 @@ export default withAuth(
     lists: createSchema({
       // schema goes here
       User,
-      AssaultRifle,
-      LightMachineGun,
-      MarksmanRifle,
-      Pistol,
-      Rifle,
-      Shotgun,
-      SubMachineGun,
+      Weapon,
     }),
     ui: {
       // TODO: change for roles

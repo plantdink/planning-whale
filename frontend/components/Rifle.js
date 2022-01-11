@@ -9,7 +9,7 @@ export default function Rifle({ rifle }) {
     <WeaponStyles>
       <img src={rifle?.photo?.image?.publicUrlTransformed} alt={rifle.model} />
       <Title>
-        <Link href={`/rifle/${rifle.id}`}>{rifle.model}</Link>
+        <Link href={`/weapons/rifle/${rifle.id}`}>{rifle.model}</Link>
         <DamageTag>{rifle.damageLevel40}</DamageTag>
       </Title>
     </WeaponStyles>

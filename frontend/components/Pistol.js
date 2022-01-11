@@ -12,7 +12,7 @@ export default function pistol({ pistol }) {
         alt={pistol.model}
       />
       <Title>
-        <Link href={`/pistol/${pistol.id}`}>{pistol.model}</Link>
+        <Link href={`/weapons/pistol/${pistol.id}`}>{pistol.model}</Link>
         <DamageTag>{pistol.damageLevel40}</DamageTag>
       </Title>
     </WeaponStyles>

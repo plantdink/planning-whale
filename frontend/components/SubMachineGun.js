@@ -12,7 +12,7 @@ export default function SubMachineGun({ subMachineGun }) {
         alt={subMachineGun.model}
       />
       <Title>
-        <Link href={`/subMachineGun/${subMachineGun.id}`}>
+        <Link href={`/weapons/subMachineGun/${subMachineGun.id}`}>
           {subMachineGun.model}
         </Link>
         <DamageTag>{subMachineGun.damageLevel40}</DamageTag>
