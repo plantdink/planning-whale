@@ -2,6 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import Head from 'next/head';
 import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
+import { displayPercentage, hsDisplay } from '../lib/displayNumbers';
 
 const SingleWeaponStyles = styled.div`
   display: grid;
@@ -19,26 +20,27 @@ const SingleWeaponStyles = styled.div`
 
 const SINGLE_WEAPON_QUERY = gql`
   query SINGLE_WEAPON_QUERY($id: ID!) {
-    allAssaultRifles(where: { id: $id }) {
+    allWeapons(where: { id: $id }) {
+      class
       model
-    }
-    allLightMachineGuns(where: { id: $id }) {
-      model
-    }
-    allMarksmanRifles(where: { id: $id }) {
-      model
-    }
-    allPistols(where: { id: $id }) {
-      model
-    }
-    allRifles(where: { id: $id }) {
-      model
-    }
-    allShotguns(where: { id: $id }) {
-      model
-    }
-    allSubMachineGuns(where: { id: $id }) {
-      model
+      family
+      magazineSize
+      rpm
+      modSlots
+      reloadSpeed
+      reloadSpeedFromEmpty
+      accuracy
+      stability
+      optimalRange
+      maxRange
+      headshotMultiplier
+      weaponBonusType
+      maxBonusValue
+      damageLevel40
+      damageWt5
+      notes
+      isNamed
+      isExotic
     }
   }
 `;
@@ -51,13 +53,47 @@ export default function SingleWeapon({ id }) {
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
-  console.log({ data });
+  const weapon = data.allWeapons[0];
 
   return (
     <SingleWeaponStyles>
+      <Head>
+        <title>Agent Field Manual | {weapon.model}</title>
+      </Head>
       <img />
       <div>
-        <h2>Info to come</h2>
+        <h1>{weapon.model}</h1>
+        <h3>
+          Type: {weapon.class} - {weapon.family}
+        </h3>
+        <div>
+          <h2>Base Damage</h2>
+          <h3>Level 40: {weapon.damageLevel40}</h3>
+          <h3>World Tier 5: {weapon.damageWt5}</h3>
+        </div>
+        <div>
+          <h2>Features</h2>
+          <h3>Bonus Damage Type: {weapon.weaponBonusType}</h3>
+          <h3>Max Bonus: {weapon.maxBonusValue}%</h3>
+          <h3>Headshot Multiplier: {hsDisplay(weapon.headshotMultiplier)}</h3>
+        </div>
+        <div>
+          <h2>Specifications</h2>
+          <h3>Rate of fire: {weapon.rpm} rounds per minute</h3>
+          <h3>Magazine: {weapon.magazineSize} rounds</h3>
+          <h3>Mod Slots Available: {weapon.modSlots}</h3>
+        </div>
+        <div>
+          <h2>Characteristics</h2>
+          <h3>Accuracy: {displayPercentage(weapon.accuracy)}%</h3>
+          <h3>Stability: {displayPercentage(weapon.stability)}%</h3>
+          <h3>Optimal Range: {weapon.optimalRange}m</h3>
+          <h3>Max Range: {weapon.maxRange}m</h3>
+        </div>
+        <div>
+          <h3>Notes</h3>
+          <p>{weapon.notes}</p>
+        </div>
       </div>
     </SingleWeaponStyles>
   );

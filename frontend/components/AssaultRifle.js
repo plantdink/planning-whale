@@ -4,9 +4,10 @@ import Title from './Title';
 import DamageTag from './styles/DamageTag';
 // import displayPercentage from '../lib/displayPercentage';
 
-export default function AssaultRifle({ assaultRifle }) {
+export default function LightMachineGun({ assaultRifle }) {
   return (
     <WeaponStyles>
+      <DamageTag>{assaultRifle.damageLevel40}</DamageTag>
       <img
         src={assaultRifle?.photo?.image?.publicUrlTransformed}
         alt={assaultRifle.model}
@@ -15,7 +16,6 @@ export default function AssaultRifle({ assaultRifle }) {
         <Link href={`/weapons/assaultRifle/${assaultRifle.id}`}>
           {assaultRifle.model}
         </Link>
-        <DamageTag>{assaultRifle.damageLevel40}</DamageTag>
       </Title>
     </WeaponStyles>
   );

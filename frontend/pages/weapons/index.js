@@ -1,4 +1,4 @@
-import Weapons from '../components/Weapons';
+import Weapons from '../../components/Weapons';
 
 export default function weapons() {
   return (

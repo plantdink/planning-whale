@@ -37,6 +37,10 @@ export default function Weapons() {
         <img />
         <Link href="/weapons/namedWeapons">Named Weapons</Link>
       </Title>
+      <Title>
+        <img />
+        <Link href="/weapons/exoticWeapons">Exotic Weapons</Link>
+      </Title>
     </ListStyles>
   );
 }

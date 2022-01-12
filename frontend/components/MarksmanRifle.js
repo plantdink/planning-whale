@@ -7,6 +7,7 @@ import DamageTag from './styles/DamageTag';
 export default function MarksmanRifle({ marksmanRifle }) {
   return (
     <WeaponStyles>
+      <DamageTag>{marksmanRifle.damageLevel40}</DamageTag>
       <img
         src={marksmanRifle?.photo?.image?.publicUrlTransformed}
         alt={marksmanRifle.model}
@@ -15,7 +16,6 @@ export default function MarksmanRifle({ marksmanRifle }) {
         <Link href={`/weapons/marksmanRifle/${marksmanRifle.id}`}>
           {marksmanRifle.model}
         </Link>
-        <DamageTag>{marksmanRifle.damageLevel40}</DamageTag>
       </Title>
     </WeaponStyles>
   );

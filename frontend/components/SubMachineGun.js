@@ -7,6 +7,7 @@ import DamageTag from './styles/DamageTag';
 export default function SubMachineGun({ subMachineGun }) {
   return (
     <WeaponStyles>
+      <DamageTag>{subMachineGun.damageLevel40}</DamageTag>
       <img
         src={subMachineGun?.photo?.image?.publicUrlTransformed}
         alt={subMachineGun.model}
@@ -15,7 +16,6 @@ export default function SubMachineGun({ subMachineGun }) {
         <Link href={`/weapons/subMachineGun/${subMachineGun.id}`}>
           {subMachineGun.model}
         </Link>
-        <DamageTag>{subMachineGun.damageLevel40}</DamageTag>
       </Title>
     </WeaponStyles>
   );

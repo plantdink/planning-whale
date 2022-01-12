@@ -7,10 +7,10 @@ import DamageTag from './styles/DamageTag';
 export default function Rifle({ rifle }) {
   return (
     <WeaponStyles>
+      <DamageTag>{rifle.damageLevel40}</DamageTag>
       <img src={rifle?.photo?.image?.publicUrlTransformed} alt={rifle.model} />
       <Title>
         <Link href={`/weapons/rifle/${rifle.id}`}>{rifle.model}</Link>
-        <DamageTag>{rifle.damageLevel40}</DamageTag>
       </Title>
     </WeaponStyles>
   );
