@@ -29,6 +29,8 @@ export const ArmourType = list({
       ],
       isRequired: true,
     }),
+    name: text({ label: "Enter name if Named Item" }),
+    uniqueAttribute: text({ label: "Named Item Unique Attribute" }),
     coreAttributeTypeOne: text({
       label: "Core Attribute Type",
       defaultValue: "Weapon Damage",
@@ -149,7 +151,7 @@ export const ArmourType = list({
       label: "Max Amount",
       defaultValue: 100,
     }),
-    // level 30 from here down
+    // ------------- level 30 from here down ----------------------
     maxCoreValueDamageLevel30: integer({
       label: "Weapon Damage (Lvl 30)",
       defaultValue: 99,
@@ -258,5 +260,6 @@ export const ArmourType = list({
       label: "Max Amount",
       defaultValue: 66,
     }),
+    modSlots: integer({ label: "No of Mod Slots", defaultValue: 0 }),
   },
 });

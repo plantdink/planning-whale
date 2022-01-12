@@ -550,9 +550,9 @@ export const armourTalents = [
       "Whenever you are within 10 meters of an enemy, gain 23% bonus armor for 5 seconds. Stacks up to 3 times. Cooldown: 5 seconds.",
     descriptionPVP:
       "Whenever you are within 10 meters of an enemy, gain 12% bonus armor for 5 seconds. Stacks up to 3 times. Cooldown: 5 seconds.",
-    isNamed: "NO",
+    isNamed: "YES",
     isExotic: "NO",
-    specificPieceName: "",
+    specificPieceName: "Matador - Brand: Walker, Harris & Co.",
   },
   {
     piece: "BACKPACK",
@@ -579,8 +579,9 @@ export const armourTalents = [
   {
     piece: "BACKPACK",
     type: "STATUS",
-    name: "",
-    descriptionPVE: "",
+    name: "Wicked",
+    descriptionPVE:
+      "Applying a status effect increases total weapon damage by 18% for 20 seconds.",
     descriptionPVP: "",
     isNamed: "NO",
     isExotic: "NO",
@@ -589,9 +590,22 @@ export const armourTalents = [
   {
     piece: "BACKPACK",
     type: "STATUS",
-    name: "",
-    descriptionPVE: "",
+    name: "Perfectly Wicked",
+    descriptionPVE:
+      "Applying a status effect increases total weapon damage by 18% for 27 seconds.",
     descriptionPVP: "",
+    isNamed: "YES",
+    isExotic: "NO",
+    specificPieceName: "Anarchists Cookbook - Brand: Golan Gear",
+  },
+  {
+    piece: "BACKPACK",
+    type: "STATUS",
+    name: "Galvanize",
+    descriptionPVE:
+      "Applying a Blind, Ensnare, Confuse, or Shock to an enemy grants 40% of your armor as bonus armor to you and all allies within 20 meters of that enemy for 10 seconds.",
+    descriptionPVP:
+      "Applying a Blind, Ensnare, Confuse, or Shock to an enemy grants 20% of your armor as bonus armor to you and all allies within 20 meters of that enemy for 10 seconds.",
     isNamed: "NO",
     isExotic: "NO",
     specificPieceName: "",
@@ -599,8 +613,9 @@ export const armourTalents = [
   {
     piece: "BACKPACK",
     type: "STATUS",
-    name: "",
-    descriptionPVE: "",
+    name: "Creeping Death",
+    descriptionPVE:
+      "When you apply a status effect, it is also applied to all enemies within 8 meters of your target. Cooldown is 15 seconds.",
     descriptionPVP: "",
     isNamed: "NO",
     isExotic: "NO",
@@ -608,9 +623,106 @@ export const armourTalents = [
   },
   {
     piece: "BACKPACK",
-    type: "STATUS",
-    name: "",
-    descriptionPVE: "",
+    type: "SKILLDPS",
+    name: "Tech Support",
+    descriptionPVE:
+      "Skill kills increase total skill damage by 25% for 20 seconds.",
+    descriptionPVP: "",
+    isNamed: "NO",
+    isExotic: "NO",
+    specificPieceName: "",
+  },
+  {
+    piece: "BACKPACK",
+    type: "SKILLDPS",
+    name: "Perfect Tech Support",
+    descriptionPVE:
+      "Skill kills increase total skill damage by 25% for 27 seconds.",
+    descriptionPVP: "",
+    isNamed: "YES",
+    isExotic: "NO",
+    specificPieceName: "Percussive Maintenance - Brand: Alps Summit Armament",
+  },
+  {
+    piece: "BACKPACK",
+    type: "SKILLDPS",
+    name: "Shock and Awe",
+    descriptionPVE:
+      "Applying a status effect to an enemy increases total skill damage and repair by 20% for 20 seconds.",
+    descriptionPVP: "",
+    isNamed: "NO",
+    isExotic: "NO",
+    specificPieceName: "",
+  },
+  {
+    piece: "BACKPACK",
+    type: "SKILLDPS",
+    name: "Perfect Shock and Awe",
+    descriptionPVE:
+      "Applying a status effect to an enemy increases total skill damage and repair by 20% for 27 seconds.",
+    descriptionPVP: "",
+    isNamed: "YES",
+    isExotic: "NO",
+    specificPieceName: "Strategic Alignment - Brand: China Light Industries",
+  },
+  {
+    piece: "BACKPACK",
+    type: "SKILLDPS",
+    name: "Combined Arms",
+    descriptionPVE:
+      "Shooting an enemy increases total skill damage by 25% for 3 seconds.",
+    descriptionPVP: "",
+    isNamed: "NO",
+    isExotic: "NO",
+    specificPieceName: "",
+  },
+  {
+    piece: "BACKPACK",
+    type: "SKILLDPS",
+    name: "Perfect Combined Arms",
+    descriptionPVE:
+      "Shooting an enemy increases total skill damage by 30% for 3 seconds.",
+    descriptionPVP: "",
+    isNamed: "YES",
+    isExotic: "NO",
+    specificPieceName: "Force Multiplier - Brand: Hana-U Corporation",
+  },
+  {
+    piece: "BACKPACK",
+    type: "SKILLDPS",
+    name: "Calculated",
+    descriptionPVE: "Kills from cover reduce skill cooldowns by 10%.",
+    descriptionPVP: "",
+    isNamed: "NO",
+    isExotic: "NO",
+    specificPieceName: "",
+  {
+    piece: "BACKPACK",
+    type: "SKILLDPS",
+    name: "Perfectly Calculated",
+    descriptionPVE: "Kills from cover reduce skill cooldowns by 15%.",
+    descriptionPVP: "",
+    isNamed: "YES",
+    isExotic: "NO",
+    specificPieceName: "Battery Pack - Brand: Empress International",
+  },
+  {
+    piece: "BACKPACK",
+    type: "HEALSPT",
+    name: "Safeguard",
+    descriptionPVE:
+      "While at full armor, increases total skill repair by 100%.",
+    descriptionPVP: "",
+    isNamed: "NO",
+    isExotic: "NO",
+    specificPieceName: "",
+  },
+  {
+    piece: "BACKPACK",
+    type: "HEALSPT",
+    name: "Overclock",
+    descriptionPVE:
+      "You and allies within 7 meters of your deployed skills, gain 25% reload speed and reduces active cooldowns by 0.2s each second.",
     descriptionPVP: "",
     isNamed: "NO",
     isExotic: "NO",

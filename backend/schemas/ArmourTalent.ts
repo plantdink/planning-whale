@@ -22,6 +22,10 @@ export const ArmourTalent = list({
       options: [
         { label: "Chest", value: "CHEST" },
         { label: "Backpack", value: "BACKPACK" },
+        { label: "Mask", value: "MASK" },
+        { label: "Holster", value: "HOLSTER" },
+        { label: "Gloves", value: "GLOVES" },
+        { label: "Knees", value: "KNEES" },
       ],
       isRequired: true,
     }),
@@ -61,6 +65,7 @@ export const ArmourTalent = list({
         displayMode: "segmented-control",
       },
     }),
+    namedItem: text({ label: "If Named Item, what is the name?" }),
     isExotic: select({
       label: "Is this an Exotic Talent?",
       options: [

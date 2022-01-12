@@ -7,8 +7,8 @@ import {
 import { insertSeedData } from "./seed-data";
 import { User } from "./schemas/User";
 import { Weapon } from "./schemas/Weapon";
-import { ArmourType } from "./schemas/Armour";
-import { ArmourTalent } from "./schemas/ArmourTalents";
+import { ArmourType } from "./schemas/ArmourType";
+import { ArmourTalent } from "./schemas/ArmourTalent";
 import { WeaponTalent } from "./schemas/WeaponTalent";
 import "dotenv/config";
 
