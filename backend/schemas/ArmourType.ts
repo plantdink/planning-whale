@@ -29,8 +29,6 @@ export const ArmourType = list({
       ],
       isRequired: true,
     }),
-    name: text({ label: "Enter name if Named Item" }),
-    uniqueAttribute: text({ label: "Named Item Unique Attribute" }),
     coreAttributeTypeOne: text({
       label: "Core Attribute Type",
       defaultValue: "Weapon Damage",
@@ -43,7 +41,7 @@ export const ArmourType = list({
       label: "Core Attribute Type",
       defaultValue: "Skill Tier",
     }),
-    maxCoreValueDamageLevel40: integer({
+    maxCoreDamageLevel40: integer({
       label: "Weapon Damage (Lvl 40)",
       defaultValue: 150,
     }),
@@ -55,6 +53,8 @@ export const ArmourType = list({
       label: "Skill Tier (Level 40)",
       defaultValue: 1,
     }),
+    name: text({ label: "Enter name if Named Item" }),
+    uniqueAttribute: text({ label: "Named Item Unique Attribute" }),
     offensiveAttributeOneLevel40: text({
       label: "Offensive Attribute Type",
       defaultValue: "Critical Hit Chance",
