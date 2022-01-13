@@ -6,110 +6,26 @@ export const WeaponTalent = list({
     // TODO: add access
   },
   ui: {
-    labelField: "type",
+    labelField: "name",
     listView: {
       initialColumns: ["name", "type"],
       initialSort: {
-        field: "type",
+        field: "name",
         direction: "ASC",
       },
       pageSize: 24,
     },
   },
   fields: {
-    onAssaultRifles: select({
-      label: "Is this available on Assault Rilfes?",
-      options: [
-        { label: "Yes", value: "YES" },
-        { label: "No", value: "NO" },
-      ],
-      isRequired: true,
-      defaultValue: "NO",
-      ui: {
-        displayMode: "segmented-control",
-      },
-    }),
-    onLightMachineGuns: select({
-      label: "Is this available on Light Machine Guns?",
-      options: [
-        { label: "Yes", value: "YES" },
-        { label: "No", value: "NO" },
-      ],
-      isRequired: true,
-      defaultValue: "NO",
-      ui: {
-        displayMode: "segmented-control",
-      },
-    }),
-    onMarksmanRifles: select({
-      label: "Is this available on Marksman Rifles?",
-      options: [
-        { label: "Yes", value: "YES" },
-        { label: "No", value: "NO" },
-      ],
-      isRequired: true,
-      defaultValue: "NO",
-      ui: {
-        displayMode: "segmented-control",
-      },
-    }),
-    onPistols: select({
-      label: "Is this available on Pistols?",
-      options: [
-        { label: "Yes", value: "YES" },
-        { label: "No", value: "NO" },
-      ],
-      isRequired: true,
-      defaultValue: "NO",
-      ui: {
-        displayMode: "segmented-control",
-      },
-    }),
-    onRifles: select({
-      label: "Is this available on Rifles?",
-      options: [
-        { label: "Yes", value: "YES" },
-        { label: "No", value: "NO" },
-      ],
-      isRequired: true,
-      defaultValue: "NO",
-      ui: {
-        displayMode: "segmented-control",
-      },
-    }),
-    onShotguns: select({
-      label: "Is this available on Shotguns?",
-      options: [
-        { label: "Yes", value: "YES" },
-        { label: "No", value: "NO" },
-      ],
-      isRequired: true,
-      defaultValue: "NO",
-      ui: {
-        displayMode: "segmented-control",
-      },
-    }),
-    onSubMachineGuns: select({
-      label: "Is this available on Sub Machine Guns?",
-      options: [
-        { label: "Yes", value: "YES" },
-        { label: "No", value: "NO" },
-      ],
-      isRequired: true,
-      defaultValue: "NO",
-      ui: {
-        displayMode: "segmented-control",
-      },
-    }),
     type: select({
       label: "Talent Type",
       options: [
-        { label: "Weapon DPS", value: "WPNDPS" },
-        { label: "Tank & Bruiser", value: "TANK" },
-        { label: "Sustain", value: "SUSTAIN" },
-        { label: "Status Effect", value: "STATUS" },
-        { label: "Skill DPS", value: "SKILLDPS" },
-        { label: "Heal & Support", value: "HEALSPT" },
+        { label: "Weapon DPS", value: "Weapon DPS" },
+        { label: "Tank & Bruiser", value: "Tank" },
+        { label: "Sustain", value: "Sustain" },
+        { label: "Status Effect", value: "Status" },
+        { label: "Skill DPS", value: "Skill DPS" },
+        { label: "Heal & Support", value: "Heal & Support" },
       ],
       isRequired: true,
     }),
