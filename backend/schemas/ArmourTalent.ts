@@ -1,4 +1,4 @@
-import { text, select } from "@keystone-next/fields";
+import { text, select, relationship } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
 
 export const ArmourTalent = list({
@@ -6,38 +6,38 @@ export const ArmourTalent = list({
     // TODO: add access
   },
   ui: {
-    labelField: "piece",
+    labelField: "name",
     listView: {
-      initialColumns: ["piece", "name", "type"],
+      initialColumns: ["name", "piece", "type"],
       initialSort: {
-        field: "piece",
+        field: "name",
         direction: "ASC",
       },
-      pageSize: 24,
+      pageSize: 40,
     },
   },
   fields: {
     piece: select({
       label: "Armour Piece",
       options: [
-        { label: "Chest", value: "CHEST" },
-        { label: "Backpack", value: "BACKPACK" },
-        { label: "Mask", value: "MASK" },
-        { label: "Holster", value: "HOLSTER" },
-        { label: "Gloves", value: "GLOVES" },
-        { label: "Knees", value: "KNEES" },
+        { label: "Chest", value: "Chest" },
+        { label: "Backpack", value: "Backpack" },
+        { label: "Mask", value: "Mask" },
+        { label: "Holster", value: "Holster" },
+        { label: "Gloves", value: "Gloves" },
+        { label: "Knees", value: "Knees" },
       ],
       isRequired: true,
     }),
     type: select({
       label: "Talent Type",
       options: [
-        { label: "Weapon DPS", value: "WPNDPS" },
-        { label: "Tank & Bruiser", value: "TANK" },
-        { label: "Sustain", value: "SUSTAIN" },
-        { label: "Status Effect", value: "STATUS" },
-        { label: "Skill DPS", value: "SKILLDPS" },
-        { label: "Heal & Support", value: "HEALSPT" },
+        { label: "Weapon DPS", value: "Weapon DPS" },
+        { label: "Tank & Bruiser", value: "Tank & Bruiser" },
+        { label: "Sustain", value: "Sustain" },
+        { label: "Status Effect", value: "Status" },
+        { label: "Skill DPS", value: "Skill DPS" },
+        { label: "Heal & Support", value: "Heal & Support" },
       ],
       isRequired: true,
     }),
@@ -66,6 +66,15 @@ export const ArmourTalent = list({
       },
     }),
     namedItem: text({ label: "If Named Item, what is the name?" }),
+    brand: relationship({
+      label: "Related Brand",
+      ref: "Brand.armourTalent",
+      many: false,
+      ui: {
+        displayMode: "select",
+        hideCreate: true,
+      },
+    }),
     isExotic: select({
       label: "Is this an Exotic Talent?",
       options: [

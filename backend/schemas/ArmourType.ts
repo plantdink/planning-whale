@@ -20,12 +20,12 @@ export const ArmourType = list({
     piece: select({
       label: "Armour Type",
       options: [
-        { label: "Mask", value: "MASK" },
-        { label: "Chest", value: "CHEST" },
-        { label: "Holster", value: "HOLSTER" },
-        { label: "Backpack", value: "BACKPACK" },
-        { label: "Gloves", value: "GLOVES" },
-        { label: "Kneepads", value: "KNEEPADS" },
+        { label: "Mask", value: "Mask" },
+        { label: "Chest", value: "Chest" },
+        { label: "Holster", value: "Holster" },
+        { label: "Backpack", value: "Backpack" },
+        { label: "Gloves", value: "Gloves" },
+        { label: "Kneepads", value: "Kneepads" },
       ],
       isRequired: true,
     }),

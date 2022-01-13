@@ -9,6 +9,7 @@ import { User } from "./schemas/User";
 import { Weapon } from "./schemas/Weapon";
 import { ArmourType } from "./schemas/ArmourType";
 import { ArmourTalent } from "./schemas/ArmourTalent";
+import { Brand } from "./schemas/Brand";
 import { WeaponTalent } from "./schemas/WeaponTalent";
 import "dotenv/config";
 
@@ -54,6 +55,7 @@ export default withAuth(
       Weapon,
       ArmourType,
       ArmourTalent,
+      Brand,
       WeaponTalent,
     }),
     ui: {
