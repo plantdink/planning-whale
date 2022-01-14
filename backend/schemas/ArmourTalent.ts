@@ -17,6 +17,7 @@ export const ArmourTalent = list({
     },
   },
   fields: {
+    name: text({ label: "Name of Talent", isRequired: true }),
     piece: select({
       label: "Armour Piece",
       options: [
@@ -25,7 +26,7 @@ export const ArmourTalent = list({
         { label: "Mask", value: "Mask" },
         { label: "Holster", value: "Holster" },
         { label: "Gloves", value: "Gloves" },
-        { label: "Knees", value: "Knees" },
+        { label: "Kneepads", value: "Kneepads" },
       ],
       isRequired: true,
     }),
@@ -41,7 +42,6 @@ export const ArmourTalent = list({
       ],
       isRequired: true,
     }),
-    name: text({ label: "Name of Talent", isRequired: true }),
     descriptionPVE: text({
       label: "Description (PVE)",
       ui: {
@@ -65,7 +65,9 @@ export const ArmourTalent = list({
         displayMode: "segmented-control",
       },
     }),
-    namedItem: text({ label: "If Named Item, what is the name?" }),
+    namedItem: text({
+      label: "If Perfect talent, what is the name of the item?",
+    }),
     brand: relationship({
       label: "Related Brand",
       ref: "Brand.armourTalent",
@@ -85,6 +87,14 @@ export const ArmourTalent = list({
       ui: {
         displayMode: "segmented-control",
       },
+    }),
+    exoticItem: text({
+      label: " If Exotic talent, what is the name of the Exotic item",
+    }),
+    exoticArmourPiece: relationship({
+      label: "Related Exotic Armour piece",
+      ref: "ExoticArmourPiece.exoticArmourTalent",
+      many: true,
     }),
   },
 });

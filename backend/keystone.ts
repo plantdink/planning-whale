@@ -11,6 +11,7 @@ import { ArmourType } from "./schemas/ArmourType";
 import { ArmourTalent } from "./schemas/ArmourTalent";
 import { Brand } from "./schemas/Brand";
 import { WeaponTalent } from "./schemas/WeaponTalent";
+import { ExoticArmourPiece } from "./schemas/ExoticArmourPiece";
 import "dotenv/config";
 
 const databaseURL =
@@ -57,6 +58,7 @@ export default withAuth(
       ArmourTalent,
       Brand,
       WeaponTalent,
+      ExoticArmourPiece,
     }),
     ui: {
       // TODO: change for roles
