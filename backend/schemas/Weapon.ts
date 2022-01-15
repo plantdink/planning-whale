@@ -1,4 +1,4 @@
-import { integer, text, select } from "@keystone-next/fields";
+import { integer, text, select, relationship } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
 
 export const Weapon = list({
@@ -6,9 +6,9 @@ export const Weapon = list({
     // TODO: add access
   },
   ui: {
-    labelField: "class",
+    labelField: "model",
     listView: {
-      initialColumns: ["class", "family", "model"],
+      initialColumns: ["class", "model", "family"],
       initialSort: {
         field: "class",
         direction: "ASC",
@@ -116,6 +116,11 @@ export const Weapon = list({
       ui: {
         displayMode: "segmented-control",
       },
+    }),
+    weaponTalent: relationship({
+      label: "Related Talents",
+      ref: "WeaponTalent.weaponName",
+      many: true,
     }),
   },
 });

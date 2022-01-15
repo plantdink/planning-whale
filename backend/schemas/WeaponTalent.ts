@@ -1,4 +1,4 @@
-import { text, select } from "@keystone-next/fields";
+import { text, select, checkbox, relationship } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
 
 export const WeaponTalent = list({
@@ -17,19 +17,20 @@ export const WeaponTalent = list({
     },
   },
   fields: {
+    name: text({ label: "Name of Talent", isRequired: true }),
     type: select({
       label: "Talent Type",
       options: [
         { label: "Weapon DPS", value: "Weapon DPS" },
-        { label: "Tank & Bruiser", value: "Tank" },
-        { label: "Sustain", value: "Sustain" },
-        { label: "Status Effect", value: "Status" },
+        { label: "Weapon Utility", value: "Weapon Utility" },
+        { label: "Weapon / Skill DPS", value: "Hybrid" },
         { label: "Skill DPS", value: "Skill DPS" },
+        { label: "Status", value: "Status" },
+        { label: "Tank & Bruiser", value: "Tank & Bruiser" },
         { label: "Heal & Support", value: "Heal & Support" },
       ],
       isRequired: true,
     }),
-    name: text({ label: "Name of Talent", isRequired: true }),
     descriptionPVE: text({
       label: "Description (PVE)",
       ui: {
@@ -41,6 +42,27 @@ export const WeaponTalent = list({
       ui: {
         displayMode: "textarea",
       },
+    }),
+    classARTalent: checkbox({
+      label: "Assault Rifle talent?",
+    }),
+    classLMGTalent: checkbox({
+      label: "Light Machine Gun talent?",
+    }),
+    classMMRTalent: checkbox({
+      label: "Marksman Rifle talent?",
+    }),
+    classPistolTalent: checkbox({
+      label: "Pistol talent?",
+    }),
+    classRifleTalent: checkbox({
+      label: "Rifle talent?",
+    }),
+    classShotgunTalent: checkbox({
+      label: "Shotgun talent?",
+    }),
+    classSMGTalent: checkbox({
+      label: "Sub Machine Gun talent?",
     }),
     isNamed: select({
       label: "Is this a Perfect Talent?",
@@ -63,6 +85,11 @@ export const WeaponTalent = list({
       ui: {
         displayMode: "segmented-control",
       },
+    }),
+    weaponName: relationship({
+      label: "Named or Exotic Weapon",
+      ref: "Weapon.weaponTalent",
+      many: true,
     }),
   },
 });
