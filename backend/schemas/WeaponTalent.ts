@@ -13,7 +13,7 @@ export const WeaponTalent = list({
         field: "name",
         direction: "ASC",
       },
-      pageSize: 24,
+      pageSize: 40,
     },
   },
   fields: {

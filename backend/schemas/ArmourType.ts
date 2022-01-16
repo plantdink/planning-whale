@@ -8,7 +8,7 @@ export const ArmourType = list({
   ui: {
     labelField: "piece",
     listView: {
-      initialColumns: ["piece"],
+      initialColumns: ["piece", "name"],
       initialSort: {
         field: "piece",
         direction: "ASC",
@@ -60,7 +60,7 @@ export const ArmourType = list({
       defaultValue: "Critical Hit Chance",
     }),
     offensiveAttributeOneMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 60,
     }),
     offensiveAttributeTwoLevel40: text({
@@ -68,7 +68,7 @@ export const ArmourType = list({
       defaultValue: "Critical Hit Damage",
     }),
     offensiveAttributeTwoMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 120,
     }),
     offensiveAttributeThreeLevel40: text({
@@ -76,7 +76,7 @@ export const ArmourType = list({
       defaultValue: "Headshot Damage",
     }),
     offensiveAttributeThreeMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 100,
     }),
     offensiveAttributeFourLevel40: text({
@@ -84,7 +84,7 @@ export const ArmourType = list({
       defaultValue: "Weapon Handling",
     }),
     offensiveAttributeFourMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 80,
     }),
     defensiveAttributeOneLevel40: text({
@@ -92,7 +92,7 @@ export const ArmourType = list({
       defaultValue: "Armour Regeneration",
     }),
     defensiveAttributeOneMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max Amount (Level 40)",
       defaultValue: 4925,
     }),
     defensiveAttributeTwoLevel40: text({
@@ -100,7 +100,7 @@ export const ArmourType = list({
       defaultValue: "Explosive Resistance",
     }),
     defensiveAttributeTwoMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 100,
     }),
     defensiveAttributeThreeLevel40: text({
@@ -108,7 +108,7 @@ export const ArmourType = list({
       defaultValue: "Hazard Protection",
     }),
     defensiveAttributeThreeMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 100,
     }),
     defensiveAttributeFourLevel40: text({
@@ -116,7 +116,7 @@ export const ArmourType = list({
       defaultValue: "Health",
     }),
     defensiveAttributeFourMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max Amount (Level 40)",
       defaultValue: 18935,
     }),
     utilityAttributeOneLevel40: text({
@@ -124,7 +124,7 @@ export const ArmourType = list({
       defaultValue: "Skill Damage",
     }),
     utilityAttributeOneMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 100,
     }),
     utilityAttributeTwoLevel40: text({
@@ -132,7 +132,7 @@ export const ArmourType = list({
       defaultValue: "Skill Haste",
     }),
     utilityAttributeTwoMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 120,
     }),
     utilityAttributeThreeLevel40: text({
@@ -140,7 +140,7 @@ export const ArmourType = list({
       defaultValue: "Skill Repair",
     }),
     utilityAttributeThreeMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 200,
     }),
     utilityAttributeFourLevel40: text({
@@ -148,7 +148,7 @@ export const ArmourType = list({
       defaultValue: "Status Effects",
     }),
     utilityAttributeFourMaxValueLevel40: integer({
-      label: "Max Amount",
+      label: "Max % Amount (Level 40)",
       defaultValue: 100,
     }),
     // ------------- level 30 from here down ----------------------
@@ -169,7 +169,7 @@ export const ArmourType = list({
       defaultValue: "Critical Hit Chance",
     }),
     offensiveAttributeOneMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 51,
     }),
     offensiveAttributeTwoLevel30: text({
@@ -177,7 +177,7 @@ export const ArmourType = list({
       defaultValue: "Critical Hit Damage",
     }),
     offensiveAttributeTwoMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 79,
     }),
     offensiveAttributeThreeLevel30: text({
@@ -185,7 +185,7 @@ export const ArmourType = list({
       defaultValue: "Headshot Damage",
     }),
     offensiveAttributeThreeMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 69,
     }),
     offensiveAttributeFourLevel30: text({
@@ -193,7 +193,7 @@ export const ArmourType = list({
       defaultValue: "Weapon Handling",
     }),
     offensiveAttributeFourMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 70,
     }),
     defensiveAttributeOneLevel30: text({
@@ -209,7 +209,7 @@ export const ArmourType = list({
       defaultValue: "Explosive Resistance",
     }),
     defensiveAttributeTwoMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 66,
     }),
     defensiveAttributeThreeLevel30: text({
@@ -217,7 +217,7 @@ export const ArmourType = list({
       defaultValue: "Hazard Protection",
     }),
     defensiveAttributeThreeMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 66,
     }),
     defensiveAttributeFourLevel30: text({
@@ -233,7 +233,7 @@ export const ArmourType = list({
       defaultValue: "Skill Damage",
     }),
     utilityAttributeOneMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 69,
     }),
     utilityAttributeTwoLevel30: text({
@@ -241,7 +241,7 @@ export const ArmourType = list({
       defaultValue: "Skill Haste",
     }),
     utilityAttributeTwoMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 79,
     }),
     utilityAttributeThreeLevel30: text({
@@ -249,7 +249,7 @@ export const ArmourType = list({
       defaultValue: "Skill Repair",
     }),
     utilityAttributeThreeMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 121,
     }),
     utilityAttributeFourLevel30: text({
@@ -257,7 +257,7 @@ export const ArmourType = list({
       defaultValue: "Status Effects",
     }),
     utilityAttributeFourMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max % Amount (World Tier 5)",
       defaultValue: 66,
     }),
     modSlots: integer({ label: "No of Mod Slots", defaultValue: 0 }),

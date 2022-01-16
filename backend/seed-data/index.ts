@@ -1,7 +1,8 @@
 // import { weapons } from "./seedWeapons";
 // import { brands } from "./seedBrands";
 // import { armourTalents } from "./seedArmourTalents";
-import { exoticArmourPieces } from "./seedExoticArmourPieces";
+// import { exoticArmourPieces } from "./seedExoticArmourPieces";
+import { weaponTalents } from "./seedWeaponTalents";
 
 export async function insertSeedData(ks: any) {
   const keystone = ks.keystone || ks;
@@ -30,14 +31,21 @@ export async function insertSeedData(ks: any) {
   // }
   // console.log(`Seed data inserted: ${armourTalents.length} armour talents`);
 
-  console.log(`Inserting seed data: ${exoticArmourPieces.length}`);
-  for (const exoticArmourPiece of exoticArmourPieces) {
-    console.log(`Adding Exotic armour: ${exoticArmourPiece.name}`);
-    await mongoose.model("ExoticArmourPiece").create(exoticArmourPiece);
+  // console.log(`Inserting seed data: ${exoticArmourPieces.length}`);
+  // for (const exoticArmourPiece of exoticArmourPieces) {
+  //   console.log(`Adding Exotic armour: ${exoticArmourPiece.name}`);
+  //   await mongoose.model("ExoticArmourPiece").create(exoticArmourPiece);
+  // }
+  // console.log(
+  //   `Seed data inserted: ${exoticArmourPieces.length} Exotic armour pieces`
+  // );
+
+  console.log(`Inserting seed data: ${weaponTalents.length}`);
+  for (const weaponTalent of weaponTalents) {
+    console.log(`Adding Weapon Talent: ${weaponTalent.name}`);
+    await mongoose.model("WeaponTalent").create(weaponTalent);
   }
-  console.log(
-    `Seed data inserted: ${exoticArmourPieces.length} Exotic armour pieces`
-  );
+  console.log(`Seed data inserted: ${weaponTalents.length} weapon talents`);
 
   console.log(`Please start the process with \`npm run dev\``);
   process.exit();
