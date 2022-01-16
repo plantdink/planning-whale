@@ -13,7 +13,7 @@ export const Brand = list({
         field: "name",
         direction: "ASC",
       },
-      pageSize: 24,
+      pageSize: 30,
     },
   },
   fields: {
@@ -49,6 +49,43 @@ export const Brand = list({
         { label: "Improvised", value: "Improvised" },
         { label: "All Brands", value: "All Brands" },
       ],
+    }),
+    coreAttribute: select({
+      label: "Brand Core Attribute",
+      options: [
+        { label: "Weapon Damage", value: "Weapon Damage" },
+        { label: "Weapon Damage / Armour", value: "Weapon Damage / Armour" },
+        { label: "Armour", value: "Armour" },
+        { label: "Skill Tier", value: "Skill Tier" },
+      ],
+    }),
+    coreAttributeValueLevel40: select({
+      label: "Core Attribute Max Value (Level 40)",
+      options: [
+        { label: "15% Weapon Damage", value: "15% Weapon Damage" },
+        {
+          label: "15% Weapon Damage / 170,000 Armour",
+          value: "15% Weapon Damage / 170,000 Armour",
+        },
+        { label: "170,000 Armour", value: "170,000 Armour" },
+        {
+          label: "+1 Skill Tier",
+          value: "+1 Skill Tier",
+        },
+      ],
+      isRequired: true,
+    }),
+    coreAttributeValueWT5: select({
+      label: "Core Attribute Max Value (World Tier 5)",
+      options: [
+        { label: "9.9% Weapon Damage", value: "9.9% Weapon Damage" },
+        { label: "42,458 Armour", value: "42,458 Armour" },
+        {
+          label: "+1 Skill Tier",
+          value: "+1 Skill Tier",
+        },
+      ],
+      isRequired: true,
     }),
     setBonusOne: text({ label: "First Set Bonus" }),
     setBonusTwo: text({ label: "Second Set Bonus" }),
