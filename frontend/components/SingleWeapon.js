@@ -60,8 +60,8 @@ export default function SingleWeapon({ id }) {
       <Head>
         <title>Agent Field Manual | {weapon.model}</title>
       </Head>
-      <img />
       <div>
+        <img />
         <h1>{weapon.model}</h1>
         <h3>
           Type: {weapon.class} - {weapon.family}

@@ -8,6 +8,7 @@ export default function Exotics() {
       <Title>
         <img />
         <Link href="/exotics/exoticWeapons">Exotic Weapons</Link>
+        <Link href="/exotics/exoticArmourPieces">Exotic Armour</Link>
       </Title>
     </ListStyles>
   );
