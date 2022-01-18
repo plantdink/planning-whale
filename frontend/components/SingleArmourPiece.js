@@ -75,6 +75,18 @@ const SINGLE_ARMOUR_PIECE_QUERY = gql`
       piece
       modSlots
       coreOne
+      coreTwo
+      coreThree
+      maxCoreOneValueLevel40
+      maxCoreTwoValueLevel40
+      maxCoreThreeValueLevel40
+      maxCoreOneValueLevel30
+      attributeOneType
+      attributeTwoType
+      attributeOneValueLevel40
+      attributeTwoValueLevel40
+      attributeOneValueLevel30
+      attributeTwoValueLevel30
       exoticArmourTalent {
         name
       }
@@ -109,130 +121,156 @@ export default function SingleArmourPiece({ id }) {
         </ul>
       )}
       {armourPiece.coreAttributeTypeOne && (
-        <ul>
-          <li>
-            {armourPiece.coreAttributeTypeOne} -{' '}
-            {displayPercentage(armourPiece.maxCoreDamageLevel40.toString())}%{' '}
-            {displayPercentage(
-              armourPiece.maxCoreValueDamageLevel30.toString()
-            )}
-            %
-          </li>
-          <li>
-            {armourPiece.coreAttributeTypeTwo} -{' '}
-            {armourPiece.maxCoreArmourLevel40.toString()}{' '}
-            {armourPiece.maxCoreArmourLevel30.toString()}
-          </li>
-          <li>
-            {armourPiece.coreAttributeTypeThree} - +
-            {armourPiece.maxCoreSkillTierLevel40.toString()} +
-            {armourPiece.maxCoreSkillTierLevel30.toString()}
-          </li>
-        </ul>
+        <>
+          <ul>
+            <li>
+              {armourPiece.coreAttributeTypeOne} -{' '}
+              {displayPercentage(armourPiece.maxCoreDamageLevel40.toString())}%{' '}
+              {displayPercentage(
+                armourPiece.maxCoreValueDamageLevel30.toString()
+              )}
+              %
+            </li>
+            <li>
+              {armourPiece.coreAttributeTypeTwo} -{' '}
+              {armourPiece.maxCoreArmourLevel40.toString()}{' '}
+              {armourPiece.maxCoreArmourLevel30.toString()}
+            </li>
+            <li>
+              {armourPiece.coreAttributeTypeThree} - +
+              {armourPiece.maxCoreSkillTierLevel40.toString()} +
+              {armourPiece.maxCoreSkillTierLevel30.toString()}
+            </li>
+          </ul>
+        </>
       )}
+
       <h3>Number of Mod Slots</h3>
       <ul>
         <li>{armourPiece.modSlots}</li>
       </ul>
-      <h3>Offensive Attributes - Level 40 Max Value</h3>
+
+      {armourPiece.coreOne && (
+        <>
+          <h3>Attribute One</h3>
+          <ul>
+            <li>
+              {armourPiece.attributeOneType} -{' '}
+              {armourPiece.attributeOneValueLevel40}%
+            </li>
+          </ul>
+        </>
+      )}
+
       {armourPiece.attributeOneType && (
-        <ul>
-          <li>{armourPiece.attributeOneType}</li>
-          <li>{armourPiece.attributeTwoType}</li>
-        </ul>
+        <>
+          <h3>Offensive Attributes - Level 40 Max Value</h3>
+          <ul>
+            <li>{armourPiece.attributeOneType}</li>
+            <li>{armourPiece.attributeTwoType}</li>
+          </ul>
+        </>
       )}
       {armourPiece.coreAttributeTypeOne && (
-        <ul>
-          <li>
-            {armourPiece.offensiveAttributeOneLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.offensiveAttributeOneMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-          <li>
-            {armourPiece.offensiveAttributeTwoLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.offensiveAttributeTwoMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-          <li>
-            {armourPiece.offensiveAttributeThreeLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.offensiveAttributeThreeMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-          <li>
-            {armourPiece.offensiveAttributeFourLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.offensiveAttributeFourMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-        </ul>
+        <>
+          <ul>
+            <li>
+              {armourPiece.offensiveAttributeOneLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.offensiveAttributeOneMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+            <li>
+              {armourPiece.offensiveAttributeTwoLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.offensiveAttributeTwoMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+            <li>
+              {armourPiece.offensiveAttributeThreeLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.offensiveAttributeThreeMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+            <li>
+              {armourPiece.offensiveAttributeFourLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.offensiveAttributeFourMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+          </ul>
+        </>
       )}
-      <h3>Defensive Attributes - Level 40 Max Value</h3>
+
       {armourPiece.coreAttributeTypeTwo && (
-        <ul>
-          <li>
-            {armourPiece.defensiveAttributeOneLevel40} -{' '}
-            {armourPiece.defensiveAttributeOneMaxValueLevel40.toString()} per
-            second
-          </li>
-          <li>
-            {armourPiece.defensiveAttributeTwoLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.defensiveAttributeTwoMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-          <li>
-            {armourPiece.defensiveAttributeThreeLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.defensiveAttributeThreeMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-          <li>
-            {armourPiece.defensiveAttributeFourLevel40} -{' '}
-            {armourPiece.defensiveAttributeFourMaxValueLevel40.toString()}
-          </li>
-        </ul>
+        <>
+          <h3>Defensive Attributes - Level 40 Max Value</h3>
+          <ul>
+            <li>
+              {armourPiece.defensiveAttributeOneLevel40} -{' '}
+              {armourPiece.defensiveAttributeOneMaxValueLevel40.toString()} per
+              second
+            </li>
+            <li>
+              {armourPiece.defensiveAttributeTwoLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.defensiveAttributeTwoMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+            <li>
+              {armourPiece.defensiveAttributeThreeLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.defensiveAttributeThreeMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+            <li>
+              {armourPiece.defensiveAttributeFourLevel40} -{' '}
+              {armourPiece.defensiveAttributeFourMaxValueLevel40.toString()}
+            </li>
+          </ul>
+        </>
       )}
-      <h3>Skill Attributes - Level 40 Max Value</h3>
+
       {armourPiece.coreAttributeTypeTwo && (
-        <ul>
-          <li>
-            {armourPiece.utilityAttributeOneLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.utilityAttributeOneMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-          <li>
-            {armourPiece.utilityAttributeTwoLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.utilityAttributeTwoMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-          <li>
-            {armourPiece.utilityAttributeThreeLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.utilityAttributeThreeMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-          <li>
-            {armourPiece.utilityAttributeFourLevel40} -{' '}
-            {displayPercentage(
-              armourPiece.utilityAttributeFourMaxValueLevel40.toString()
-            )}
-            %
-          </li>
-        </ul>
+        <>
+          <h3>Skill Attributes - Level 40 Max Value</h3>
+          <ul>
+            <li>
+              {armourPiece.utilityAttributeOneLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.utilityAttributeOneMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+            <li>
+              {armourPiece.utilityAttributeTwoLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.utilityAttributeTwoMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+            <li>
+              {armourPiece.utilityAttributeThreeLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.utilityAttributeThreeMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+            <li>
+              {armourPiece.utilityAttributeFourLevel40} -{' '}
+              {displayPercentage(
+                armourPiece.utilityAttributeFourMaxValueLevel40.toString()
+              )}
+              %
+            </li>
+          </ul>
+        </>
       )}
     </SingleArmourPieceStyle>
   );
