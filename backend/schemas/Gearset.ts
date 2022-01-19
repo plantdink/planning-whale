@@ -92,5 +92,11 @@ export const Gearset = list({
         displayMode: "textarea",
       },
     }),
+    notes: text({
+      label: "Notes",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
   },
 });

@@ -91,5 +91,11 @@ export const WeaponTalent = list({
       ref: "Weapon.weaponTalent",
       many: true,
     }),
+    notes: text({
+      label: "Notes",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
   },
 });

@@ -1,4 +1,4 @@
-import { integer, text, select } from "@keystone-next/fields";
+import { integer, text, select, relationship } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
 
 export const ArmourType = list({
@@ -30,23 +30,23 @@ export const ArmourType = list({
       isRequired: true,
     }),
     coreAttributeTypeOne: text({
-      label: "Core Attribute Type",
+      label: "Core Attribute Type (Default - Weapon damage)",
       defaultValue: "Weapon Damage",
     }),
     coreAttributeTypeTwo: text({
-      label: "Core Attribute Type",
+      label: "Core Attribute Type (Default - Armour)",
       defaultValue: "Armour",
     }),
     coreAttributeTypeThree: text({
-      label: "Core Attribute Type",
+      label: "Core Attribute Type (Default - Skill Tier)",
       defaultValue: "Skill Tier",
     }),
     maxCoreDamageLevel40: integer({
-      label: "Weapon Damage (Lvl 40)",
+      label: "Weapon Damage (Level 40)",
       defaultValue: 150,
     }),
     maxCoreArmourLevel40: integer({
-      label: "Armour (Lvl 40)",
+      label: "Armour (Level 40)",
       defaultValue: 170000,
     }),
     maxCoreSkillTierLevel40: integer({
@@ -55,8 +55,18 @@ export const ArmourType = list({
     }),
     name: text({ label: "Enter item name if Named Item" }),
     uniqueAttribute: text({ label: "Named Item Unique Attribute" }),
+    armourTalent: relationship({
+      label: "Name of Talents piece can have",
+      ref: "ArmourTalent.armourType",
+      many: true,
+    }),
+    brand: relationship({
+      label: "Brand of Named Item",
+      ref: "Brand.armourType",
+      many: true,
+    }),
     offensiveAttributeOneLevel40: text({
-      label: "Offensive Attribute Type",
+      label: "Offensive Attribute Type - Critical Hit Chance",
       defaultValue: "Critical Hit Chance",
     }),
     offensiveAttributeOneMaxValueLevel40: integer({
@@ -64,7 +74,7 @@ export const ArmourType = list({
       defaultValue: 60,
     }),
     offensiveAttributeTwoLevel40: text({
-      label: "Offensive Attribute Type",
+      label: "Offensive Attribute Type - Critical Hit Damage",
       defaultValue: "Critical Hit Damage",
     }),
     offensiveAttributeTwoMaxValueLevel40: integer({
@@ -72,7 +82,7 @@ export const ArmourType = list({
       defaultValue: 120,
     }),
     offensiveAttributeThreeLevel40: text({
-      label: "Offensive Attribute Type",
+      label: "Offensive Attribute Type - Headshot Damage",
       defaultValue: "Headshot Damage",
     }),
     offensiveAttributeThreeMaxValueLevel40: integer({
@@ -80,7 +90,7 @@ export const ArmourType = list({
       defaultValue: 100,
     }),
     offensiveAttributeFourLevel40: text({
-      label: "Offensive Attribute Type",
+      label: "Offensive Attribute Type - Weapon Handling",
       defaultValue: "Weapon Handling",
     }),
     offensiveAttributeFourMaxValueLevel40: integer({
@@ -88,7 +98,7 @@ export const ArmourType = list({
       defaultValue: 80,
     }),
     defensiveAttributeOneLevel40: text({
-      label: "Defensive Attribute Type",
+      label: "Defensive Attribute Type - Armour Regeneration",
       defaultValue: "Armour Regeneration",
     }),
     defensiveAttributeOneMaxValueLevel40: integer({
@@ -96,7 +106,7 @@ export const ArmourType = list({
       defaultValue: 4925,
     }),
     defensiveAttributeTwoLevel40: text({
-      label: "Defensive Attribute Type",
+      label: "Defensive Attribute Type - Explosive Resistance",
       defaultValue: "Explosive Resistance",
     }),
     defensiveAttributeTwoMaxValueLevel40: integer({
@@ -104,7 +114,7 @@ export const ArmourType = list({
       defaultValue: 100,
     }),
     defensiveAttributeThreeLevel40: text({
-      label: "Defensive Attribute Type",
+      label: "Defensive Attribute Type - Hazard Protection",
       defaultValue: "Hazard Protection",
     }),
     defensiveAttributeThreeMaxValueLevel40: integer({
@@ -112,7 +122,7 @@ export const ArmourType = list({
       defaultValue: 100,
     }),
     defensiveAttributeFourLevel40: text({
-      label: "Defensive Attribute Type",
+      label: "Defensive Attribute Type - Health",
       defaultValue: "Health",
     }),
     defensiveAttributeFourMaxValueLevel40: integer({
@@ -120,7 +130,7 @@ export const ArmourType = list({
       defaultValue: 18935,
     }),
     utilityAttributeOneLevel40: text({
-      label: "Utility Attribute Type",
+      label: "Utility Attribute Type - Skill Damage",
       defaultValue: "Skill Damage",
     }),
     utilityAttributeOneMaxValueLevel40: integer({
@@ -128,7 +138,7 @@ export const ArmourType = list({
       defaultValue: 100,
     }),
     utilityAttributeTwoLevel40: text({
-      label: "Utility Attribute Type",
+      label: "Utility Attribute Type - Skill Haste",
       defaultValue: "Skill Haste",
     }),
     utilityAttributeTwoMaxValueLevel40: integer({
@@ -136,7 +146,7 @@ export const ArmourType = list({
       defaultValue: 120,
     }),
     utilityAttributeThreeLevel40: text({
-      label: "Utility Attribute Type",
+      label: "Utility Attribute Type - Skill Repair",
       defaultValue: "Skill Repair",
     }),
     utilityAttributeThreeMaxValueLevel40: integer({
@@ -144,28 +154,28 @@ export const ArmourType = list({
       defaultValue: 200,
     }),
     utilityAttributeFourLevel40: text({
-      label: "Utility Attribute Type",
+      label: "Utility Attribute Type - Status Effects",
       defaultValue: "Status Effects",
     }),
     utilityAttributeFourMaxValueLevel40: integer({
       label: "Max % Amount (Level 40)",
       defaultValue: 100,
     }),
-    // ------------- level 30 from here down ----------------------
+    // ------------- World Tier 5 from here down ----------------------
     maxCoreValueDamageLevel30: integer({
-      label: "Weapon Damage (Lvl 30)",
+      label: "Weapon Damage (World Tier 5)",
       defaultValue: 99,
     }),
     maxCoreArmourLevel30: integer({
-      label: "Armour (Lvl 30)",
+      label: "Armour (World Tier 5)",
       defaultValue: 42458,
     }),
     maxCoreSkillTierLevel30: integer({
-      label: "Skill Tier (Level 30)",
+      label: "Skill Tier (World Tier 5)",
       defaultValue: 1,
     }),
     offensiveAttributeOneLevel30: text({
-      label: "Offensive Attribute Type",
+      label: "Offensive Attribute Type - Critical Hit Chance (World Tier 5",
       defaultValue: "Critical Hit Chance",
     }),
     offensiveAttributeOneMaxValueLevel30: integer({
@@ -173,7 +183,7 @@ export const ArmourType = list({
       defaultValue: 51,
     }),
     offensiveAttributeTwoLevel30: text({
-      label: "Offensive Attribute Type",
+      label: "Offensive Attribute Type - Critical Hit Damage (World Tier 5",
       defaultValue: "Critical Hit Damage",
     }),
     offensiveAttributeTwoMaxValueLevel30: integer({
@@ -181,7 +191,7 @@ export const ArmourType = list({
       defaultValue: 79,
     }),
     offensiveAttributeThreeLevel30: text({
-      label: "Offensive Attribute Type",
+      label: "Offensive Attribute Type - Headshot Damage (World Tier 5",
       defaultValue: "Headshot Damage",
     }),
     offensiveAttributeThreeMaxValueLevel30: integer({
@@ -189,7 +199,7 @@ export const ArmourType = list({
       defaultValue: 69,
     }),
     offensiveAttributeFourLevel30: text({
-      label: "Offensive Attribute Type",
+      label: "Offensive Attribute Type - Weapon Handling (World Tier 5",
       defaultValue: "Weapon Handling",
     }),
     offensiveAttributeFourMaxValueLevel30: integer({
@@ -197,15 +207,15 @@ export const ArmourType = list({
       defaultValue: 70,
     }),
     defensiveAttributeOneLevel30: text({
-      label: "Defensive Attribute Type",
+      label: "Defensive Attribute Type - Armour Regeneration (World Tier 5",
       defaultValue: "Armour Regeneration",
     }),
     defensiveAttributeOneMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max Amount (World Tier 5)",
       defaultValue: 1223,
     }),
     defensiveAttributeTwoLevel30: text({
-      label: "Defensive Attribute Type",
+      label: "Defensive Attribute Type - Explosive Resistance (World Tier 5)",
       defaultValue: "Explosive Resistance",
     }),
     defensiveAttributeTwoMaxValueLevel30: integer({
@@ -213,7 +223,7 @@ export const ArmourType = list({
       defaultValue: 66,
     }),
     defensiveAttributeThreeLevel30: text({
-      label: "Defensive Attribute Type",
+      label: "Defensive Attribute Type - Explosive Resistance (World Tier 5)",
       defaultValue: "Hazard Protection",
     }),
     defensiveAttributeThreeMaxValueLevel30: integer({
@@ -221,15 +231,15 @@ export const ArmourType = list({
       defaultValue: 66,
     }),
     defensiveAttributeFourLevel30: text({
-      label: "Defensive Attribute Type",
+      label: "Defensive Attribute Type - Health (World Tier 5)",
       defaultValue: "Health",
     }),
     defensiveAttributeFourMaxValueLevel30: integer({
-      label: "Max Amount",
+      label: "Max Amount - (World Tier 5)",
       defaultValue: 4695,
     }),
     utilityAttributeOneLevel30: text({
-      label: "Utility Attribute Type",
+      label: "Utility Attribute Type - Skill Damage (World Tier 5)",
       defaultValue: "Skill Damage",
     }),
     utilityAttributeOneMaxValueLevel30: integer({
@@ -237,7 +247,7 @@ export const ArmourType = list({
       defaultValue: 69,
     }),
     utilityAttributeTwoLevel30: text({
-      label: "Utility Attribute Type",
+      label: "Utility Attribute Type - Skill Haste (World Tier 5)",
       defaultValue: "Skill Haste",
     }),
     utilityAttributeTwoMaxValueLevel30: integer({
@@ -245,7 +255,7 @@ export const ArmourType = list({
       defaultValue: 79,
     }),
     utilityAttributeThreeLevel30: text({
-      label: "Utility Attribute Type",
+      label: "Utility Attribute Type - Skill Repair (World Tier 5)",
       defaultValue: "Skill Repair",
     }),
     utilityAttributeThreeMaxValueLevel30: integer({
@@ -253,7 +263,7 @@ export const ArmourType = list({
       defaultValue: 121,
     }),
     utilityAttributeFourLevel30: text({
-      label: "Utility Attribute Type",
+      label: "Utility Attribute Type - Status Effects (World Tier 5)",
       defaultValue: "Status Effects",
     }),
     utilityAttributeFourMaxValueLevel30: integer({
@@ -261,5 +271,11 @@ export const ArmourType = list({
       defaultValue: 66,
     }),
     modSlots: integer({ label: "No of Mod Slots", defaultValue: 0 }),
+    notes: text({
+      label: "Notes",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
   },
 });

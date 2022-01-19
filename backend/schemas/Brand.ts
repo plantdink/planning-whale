@@ -98,5 +98,19 @@ export const Brand = list({
         hideCreate: true,
       },
     }),
+    armourType: relationship({
+      label: "Named Armour Piece",
+      ref: "ArmourType.brand",
+      many: true,
+      ui: {
+        hideCreate: true,
+      },
+    }),
+    notes: text({
+      label: "Notes",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
   },
 });

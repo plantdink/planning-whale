@@ -231,5 +231,11 @@ export const ExoticArmourPiece = list({
         hideCreate: true,
       },
     }),
+    notes: text({
+      label: "Notes",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
   },
 });

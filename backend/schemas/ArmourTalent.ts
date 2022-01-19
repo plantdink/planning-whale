@@ -77,6 +77,11 @@ export const ArmourTalent = list({
         hideCreate: true,
       },
     }),
+    armourType: relationship({
+      label: "Piece Talent appears on",
+      ref: "ArmourType.armourTalent",
+      many: true,
+    }),
     isExotic: select({
       label: "Is this an Exotic Talent?",
       options: [
@@ -95,6 +100,12 @@ export const ArmourTalent = list({
       label: "Related Exotic Armour piece",
       ref: "ExoticArmourPiece.exoticArmourTalent",
       many: true,
+    }),
+    notes: text({
+      label: "Notes",
+      ui: {
+        displayMode: "textarea",
+      },
     }),
   },
 });
