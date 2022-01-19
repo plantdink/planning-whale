@@ -15,7 +15,6 @@ export default function ArmourTypes() {
   const { data, loading, error } = useQuery(ALL_ARMOUR_TYPES_QUERY);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  console.log(data);
   return (
     <div>
       <ItemListStyles>

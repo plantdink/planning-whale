@@ -53,7 +53,18 @@ export const ArmourType = list({
       label: "Skill Tier (Level 40)",
       defaultValue: 1,
     }),
-    name: text({ label: "Enter item name if Named Item" }),
+    isNamed: select({
+      label: "Is this a Named Item?",
+      options: [
+        { label: "Yes", value: "YES" },
+        { label: "No", value: "NO" },
+      ],
+      defaultValue: "NO",
+      ui: {
+        displayMode: "segmented-control",
+      },
+    }),
+    name: text({ label: "Enter item name (Use Generic if not a Named Item)" }),
     uniqueAttribute: text({ label: "Named Item Unique Attribute" }),
     armourTalent: relationship({
       label: "Name of Talents piece can have",
@@ -175,7 +186,7 @@ export const ArmourType = list({
       defaultValue: 1,
     }),
     offensiveAttributeOneLevel30: text({
-      label: "Offensive Attribute Type - Critical Hit Chance (World Tier 5",
+      label: "Offensive Attribute Type - Critical Hit Chance (World Tier 5)",
       defaultValue: "Critical Hit Chance",
     }),
     offensiveAttributeOneMaxValueLevel30: integer({
@@ -183,7 +194,7 @@ export const ArmourType = list({
       defaultValue: 51,
     }),
     offensiveAttributeTwoLevel30: text({
-      label: "Offensive Attribute Type - Critical Hit Damage (World Tier 5",
+      label: "Offensive Attribute Type - Critical Hit Damage (World Tier 5)",
       defaultValue: "Critical Hit Damage",
     }),
     offensiveAttributeTwoMaxValueLevel30: integer({
@@ -191,7 +202,7 @@ export const ArmourType = list({
       defaultValue: 79,
     }),
     offensiveAttributeThreeLevel30: text({
-      label: "Offensive Attribute Type - Headshot Damage (World Tier 5",
+      label: "Offensive Attribute Type - Headshot Damage (World Tier 5)",
       defaultValue: "Headshot Damage",
     }),
     offensiveAttributeThreeMaxValueLevel30: integer({
@@ -199,7 +210,7 @@ export const ArmourType = list({
       defaultValue: 69,
     }),
     offensiveAttributeFourLevel30: text({
-      label: "Offensive Attribute Type - Weapon Handling (World Tier 5",
+      label: "Offensive Attribute Type - Weapon Handling (World Tier 5)",
       defaultValue: "Weapon Handling",
     }),
     offensiveAttributeFourMaxValueLevel30: integer({
@@ -207,7 +218,7 @@ export const ArmourType = list({
       defaultValue: 70,
     }),
     defensiveAttributeOneLevel30: text({
-      label: "Defensive Attribute Type - Armour Regeneration (World Tier 5",
+      label: "Defensive Attribute Type - Armour Regeneration (World Tier 5)",
       defaultValue: "Armour Regeneration",
     }),
     defensiveAttributeOneMaxValueLevel30: integer({
