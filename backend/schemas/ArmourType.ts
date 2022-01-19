@@ -53,7 +53,7 @@ export const ArmourType = list({
       label: "Skill Tier (Level 40)",
       defaultValue: 1,
     }),
-    name: text({ label: "Enter name if Named Item" }),
+    name: text({ label: "Enter item name if Named Item" }),
     uniqueAttribute: text({ label: "Named Item Unique Attribute" }),
     offensiveAttributeOneLevel40: text({
       label: "Offensive Attribute Type",

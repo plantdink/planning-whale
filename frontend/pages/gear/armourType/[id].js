@@ -1,4 +1,4 @@
-import SingleArmourPiece from '../../components/SingleArmourPiece';
+import SingleArmourPiece from '../../../components/SingleArmourPiece';
 
 export default function SingleArmourTypePage({ query }) {
   console.log(query);

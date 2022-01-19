@@ -1,5 +1,5 @@
 import { useRouter } from 'next/dist/client/router';
-import ArmourTypes from '../../components/ArmourTypes';
+import ArmourTypes from '../../../components/ArmourTypes';
 
 export default function ArmourTypesPage() {
   const { query } = useRouter();
