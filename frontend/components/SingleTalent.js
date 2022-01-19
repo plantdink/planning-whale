@@ -1,7 +1,7 @@
 import { gql, useQuery } from '@apollo/client';
-import Head from 'next/head';
 import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
+import HeadSEO from './HeadSEO';
 
 const SingleTalentStyle = styled.div`
   display: grid;
@@ -42,8 +42,11 @@ export default function SingleTalent({ id }) {
     data.allArmourTalents[0] || data.allWeaponTalents[0];
 
   return (
-    <SingleTalentStyle>
-      <h3>{singleTalent.name}</h3>
-    </SingleTalentStyle>
+    <>
+      <HeadSEO seoTag={singleTalent.name} />
+      <SingleTalentStyle>
+        <h3>{singleTalent.name}</h3>
+      </SingleTalentStyle>
+    </>
   );
 }

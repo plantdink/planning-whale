@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import MarksmanRifle from './MarksmanRifle';
+import HeadSEO from './HeadSEO';
 
 const ALL_MARKSMAN_RIFLES_QUERY = gql`
   query ALL_MARKSMAN_RIFLES_QUERY {
@@ -42,6 +43,7 @@ export default function MarksmanRifles() {
   if (error) return <p>Error: {error.message}</p>;
   return (
     <div>
+      <HeadSEO seoTag="Marksman Rifles" />
       <MarksmanRiflesListStyles>
         {data.allWeapons.map((marksmanRifle) => (
           <MarksmanRifle key={marksmanRifle.id} marksmanRifle={marksmanRifle} />

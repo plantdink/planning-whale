@@ -1,6 +1,7 @@
 import { gql, useQuery } from '@apollo/client';
 import styled from 'styled-components';
 import AssaultRifle from './AssaultRifle';
+import HeadSEO from './HeadSEO';
 
 const ALL_ASSAULT_RIFLES_QUERY = gql`
   query ALL_ASSAULT_RIFLES_QUERY {
@@ -41,6 +42,7 @@ export default function AssaultRifles() {
   if (error) return <p>Error: {error.message}</p>;
   return (
     <div>
+      <HeadSEO seoTag="Assault Rifles" />
       <AssaultRiflesListStyles>
         {data.allWeapons.map((assaultRifle) => (
           <AssaultRifle key={assaultRifle.id} assaultRifle={assaultRifle} />

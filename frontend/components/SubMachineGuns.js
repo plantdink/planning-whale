@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import SubMachineGun from './SubMachineGun';
+import HeadSEO from './HeadSEO';
 
 const ALL_SUB_MACHINE_GUNS_QUERY = gql`
   query ALL_SUB_MACHINE_GUNS_QUERY {
@@ -42,6 +43,7 @@ export default function SubMachineGuns() {
   if (error) return <p>Error: {error.message}</p>;
   return (
     <div>
+      <HeadSEO seoTag="Submachine Guns" />
       <SubMachineGunsListStyles>
         {data.allWeapons.map((subMachineGun) => (
           <SubMachineGun key={subMachineGun.id} subMachineGun={subMachineGun} />

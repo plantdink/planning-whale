@@ -1,8 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
-import Head from 'next/head';
 import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
 import { displayPercentage } from '../lib/displayNumbers';
+import HeadSEO from './HeadSEO';
 
 const SingleArmourPieceStyle = styled.div`
   display: grid;
@@ -108,9 +108,7 @@ export default function SingleArmourPiece({ id }) {
 
   return (
     <SingleArmourPieceStyle>
-      <Head>
-        <title>Agent Field Manual | {armourPiece.name}</title>
-      </Head>
+      <HeadSEO seoTag={armourPiece.name} />
       <img />
       <h1>{armourPiece.name}</h1>
       <h3>{armourPiece.piece}</h3>

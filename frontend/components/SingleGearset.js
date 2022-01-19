@@ -2,6 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import Head from 'next/head';
 import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
+import HeadSEO from './HeadSEO';
 
 const SingleGearsetStyle = styled.div`
   display: grid;
@@ -45,9 +46,7 @@ export default function SingleGearset({ id }) {
 
   return (
     <SingleGearsetStyle>
-      <Head>
-        <title>Agent Field Manual | {singleGearset.name}</title>
-      </Head>
+      <HeadSEO seoTag={singleGearset.name} />
       <h1>{singleGearset.name}</h1>
       <h2>Core Attribute Type - {singleGearset.coreAttribute}</h2>
       <h3>Level 40 - {singleGearset.coreAttributeValueLevel40}</h3>

@@ -1,6 +1,7 @@
 import { gql, useQuery } from '@apollo/client';
 import ItemListStyles from './styles/ItemListStyles';
 import Brand from './Brand';
+import HeadSEO from './HeadSEO';
 
 const ALL_BRANDS_QUERY = gql`
   query ALL_BRANDS_QUERY {
@@ -17,6 +18,7 @@ export default function Brands() {
 
   return (
     <div>
+      <HeadSEO seoTag="Brands" />
       <ItemListStyles>
         {data.allBrands.map((brand) => (
           <Brand key={brand.id} brand={brand} />

@@ -1,6 +1,7 @@
 import { gql, useQuery } from '@apollo/client';
 import ArmourTalent from './ArmourTalent';
 import ItemListStyles from './styles/ItemListStyles';
+import HeadSEO from './HeadSEO';
 
 const ALL_ARMOUR_TALENTS_QUERY = gql`
   query ALL_ARMOUR_TALENTS_QUERY {
@@ -17,10 +18,13 @@ export default function ArmourTalents() {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <ItemListStyles>
-      {data.allArmourTalents.map((armourTalent) => (
-        <ArmourTalent key={armourTalent.id} armourTalent={armourTalent} />
-      ))}
-    </ItemListStyles>
+    <>
+      <HeadSEO seoTag="All Armour Talents" />
+      <ItemListStyles>
+        {data.allArmourTalents.map((armourTalent) => (
+          <ArmourTalent key={armourTalent.id} armourTalent={armourTalent} />
+        ))}
+      </ItemListStyles>
+    </>
   );
 }

@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import NamedWeapon from './NamedWeapon';
-import WeaponListStyles from './styles/WeaponListStyles';
+import ItemListStyles from './styles/ItemListStyles';
 
 const ALL_NAMED_WEAPONS_QUERY = gql`
   query ALL_NAMED_WEAPONS_QUERY {
@@ -35,11 +35,11 @@ export default function NamedWeapons() {
   if (error) return <p>Error: {error.message}</p>;
   return (
     <div>
-      <WeaponListStyles>
+      <ItemListStyles>
         {data.allWeapons.map((namedWeapon) => (
           <NamedWeapon key={namedWeapon.id} namedWeapon={namedWeapon} />
         ))}
-      </WeaponListStyles>
+      </ItemListStyles>
     </div>
   );
 }
