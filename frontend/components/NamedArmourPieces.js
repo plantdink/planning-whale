@@ -1,10 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
+import { perPage } from '../config';
+import DisplayError from './ErrorMessage';
 import NamedArmourPiece from './NamedArmourPiece';
 import ItemListStyles from './styles/ItemListStyles';
 
 const ALL_NAMED_ARMOUR_PIECES_QUERY = gql`
-  query ALL_NAMED_ARMOUR_PIECES_QUERY {
-    allArmourTypes(where: { isNamed: "YES" }) {
+  query ALL_NAMED_ARMOUR_PIECES_QUERY($skip: Int, $first: Int) {
+    allArmourTypes(where: { isNamed: "YES" }, first: $first, skip: $skip) {
       id
       name
       armourTalent {
@@ -14,10 +16,16 @@ const ALL_NAMED_ARMOUR_PIECES_QUERY = gql`
   }
 `;
 
-export default function NamedArmourPieces() {
-  const { data, loading, error } = useQuery(ALL_NAMED_ARMOUR_PIECES_QUERY);
+export default function NamedArmourPieces({ page }) {
+  const { data, loading, error } = useQuery(ALL_NAMED_ARMOUR_PIECES_QUERY, {
+    variables: {
+      skip: page * perPage - perPage,
+      first: perPage,
+    },
+  });
+
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <DisplayError error={error} />;
 
   return (
     <div>

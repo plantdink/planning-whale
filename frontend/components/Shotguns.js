@@ -2,11 +2,12 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Shotgun from './Shotgun';
-import HeadSEO from './HeadSEO';
+import { perPage } from '../config';
+import DisplayError from './ErrorMessage';
 
 const ALL_SHOTGUNS_QUERY = gql`
-  query ALL_SHOTGUNS_QUERY {
-    allWeapons(where: { class: "SHOTGUN" }) {
+  query ALL_SHOTGUNS_QUERY($skip: Int = 0, $first: Int) {
+    allWeapons(where: { class: "SHOTGUN" }, first: $first, skip: $skip) {
       id
       model
       family
@@ -37,13 +38,19 @@ const ShotgunsListStyles = styled.div`
   grid-gap: 60px;
 `;
 
-export default function Shotguns() {
-  const { data, error, loading } = useQuery(ALL_SHOTGUNS_QUERY);
+export default function Shotguns({ page }) {
+  const { data, error, loading } = useQuery(ALL_SHOTGUNS_QUERY, {
+    variables: {
+      skip: page * perPage - perPage,
+      first: perPage,
+    },
+  });
+
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <DisplayError error={error} />;
+
   return (
     <div>
-      <HeadSEO seoTag="Shotguns" />
       <ShotgunsListStyles>
         {data.allWeapons.map((shotgun) => (
           <Shotgun key={shotgun.id} shotgun={shotgun} />

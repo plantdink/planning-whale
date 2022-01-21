@@ -1,10 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
 import NamedWeapon from './NamedWeapon';
 import ItemListStyles from './styles/ItemListStyles';
+import { perPage } from '../config';
+import DisplayError from './ErrorMessage';
 
 const ALL_NAMED_WEAPONS_QUERY = gql`
-  query ALL_NAMED_WEAPONS_QUERY {
-    allWeapons(where: { isNamed: "YES" }) {
+  query ALL_NAMED_WEAPONS_QUERY($skip: Int = 0, $first: Int) {
+    allWeapons(where: { isNamed: "YES" }, first: $first, skip: $skip) {
       id
       model
       family
@@ -29,10 +31,17 @@ const ALL_NAMED_WEAPONS_QUERY = gql`
   }
 `;
 
-export default function NamedWeapons() {
-  const { data, error, loading } = useQuery(ALL_NAMED_WEAPONS_QUERY);
+export default function NamedWeapons({ page }) {
+  const { data, error, loading } = useQuery(ALL_NAMED_WEAPONS_QUERY, {
+    variables: {
+      skip: page * perPage - perPage,
+      first: perPage,
+    },
+  });
+
   if (loading) return <p>Loading....</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <DisplayError error={error} />;
+
   return (
     <div>
       <ItemListStyles>

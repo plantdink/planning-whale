@@ -3,10 +3,16 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 import LightMachineGun from './LightMachineGun';
 import HeadSEO from './HeadSEO';
+import DisplayError from './ErrorMessage';
+import { perPage } from '../config';
 
 const ALL_LIGHT_MACHINE_GUNS_QUERY = gql`
-  query ALL_LIGHT_MACHINE_GUNS_QUERY {
-    allWeapons(where: { class: "LIGHT MACHINE GUN" }) {
+  query ALL_LIGHT_MACHINE_GUNS_QUERY($skip: Int, $first: Int) {
+    allWeapons(
+      where: { class: "LIGHT MACHINE GUN" }
+      first: $first
+      skip: $skip
+    ) {
       id
       model
       family
@@ -37,13 +43,19 @@ const LightMachineGunsListStyles = styled.div`
   grid-gap: 60px;
 `;
 
-export default function LightMachineGuns() {
-  const { data, error, loading } = useQuery(ALL_LIGHT_MACHINE_GUNS_QUERY);
+export default function LightMachineGuns({ page }) {
+  const { data, error, loading } = useQuery(ALL_LIGHT_MACHINE_GUNS_QUERY, {
+    variables: {
+      skip: page * perPage - perPage,
+      first: perPage,
+    },
+  });
+
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <DisplayError error={error} />;
+
   return (
     <div>
-      <HeadSEO seoTag="Light Machine Guns" />
       <LightMachineGunsListStyles>
         {data.allWeapons.map((lightMachineGun) => (
           <LightMachineGun

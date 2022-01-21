@@ -938,4 +938,16 @@ export const armourTalents = [
     isExotic: "YES",
     exoticItem: "Vile",
   },
+  {
+    name: "Energize",
+    piece: "Backpack",
+    type: "Heal & Support",
+    descriptionPVE:
+      "Using an armor kit grants +1 skill tier for 15s. If already at skill tier 6, grants overcharge. Cooldown: 60s.",
+    descriptionPVP: "",
+    isNamed: "NO",
+    namedItem: "",
+    isExotic: "NO",
+    exoticItem: "",
+  },
 ];
