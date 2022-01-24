@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Nav from './Nav';
+import Search from './Search';
 
 const Logo = styled.h1`
   font-size: 4rem;
@@ -33,6 +35,18 @@ const HeaderStyles = styled.header`
   }
 `;
 
+// mount Search component on client to stop infinite rerenders
+function ClientOnly({ children, ...delegated }) {
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+    return null;
+  }
+  return <div {...delegated}>{children}</div>;
+}
+
 export default function Header() {
   return (
     <HeaderStyles>
@@ -43,7 +57,9 @@ export default function Header() {
         <Nav />
       </div>
       <div className="sub-bar">
-        <p>Search</p>
+        <ClientOnly>
+          <Search />
+        </ClientOnly>
       </div>
     </HeaderStyles>
   );
