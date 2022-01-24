@@ -76,6 +76,17 @@ export const ArmourType = list({
       ref: "Brand.armourType",
       many: true,
     }),
+    availableWT5: select({
+      label: "Is this available in World Tier 5?",
+      options: [
+        { label: "Yes", value: "Yes" },
+        { label: "No", value: "No" },
+      ],
+      defaultValue: "Yes",
+      ui: {
+        displayMode: "segmented-control",
+      },
+    }),
     offensiveAttributeOneLevel40: text({
       label: "Offensive Attribute Type - Critical Hit Chance",
       defaultValue: "Critical Hit Chance",

@@ -91,6 +91,17 @@ export const WeaponTalent = list({
       ref: "Weapon.weaponTalent",
       many: true,
     }),
+    availableWT5: select({
+      label: "Is this available in World Tier 5?",
+      options: [
+        { label: "Yes", value: "Yes" },
+        { label: "No", value: "No" },
+      ],
+      defaultValue: "Yes",
+      ui: {
+        displayMode: "segmented-control",
+      },
+    }),
     notes: text({
       label: "Notes",
       ui: {
