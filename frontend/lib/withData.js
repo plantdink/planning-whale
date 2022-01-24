@@ -36,7 +36,7 @@ function createClient({ headers, initialState }) {
         Query: {
           fields: {
             // TODO: include fields when they are ready
-            // allProducts: paginationField(),
+            // allAssaultRifles: paginationField(),
           },
         },
       },
