@@ -14,6 +14,7 @@ import { WeaponTalent } from "./schemas/WeaponTalent";
 import { ExoticArmourPiece } from "./schemas/ExoticArmourPiece";
 import { Gearset } from "./schemas/Gearset";
 import "dotenv/config";
+import { sendPasswordResetEmail } from "./lib/mail";
 
 const databaseURL =
   process.env.DATABASE_URL || "mongodb://localhost/div2-item-compare";
@@ -30,6 +31,12 @@ const { withAuth } = createAuth({
   initFirstItem: {
     fields: ["name", "email", "password"],
     // TODO: add initial roles here
+  },
+  passwordResetLink: {
+    async sendToken(args) {
+      // console.log(args);
+      await sendPasswordResetEmail(args.token, args.identity);
+    },
   },
 });
 
