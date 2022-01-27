@@ -13,8 +13,10 @@ import { Brand } from "./schemas/Brand";
 import { WeaponTalent } from "./schemas/WeaponTalent";
 import { ExoticArmourPiece } from "./schemas/ExoticArmourPiece";
 import { Gearset } from "./schemas/Gearset";
+import { Role } from "./schemas/Role";
 import "dotenv/config";
 import { sendPasswordResetEmail } from "./lib/mail";
+import { permissionsList } from "./schemas/fields";
 
 const databaseURL =
   process.env.DATABASE_URL || "mongodb://localhost/div2-item-compare";
@@ -61,20 +63,21 @@ export default withAuth(
     lists: createSchema({
       // schema goes here
       User,
+      Role,
       Weapon,
       ArmourType,
-      ArmourTalent,
-      Brand,
-      WeaponTalent,
       ExoticArmourPiece,
+      Brand,
       Gearset,
+      ArmourTalent,
+      WeaponTalent,
     }),
     ui: {
       // TODO: change for roles
       isAccessAllowed: ({ session }) => !!session?.data,
     },
     session: withItemData(statelessSessions(sessionConfig), {
-      User: `id`,
+      User: `id name email role { ${permissionsList.join(" ")} }`,
     }),
   })
 );

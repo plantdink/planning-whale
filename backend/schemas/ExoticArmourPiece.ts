@@ -1,11 +1,18 @@
 import { integer, text, select, relationship } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
+import { permissions } from "../access";
 
 export const ExoticArmourPiece = list({
   access: {
-    // TODO: add access
+    create: permissions.canEditItems,
+    read: () => true,
+    update: permissions.canEditItems,
+    delete: permissions.canEditItems,
   },
   ui: {
+    hideCreate: (args) => !permissions.canEditItems(args),
+    hideDelete: (args) => !permissions.canEditItems(args),
+    isHidden: (args) => !permissions.canEditItems(args),
     labelField: "name",
     listView: {
       initialColumns: ["name", "piece", "level"],
