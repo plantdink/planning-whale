@@ -124,6 +124,16 @@ export const Brand = list({
         displayMode: "segmented-control",
       },
     }),
+    image: relationship({
+      label: "Brand Image",
+      ref: "FieldManualImage.brand",
+      ui: {
+        displayMode: "cards",
+        cardFields: ["image", "altText"],
+        inlineCreate: { fields: ["image", "altText"] },
+        inlineEdit: { fields: ["image", "altText"] },
+      },
+    }),
     notes: text({
       label: "Notes",
       ui: {

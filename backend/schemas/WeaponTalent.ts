@@ -109,6 +109,16 @@ export const WeaponTalent = list({
         displayMode: "segmented-control",
       },
     }),
+    image: relationship({
+      label: "Talent Image",
+      ref: "FieldManualImage.weaponTalent",
+      ui: {
+        displayMode: "cards",
+        cardFields: ["image", "altText"],
+        inlineCreate: { fields: ["image", "altText"] },
+        inlineEdit: { fields: ["image", "altText"] },
+      },
+    }),
     notes: text({
       label: "Notes",
       ui: {

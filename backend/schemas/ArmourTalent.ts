@@ -119,6 +119,16 @@ export const ArmourTalent = list({
         displayMode: "segmented-control",
       },
     }),
+    image: relationship({
+      label: "Talent Image",
+      ref: "FieldManualImage.armourTalent",
+      ui: {
+        displayMode: "cards",
+        cardFields: ["image", "altText"],
+        inlineCreate: { fields: ["image", "altText"] },
+        inlineEdit: { fields: ["image", "altText"] },
+      },
+    }),
     notes: text({
       label: "Notes",
       ui: {

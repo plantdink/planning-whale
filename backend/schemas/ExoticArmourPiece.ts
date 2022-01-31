@@ -249,6 +249,17 @@ export const ExoticArmourPiece = list({
         displayMode: "segmented-control",
       },
     }),
+    image: relationship({
+      label: "Exotic Image",
+      ref: "FieldManualImage.exoticArmourPiece",
+      ui: {
+        displayMode: "cards",
+        cardFields: ["image", "altText"],
+        inlineCreate: { fields: ["image", "altText"] },
+        inlineEdit: { fields: ["image", "altText"] },
+      },
+    }),
+
     notes: text({
       label: "Notes",
       ui: {

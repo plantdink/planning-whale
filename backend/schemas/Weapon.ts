@@ -140,5 +140,15 @@ export const Weapon = list({
         displayMode: "segmented-control",
       },
     }),
+    image: relationship({
+      label: "Weapon Image",
+      ref: "FieldManualImage.weapon",
+      ui: {
+        displayMode: "cards",
+        cardFields: ["image", "altText"],
+        inlineCreate: { fields: ["image", "altText"] },
+        inlineEdit: { fields: ["image", "altText"] },
+      },
+    }),
   },
 });

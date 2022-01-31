@@ -14,6 +14,7 @@ import { WeaponTalent } from "./schemas/WeaponTalent";
 import { ExoticArmourPiece } from "./schemas/ExoticArmourPiece";
 import { Gearset } from "./schemas/Gearset";
 import { Role } from "./schemas/Role";
+import { FieldManualImage } from "./schemas/fieldManualImage";
 import "dotenv/config";
 import { sendPasswordResetEmail } from "./lib/mail";
 import { permissionsList } from "./schemas/fields";
@@ -71,6 +72,7 @@ export default withAuth(
       Gearset,
       ArmourTalent,
       WeaponTalent,
+      FieldManualImage,
     }),
     ui: {
       // TODO: change for roles

@@ -300,6 +300,16 @@ export const ArmourType = list({
       defaultValue: 66,
     }),
     modSlots: integer({ label: "No of Mod Slots", defaultValue: 0 }),
+    image: relationship({
+      label: "Armour Piece Image",
+      ref: "FieldManualImage.armourType",
+      ui: {
+        displayMode: "cards",
+        cardFields: ["image", "altText"],
+        inlineCreate: { fields: ["image", "altText"] },
+        inlineEdit: { fields: ["image", "altText"] },
+      },
+    }),
     notes: text({
       label: "Notes",
       ui: {

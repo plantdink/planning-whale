@@ -1,4 +1,4 @@
-import { text, select } from "@keystone-next/fields";
+import { text, select, relationship } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
 import { permissions } from "../access";
 
@@ -108,6 +108,16 @@ export const Gearset = list({
       defaultValue: "Yes",
       ui: {
         displayMode: "segmented-control",
+      },
+    }),
+    image: relationship({
+      label: "Gear Set Image",
+      ref: "FieldManualImage.gearset",
+      ui: {
+        displayMode: "cards",
+        cardFields: ["image", "altText"],
+        inlineCreate: { fields: ["image", "altText"] },
+        inlineEdit: { fields: ["image", "altText"] },
       },
     }),
     notes: text({
