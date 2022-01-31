@@ -1,7 +1,7 @@
 import { gql, useQuery } from '@apollo/client';
-import styled from 'styled-components';
 import { perPage } from '../config';
 import AssaultRifle from './AssaultRifle';
+import ItemListStyles from './styles/ItemListStyles';
 import DisplayError from './ErrorMessage';
 
 const ALL_ASSAULT_RIFLES_QUERY = gql`
@@ -31,12 +31,6 @@ const ALL_ASSAULT_RIFLES_QUERY = gql`
   }
 `;
 
-const AssaultRiflesListStyles = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 60px;
-`;
-
 export default function AssaultRifles({ page }) {
   const { data, error, loading } = useQuery(ALL_ASSAULT_RIFLES_QUERY, {
     variables: {
@@ -50,11 +44,11 @@ export default function AssaultRifles({ page }) {
 
   return (
     <div>
-      <AssaultRiflesListStyles>
+      <ItemListStyles>
         {data.allWeapons.map((assaultRifle) => (
           <AssaultRifle key={assaultRifle.id} assaultRifle={assaultRifle} />
         ))}
-      </AssaultRiflesListStyles>
+      </ItemListStyles>
     </div>
   );
 }

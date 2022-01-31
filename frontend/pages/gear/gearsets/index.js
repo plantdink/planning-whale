@@ -1,6 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import EquipmentPagination from '../../../components/GearPagination';
 import Gearsets from '../../../components/Gearsets';
+import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
+import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 
 export default function GearsetsPage() {
   const { query } = useRouter();
@@ -9,18 +11,24 @@ export default function GearsetsPage() {
   const gearLink = '/gear/gearsets/';
 
   return (
-    <div>
-      <EquipmentPagination
-        gearLink={gearLink}
-        queryString={queryString}
-        page={page || 1}
-      />
-      <Gearsets page={page || 1} />
-      <EquipmentPagination
-        gearLink={gearLink}
-        queryString={queryString}
-        page={page || 1}
-      />
-    </div>
+    <>
+      <PaginationContainerStyles>
+        <EquipmentPagination
+          gearLink={gearLink}
+          queryString={queryString}
+          page={page || 1}
+        />
+      </PaginationContainerStyles>
+      <ContentContainerStyles>
+        <Gearsets page={page || 1} />
+      </ContentContainerStyles>
+      <PaginationContainerStyles>
+        <EquipmentPagination
+          gearLink={gearLink}
+          queryString={queryString}
+          page={page || 1}
+        />
+      </PaginationContainerStyles>
+    </>
   );
 }

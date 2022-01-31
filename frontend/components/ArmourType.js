@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import Title from './Title';
+import { ListItem } from './styles/ListStyles';
 
 export default function ArmourType({ armourType }) {
   return (
-    <div>
+    <ListItem>
+      <img />
       <Title>
         <Link href={`/gear/armourType/${armourType.id}`}>
           {armourType.name}
         </Link>
       </Title>
-    </div>
+    </ListItem>
   );
 }

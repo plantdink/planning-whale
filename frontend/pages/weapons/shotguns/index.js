@@ -1,6 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import Pagination from '../../../components/Pagination';
 import Shotguns from '../../../components/Shotguns';
+import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
+import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 
 export default function ShotgunsPage() {
   const { query } = useRouter();
@@ -9,18 +11,24 @@ export default function ShotgunsPage() {
   const weaponLink = '/weapons/shotguns/';
 
   return (
-    <div>
-      <Pagination
-        weaponLink={weaponLink}
-        queryString={queryString}
-        page={page || 1}
-      />
-      <Shotguns page={page || 1} />
-      <Pagination
-        weaponLink={weaponLink}
-        queryString={queryString}
-        page={page || 1}
-      />
-    </div>
+    <>
+      <PaginationContainerStyles>
+        <Pagination
+          weaponLink={weaponLink}
+          queryString={queryString}
+          page={page || 1}
+        />
+      </PaginationContainerStyles>
+      <ContentContainerStyles>
+        <Shotguns page={page || 1} />
+      </ContentContainerStyles>
+      <PaginationContainerStyles>
+        <Pagination
+          weaponLink={weaponLink}
+          queryString={queryString}
+          page={page || 1}
+        />
+      </PaginationContainerStyles>
+    </>
   );
 }

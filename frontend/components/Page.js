@@ -19,7 +19,8 @@ const GlobalStyles = createGlobalStyle`
     --exoticOrange: #ff6f36;
     --gearsetGreen: #01ff90;
     --maxWidth: 1000px;
-    --bs: 0 12px 124px 0 rgba(0, 0, 0, 0.09);
+    --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.5);
+    background: #f9f9f9;
     box-sizing: border-box;
     font-size: 62.5%;
   }
@@ -29,6 +30,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
+    margin: 0;
   }
   a {
     text-decoration: none;
@@ -42,7 +44,17 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
+const ContentStyle = styled.div`
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+`;
+
 const InnerStyles = styled.div`
+  /* display: grid;
+  justify-items: center;
+  align-items: center; */
   max-width: var(--maxWidth);
   margin: 0 auto;
   padding: 2rem;
@@ -50,12 +62,12 @@ const InnerStyles = styled.div`
 
 export default function Page({ children }) {
   return (
-    <div>
+    <ContentStyle>
       <GlobalStyles />
       <Header />
       <InnerStyles>{children}</InnerStyles>
       <Footer />
-    </div>
+    </ContentStyle>
   );
 }
 

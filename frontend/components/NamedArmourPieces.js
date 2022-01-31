@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import { perPage } from '../config';
 import DisplayError from './ErrorMessage';
 import NamedArmourPiece from './NamedArmourPiece';
-import ItemListStyles from './styles/ItemListStyles';
+import { ListStyles } from './styles/ListStyles';
 
 const ALL_NAMED_ARMOUR_PIECES_QUERY = gql`
   query ALL_NAMED_ARMOUR_PIECES_QUERY($skip: Int, $first: Int) {
@@ -29,11 +29,11 @@ export default function NamedArmourPieces({ page }) {
 
   return (
     <div>
-      <ItemListStyles>
+      <ListStyles>
         {data.allArmourTypes.map((armourType) => (
           <NamedArmourPiece key={armourType.id} armourType={armourType} />
         ))}
-      </ItemListStyles>
+      </ListStyles>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import AssaultRifles from '../../../components/AssaultRifles';
 import Pagination from '../../../components/Pagination';
+import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
+import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 
 export default function AssaultRiflesPage() {
   const { query } = useRouter();
@@ -9,18 +11,24 @@ export default function AssaultRiflesPage() {
   const weaponLink = '/weapons/assaultRifles/';
 
   return (
-    <div>
-      <Pagination
-        weaponLink={weaponLink}
-        queryString={queryString}
-        page={page || 1}
-      />
-      <AssaultRifles page={page || 1} />
-      <Pagination
-        weaponLink={weaponLink}
-        queryString={queryString}
-        page={page || 1}
-      />
-    </div>
+    <>
+      <PaginationContainerStyles>
+        <Pagination
+          weaponLink={weaponLink}
+          queryString={queryString}
+          page={page || 1}
+        />
+      </PaginationContainerStyles>
+      <ContentContainerStyles>
+        <AssaultRifles page={page || 1} />
+      </ContentContainerStyles>
+      <PaginationContainerStyles>
+        <Pagination
+          weaponLink={weaponLink}
+          queryString={queryString}
+          page={page || 1}
+        />
+      </PaginationContainerStyles>
+    </>
   );
 }

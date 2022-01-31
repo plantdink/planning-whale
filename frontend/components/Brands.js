@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import ItemListStyles from './styles/ItemListStyles';
+import { ListStyles } from './styles/ListStyles';
 import Brand from './Brand';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../config';
@@ -24,11 +24,11 @@ export default function Brands({ page }) {
 
   return (
     <div>
-      <ItemListStyles>
+      <ListStyles>
         {data.allBrands.map((brand) => (
           <Brand key={brand.id} brand={brand} />
         ))}
-      </ItemListStyles>
+      </ListStyles>
     </div>
   );
 }

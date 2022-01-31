@@ -8,7 +8,7 @@ const WeaponStyles = styled.div`
   display: flex;
   flex-direction: column;
   img {
-    width: 100%;
+    width: 450px;
     height: 400px;
     object-fit: cover;
   }

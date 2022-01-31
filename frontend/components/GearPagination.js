@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../config';
-import PaginationStyles from './styles/PaginationStyles';
+import { PaginationStyles } from './styles/PaginationStyles';
 
 export const BRAND_PAGINATION_QUERY = gql`
   query BRAND_PAGINATION_QUERY {

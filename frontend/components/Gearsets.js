@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import ItemListStyles from './styles/ItemListStyles';
+import { ListStyles } from './styles/ListStyles';
 import Gearset from './Gearset';
 import { perPage } from '../config';
 import DisplayError from './ErrorMessage';
@@ -25,11 +25,11 @@ export default function Gearsets({ page }) {
 
   return (
     <div>
-      <ItemListStyles>
+      <ListStyles>
         {data.allGearsets.map((gearset) => (
           <Gearset key={gearset.id} gearset={gearset} />
         ))}
-      </ItemListStyles>
+      </ListStyles>
     </div>
   );
 }

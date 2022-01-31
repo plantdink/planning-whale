@@ -5,18 +5,12 @@ import { useUser } from './User';
 
 const FooterStyles = styled.footer`
   .footer {
+    grid-row-start: 2;
+    grid-row-end: 3;
     font-size: 1rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     padding: 1rem;
     background-color: var(--orange);
     border-top: 10px solid var(--black, black);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    justify-content: space-between;
-    align-items: stretch;
     a {
       margin-left: 2rem;
       color: white;

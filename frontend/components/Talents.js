@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ListStyles from './styles/ListStyles';
+import { ListStyles, ListItem } from './styles/ListStyles';
 import Title from './Title';
 import HeadSEO from './HeadSEO';
 
@@ -8,10 +8,18 @@ export default function Talents() {
     <>
       <HeadSEO seoTag="Talents" />
       <ListStyles>
-        <Title>
-          <Link href="/talents/armourTalents">Armour Talents</Link>
-          <Link href="/talents/weaponTalents">Weapon Talents</Link>
-        </Title>
+        <ListItem>
+          <img />
+          <Title>
+            <Link href="/talents/armourTalents">Armour Talents</Link>
+          </Title>
+        </ListItem>
+        <ListItem>
+          <img />
+          <Title>
+            <Link href="/talents/weaponTalents">Weapon Talents</Link>
+          </Title>
+        </ListItem>
       </ListStyles>
     </>
   );

@@ -1,7 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import ArmourType from './ArmourType';
-import ItemListStyles from './styles/ItemListStyles';
-import HeadSEO from './HeadSEO';
+import { ListStyles } from './styles/ListStyles';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../config';
 
@@ -27,11 +26,11 @@ export default function ArmourTypes({ page }) {
 
   return (
     <div>
-      <ItemListStyles>
+      <ListStyles>
         {data.allArmourTypes.map((armourType) => (
           <ArmourType key={armourType.id} armourType={armourType} />
         ))}
-      </ItemListStyles>
+      </ListStyles>
     </div>
   );
 }

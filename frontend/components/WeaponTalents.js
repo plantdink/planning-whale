@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import WeaponTalent from './WeaponTalent';
-import ItemListStyles from './styles/ItemListStyles';
+import { ListStyles } from './styles/ListStyles';
 import { perPage } from '../config';
 import DisplayError from './ErrorMessage';
 
@@ -26,11 +26,11 @@ export default function WeaponTalents({ page }) {
 
   return (
     <>
-      <ItemListStyles>
+      <ListStyles>
         {data.allWeaponTalents.map((weaponTalent) => (
           <WeaponTalent key={weaponTalent.id} weaponTalent={weaponTalent} />
         ))}
-      </ItemListStyles>
+      </ListStyles>
     </>
   );
 }

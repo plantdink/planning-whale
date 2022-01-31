@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ListStyles from './styles/ListStyles';
+import { ListStyles, ListItem } from './styles/ListStyles';
 import Title from './Title';
 import HeadSEO from './HeadSEO';
 
@@ -8,42 +8,60 @@ export default function Weapons() {
     <>
       <HeadSEO seoTag="Weapon Classes" />
       <ListStyles>
-        <Title>
+        <ListItem>
           <img />
-          <Link href="/weapons/assaultRifles">Assault Rifles</Link>
-        </Title>
-        <Title>
+          <Title>
+            <Link href="/weapons/assaultRifles">Assault Rifles</Link>
+          </Title>
+        </ListItem>
+        <ListItem>
           <img />
-          <Link href="/weapons/lightMachineGuns">Light Machine Guns</Link>
-        </Title>
-        <Title>
+          <Title>
+            <Link href="/weapons/lightMachineGuns">Light Machine Guns</Link>
+          </Title>
+        </ListItem>
+        <ListItem>
           <img />
-          <Link href="/weapons/marksmanRifles">Marksman Rifles</Link>
-        </Title>
-        <Title>
+          <Title>
+            <Link href="/weapons/marksmanRifles">Marksman Rifles</Link>
+          </Title>
+        </ListItem>
+        <ListItem>
           <img />
-          <Link href="/weapons/rifles">Rifles</Link>
-        </Title>
-        <Title>
+          <Title>
+            <Link href="/weapons/rifles">Rifles</Link>
+          </Title>
+        </ListItem>
+        <ListItem>
           <img />
-          <Link href="/weapons/pistols">Sidearms</Link>
-        </Title>
-        <Title>
+          <Title>
+            <Link href="/weapons/pistols">Sidearms</Link>
+          </Title>
+        </ListItem>
+        <ListItem>
           <img />
-          <Link href="/weapons/shotguns">Shotguns</Link>
-        </Title>
-        <Title>
+          <Title>
+            <Link href="/weapons/shotguns">Shotguns</Link>
+          </Title>
+        </ListItem>
+        <ListItem>
           <img />
-          <Link href="/weapons/subMachineGuns">Submachine Guns</Link>
-        </Title>
-        <Title>
+          <Title>
+            <Link href="/weapons/subMachineGuns">Submachine Guns</Link>
+          </Title>
+        </ListItem>
+        <ListItem>
           <img />
-          <Link href="/weapons/namedWeapons">Named Weapons</Link>
-        </Title>
-        <Title>
+          <Title>
+            <Link href="/weapons/namedWeapons">Named Weapons</Link>
+          </Title>
+        </ListItem>
+        <ListItem>
           <img />
-          <Link href="/weapons/exoticWeapons">Exotic Weapons</Link>
-        </Title>
+          <Title>
+            <Link href="/weapons/exoticWeapons">Exotic Weapons</Link>
+          </Title>
+        </ListItem>
       </ListStyles>
     </>
   );

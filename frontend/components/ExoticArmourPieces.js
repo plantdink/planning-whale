@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import { perPage } from '../config';
 import DisplayError from './ErrorMessage';
 import ExoticArmourPiece from './ExoticArmourPiece';
-import ItemListStyles from './styles/ItemListStyles';
+import { ListStyles } from './styles/ListStyles';
 
 const ALL_EXOTIC_ARMOUR_PIECES_QUERY = gql`
   query ALL_EXOTIC_ARMOUR_PIECES_QUERY($skip: Int = 0, $first: Int) {
@@ -26,14 +26,14 @@ export default function ExoticArmourPieces({ page }) {
 
   return (
     <div>
-      <ItemListStyles>
+      <ListStyles>
         {data.allExoticArmourPieces.map((exoticArmourPiece) => (
           <ExoticArmourPiece
             key={exoticArmourPiece.id}
             exoticArmourPiece={exoticArmourPiece}
           />
         ))}
-      </ItemListStyles>
+      </ListStyles>
     </div>
   );
 }

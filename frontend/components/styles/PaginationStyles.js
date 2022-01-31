@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
-const PaginationStyles = styled.div`
+export const PaginationContainerStyles = styled.div`
+  display: grid;
+  justify-items: center;
+  align-items: center;
+`;
+
+export const PaginationStyles = styled.div`
   text-align: center;
   display: inline-grid;
   grid-template-columns: repeat(4, auto);
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   align-content: center;
-  margin: 2rem 0;
+  margin: 2rem auto;
   border: 1px solid var(--lightGrey);
   border-radius: 10px;
   & > * {
@@ -23,5 +29,3 @@ const PaginationStyles = styled.div`
     pointer-events: none;
   }
 `;
-
-export default PaginationStyles;

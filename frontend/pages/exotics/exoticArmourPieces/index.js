@@ -1,6 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import ExoticArmourPieces from '../../../components/ExoticArmourPieces';
 import GearPagination from '../../../components/GearPagination';
+import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
+import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 
 export default function ExoticArmourPiecesPage() {
   const { query } = useRouter();
@@ -9,18 +11,24 @@ export default function ExoticArmourPiecesPage() {
   const gearLink = '/exotics/exoticArmourPieces/';
 
   return (
-    <div>
-      <GearPagination
-        gearLink={gearLink}
-        queryString={queryString}
-        page={page || 1}
-      />
-      <ExoticArmourPieces page={page || 1} />
-      <GearPagination
-        gearLink={gearLink}
-        queryString={queryString}
-        page={page || 1}
-      />
-    </div>
+    <>
+      <PaginationContainerStyles>
+        <GearPagination
+          gearLink={gearLink}
+          queryString={queryString}
+          page={page || 1}
+        />
+      </PaginationContainerStyles>
+      <ContentContainerStyles>
+        <ExoticArmourPieces page={page || 1} />
+      </ContentContainerStyles>
+      <PaginationContainerStyles>
+        <GearPagination
+          gearLink={gearLink}
+          queryString={queryString}
+          page={page || 1}
+        />
+      </PaginationContainerStyles>
+    </>
   );
 }
