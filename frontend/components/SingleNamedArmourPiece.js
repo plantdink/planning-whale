@@ -1,5 +1,4 @@
 import { gql, useQuery } from '@apollo/client';
-import Head from 'next/head';
 import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
 import HeadSEO from './HeadSEO';

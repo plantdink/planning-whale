@@ -4,7 +4,7 @@ import Title from './Title';
 import DamageTag from './styles/DamageTag';
 // import displayPercentage from '../lib/displayPercentage';
 
-export default function LightMachineGun({ assaultRifle }) {
+export default function AssaultRifle({ assaultRifle }) {
   return (
     <WeaponStyles>
       <DamageTag>{assaultRifle.damageLevel40}</DamageTag>

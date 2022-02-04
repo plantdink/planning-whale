@@ -311,7 +311,13 @@ export const ArmourType = list({
       },
     }),
     notes: text({
-      label: "Notes",
+      label: "Notes - not visible on website",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
+    flavourText: text({
+      label: "Flavour Text - visible under item name",
       ui: {
         displayMode: "textarea",
       },

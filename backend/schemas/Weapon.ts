@@ -98,6 +98,13 @@ export const Weapon = list({
       isRequired: true,
     }),
     notes: text({
+      label: "Notes - Not visible on website",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
+    flavourText: text({
+      label: "Flavour Text - visible under item name",
       ui: {
         displayMode: "textarea",
       },
@@ -139,6 +146,10 @@ export const Weapon = list({
       ui: {
         displayMode: "segmented-control",
       },
+    }),
+    averageWeapon: relationship({
+      label: "Average Weapon",
+      ref: "AverageWeapon.weaponClass",
     }),
     image: relationship({
       label: "Weapon Image",

@@ -2,8 +2,9 @@
 // import { brands } from "./seedBrands";
 // import { armourTalents } from "./seedArmourTalents";
 // import { exoticArmourPieces } from "./seedExoticArmourPieces";
-import { weaponTalents } from "./seedWeaponTalents";
-import { gearsets } from "./seedGearsets";
+// import { weaponTalents } from "./seedWeaponTalents";
+// import { gearsets } from "./seedGearsets";
+import { averageWeapons } from "./seedAverageWeapons";
 
 export async function insertSeedData(ks: any) {
   const keystone = ks.keystone || ks;
@@ -48,12 +49,19 @@ export async function insertSeedData(ks: any) {
   // }
   // console.log(`Seed data inserted: ${weaponTalents.length} weapon talents`);
 
-  console.log(`Inserting seed data: ${gearsets.length}`);
-  for (const gearset of gearsets) {
-    console.log(`Adding Gearset: ${gearset.name}`);
-    await mongoose.model("Gearset").create(gearset);
+  // console.log(`Inserting seed data: ${gearsets.length}`);
+  // for (const gearset of gearsets) {
+  //   console.log(`Adding Gearset: ${gearset.name}`);
+  //   await mongoose.model("Gearset").create(gearset);
+  // }
+  // console.log(`Seed data inserted: ${gearsets.length} gearsets`);
+
+  console.log(`Inserting seed data: ${averageWeapons.length}`);
+  for (const averageWeapon of averageWeapons) {
+    console.log(`Adding Average Weapon: ${averageWeapon.class}`);
+    await mongoose.model("AverageWeapon").create(averageWeapon);
   }
-  console.log(`Seed data inserted: ${gearsets.length} gearsets`);
+  console.log(`Seed data inserted: ${averageWeapons.length} average weapons`);
 
   console.log(`Please start the process with \`npm run dev\``);
   process.exit();

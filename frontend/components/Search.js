@@ -3,7 +3,7 @@ import { resetIdCounter, useCombobox } from 'downshift';
 import { useRouter } from 'next/dist/client/router';
 import debounce from 'lodash.debounce';
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
-import lowerCaseFirstLetter from '../lib/lowerCaseFirstLetter';
+import { lowerCaseFirstLetter } from '../lib/displayStrings';
 
 const SEARCH_MANUAL_QUERY = gql`
   query SEARCH_MANUAL_QUERY($searchTerm: String!) {
