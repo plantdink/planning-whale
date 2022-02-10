@@ -8,7 +8,7 @@ export default function WeaponTalentsPage() {
   const { query } = useRouter();
   const page = parseInt(query.page);
   const queryString = 'Weapon Talent';
-  const gearLink = '/talents/weaponTalents';
+  const gearLink = '/talents/weaponTalents/';
 
   return (
     <>

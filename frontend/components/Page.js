@@ -6,10 +6,11 @@ import Header from './Header';
 const GlobalStyles = createGlobalStyle`
   html {
     --orange: #ff6d10;
+    --orangeShade: rgba(255, 109, 16, 0.3);
     --black: #393939;
     --grey: #3a3a3a;
     --gray: var(--grey);
-    --lightGrey: #e1e1e1;
+    --lightGrey: #8d8d8d;
     --lightGray: var(--lightGray);
     --damageRed: #a43b3b;
     --armorBlue: #45618e;
@@ -18,7 +19,8 @@ const GlobalStyles = createGlobalStyle`
     --namedGold: #eaa213;
     --exoticOrange: #ff6f36;
     --gearsetGreen: #01ff90;
-    --maxWidth: 1000px;
+    --minWidth: 900px;
+    --maxWidth: 1200px;
     --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.5);
     background: #f9f9f9;
     box-sizing: border-box;

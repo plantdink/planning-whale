@@ -9,6 +9,12 @@ const ALL_WEAPON_TALENTS_QUERY = gql`
     allWeaponTalents(first: $first, skip: $skip) {
       id
       name
+      image {
+        image {
+          publicUrlTransformed
+        }
+        altText
+      }
     }
   }
 `;
@@ -28,7 +34,11 @@ export default function WeaponTalents({ page }) {
     <>
       <ListStyles>
         {data.allWeaponTalents.map((weaponTalent) => (
-          <WeaponTalent key={weaponTalent.id} weaponTalent={weaponTalent} />
+          <WeaponTalent
+            key={weaponTalent.id}
+            weaponTalent={weaponTalent}
+            img={weaponTalent.image?.image.publicUrlTransformed}
+          />
         ))}
       </ListStyles>
     </>

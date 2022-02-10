@@ -37,13 +37,6 @@ export const ExoticArmourPiece = list({
       ],
       isRequired: true,
     }),
-    level: select({
-      label: "Item Level",
-      options: [
-        { label: "Level 40", value: "Level 40" },
-        { label: "World Tier 5", value: "World Tier 5" },
-      ],
-    }),
     coreOne: select({
       label: "Core One Attribute",
       options: [
@@ -153,6 +146,7 @@ export const ExoticArmourPiece = list({
       label: "Attribute One Value (Lvl 40)",
       options: [
         { label: "6%", value: "6%" },
+        { label: "8%", value: "8%" },
         { label: "10%", value: "10%" },
         { label: "12%", value: "12%" },
         { label: "20%", value: "20%" },
@@ -259,9 +253,14 @@ export const ExoticArmourPiece = list({
         inlineEdit: { fields: ["image", "altText"] },
       },
     }),
-
     notes: text({
       label: "Notes",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
+    flavourText: text({
+      label: "Flavour Text - visible under item name",
       ui: {
         displayMode: "textarea",
       },

@@ -127,10 +127,17 @@ export const ArmourTalent = list({
         cardFields: ["image", "altText"],
         inlineCreate: { fields: ["image", "altText"] },
         inlineEdit: { fields: ["image", "altText"] },
+        inlineConnect: true,
       },
     }),
     notes: text({
       label: "Notes",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
+    flavourText: text({
+      label: "Flavour Text - visible under item name",
       ui: {
         displayMode: "textarea",
       },

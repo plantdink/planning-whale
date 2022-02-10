@@ -3,9 +3,13 @@ import Title from './Title';
 import { ListItem } from './styles/ListStyles';
 
 export default function ArmourTalent({ armourTalent }) {
+  console.log(armourTalent);
   return (
     <ListItem>
-      <img />
+      <img
+        src={armourTalent.image?.image.publicUrlTransformed}
+        alt="Generic armour talent"
+      />
       <Title>
         <Link href={`/talents/armourTalent/${armourTalent.id}`}>
           {armourTalent.name}

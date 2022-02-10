@@ -7,7 +7,7 @@ export const ListStyles = styled.div`
 `;
 
 export const ListItem = styled.div`
-  background: white;
+  background: var(--orangeShade);
   border: 1px solid var(--offWhite);
   box-shadow: var(--bs);
   position: relative;
@@ -16,7 +16,8 @@ export const ListItem = styled.div`
   img {
     width: 100%;
     height: 400px;
-    object-fit: cover;
+    object-fit: none;
+    object-position: 50% 50%;
   }
   p {
     line-height: 2;
@@ -46,12 +47,12 @@ export const ListTitle = styled.h3`
   text-align: center;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
   a {
-    background: var(--orange);
+    background: white;
     display: inline;
     line-height: 1.3;
     font-size: 4rem;
     text-align: center;
-    color: white;
+    color: var(--orange);
     padding: 0 1rem;
   }
 `;

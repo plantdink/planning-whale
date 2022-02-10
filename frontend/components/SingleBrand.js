@@ -1,20 +1,7 @@
 import { gql, useQuery } from '@apollo/client';
 import Head from 'next/head';
-import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
-
-const SingleBrandStyle = styled.div`
-  display: grid;
-  grid-auto-columns: 1fr;
-  max-width: var(--maxWidth);
-  justify-content: center;
-  align-items: top;
-  gap: 2rem;
-  img {
-    width: 100%;
-    object-fit: contain;
-  }
-`;
+import SingleGearItemStyle from './styles/SingleGearItemStyles';
 
 const SINGLE_BRAND_QUERY = gql`
   query SINGLE_BRAND_QUERY($id: ID!) {
@@ -26,6 +13,11 @@ const SINGLE_BRAND_QUERY = gql`
       setBonusOne
       setBonusTwo
       setBonusThree
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;
@@ -42,18 +34,36 @@ export default function SingleBrand({ id }) {
   const singleBrand = data.allBrands[0];
 
   return (
-    <SingleBrandStyle>
+    <>
       <Head>
         <title>Agent Field Manual | {singleBrand.name}</title>
       </Head>
-      <h1>{singleBrand.name}</h1>
-      <h2>Core Attribute Type - {singleBrand.coreAttribute}</h2>
-      <h3>Level 40 - {singleBrand.coreAttributeValueLevel40}</h3>
-      <h3>World Tier 5 - {singleBrand.coreAttributeValueWT5}</h3>
-      <h2>Set Bonuses</h2>
-      <h3>One piece - {singleBrand.setBonusOne}</h3>
-      <h3>Two piece - {singleBrand.setBonusTwo}</h3>
-      <h3>Three piece - {singleBrand.setBonusThree}</h3>
-    </SingleBrandStyle>
+      <SingleGearItemStyle>
+        <>
+          <h1 className="single-gear-item__heading">{singleBrand.name}</h1>
+          <div className="single-gear-item__content">
+            <div className="single-item__details">
+              <h2 className="single-gear-item__subheading">
+                Core Attribute Type - {singleBrand.coreAttribute}
+              </h2>
+              <p>{singleBrand.coreAttributeValueLevel40} (Level 40)</p>
+              <p>{singleBrand.coreAttributeValueWT5} (World Tier 5)</p>
+              <h2 className="single-gear-item__subheading">
+                Set Bonuses (while wearing)
+              </h2>
+              <p>One piece - {singleBrand.setBonusOne}</p>
+              <p>Two pieces - {singleBrand.setBonusTwo}</p>
+              <p>Three pieces - {singleBrand.setBonusThree}</p>
+            </div>
+            <div className="item-image">
+              <img
+                className="standard-item"
+                src={singleBrand.image?.image.publicUrlTransformed}
+              />
+            </div>
+          </div>
+        </>
+      </SingleGearItemStyle>
+    </>
   );
 }

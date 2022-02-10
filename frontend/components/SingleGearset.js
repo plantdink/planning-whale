@@ -1,21 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
 import Head from 'next/head';
-import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
 import HeadSEO from './HeadSEO';
-
-const SingleGearsetStyle = styled.div`
-  display: grid;
-  grid-auto-columns: 1fr;
-  max-width: var(--maxWidth);
-  justify-content: center;
-  align-items: top;
-  gap: 2rem;
-  img {
-    width: 100%;
-    object-fit: contain;
-  }
-`;
+import SingleGearItemStyle from './styles/SingleGearItemStyles';
 
 const SINGLE_GEARSET_QUERY = gql`
   query SINGLE_GEARSET_QUERY($id: ID!) {
@@ -29,6 +16,12 @@ const SINGLE_GEARSET_QUERY = gql`
       setBonusThree
       setBackpackTalent
       setChestTalent
+      image {
+        image {
+          publicUrlTransformed
+        }
+        altText
+      }
     }
   }
 `;
@@ -45,19 +38,38 @@ export default function SingleGearset({ id }) {
   const singleGearset = data.allGearsets[0];
 
   return (
-    <SingleGearsetStyle>
+    <>
       <HeadSEO seoTag={singleGearset.name} />
-      <h1>{singleGearset.name}</h1>
-      <h2>Core Attribute Type - {singleGearset.coreAttribute}</h2>
-      <h3>Level 40 - {singleGearset.coreAttributeValueLevel40}</h3>
-      <h3>World Tier 5 - {singleGearset.coreAttributeValueWT5}</h3>
-      <h2>Set Bonuses</h2>
-      <h3>One piece - {singleGearset.setBonusOne}</h3>
-      <h3>Two piece - {singleGearset.setBonusTwo}</h3>
-      <h3>Three piece - {singleGearset.setBonusThree}</h3>
-      <h2>Gearset Talents</h2>
-      <h3>Chest - {singleGearset.setChestTalent}</h3>
-      <h3>Backpack - {singleGearset.setBackpackTalent}</h3>
-    </SingleGearsetStyle>
+      <SingleGearItemStyle>
+        <>
+          <h1 className="single-gear-item__heading gearset-item">
+            {singleGearset.name}
+          </h1>
+          <div className="single-gear-item__content">
+            <div className="single-item__details">
+              <h2 className="single-gear-item__subheading">
+                Core Attribute Type - {singleGearset.coreAttribute}
+              </h2>
+              <p>{singleGearset.coreAttributeValueLevel40} (Level 40)</p>
+              <p>{singleGearset.coreAttributeValueWT5} (World Tier 5) </p>
+              <h2 className="single-gear-item__subheading">Set Bonuses</h2>
+              <p>One piece - {singleGearset.setBonusOne}</p>
+              <p>Two piece - {singleGearset.setBonusTwo}</p>
+              <p>Three piece - {singleGearset.setBonusThree}</p>
+              <h2 className="single-gear-item__subheading">Gearset Talents</h2>
+              <p>Chest - {singleGearset.setChestTalent}</p>
+              <p>Backpack - {singleGearset.setBackpackTalent}</p>
+            </div>
+            <div className="item-image">
+              <img
+                className="gearset-item"
+                src={singleGearset.image?.image.publicUrlTransformed}
+                alt={singleGearset.image?.altText}
+              />
+            </div>
+          </div>
+        </>
+      </SingleGearItemStyle>
+    </>
   );
 }

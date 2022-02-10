@@ -9,6 +9,11 @@ const ALL_BRANDS_QUERY = gql`
     allBrands(first: $first, skip: $skip) {
       id
       name
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;

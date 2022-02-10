@@ -9,6 +9,12 @@ const ALL_ARMOUR_TALENTS_QUERY = gql`
     allArmourTalents(first: $first, skip: $skip) {
       id
       name
+      image {
+        image {
+          publicUrlTransformed
+        }
+        altText
+      }
     }
   }
 `;
@@ -28,7 +34,11 @@ export default function ArmourTalents({ page }) {
     <>
       <ListStyles>
         {data.allArmourTalents.map((armourTalent) => (
-          <ArmourTalent key={armourTalent.id} armourTalent={armourTalent} />
+          <ArmourTalent
+            key={armourTalent.id}
+            armourTalent={armourTalent}
+            img={armourTalent.image?.image.publicUrlTransformed}
+          />
         ))}
       </ListStyles>
     </>

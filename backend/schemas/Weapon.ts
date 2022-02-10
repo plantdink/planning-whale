@@ -98,7 +98,7 @@ export const Weapon = list({
       isRequired: true,
     }),
     notes: text({
-      label: "Notes - Not visible on website",
+      label: "Notes",
       ui: {
         displayMode: "textarea",
       },

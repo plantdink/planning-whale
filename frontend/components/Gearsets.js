@@ -9,6 +9,12 @@ const ALL_GEARSETS_QUERY = gql`
     allGearsets(first: $first, skip: $skip) {
       id
       name
+      image {
+        image {
+          publicUrlTransformed
+        }
+        altText
+      }
     }
   }
 `;
@@ -27,7 +33,11 @@ export default function Gearsets({ page }) {
     <div>
       <ListStyles>
         {data.allGearsets.map((gearset) => (
-          <Gearset key={gearset.id} gearset={gearset} />
+          <Gearset
+            key={gearset.id}
+            gearset={gearset}
+            img={gearset.image?.image.publicUrlTransformed}
+          />
         ))}
       </ListStyles>
     </div>

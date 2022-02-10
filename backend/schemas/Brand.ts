@@ -140,5 +140,11 @@ export const Brand = list({
         displayMode: "textarea",
       },
     }),
+    flavourText: text({
+      label: "Flavour Text - visible under item name",
+      ui: {
+        displayMode: "textarea",
+      },
+    }),
   },
 });

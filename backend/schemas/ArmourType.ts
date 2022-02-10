@@ -13,9 +13,9 @@ export const ArmourType = list({
     hideCreate: (args) => !permissions.canEditItems(args),
     hideDelete: (args) => !permissions.canEditItems(args),
     isHidden: (args) => !permissions.canEditItems(args),
-    labelField: "piece",
+    labelField: "name",
     listView: {
-      initialColumns: ["piece", "name"],
+      initialColumns: ["name", "piece", "isNamed"],
       initialSort: {
         field: "piece",
         direction: "ASC",
@@ -252,7 +252,7 @@ export const ArmourType = list({
       defaultValue: 66,
     }),
     defensiveAttributeThreeLevel30: text({
-      label: "Defensive Attribute Type - Explosive Resistance (World Tier 5)",
+      label: "Defensive Attribute Type - Hazard Protection (World Tier 5)",
       defaultValue: "Hazard Protection",
     }),
     defensiveAttributeThreeMaxValueLevel30: integer({
@@ -311,7 +311,7 @@ export const ArmourType = list({
       },
     }),
     notes: text({
-      label: "Notes - not visible on website",
+      label: "Notes",
       ui: {
         displayMode: "textarea",
       },
