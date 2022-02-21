@@ -2,7 +2,6 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import LightMachineGun from './LightMachineGun';
-import HeadSEO from './HeadSEO';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../config';
 
@@ -33,6 +32,11 @@ const ALL_LIGHT_MACHINE_GUNS_QUERY = gql`
       notes
       isNamed
       isExotic
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;

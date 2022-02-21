@@ -1,16 +1,15 @@
 import Link from 'next/link';
-import Title from './Title';
-import { ListItem } from './styles/ListStyles';
+import { ListItem, ListTitle } from './styles/ListStyles';
 
 export default function ExoticArmourPiece({ exoticArmourPiece }) {
   return (
     <ListItem>
       <img />
-      <Title>
+      <ListTitle>
         <Link href={`/exotics/exoticArmourPiece/${exoticArmourPiece.id}`}>
           {exoticArmourPiece.name}
         </Link>
-      </Title>
+      </ListTitle>
     </ListItem>
   );
 }

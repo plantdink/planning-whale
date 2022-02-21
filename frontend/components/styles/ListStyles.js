@@ -19,40 +19,22 @@ export const ListItem = styled.div`
     object-fit: none;
     object-position: 50% 50%;
   }
-  p {
-    line-height: 2;
-    font-weight: 300;
-    flex-grow: 1;
-    padding: 0 3rem;
-    font-size: 1.5rem;
-  }
-  .buttonList {
-    display: grid;
-    width: 100%;
-    border-top: 1px solid var(--lightGrey);
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-gap: 1px;
-    background: var(--lightGrey);
-    & > * {
-      background: white;
-      border: 0;
-      font-size: 1rem;
-      padding: 1rem;
-    }
-  }
 `;
 
 export const ListTitle = styled.h3`
   margin: 0 1rem;
+  margin-top: -3rem;
+  transform: skew(5deg);
   text-align: center;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
   a {
-    background: white;
+    background: var(--orange);
     display: inline;
     line-height: 1.3;
-    font-size: 4rem;
+    text-transform: uppercase;
+    font-size: 3rem;
     text-align: center;
-    color: var(--orange);
+    color: white;
     padding: 0 1rem;
   }
 `;

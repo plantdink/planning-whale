@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { ListStyles, ListItem } from './styles/ListStyles';
-import Title from './Title';
+import { ListStyles, ListItem, ListTitle } from './styles/ListStyles';
 import HeadSEO from './HeadSEO';
 
 const armourTalentImage =
@@ -16,15 +15,15 @@ export default function Talents() {
       <ListStyles>
         <ListItem>
           <img src={armourTalentImage} alt="Generic armour talent" />
-          <Title>
+          <ListTitle>
             <Link href="/talents/armourTalents">Armour Talents</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={weaponTalentImage} alt="Generic weapon" />
-          <Title>
+          <ListTitle>
             <Link href="/talents/weaponTalents">Weapon Talents</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
       </ListStyles>
     </>

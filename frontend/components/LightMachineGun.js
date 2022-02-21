@@ -1,21 +1,21 @@
 import Link from 'next/link';
-import WeaponStyles from './styles/WeaponStyles';
-import Title from './Title';
-import DamageTag from './styles/DamageTag';
+import { ListItem, ListTitle } from './styles/ListStyles';
+import { DamageTag, DamageTagText } from './styles/DamageTag';
 
 export default function LightMachineGun({ lightMachineGun }) {
   return (
-    <WeaponStyles>
+    <ListItem>
+      <DamageTagText>Damage Level 40</DamageTagText>
       <DamageTag>{lightMachineGun.damageLevel40}</DamageTag>
       <img
-        src={lightMachineGun?.photo?.image?.publicUrlTransformed}
+        src={lightMachineGun.image?.image.publicUrlTransformed}
         alt={lightMachineGun.model}
       />
-      <Title>
+      <ListTitle>
         <Link href={`/weapons/lightMachineGun/${lightMachineGun.id}`}>
           {lightMachineGun.model}
         </Link>
-      </Title>
-    </WeaponStyles>
+      </ListTitle>
+    </ListItem>
   );
 }

@@ -27,6 +27,11 @@ const ALL_NAMED_WEAPONS_QUERY = gql`
       notes
       isNamed
       isExotic
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;

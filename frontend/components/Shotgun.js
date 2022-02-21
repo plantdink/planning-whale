@@ -1,20 +1,19 @@
 import Link from 'next/link';
-import WeaponStyles from './styles/WeaponStyles';
-import Title from './Title';
-import DamageTag from './styles/DamageTag';
-// import displayPercentage from '../lib/displayPercentage';
+import { ListItem, ListTitle } from './styles/ListStyles';
+import { DamageTag, DamageTagText } from './styles/DamageTag';
 
 export default function Shotgun({ shotgun }) {
   return (
-    <WeaponStyles>
+    <ListItem>
+      <DamageTagText>Damage Level 40</DamageTagText>
       <DamageTag>{shotgun.damageLevel40}</DamageTag>
       <img
-        src={shotgun?.photo?.image?.publicUrlTransformed}
+        src={shotgun.image?.image.publicUrlTransformed}
         alt={shotgun.model}
       />
-      <Title>
+      <ListTitle>
         <Link href={`/weapons/shotgun/${shotgun.id}`}>{shotgun.model}</Link>
-      </Title>
-    </WeaponStyles>
+      </ListTitle>
+    </ListItem>
   );
 }

@@ -32,6 +32,11 @@ const ALL_SUB_MACHINE_GUNS_QUERY = gql`
       notes
       isNamed
       isExotic
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;

@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { ListStyles, ListItem } from './styles/ListStyles';
-import Title from './Title';
+import { ListStyles, ListItem, ListTitle } from './styles/ListStyles';
+import Title from './styles/Title';
 import HeadSEO from './HeadSEO';
 
 const arIcon =
@@ -29,57 +29,57 @@ export default function Weapons() {
       <ListStyles>
         <ListItem>
           <img src={arIcon} alt="Assault Rifle" />
-          <Title>
+          <ListTitle>
             <Link href="/weapons/assaultRifles">Assault Rifles</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={lmgIcon} alt="Light Machine Gun" />
-          <Title>
+          <ListTitle>
             <Link href="/weapons/lightMachineGuns">Light Machine Guns</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={mmrIcon} alt="Marksman Rifle" />
-          <Title>
+          <ListTitle>
             <Link href="/weapons/marksmanRifles">Marksman Rifles</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={rifleIcon} alt="Rifle" />
-          <Title>
+          <ListTitle>
             <Link href="/weapons/rifles">Rifles</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={pistolIcon} alt="Pistol" />
-          <Title>
+          <ListTitle>
             <Link href="/weapons/pistols">Pistols</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={shotgunIcon} alt="Shotgun" />
-          <Title>
+          <ListTitle>
             <Link href="/weapons/shotguns">Shotguns</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={smgIcon} alt="Submachine Gun" />
-          <Title>
+          <ListTitle>
             <Link href="/weapons/subMachineGuns">Submachine Guns</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={namedIcon} alt="Named Weapon" />
-          <Title>
+          <ListTitle>
             <Link href="/weapons/namedWeapons">Named Weapons</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={exoticIcon} alt="Exotic Weapon" />
-          <Title>
+          <ListTitle>
             <Link href="/weapons/exoticWeapons">Exotic Weapons</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
       </ListStyles>
     </>

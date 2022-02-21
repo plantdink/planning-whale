@@ -1,22 +1,21 @@
 import Link from 'next/link';
-import WeaponStyles from './styles/WeaponStyles';
-import Title from './Title';
-import DamageTag from './styles/DamageTag';
-// import displayPercentage from '../lib/displayPercentage';
+import { ListItem, ListTitle } from './styles/ListStyles';
+import { DamageTag, DamageTagText } from './styles/DamageTag';
 
 export default function MarksmanRifle({ marksmanRifle }) {
   return (
-    <WeaponStyles>
+    <ListItem>
+      <DamageTagText>Damage Level 40</DamageTagText>
       <DamageTag>{marksmanRifle.damageLevel40}</DamageTag>
       <img
-        src={marksmanRifle?.photo?.image?.publicUrlTransformed}
+        src={marksmanRifle.image?.image.publicUrlTransformed}
         alt={marksmanRifle.model}
       />
-      <Title>
+      <ListTitle>
         <Link href={`/weapons/marksmanRifle/${marksmanRifle.id}`}>
           {marksmanRifle.model}
         </Link>
-      </Title>
-    </WeaponStyles>
+      </ListTitle>
+    </ListItem>
   );
 }

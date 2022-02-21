@@ -1,22 +1,21 @@
 import Link from 'next/link';
-import WeaponStyles from './styles/WeaponStyles';
-import Title from './Title';
-import DamageTag from './styles/DamageTag';
-// import displayPercentage from '../lib/displayPercentage';
+import { DamageTag, DamageTagText } from './styles/DamageTag';
+import { ListItem, ListTitle } from './styles/ListStyles';
 
 export default function AssaultRifle({ assaultRifle }) {
   return (
-    <WeaponStyles>
+    <ListItem>
+      <DamageTagText>Damage Level 40</DamageTagText>
       <DamageTag>{assaultRifle.damageLevel40}</DamageTag>
       <img
-        src={assaultRifle?.photo?.image?.publicUrlTransformed}
+        src={assaultRifle.image?.image.publicUrlTransformed}
         alt={assaultRifle.model}
       />
-      <Title>
+      <ListTitle>
         <Link href={`/weapons/assaultRifle/${assaultRifle.id}`}>
           {assaultRifle.model}
         </Link>
-      </Title>
-    </WeaponStyles>
+      </ListTitle>
+    </ListItem>
   );
 }

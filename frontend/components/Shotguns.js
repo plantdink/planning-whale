@@ -28,6 +28,11 @@ const ALL_SHOTGUNS_QUERY = gql`
       notes
       isNamed
       isExotic
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;

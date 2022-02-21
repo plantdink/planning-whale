@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import Title from './Title';
-import { ListItem } from './styles/ListStyles';
+import { ListItem, ListTitle } from './styles/ListStyles';
 
 export default function Gearset({ gearset }) {
   return (
@@ -9,9 +8,9 @@ export default function Gearset({ gearset }) {
         src={gearset.image?.image.publicUrlTransformed}
         alt={`${gearset.name} gear set`}
       />
-      <Title>
+      <ListTitle>
         <Link href={`/gear/gearset/${gearset.id}`}>{gearset.name}</Link>
-      </Title>
+      </ListTitle>
     </ListItem>
   );
 }

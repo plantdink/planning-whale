@@ -14,6 +14,7 @@ export const FieldManualImage = list({
   ui: {
     listView: {
       initialColumns: ["Id", "image", "altText", "weapon"],
+      pageSize: 100,
     },
   },
   fields: {

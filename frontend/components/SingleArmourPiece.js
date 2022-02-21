@@ -3,6 +3,8 @@ import DisplayError from './ErrorMessage';
 import { displayPercentage, humanReadableNumber } from '../lib/displayNumbers';
 import HeadSEO from './HeadSEO';
 import SingleGearItemStyle from './styles/SingleGearItemStyles';
+import SingleTalent from './SingleTalent';
+import SingleBrand from './SingleBrand';
 
 const SINGLE_ARMOUR_PIECE_QUERY = gql`
   query SINGLE_ARMOUR_PIECE_QUERY($id: ID!) {
@@ -65,7 +67,14 @@ const SINGLE_ARMOUR_PIECE_QUERY = gql`
         }
         altText
       }
+      brand {
+        id
+      }
+      armourTalent {
+        id
+      }
     }
+
     allExoticArmourPieces(where: { id: $id }) {
       name
       piece
@@ -92,7 +101,7 @@ const SINGLE_ARMOUR_PIECE_QUERY = gql`
         }
       }
       exoticArmourTalent {
-        name
+        id
       }
     }
   }
@@ -134,7 +143,7 @@ export default function SingleArmourPiece({ id }) {
           <>
             <div>
               {armourPiece.flavourText !== null && (
-                <q>{armourPiece.flavourText}</q>
+                <blockquote>{armourPiece.flavourText}</blockquote>
               )}
               <p>{armourPiece.piece}</p>
               {armourPiece.notes !== '' && <p>{armourPiece.notes}</p>}
@@ -546,6 +555,21 @@ export default function SingleArmourPiece({ id }) {
           </>
         </>
       </SingleGearItemStyle>
+      {/* {armourPiece.__typename === 'ArmourType' &&
+        armourPiece.armourTalent.map((armourTalent) => (
+          <SingleTalent id={armourTalent.id} key={armourTalent.id} />
+        ))}
+      {armourPiece.__typename === 'ExoticArmourPiece' &&
+        armourPiece.exoticArmourTalent.map((exoticArmourTalent) => (
+          <SingleTalent
+            id={exoticArmourTalent.id}
+            key={exoticArmourTalent.id}
+          />
+        ))}
+      {armourPiece.__typename === 'ArmourType' &&
+        armourPiece.brand.map((brand) => (
+          <SingleBrand id={brand.id} key={brand.id} />
+        ))} */}
     </>
   );
 }

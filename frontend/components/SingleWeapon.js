@@ -20,10 +20,10 @@ import {
 import HeadSEO from './HeadSEO';
 import { titleCase } from '../lib/displayStrings';
 import { deAbbreviate } from '../lib/abbreviationsDictionary';
-import SingleTalent from './SingleTalent';
 import SingleWeaponStyles from './styles/SingleWeaponStyles';
+import LinkSmallWeaponTalent from './LinkSmallWeaponTalent';
 
-const SINGLE_WEAPON_QUERY = gql`
+export const SINGLE_WEAPON_QUERY = gql`
   query SINGLE_WEAPON_QUERY($id: ID!) {
     allWeapons(where: { id: $id }) {
       class
@@ -49,6 +49,11 @@ const SINGLE_WEAPON_QUERY = gql`
       weaponTalent {
         id
         name
+        image {
+          image {
+            publicUrlTransformed
+          }
+        }
       }
       averageWeapon {
         class
@@ -101,7 +106,7 @@ export default function SingleWeapon({ id }) {
     },
     plugins: {
       legend: {
-        position: 'bottom',
+        position: 'top',
       },
       title: {
         display: true,
@@ -237,7 +242,7 @@ export default function SingleWeapon({ id }) {
     <>
       <HeadSEO seoTag={weapon.model} />
       <SingleWeaponStyles>
-        <div>
+        <div className="single-weapon__title-bar">
           <h1
             className={`single-weapon__heading ${
               weapon.isNamed === 'YES' ? 'named-weapon' : null
@@ -245,49 +250,52 @@ export default function SingleWeapon({ id }) {
           >
             {weapon.model}
           </h1>
-          {weapon.flavourText !== '' && (
-            <blockquote>{weapon.flavourText}</blockquote>
-          )}
-
-          <p>
-            {titleCase(weapon.class)} {weapon.family}
-          </p>
-          <h3 className="single-weapon__subheading">Base Damage</h3>
-          <p>{humanReadableNumber(weapon.damageLevel40)} (Level 40)</p>
-          <p>{humanReadableNumber(weapon.damageWt5) || 'N/A'} (World Tier 5)</p>
-          <h3 className="single-weapon__subheading">Specifications</h3>
-          {weapon.maxBonusValue > 1 && (
-            <p>
-              {weapon.maxBonusValue}% {deAbbreviate(weapon.weaponBonusType)}
-            </p>
-          )}
-          <p>{hsDisplay(weapon.headshotMultiplier)} x Headshot Multiplier</p>
-          <p>{weapon.rpm} rounds per minute rate of fire</p>
-          <p> {weapon.magazineSize} round magazine</p>
-          <p>{weapon.modSlots} modification slots</p>
-          <p>{displayPercentage(weapon.accuracy)}% accuracy</p>
-          <p>{displayPercentage(weapon.stability)}% stability</p>
-          <p>{weapon.optimalRange}m optimal range</p>
-          <p>{weapon.maxRange}m max range</p>
-          <p>
-            {millisecondsToSeconds(weapon.reloadSpeed)} seconds reload speed
-          </p>
-          <p>
-            {millisecondsToSeconds(weapon.reloadSpeedFromEmpty)} seconds reload
-            speed (empty magazine)
-          </p>
         </div>
-        <div>
-          <Radar data={chartData} options={options} />
+        <div className="single-weapon__content">
+          <div className="single-weapon__details">
+            {weapon.flavourText !== '' && (
+              <blockquote>{weapon.flavourText}</blockquote>
+            )}
+
+            <p>
+              {titleCase(weapon.class)} {weapon.family}
+            </p>
+            <h3 className="single-weapon__subheading">Base Damage</h3>
+            <p>{humanReadableNumber(weapon.damageLevel40)} (Level 40)</p>
+            <p>
+              {humanReadableNumber(weapon.damageWt5) || 'N/A'} (World Tier 5)
+            </p>
+            <h3 className="single-weapon__subheading">Specifications</h3>
+            {weapon.maxBonusValue > 1 && (
+              <p>
+                {weapon.maxBonusValue}% {deAbbreviate(weapon.weaponBonusType)}
+              </p>
+            )}
+            <p>{hsDisplay(weapon.headshotMultiplier)} x Headshot Multiplier</p>
+            <p>{weapon.rpm} rounds per minute rate of fire</p>
+            <p> {weapon.magazineSize} round magazine</p>
+            <p>{weapon.modSlots} modification slots</p>
+            <p>{displayPercentage(weapon.accuracy)}% accuracy</p>
+            <p>{displayPercentage(weapon.stability)}% stability</p>
+            <p>{weapon.optimalRange}m optimal range</p>
+            <p>{weapon.maxRange}m max range</p>
+            <p>
+              {millisecondsToSeconds(weapon.reloadSpeed)} seconds reload speed
+            </p>
+            <p>
+              {millisecondsToSeconds(weapon.reloadSpeedFromEmpty)} seconds
+              reload speed (empty magazine)
+            </p>
+          </div>
+          <div>
+            <Radar data={chartData} options={options} />
+          </div>
+        </div>
+        <div className="single-weapon__title-bar">
+          <h1 className="single-weapon__heading">Compatible Weapon Talents</h1>
+          <LinkSmallWeaponTalent weapon={weapon} />
         </div>
       </SingleWeaponStyles>
-      <>
-        {weapon.weaponTalent[0]?.id && (
-          <>
-            <SingleTalent id={weapon.weaponTalent[0].id} />
-          </>
-        )}
-      </>
     </>
   );
 }

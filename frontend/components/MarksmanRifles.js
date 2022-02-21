@@ -2,7 +2,6 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import MarksmanRifle from './MarksmanRifle';
-import HeadSEO from './HeadSEO';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../config';
 
@@ -29,6 +28,11 @@ const ALL_MARKSMAN_RIFLES_QUERY = gql`
       notes
       isNamed
       isExotic
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;

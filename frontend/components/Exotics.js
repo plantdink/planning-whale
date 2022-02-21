@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { ListStyles, ListItem } from './styles/ListStyles';
-import Title from './Title';
+import { ListStyles, ListItem, ListTitle } from './styles/ListStyles';
 import HeadSEO from './HeadSEO';
 
 const exoticWeaponIcon =
@@ -15,15 +14,15 @@ export default function Exotics() {
       <ListStyles>
         <ListItem>
           <img src={exoticWeaponIcon} alt="Exotic Weapon icon" />
-          <Title>
+          <ListTitle>
             <Link href="/exotics/exoticWeapons">Exotic Weapons</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={exoticArmourIcon} alt="Exotic Armour Icon" />
-          <Title>
+          <ListTitle>
             <Link href="/exotics/exoticArmourPieces">Exotic Armour</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
       </ListStyles>
     </>

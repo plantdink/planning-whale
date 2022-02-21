@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import Title from './Title';
-import { ListItem } from './styles/ListStyles';
+import { ListItem, ListTitle } from './styles/ListStyles';
 
 export default function Brand({ brand }) {
   return (
@@ -9,9 +8,9 @@ export default function Brand({ brand }) {
         src={brand.image?.image.publicUrlTransformed}
         alt={`${brand.name} icon`}
       />
-      <Title>
+      <ListTitle>
         <Link href={`/gear/brand/${brand.id}`}>{brand.name}</Link>
-      </Title>
+      </ListTitle>
     </ListItem>
   );
 }

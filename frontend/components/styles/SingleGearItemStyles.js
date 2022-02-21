@@ -9,13 +9,11 @@ const SingleGearItemStyle = styled.div`
   border: 1px solid var(--offWhite);
   box-shadow: var(--bs);
   padding: 2rem;
+  margin-bottom: 3rem;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
 
-  .item-image {
-    align-self: center;
-    position: relative;
-    object-fit: contain;
-  }
-
+  
   .title-icon-container {
     align-self: end;
     position: absolute;
@@ -27,7 +25,7 @@ const SingleGearItemStyle = styled.div`
     top: 18px;
     z-index: 1;
   }
-
+  
   .single-gear-item__icon-image {
     align-self: end;
     position: absolute;
@@ -37,21 +35,31 @@ const SingleGearItemStyle = styled.div`
     width: 40px;
     object-fit: contain;
   }
-
+  
   .multiple-gear-item__icon-image {
-    width: 60px;
+    position: absolute;
+    top: 3px;
+    width: 50px;
     object-fit: contain;
   }
-
+  
   .single-gear-item__content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-  }
-
-  .single-gear-item__details {
     display: flex;
+  }
+  
+  .single-gear-item__details {
+    flex: 1;
     flex-direction: column;
   }
+}
+
+.item-image {
+  flex: 5;
+  img {
+    height: 150px;
+    object-fit: contain;
+  }
+}
 
   .single-gear-item__heading {
     flex: auto;
@@ -75,6 +83,14 @@ const SingleGearItemStyle = styled.div`
     line-height: 2;
   }
 
+  .single-gear-item__sub-subheading {
+    flex: auto;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
   ul {
     margin: 0;
     font-weight: 300;
@@ -88,6 +104,16 @@ const SingleGearItemStyle = styled.div`
     padding: 0 1rem 0 1rem;
     margin: 0.5rem 0;
     font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+  }
+
+  blockquote {
+    margin: 0.75rem 0;
+    padding: 0 1rem;
+    font-weight: 200;
     font-size: 1.5rem;
   }
 

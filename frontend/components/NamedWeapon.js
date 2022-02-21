@@ -1,18 +1,21 @@
 import Link from 'next/link';
-import WeaponStyles from './styles/WeaponStyles';
-import Title from './Title';
-import DamageTag from './styles/DamageTag';
+import { ListItem, ListTitle } from './styles/ListStyles';
+import { DamageTag, DamageTagText } from './styles/DamageTag';
 
 export default function NamedWeapon({ namedWeapon }) {
   return (
-    <WeaponStyles>
+    <ListItem>
+      <DamageTagText>Damage Level 40</DamageTagText>
       <DamageTag>{namedWeapon.damageLevel40}</DamageTag>
-      <img />
-      <Title>
+      <img
+        src={namedWeapon.image?.image.publicUrlTransformed}
+        alt={namedWeapon.model}
+      />
+      <ListTitle>
         <Link href={`/weapons/namedWeapon/${namedWeapon.id}`}>
           {namedWeapon.model}
         </Link>
-      </Title>
-    </WeaponStyles>
+      </ListTitle>
+    </ListItem>
   );
 }

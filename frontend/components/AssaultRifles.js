@@ -27,6 +27,11 @@ const ALL_ASSAULT_RIFLES_QUERY = gql`
       notes
       isNamed
       isExotic
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;

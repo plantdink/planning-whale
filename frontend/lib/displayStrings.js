@@ -19,3 +19,13 @@ export function titleCase(string) {
     })
     .join(' ');
 }
+
+export function stringToParagraphs(string) {
+  const sentences = string.split(/(?<=\.)/g);
+  return sentences.map((sentence) => <p>{sentence}</p>);
+}
+
+export function lowerCaseLink(string) {
+  const stringToEdit = string[0].toLowerCase() + string.slice(1) || string;
+  return stringToEdit;
+}

@@ -83,6 +83,13 @@ export const ArmourType = list({
       ref: "Brand.armourType",
       many: true,
     }),
+    perfectArmourTalent: relationship({
+      label: "Perfect Talent",
+      ref: "ArmourTalent.namedArmourPiece",
+      ui: {
+        hideCreate: true,
+      },
+    }),
     availableWT5: select({
       label: "Is this available in World Tier 5?",
       options: [

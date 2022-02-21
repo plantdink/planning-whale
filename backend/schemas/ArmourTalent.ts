@@ -75,6 +75,13 @@ export const ArmourTalent = list({
     namedItem: text({
       label: "If Perfect talent, what is the name of the item?",
     }),
+    namedArmourPiece: relationship({
+      label: "Perfect Piece name",
+      ref: "ArmourType.perfectArmourTalent",
+      ui: {
+        hideCreate: true,
+      },
+    }),
     brand: relationship({
       label: "Related Brand",
       ref: "Brand.armourTalent",

@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { ListStyles, ListItem } from './styles/ListStyles';
-import Title from './Title';
+import { ListStyles, ListItem, ListTitle } from './styles/ListStyles';
 import HeadSEO from './HeadSEO';
 
 const brandIconLink =
@@ -22,27 +21,27 @@ export default function Gear() {
       <ListStyles>
         <ListItem>
           <img src={brandIconLink} alt="All Brands" />
-          <Title>
+          <ListTitle>
             <Link href="/gear/brands">Brands</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={gearsetIconLink} alt="All Gear Sets" />
-          <Title>
+          <ListTitle>
             <Link href="/gear/gearsets">Gear Sets</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={armourPiecesIconLink} alt="All Armour Pieces" />
-          <Title>
+          <ListTitle>
             <Link href="/gear/armourTypes">Armour Pieces</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
         <ListItem>
           <img src={namedArmourPiecesIconLink} alt="All Named Armour Pieces" />
-          <Title>
+          <ListTitle>
             <Link href="/gear/namedArmourPieces">Named Armour Pieces</Link>
-          </Title>
+          </ListTitle>
         </ListItem>
       </ListStyles>
     </>

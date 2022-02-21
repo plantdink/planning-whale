@@ -1,18 +1,22 @@
 import Link from 'next/link';
-import WeaponStyles from './styles/WeaponStyles';
-import Title from './Title';
-import DamageTag from './styles/DamageTag';
+import { ListItem, ListTitle } from './styles/ListStyles';
+
+import { DamageTag, DamageTagText } from './styles/DamageTag';
 
 export default function ExoticWeapon({ exoticWeapon }) {
   return (
-    <WeaponStyles>
+    <ListItem>
+      <DamageTagText>Damage Level 40</DamageTagText>
       <DamageTag>{exoticWeapon.damageLevel40}</DamageTag>
-      <img />
-      <Title>
+      <img
+        src={exoticWeapon.image?.image.publicUrlTransformed}
+        alt={exoticWeapon.model}
+      />
+      <ListTitle>
         <Link href={`/weapons/exoticWeapon/${exoticWeapon.id}`}>
           {exoticWeapon.model}
         </Link>
-      </Title>
-    </WeaponStyles>
+      </ListTitle>
+    </ListItem>
   );
 }

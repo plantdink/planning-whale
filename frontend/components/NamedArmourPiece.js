@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Title from './Title';
+import Title from './styles/Title';
 import { ListItem } from './styles/ListStyles';
 
 export default function NamedArmourPiece({ armourType }) {

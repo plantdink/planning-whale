@@ -49,7 +49,7 @@ const NavStyles = styled.ul`
     &:focus {
       outline: none;
       &:after {
-        width: calc() (100% - 10px);
+        width: calc(100% - 60px);
       }
     }
   }
