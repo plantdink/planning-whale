@@ -1,72 +1,67 @@
 import Link from 'next/link';
 import { LinkStyles, TitleLink } from './styles/LinkStyles';
-import { lowerCaseLink } from '../lib/displayStrings';
+import { lowerCaseFirstLetter, lowerCaseLink } from '../lib/displayStrings';
 import { chestIcon, backpackIcon } from './ItemIcons';
 
-// this will create a link to a talent
-
-export default function LinkSmallPiece({ piece }) {
-  // console.log('Piece',piece);
+export default function LinkSmallTalent({ talent }) {
   const classArray = [];
 
   // set classArray for a chest talent, link to generic chest
   if (
-    piece.__typename === 'ArmourType' &&
-    piece.piece === 'Chest' &&
-    piece.isNamed === 'NO' &&
-    piece.isExotic === 'NO'
+    talent.__typename === 'ArmourTalent' &&
+    talent.piece === 'Chest' &&
+    talent.isNamed === 'NO' &&
+    talent.isExotic === 'NO'
   ) {
     classArray.push({
       title: `${talent.piece}`,
       link: `/gear/armourType/61e4fa8b4568c11c0804cd2e`,
-      image: chestIcon,
+      image: `${talent.image?.image.publicUrlTransformed || chestIcon}`,
       id: `620b16903f985c08074b794c`,
     });
   }
 
   // set classArray for a backpack talent, link to generic backpack
   if (
-    piece.__typename === 'ArmourType' &&
-    piece.piece === 'Backpack' &&
-    piece.isNamed === 'NO' &&
-    piece.isExotic === 'NO'
+    talent.__typename === 'ArmourTalent' &&
+    talent.piece === 'Backpack' &&
+    talent.isNamed === 'NO' &&
+    talent.isExotic === 'NO'
   ) {
     classArray.push({
-      title: `${piece.piece}`,
+      title: `${talent.piece}`,
       link: `/gear/armourType/61e4fb8f4568c11c0804cd7c`,
-      image: backpackIcon,
+      image: `${talent.image?.image.publicUrlTransformed || backpackIcon}`,
       id: `620b16713f985c08074b7886`,
     });
   }
 
   // set classArray for a Named armour talent, link to that specific item
-  if (piece.__typename === 'ArmourType' && piece.isNamed === 'YES') {
+  if (talent.__typename === 'ArmourTalent' && talent.isNamed === 'YES') {
     classArray.push({
-      title: `${piece.name}`,
-      link: `/gear/${lowerCaseLink(piece.__typename)}/${piece.id}`,
+      title: `${talent.name}`,
+      link: `/talents/${lowerCaseLink(talent.__typename)}/${talent.id}`,
       image: `${
-        piece.image?.image.publicUrlTransformed ||
-        (piece.piece === 'Chest' ? chestIcon : backpackIcon)
+        talent.image?.image.publicUrlTransformed ||
+        (talent.piece === 'Chest' ? chestIcon : backpackIcon)
       }`,
-      id: `${piece.id}`,
+      id: `${talent.id}`,
     });
   }
 
   // set classArray for an Exotic armour talent, link to that specific item
-  if (piece.__typename === 'ArmourType' && piece.isExotic === 'YES') {
+  if (talent.__typename === 'ArmourTalent' && talent.isExotic === 'YES') {
     classArray.push({
-      title: `${piece.exoticArmourPiece[0].name}`,
-      link: `/exotics/${lowerCaseLink(piece.exoticArmourPiece[0].__typename)}/${
-        piece.exoticArmourPiece[0].id
-      }`,
-      image: `${piece.piece === 'Chest' ? chestIcon : backpackIcon}`,
-      id: `${piece.exoticArmourPiece[0].id}`,
+      title: `${talent.name}`,
+      link: `/talents/${lowerCaseLink(talent.__typename)}/${talent.id}`,
+      image: `${talent.piece === 'Chest' ? chestIcon : backpackIcon}`,
+      id: `${talent.id}`,
     });
   }
 
   return (
     <>
-      {piece.__typename === 'ArmourType' && (
+      {talent.__typename === 'ArmourTalent' && (
         <>
           <div className="single-gear-item__details">
             <div className="single-gear-item__subheading">

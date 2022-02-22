@@ -1,11 +1,48 @@
+import { useQuery } from '@apollo/client';
+import DisplayError from '../../../components/ErrorMessage';
+import { SINGLE_BRAND_QUERY } from '../../../queries/BrandQueries';
 import SingleBrand from '../../../components/SingleBrand';
-import LinkSmallWeapon from '../../../components/LinkSmallWeapon';
+import LinkSmallPiece from '../../../components/LinkSmallPiece';
+import LinkSmallTalent from '../../../components/LinkSmallTalent';
+import SingleGearItemStyle from '../../../components/styles/SingleGearItemStyles';
 
 export default function SingleBrandPage({ query }) {
+  const { data, loading, error } = useQuery(SINGLE_BRAND_QUERY, {
+    variables: {
+      id: query.id,
+    },
+  });
+  if (loading) return <p>Loading.....</p>;
+  if (error) return <DisplayError error={error} />;
+
+  const singleBrand = data.allBrands[0];
+  // console.log('SingleBrand', singleBrand);
+
   return (
     <>
-      <SingleBrand id={query.id} />
-      {/* <LinkSmallWeapon id={query.id} /> */}
+      <SingleGearItemStyle>
+        <SingleBrand brand={singleBrand} />
+        {singleBrand.armourTalent.length > 0 && (
+          <>
+            <h2 className="single-gear-item__subheading">
+              Brand Unique Talent
+            </h2>
+            {singleBrand.armourTalent.map((talent) => (
+              <LinkSmallTalent key={talent.id} talent={talent} />
+            ))}
+          </>
+        )}
+        {singleBrand.armourType.length > 0 && (
+          <>
+            <h2 className="single-gear-item__subheading">
+              Brand Unique Equipment
+            </h2>
+            {singleBrand.armourType.map((piece) => (
+              <LinkSmallPiece piece={piece} />
+            ))}
+          </>
+        )}
+      </SingleGearItemStyle>
     </>
   );
 }

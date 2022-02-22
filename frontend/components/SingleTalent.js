@@ -2,8 +2,6 @@ import { gql, useQuery } from '@apollo/client';
 import DisplayError from './ErrorMessage';
 import HeadSEO from './HeadSEO';
 import SingleGearItemStyle from './styles/SingleGearItemStyles';
-import LinkSmallPiece from './LinkSmallPiece';
-import LinkSmallWeapon from './LinkSmallWeapon';
 import { chestIcon, backpackIcon, weaponTalentIcon } from './ItemIcons';
 
 export const SINGLE_TALENT_QUERY = gql`
@@ -155,19 +153,6 @@ export default function SingleTalent({ id }) {
                 alt={singleTalent.image?.altText}
               />
             </div>
-          </div>
-          <div>
-            <h1 className="single-gear-item__heading">
-              Compatible Armour Piece
-            </h1>
-            <>
-              {singleTalent.__typename === 'ArmourTalent' && (
-                <LinkSmallPiece talent={singleTalent} />
-              )}
-              {singleTalent.__typename === 'WeaponTalent' && (
-                <LinkSmallWeapon talent={singleTalent} />
-              )}
-            </>
           </div>
         </>
       </SingleGearItemStyle>
