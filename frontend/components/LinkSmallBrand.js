@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { LinkStyles, TitleLink } from './styles/LinkStyles';
 
 export default function LinkSmallBrand({ brand }) {
-  console.log('BrandLink', brand);
   const brandUrl = `/gear/brand/${brand.id}`;
 
   return (

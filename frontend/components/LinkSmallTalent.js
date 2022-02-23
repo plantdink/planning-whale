@@ -6,7 +6,7 @@ import { chestIcon, backpackIcon } from './ItemIcons';
 export default function LinkSmallTalent({ talent }) {
   const classArray = [];
 
-  // set classArray for a chest talent, link to generic chest
+  // set classArray for a chest talent, link to specific talent
   if (
     talent.__typename === 'ArmourTalent' &&
     talent.piece === 'Chest' &&
@@ -14,14 +14,14 @@ export default function LinkSmallTalent({ talent }) {
     talent.isExotic === 'NO'
   ) {
     classArray.push({
-      title: `${talent.piece}`,
-      link: `/gear/armourType/61e4fa8b4568c11c0804cd2e`,
+      title: `${talent.name}`,
+      link: `/talents/armourTalent/${talent.id}`,
       image: `${talent.image?.image.publicUrlTransformed || chestIcon}`,
-      id: `620b16903f985c08074b794c`,
+      id: `${talent.id}`,
     });
   }
 
-  // set classArray for a backpack talent, link to generic backpack
+  // set classArray for a backpack talent, link to specific talent
   if (
     talent.__typename === 'ArmourTalent' &&
     talent.piece === 'Backpack' &&
@@ -29,10 +29,10 @@ export default function LinkSmallTalent({ talent }) {
     talent.isExotic === 'NO'
   ) {
     classArray.push({
-      title: `${talent.piece}`,
-      link: `/gear/armourType/61e4fb8f4568c11c0804cd7c`,
+      title: `${talent.name}`,
+      link: `/talents/armourTalent/${talent.id}`,
       image: `${talent.image?.image.publicUrlTransformed || backpackIcon}`,
-      id: `620b16713f985c08074b7886`,
+      id: `${talent.id}`,
     });
   }
 
@@ -67,10 +67,8 @@ export default function LinkSmallTalent({ talent }) {
             <div className="single-gear-item__subheading">
               {classArray.map((arrayItem) => (
                 <LinkStyles>
-                  <TitleLink>
-                    <Link key={arrayItem.id} href={arrayItem.link}>
-                      {arrayItem.title}
-                    </Link>
+                  <TitleLink key={arrayItem.id}>
+                    <Link href={arrayItem.link}>{arrayItem.title}</Link>
                   </TitleLink>
                   <img
                     className="standard-item"

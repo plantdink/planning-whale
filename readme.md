@@ -2,17 +2,17 @@
 
 Agent Field Manual is intended as a companion application for new agents in the world of Tom Clancy's The Division 2. It allows agents to quickly find and visualise different data about various game items.
 
-[Preview](https://res.cloudinary.com/dbm1h5w02/image/upload/c_scale,w_600/v1644552672/agent-field-manual/20220211-AgentFieldManualPreview_wxt0nl.png)
+![Preview image of a weapon stats page](https://res.cloudinary.com/dbm1h5w02/image/upload/c_scale,w_600/v1644552672/agent-field-manual/20220211-AgentFieldManualPreview_wxt0nl.png)
 
-##Project Description
+## Project Description
 
-##Features
+## Features
 
 ---
 
-##Technology that makes it work
+## Technology that makes it work
 
-###Frontend
+### Frontend
 
 - React
 - Next
@@ -24,7 +24,7 @@ Agent Field Manual is intended as a companion application for new agents in the 
 - Jest
 - Downshift
 
-###Backend
+### Backend
 
 - Node
 - Next
@@ -32,7 +32,7 @@ Agent Field Manual is intended as a companion application for new agents in the 
 - Nodemailer
 - Typescript
 
-###Stuff that makes me look like I know what I am doing
+### Stuff that makes me look like I know what I am doing
 
 - Babel
 - Eslint
@@ -40,28 +40,25 @@ Agent Field Manual is intended as a companion application for new agents in the 
 
 ---
 
----
+## Status
 
-##Status
 This project is under active development and has not been deployed.
 
 ---
 
----
+## How to contribute
 
-##How to contribute
 Contributions are welcome. If you find an error in the data etc, please raise an issue so I can track and fix it.
 
 ---
 
----
+## Acknowledgements & Thanks
 
-##Acknowledgements & Thanks
 This project would not have been at all possible without the Division community. The list below includes some of the people who have spent their time collecting and collating data both in, and out of the game. Without them I would not have had the wealth of resources and data to draw from in order to make this application.
 
 So from someone you have never met, many thanks.
 
-###Division 2 Gear Attribute Sheet (https://docs.google.com/spreadsheets/d/1REi6cA7oSzT7h0O9YD6uxAbnCTmE-YKMDctsKogzXC8/pubhtml#)
+### [Division 2 Gear Attribute Sheet](https://docs.google.com/spreadsheets/d/1REi6cA7oSzT7h0O9YD6uxAbnCTmE-YKMDctsKogzXC8/pubhtml#)
 
 - Ahmad
 - Google-1234
@@ -69,7 +66,7 @@ So from someone you have never met, many thanks.
 - Dartrunner
 - Regis I>
 
-###Division 2 Gear Spreadsheet (https://docs.google.com/spreadsheets/d/1nrPBmOrtpkEW1j5fbcRT7L-AXgsGOqMqxXoVtopsiGM/edit?usp=sharing)
+### [Division 2 Gear Spreadsheet](https://docs.google.com/spreadsheets/d/1nrPBmOrtpkEW1j5fbcRT7L-AXgsGOqMqxXoVtopsiGM/edit?usp=sharing)
 
 - Azurmen32
 - Bend3n
@@ -84,21 +81,22 @@ So from someone you have never met, many thanks.
 - SaulGood23
 - BobtailedMoss3 #3497
 
-###Division 2 Build Tool (https://github.com/mxswat/mx-division-builds)
+### [Division 2 Build Tool](https://github.com/mxswat/mx-division-builds)
 
 - mxswat
 
-###Division 2 Weekly Vendor Reset
+### [Division 2 Weekly Vendor Reset](https://rubenalamina.mx/the-division-weekly-vendor-reset/)
 
 - rubenalamina
 - the rest of the team who I can't find names of
 
-###Divison Subreddit (https://www.reddit.com/r/thedivision/)
+### [Divison Subreddit](https://www.reddit.com/r/thedivision/)
 
 - D3ltafr0st for the link to an older gearsheet
 - Vikeman45 for the some of the stats that really drive the visualisations in this application
 
 ---
 
-##License
+## License
+
 Creative Commons Attribution Share Alike 4.0

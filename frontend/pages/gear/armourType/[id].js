@@ -18,8 +18,6 @@ export default function SingleArmourTypePage({ query }) {
   const { ...armourPiece } =
     data.allArmourTypes[0] || data.allExoticArmourPieces[0];
 
-  console.log('SingleArmourPiece', armourPiece);
-
   return (
     <>
       <SingleGearItemStyle>
