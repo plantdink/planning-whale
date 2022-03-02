@@ -117,22 +117,20 @@ export default function LinkSmallPiece({ piece }) {
       {(piece.__typename === 'ArmourType' || 'ArmourTalent') && (
         <>
           <div className="single-gear-item__details">
-            <div className="single-gear-item__subheading">
-              {classArray.map((arrayItem) => (
-                <LinkStyles>
-                  <TitleLink>
-                    <Link key={arrayItem.id} href={arrayItem.link}>
-                      {arrayItem.title}
-                    </Link>
-                  </TitleLink>
-                  <img
-                    className="standard-item"
-                    src={arrayItem.image}
-                    alt={arrayItem.class}
-                  />
-                </LinkStyles>
-              ))}
-            </div>
+            {classArray.map((arrayItem) => (
+              <LinkStyles>
+                <TitleLink>
+                  <Link key={arrayItem.id} href={arrayItem.link}>
+                    {arrayItem.title}
+                  </Link>
+                </TitleLink>
+                <img
+                  className="standard-item"
+                  src={arrayItem.image}
+                  alt={arrayItem.class}
+                />
+              </LinkStyles>
+            ))}
           </div>
         </>
       )}

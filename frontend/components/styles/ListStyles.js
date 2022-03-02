@@ -8,15 +8,16 @@ export const ListStyles = styled.div`
 
 export const ListItem = styled.div`
   background: var(--orangeShade);
-  border: 1px solid var(--offWhite);
+  border: 1px solid var(--lightGrey);
   box-shadow: var(--bs);
+  width: 400px;
   position: relative;
   display: flex;
   flex-direction: column;
   img {
-    width: 100%;
+    width: 400px;
     height: 400px;
-    object-fit: none;
+    object-fit: cover;
     object-position: 50% 50%;
   }
 `;
@@ -26,7 +27,7 @@ export const ListTitle = styled.h3`
   margin-top: -3rem;
   transform: skew(5deg);
   text-align: center;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1); */
   a {
     background: var(--orange);
     display: inline;
@@ -34,7 +35,7 @@ export const ListTitle = styled.h3`
     text-transform: uppercase;
     font-size: 3rem;
     text-align: center;
-    color: white;
+    color: var(--text);
     padding: 0 1rem;
   }
 `;

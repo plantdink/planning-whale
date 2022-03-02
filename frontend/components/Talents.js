@@ -1,12 +1,7 @@
 import Link from 'next/link';
 import { ListStyles, ListItem, ListTitle } from './styles/ListStyles';
+import { armourTalentImage, weaponTalentImage } from './ItemIcons';
 import HeadSEO from './HeadSEO';
-
-const armourTalentImage =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644114295/agent-field-manual/61ff31765b249912fe4458b6.png';
-
-const weaponTalentImage =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1643601001/agent-field-manual/61f75c67bf8ae52333c9766c.png';
 
 export default function Talents() {
   return (

@@ -1,20 +1,9 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { ALL_NAMED_ARMOUR_PIECES_QUERY } from '../queries/ArmourPieceQueries';
 import { perPage } from '../config';
 import DisplayError from './ErrorMessage';
 import NamedArmourPiece from './NamedArmourPiece';
 import { ListStyles } from './styles/ListStyles';
-
-const ALL_NAMED_ARMOUR_PIECES_QUERY = gql`
-  query ALL_NAMED_ARMOUR_PIECES_QUERY($skip: Int, $first: Int) {
-    allArmourTypes(where: { isNamed: "YES" }, first: $first, skip: $skip) {
-      id
-      name
-      armourTalent {
-        name
-      }
-    }
-  }
-`;
 
 export default function NamedArmourPieces({ page }) {
   const { data, loading, error } = useQuery(ALL_NAMED_ARMOUR_PIECES_QUERY, {

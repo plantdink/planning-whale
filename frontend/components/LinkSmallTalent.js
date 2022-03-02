@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { LinkStyles, TitleLink } from './styles/LinkStyles';
-import { lowerCaseFirstLetter, lowerCaseLink } from '../lib/displayStrings';
+import { lowerCaseLink } from '../lib/displayStrings';
 import { chestIcon, backpackIcon } from './ItemIcons';
 
 export default function LinkSmallTalent({ talent }) {
@@ -64,20 +64,18 @@ export default function LinkSmallTalent({ talent }) {
       {talent.__typename === 'ArmourTalent' && (
         <>
           <div className="single-gear-item__details">
-            <div className="single-gear-item__subheading">
-              {classArray.map((arrayItem) => (
-                <LinkStyles>
-                  <TitleLink key={arrayItem.id}>
-                    <Link href={arrayItem.link}>{arrayItem.title}</Link>
-                  </TitleLink>
-                  <img
-                    className="standard-item"
-                    src={arrayItem.image}
-                    alt={arrayItem.class}
-                  />
-                </LinkStyles>
-              ))}
-            </div>
+            {classArray.map((arrayItem) => (
+              <LinkStyles>
+                <TitleLink key={arrayItem.id}>
+                  <Link href={arrayItem.link}>{arrayItem.title}</Link>
+                </TitleLink>
+                <img
+                  className="standard-item"
+                  src={arrayItem.image}
+                  alt={arrayItem.class}
+                />
+              </LinkStyles>
+            ))}
           </div>
         </>
       )}

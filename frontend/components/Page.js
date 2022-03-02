@@ -5,6 +5,7 @@ import Header from './Header';
 
 const GlobalStyles = createGlobalStyle`
   html {
+    --text: #444444;
     --offWhite: #dfdfdf;
     --orange: #ff6d10;
     --orangeShade: rgba(255, 109, 16, 0.3);
@@ -37,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
   }
   a {
     text-decoration: none;
-    color: var(--black);
+    color: var(--text);
   }
   a:hover {
     text-decoration: underline;

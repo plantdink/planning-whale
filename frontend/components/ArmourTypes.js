@@ -1,17 +1,9 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { ALL_ARMOUR_TYPES_QUERY } from '../queries/ArmourPieceQueries';
 import ArmourType from './ArmourType';
 import { ListStyles } from './styles/ListStyles';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../config';
-
-const ALL_ARMOUR_TYPES_QUERY = gql`
-  query ALL_ARMOUR_TYPES_QUERY($skip: Int = 0, $first: Int) {
-    allArmourTypes(first: $first, skip: $skip) {
-      id
-      name
-    }
-  }
-`;
 
 export default function ArmourTypes({ page }) {
   const { data, loading, error } = useQuery(ALL_ARMOUR_TYPES_QUERY, {

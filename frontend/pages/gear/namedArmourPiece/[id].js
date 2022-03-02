@@ -16,14 +16,15 @@ export default function SingleNamedArmourPiecePage({ query }) {
   if (error) return <DisplayError error={error} />;
 
   const { ...singleNamedPiece } = data.allArmourTypes[0];
-  console.log('SingleNamedPiece', singleNamedPiece);
 
   return (
     <SingleGearItemStyle>
       <SingleNamedArmourPiece singleNamedPiece={singleNamedPiece} />
       {singleNamedPiece.armourTalent.length > 0 && (
         <>
-          <h2 className="single-gear-item__subheading">Item Unique Talent</h2>
+          <div className="single-gear-item__title-bar">
+            <h2 className="single-gear-item__subheading">Item Unique Talent</h2>
+          </div>
           {singleNamedPiece.armourTalent.map((talent) => (
             <LinkSmallTalent key={talent.id} talent={talent} />
           ))}
@@ -31,7 +32,9 @@ export default function SingleNamedArmourPiecePage({ query }) {
       )}
       {singleNamedPiece.brand.length > 0 && (
         <>
-          <h2 className="single-gear-item__subheading">Brand of Item</h2>
+          <div className="single-gear-item__title-bar">
+            <h2 className="single-gear-item__subheading">Brand of Item</h2>
+          </div>
           {singleNamedPiece.brand.map((brand) => (
             <LinkSmallBrand key={brand.id} brand={brand} />
           ))}

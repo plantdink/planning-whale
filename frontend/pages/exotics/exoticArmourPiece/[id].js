@@ -20,9 +20,22 @@ export default function SingleExoticArmourPiecePage({ query }) {
     <>
       <SingleGearItemStyle>
         <SingleArmourPiece armourPiece={exoticArmourPiece} />
-        {exoticArmourPiece.exoticArmourTalent.length > 0 && (
+        {exoticArmourPiece.exoticArmourTalent.length < 2 && (
           <>
-            <h2 className="single-gear-item__subheading">Unique Talent</h2>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">Unique Talent</h2>
+            </div>
+            {exoticArmourPiece.exoticArmourTalent.map((talent) => (
+              <LinkSmallTalent key={talent.id} talent={talent} />
+            ))}
+          </>
+        )}
+
+        {exoticArmourPiece.exoticArmourTalent.length > 1 && (
+          <>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">Unique Talents</h2>
+            </div>
             {exoticArmourPiece.exoticArmourTalent.map((talent) => (
               <LinkSmallTalent key={talent.id} talent={talent} />
             ))}

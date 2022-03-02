@@ -1,9 +1,10 @@
+import { Spacer } from '../../components/styles/GridStyles';
 import Weapons from '../../components/Weapons';
 
 export default function weapons() {
   return (
-    <div>
+    <Spacer>
       <Weapons />
-    </div>
+    </Spacer>
   );
 }

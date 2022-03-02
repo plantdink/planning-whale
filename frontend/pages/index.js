@@ -1,3 +1,5 @@
+import LandingPortal from '../components/LandingPortal';
+
 export default function IndexPage() {
-  return <p>hello</p>;
+  return <LandingPortal />;
 }

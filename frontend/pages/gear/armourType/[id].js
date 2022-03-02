@@ -18,21 +18,43 @@ export default function SingleArmourTypePage({ query }) {
   const { ...armourPiece } =
     data.allArmourTypes[0] || data.allExoticArmourPieces[0];
 
+  console.log(armourPiece);
+
   return (
     <>
       <SingleGearItemStyle>
         <SingleArmourPiece armourPiece={armourPiece} />
-        {armourPiece.armourTalent.length > 0 && (
+        {armourPiece.armourTalent.length > 0 && armourPiece.isNamed === 'NO' && (
           <>
-            <h2 className="single-gear-item__subheading">Item Unique Talent</h2>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">
+                Item Compatible Talents
+              </h2>
+            </div>
             {armourPiece.armourTalent.map((talent) => (
               <LinkSmallTalent key={talent.id} talent={talent} />
             ))}
           </>
         )}
+
+        {armourPiece.armourTalent.length > 0 && (
+          <>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">
+                Item Unique Talent
+              </h2>
+            </div>
+            {armourPiece.armourTalent.map((talent) => (
+              <LinkSmallTalent key={talent.id} talent={talent} />
+            ))}
+          </>
+        )}
+
         {armourPiece.brand.length > 0 && (
           <>
-            <h2 className="single-gear-item__subheading">Brand of Item</h2>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">Brand of Item</h2>
+            </div>
             <LinkSmallBrand brand={armourPiece.brand[0]} />
           </>
         )}

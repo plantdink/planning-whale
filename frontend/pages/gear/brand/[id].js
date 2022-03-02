@@ -22,21 +22,40 @@ export default function SingleBrandPage({ query }) {
     <>
       <SingleGearItemStyle>
         <SingleBrand brand={singleBrand} />
-        {singleBrand.armourTalent.length > 0 && (
+
+        {singleBrand.armourTalent.length === 1 && (
           <>
-            <h2 className="single-gear-item__subheading">
-              Brand Unique Talent
-            </h2>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">
+                Brand Unique Talent
+              </h2>
+            </div>
             {singleBrand.armourTalent.map((talent) => (
               <LinkSmallTalent key={talent.id} talent={talent} />
             ))}
           </>
         )}
+
+        {singleBrand.armourTalent.length > 1 && (
+          <>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">
+                Brand Unique Talents
+              </h2>
+            </div>
+            {singleBrand.armourTalent.map((talent) => (
+              <LinkSmallTalent key={talent.id} talent={talent} />
+            ))}
+          </>
+        )}
+
         {singleBrand.armourType.length > 0 && (
           <>
-            <h2 className="single-gear-item__subheading">
-              Brand Unique Equipment
-            </h2>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">
+                Brand Unique Equipment
+              </h2>
+            </div>
             {singleBrand.armourType.map((piece) => (
               <LinkSmallPiece piece={piece} />
             ))}

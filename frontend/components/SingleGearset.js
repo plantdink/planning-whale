@@ -1,31 +1,9 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { SINGLE_GEARSET_QUERY } from '../queries/ArmourPieceQueries';
 import DisplayError from './ErrorMessage';
 import HeadSEO from './HeadSEO';
 import SingleGearItemStyle from './styles/SingleGearItemStyles';
 import { stringToParagraphs } from '../lib/displayStrings';
-
-const SINGLE_GEARSET_QUERY = gql`
-  query SINGLE_GEARSET_QUERY($id: ID!) {
-    allGearsets(where: { id: $id }) {
-      name
-      coreAttribute
-      coreAttributeValueLevel40
-      coreAttributeValueWT5
-      setBonusOne
-      setBonusTwo
-      setBonusThree
-      setBackpackTalent
-      setChestTalent
-      image {
-        image {
-          publicUrlTransformed
-        }
-        altText
-      }
-      notes
-    }
-  }
-`;
 
 export default function SingleGearset({ id }) {
   const { data, loading, error } = useQuery(SINGLE_GEARSET_QUERY, {
@@ -33,6 +11,7 @@ export default function SingleGearset({ id }) {
       id,
     },
   });
+
   if (loading) return <p>Loading....</p>;
   if (error) return <DisplayError error={error} />;
 
@@ -43,18 +22,23 @@ export default function SingleGearset({ id }) {
       <HeadSEO seoTag={singleGearset.name} />
       <SingleGearItemStyle>
         <>
-          <h1 className="single-gear-item__heading gearset-item">
-            {singleGearset.name}
-          </h1>
+          <div className="single-gear-item__title-bar">
+            <h1 className="single-gear-item__heading">{singleGearset.name}</h1>
+          </div>
           <div className="single-gear-item__content">
             <div className="single-item__details">
               {stringToParagraphs(singleGearset.notes)}
-              <h2 className="single-gear-item__subheading">
-                Core Attribute Type - {singleGearset.coreAttribute}
-              </h2>
+              <div className="single-gear-item__title-bar">
+                <h2 className="single-gear-item__subheading">
+                  Core Attribute - {singleGearset.coreAttribute}
+                </h2>
+              </div>
+
               <p>{singleGearset.coreAttributeValueLevel40} (Level 40)</p>
               <p>{singleGearset.coreAttributeValueWT5} (World Tier 5) </p>
-              <h2 className="single-gear-item__subheading">Set Bonuses</h2>
+              <div className="single-gear-item__title-bar">
+                <h2 className="single-gear-item__subheading">Set Bonuses</h2>
+              </div>
               <p>
                 <span className="single-gear-item__sub-subheading">
                   1 Piece -{' '}
@@ -88,7 +72,7 @@ export default function SingleGearset({ id }) {
             </div>
             <div className="item-image">
               <img
-                className="gearset-item"
+                className="standard-item"
                 src={singleGearset.image?.image.publicUrlTransformed}
                 alt={singleGearset.image?.altText}
               />

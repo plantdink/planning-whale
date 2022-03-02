@@ -1,18 +1,12 @@
 import Link from 'next/link';
 import { ListStyles, ListItem, ListTitle } from './styles/ListStyles';
+import {
+  brandIconLink,
+  gearsetIconLink,
+  armourPiecesIconLink,
+  namedArmourPiecesIconLink,
+} from './ItemIcons';
 import HeadSEO from './HeadSEO';
-
-const brandIconLink =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644195761/agent-field-manual/62006fb03e5849082bd943f5.png';
-
-const gearsetIconLink =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644195289/agent-field-manual/62006dd83e5849082bd94367.png';
-
-const armourPiecesIconLink =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644114295/agent-field-manual/61ff31765b249912fe4458b6.png';
-
-const namedArmourPiecesIconLink =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644114403/agent-field-manual/61ff31e25b249912fe445a00.png';
 
 export default function Gear() {
   return (

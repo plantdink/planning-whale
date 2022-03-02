@@ -22,9 +22,11 @@ export default function SingleArmourTalentPage({ query }) {
         <SingleTalent singleTalent={singleTalent} />
         {singleTalent.piece !== '' && (
           <>
-            <h2 className="single-gear-item__subheading">
-              Compatible Equipment
-            </h2>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">
+                Compatible Equipment
+              </h2>
+            </div>
             <LinkSmallPiece piece={singleTalent} />
           </>
         )}

@@ -1,40 +1,9 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { ALL_EXOTIC_WEAPONS_QUERY } from '../queries/WeaponQueries';
 import { perPage } from '../config';
 import DisplayError from './ErrorMessage';
 import ExoticWeapon from './ExoticWeapon';
 import ItemListStyles from './styles/ItemListStyles';
-
-const ALL_EXOTIC_WEAPONS_QUERY = gql`
-  query ALL_EXOTIC_WEAPONS_QUERY($skip: Int = 0, $first: Int) {
-    allWeapons(where: { isExotic: "YES" }, first: $first, skip: $skip) {
-      id
-      model
-      family
-      magazineSize
-      rpm
-      modSlots
-      reloadSpeed
-      reloadSpeedFromEmpty
-      accuracy
-      stability
-      optimalRange
-      maxRange
-      headshotMultiplier
-      weaponBonusType
-      maxBonusValue
-      damageLevel40
-      damageWt5
-      notes
-      isNamed
-      isExotic
-      image {
-        image {
-          publicUrlTransformed
-        }
-      }
-    }
-  }
-`;
 
 export default function ExoticWeapons({ page }) {
   const { data, loading, error } = useQuery(ALL_EXOTIC_WEAPONS_QUERY, {

@@ -9,7 +9,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { SINGLE_WEAPON_QUERY } from '../queries/WeaponQueries';
 import DisplayError from './ErrorMessage';
 import {
   displayPercentage,
@@ -22,57 +23,6 @@ import { titleCase } from '../lib/displayStrings';
 import { deAbbreviate } from '../lib/abbreviationsDictionary';
 import SingleWeaponStyles from './styles/SingleWeaponStyles';
 import LinkSmallWeaponTalent from './LinkSmallWeaponTalent';
-
-export const SINGLE_WEAPON_QUERY = gql`
-  query SINGLE_WEAPON_QUERY($id: ID!) {
-    allWeapons(where: { id: $id }) {
-      class
-      model
-      family
-      magazineSize
-      rpm
-      modSlots
-      reloadSpeed
-      reloadSpeedFromEmpty
-      accuracy
-      stability
-      optimalRange
-      maxRange
-      headshotMultiplier
-      weaponBonusType
-      maxBonusValue
-      damageLevel40
-      damageWt5
-      flavourText
-      isNamed
-      isExotic
-      weaponTalent {
-        id
-        name
-        image {
-          image {
-            publicUrlTransformed
-          }
-        }
-      }
-      averageWeapon {
-        class
-        magazineSize
-        rpm
-        modSlots
-        reloadSpeed
-        reloadSpeedFromEmpty
-        accuracy
-        stability
-        optimalRange
-        maxRange
-        headshotMultiplier
-        damageLevel40
-        damageWT5
-      }
-    }
-  }
-`;
 
 export default function SingleWeapon({ id }) {
   const { data, loading, error } = useQuery(SINGLE_WEAPON_QUERY, {
@@ -95,6 +45,9 @@ export default function SingleWeapon({ id }) {
     Legend
   );
 
+  // this sets the default size for the whole chart & tooltips, doesn't affect the individual point labels
+  ChartJS.defaults.font.size = 14;
+
   const options = {
     responsive: true,
     scales: {
@@ -107,12 +60,6 @@ export default function SingleWeapon({ id }) {
     plugins: {
       legend: {
         position: 'top',
-      },
-      title: {
-        display: true,
-        text: `${weapon.model} stats compared to the average ${titleCase(
-          avgWeapon.class
-        )}`,
       },
       tooltip: {
         callbacks: {
@@ -206,15 +153,15 @@ export default function SingleWeapon({ id }) {
     (avgWeapon.damageLevel40 / avgWeapon.damageLevel40) * 100,
   ];
 
-  // change the background colour of the chart dataset depending on weapon type
-  let backgroundColorComputed = 'rgba(255, 175, 16, 0.6)';
+  // change the background colour of the chart dataset fill depending on weapon type
+  let backgroundColorComputed = 'rgba(255, 109, 16, 0.6)';
   if (weapon.isExotic === 'YES')
     backgroundColorComputed = 'rgba(255, 111, 54, 0.6)';
   if (weapon.isNamed === 'YES')
     backgroundColorComputed = 'rgba(234, 162, 19, 0.6';
 
-  // change the colour of the chart dataset border depending on weapon type
-  let borderColorComputed = 'rgba(255, 175, 16, 1)';
+  // change the colour of the chart dataset border line depending on weapon type
+  let borderColorComputed = 'rgba(255, 109, 16, 1)';
   if (weapon.isExotic === 'YES') borderColorComputed = 'rgba(255, 111, 54, 1)';
   if (weapon.isNamed === 'YES') borderColorComputed = 'rgba(234, 162, 19, 1)';
 
@@ -226,7 +173,7 @@ export default function SingleWeapon({ id }) {
         data: weaponDatasetComputed,
         backgroundColor: backgroundColorComputed,
         borderColor: borderColorComputed,
-        borderWidth: 1,
+        borderWidth: 2,
       },
       {
         label: `Average ${titleCase(avgWeapon.class)}`,
@@ -242,17 +189,17 @@ export default function SingleWeapon({ id }) {
     <>
       <HeadSEO seoTag={weapon.model} />
       <SingleWeaponStyles>
-        <div className="single-weapon__title-bar">
-          <h1
-            className={`single-weapon__heading ${
-              weapon.isNamed === 'YES' ? 'named-weapon' : null
-            } ${weapon.isExotic === 'YES' ? 'exotic-weapon' : null}`}
-          >
-            {weapon.model}
-          </h1>
-        </div>
         <div className="single-weapon__content">
           <div className="single-weapon__details">
+            <div className="single-weapon__title-bar">
+              <h1
+                className={`single-weapon__heading ${
+                  weapon.isNamed === 'YES' ? 'named-weapon' : null
+                } ${weapon.isExotic === 'YES' ? 'exotic-weapon' : null}`}
+              >
+                {weapon.model}
+              </h1>
+            </div>
             {weapon.flavourText !== '' && (
               <blockquote>{weapon.flavourText}</blockquote>
             )}
@@ -260,12 +207,16 @@ export default function SingleWeapon({ id }) {
             <p>
               {titleCase(weapon.class)} {weapon.family}
             </p>
-            <h3 className="single-weapon__subheading">Base Damage</h3>
+            <div className="single-weapon__title-bar">
+              <h3 className="single-weapon__subheading">Base Damage</h3>
+            </div>
             <p>{humanReadableNumber(weapon.damageLevel40)} (Level 40)</p>
             <p>
               {humanReadableNumber(weapon.damageWt5) || 'N/A'} (World Tier 5)
             </p>
-            <h3 className="single-weapon__subheading">Specifications</h3>
+            <div className="single-weapon__title-bar">
+              <h3 className="single-weapon__subheading">Specifications</h3>
+            </div>
             {weapon.maxBonusValue > 1 && (
               <p>
                 {weapon.maxBonusValue}% {deAbbreviate(weapon.weaponBonusType)}
@@ -287,14 +238,21 @@ export default function SingleWeapon({ id }) {
               reload speed (empty magazine)
             </p>
           </div>
-          <div>
-            <Radar data={chartData} options={options} />
+          <div className="single-weapon__details">
+            <div className="single-weapon__title-bar">
+              <h3 className="single-weapon__subheading">Stats Comparison</h3>
+            </div>
+
+            <div>
+              <Radar data={chartData} options={options} />
+            </div>
           </div>
         </div>
+
         <div className="single-weapon__title-bar">
           <h1 className="single-weapon__heading">Compatible Weapon Talents</h1>
-          <LinkSmallWeaponTalent weapon={weapon} />
         </div>
+        <LinkSmallWeaponTalent weapon={weapon} />
       </SingleWeaponStyles>
     </>
   );

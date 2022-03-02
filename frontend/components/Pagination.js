@@ -1,26 +1,10 @@
 import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
+import { WEAPON_PAGINATION_QUERY } from '../queries/PaginationQueries';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../config';
 import { PaginationStyles } from './styles/PaginationStyles';
-
-export const WEAPON_PAGINATION_QUERY = gql`
-  query WEAPON_PAGINATION_QUERY(
-    $class: String
-    $isExotic: String
-    $isNamed: String
-  ) {
-    _allWeaponsMeta(
-      where: {
-        OR: [{ class: $class }, { isExotic: $isExotic }, { isNamed: $isNamed }]
-      }
-    ) {
-      count
-    }
-  }
-`;
 
 export default function Pagination({ page, queryString, weaponLink }) {
   const isExotic = queryString !== 'Exotic Weapon' ? null : 'YES';
@@ -29,11 +13,6 @@ export default function Pagination({ page, queryString, weaponLink }) {
   let weaponClass = queryString.toUpperCase();
   if (queryString === 'Exotic Weapon') weaponClass = null;
   if (queryString === 'Named Weapon') weaponClass = null;
-
-  // console.log('Query', queryString);
-  // console.log('WeaponClass', weaponClass);
-  // console.log('isExotic', isExotic);
-  // console.log('isNamed', isNamed);
 
   const { data, error, loading } = useQuery(WEAPON_PAGINATION_QUERY, {
     variables: {

@@ -47,3 +47,17 @@ export const SINGLE_BRAND_QUERY = gql`
     }
   }
 `;
+
+export const ALL_BRANDS_QUERY = gql`
+  query ALL_BRANDS_QUERY($skip: Int = 0, $first: Int) {
+    allBrands(first: $first, skip: $skip) {
+      id
+      name
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
+    }
+  }
+`;

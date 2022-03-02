@@ -4,7 +4,10 @@ import { ListItem, ListTitle } from './styles/ListStyles';
 export default function ArmourType({ armourType }) {
   return (
     <ListItem>
-      <img />
+      <img
+        src={armourType.image?.image.publicUrlTransformed}
+        alt={`${armourType.name} icon`}
+      />
       <ListTitle>
         <Link href={`/gear/armourType/${armourType.id}`}>
           {armourType.name}

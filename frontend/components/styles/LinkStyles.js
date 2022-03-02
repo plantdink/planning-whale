@@ -6,17 +6,17 @@ export const LinkStyles = styled.div`
   max-width: var(--maxWidth);
   background: white;
   border: 1px solid var(--offWhite);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   img {
     justify-self: end;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
   }
 
   .standard-item {
-    background: var(--highEndGold);
+    background: var(--orange);
   }
 
   .named-item {
@@ -35,15 +35,16 @@ export const LinkStyles = styled.div`
 export const TitleLink = styled.h3`
   align-self: center;
   margin: 0 1rem;
-  transform: skew(5deg);
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  transform: skew(7deg);
+  /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1); */
   a {
-    background: var(--orange);
+    background: white;
+    border: 1px solid var(--orange);
     display: inline;
     line-height: 1.3;
-    font-size: 4rem;
+    font-size: 2.8rem;
     text-align: center;
-    color: white;
+    color: var(--orange);
     padding: 0 1rem;
   }
 `;

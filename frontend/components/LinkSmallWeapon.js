@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { LinkStyles, TitleLink } from './styles/LinkStyles';
-import { lowerCaseFirstLetter, lowerCaseLink } from '../lib/displayStrings';
+import { lowerCaseFirstLetter } from '../lib/displayStrings';
 import {
   arIcon,
   lmgIcon,
@@ -124,9 +124,16 @@ export default function LinkSmallWeapon({ talent }) {
   return (
     <>
       <div className="single-gear-item__details">
-        <div className="single-gear-item__subheading">
-          Compatible Weapon Classes
-        </div>
+        {classArray.length >= 2 && (
+          <div className="single-gear-item__subheading">
+            Compatible Weapon Classes
+          </div>
+        )}
+        {classArray.length <= 1 && (
+          <div className="single-gear-item__subheading">
+            Compatible Weapon Class
+          </div>
+        )}
         {classArray.map((arrayItem) => (
           <LinkStyles>
             <TitleLink>

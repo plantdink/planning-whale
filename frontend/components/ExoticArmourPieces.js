@@ -1,17 +1,9 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { ALL_EXOTIC_ARMOUR_PIECES_QUERY } from '../queries/ArmourPieceQueries';
 import { perPage } from '../config';
 import DisplayError from './ErrorMessage';
 import ExoticArmourPiece from './ExoticArmourPiece';
 import { ListStyles } from './styles/ListStyles';
-
-const ALL_EXOTIC_ARMOUR_PIECES_QUERY = gql`
-  query ALL_EXOTIC_ARMOUR_PIECES_QUERY($skip: Int = 0, $first: Int) {
-    allExoticArmourPieces(skip: $skip, first: $first) {
-      id
-      name
-    }
-  }
-`;
 
 export default function ExoticArmourPieces({ page }) {
   const { data, loading, error } = useQuery(ALL_EXOTIC_ARMOUR_PIECES_QUERY, {

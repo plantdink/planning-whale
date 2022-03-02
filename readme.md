@@ -6,9 +6,26 @@ Agent Field Manual is intended as a companion application for new agents in the 
 
 ## Project Description
 
+This is a passion project designed to demonstrate full stack software engineering skills. It has allowed me to put into practice the entire process of creating a full stack application from the start with the concept and design, through to the implementation and creation, and ultimately to the deployment and maintenance.
+
+I have been able to practice and see the end results of the decisions I made during each step of the process.
+
 ## Features
 
----
+- Visualisation of each weapon stats
+- Complete list and values for each
+  - Weapon class
+  - Weapon type
+  - Armour piece
+  - Armour Type
+  - Brand
+  - Gear set
+  - Talent
+    - Weapon
+    - Armour
+- Admin User
+- GraphQL layer for database queries
+- MongoDB hosted database
 
 ## Technology that makes it work
 
@@ -38,19 +55,13 @@ Agent Field Manual is intended as a companion application for new agents in the 
 - Eslint
 - Prettier
 
----
-
 ## Status
 
 This project is under active development and has not been deployed.
 
----
-
 ## How to contribute
 
 Contributions are welcome. If you find an error in the data etc, please raise an issue so I can track and fix it.
-
----
 
 ## Acknowledgements & Thanks
 
@@ -94,8 +105,6 @@ So from someone you have never met, many thanks.
 
 - D3ltafr0st for the link to an older gearsheet
 - Vikeman45 for the some of the stats that really drive the visualisations in this application
-
----
 
 ## License
 

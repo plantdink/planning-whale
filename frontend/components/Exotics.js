@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import { ListStyles, ListItem, ListTitle } from './styles/ListStyles';
+import { exoticArmourIcon, exoticWeaponIcon } from './ItemIcons';
 import HeadSEO from './HeadSEO';
-
-const exoticWeaponIcon =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644287926/agent-field-manual/6201d7b5d9301f0836548af9.png';
-const exoticArmourIcon =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644289564/agent-field-manual/6201de1bd9301f0836548d55.png';
 
 export default function Exotics() {
   return (

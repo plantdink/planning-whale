@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const DamageTag = styled.span`
+export const DamageTag = styled.div`
   background: var(--orange);
-  transform: rotate(3deg);
-  color: white;
+  transform: rotate(-3deg);
+  color: var(--text);
   font-weight: 600;
   padding: 5px;
   line-height: 1;
@@ -14,10 +14,10 @@ export const DamageTag = styled.span`
   right: -2px;
 `;
 
-export const DamageTagText = styled.span`
+export const DamageTagText = styled.div`
   background: var(--orange);
-  transform: rotate(3deg);
-  color: white;
+  transform: rotate(-3deg);
+  color: var(--text);
   font-weight: 600;
   padding: 5px;
   line-height: 1;

@@ -32,41 +32,49 @@ const SingleWeaponStyles = styled.div`
   }
 
   .single-weapon__title-bar {
+    transform: skew(7deg);
+    margin-bottom: 1rem;
   }
 
   .single-weapon__heading {
     margin: 0 1rem;
     margin-top: -3rem;
-    transform: skew(7deg);
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
-    background: var(--highEndGold);
+    background: var(--orange);
     display: inline;
     line-height: 1.3;
-    font-size: 3rem;
-    color: white;
+    font-size: 4rem;
+    color: var(--text);
+    /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1); */
     padding: 0 1rem;
   }
 
   .single-weapon__subheading {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-    padding: 0.5rem 1rem 0;
+    margin: 0 1rem;
+    /* margin-top: 0rem; */
+    background: var(--orange);
+    display: inline;
     line-height: 2;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text);
+    /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1); */
+    padding: 0 1rem;
   }
 
   p {
+    color: var(--text);
     margin: 0.75rem 0;
-    font-weight: 300;
-    padding: 0 1rem;
-    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0 2.4rem;
+    font-size: 1.6rem;
   }
 
   blockquote {
-    margin: 0.75rem 0;
-    padding: 0 1rem;
-    font-weight: 200;
-    font-size: 1.5rem;
+    color: var(--text);
+    margin: 0.85rem 0;
+    padding: 0 2.4rem;
+    font-weight: 300;
+    font-size: 1.6rem;
   }
 
   .named-weapon {

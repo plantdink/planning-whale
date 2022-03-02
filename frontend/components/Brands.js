@@ -1,22 +1,10 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { ALL_BRANDS_QUERY } from '../queries/BrandQueries';
 import { ListStyles } from './styles/ListStyles';
 import Brand from './Brand';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../config';
 
-const ALL_BRANDS_QUERY = gql`
-  query ALL_BRANDS_QUERY($skip: Int = 0, $first: Int) {
-    allBrands(first: $first, skip: $skip) {
-      id
-      name
-      image {
-        image {
-          publicUrlTransformed
-        }
-      }
-    }
-  }
-`;
 export default function Brands({ page }) {
   const { data, error, loading } = useQuery(ALL_BRANDS_QUERY, {
     variables: {
@@ -24,6 +12,7 @@ export default function Brands({ page }) {
       first: perPage,
     },
   });
+
   if (loading) return <p>Loading....</p>;
   if (error) return <DisplayError error={error} />;
 

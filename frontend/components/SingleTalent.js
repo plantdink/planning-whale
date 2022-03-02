@@ -1,5 +1,4 @@
 import HeadSEO from './HeadSEO';
-import SingleGearItemStyle from './styles/SingleGearItemStyles';
 import { chestIcon, backpackIcon, weaponTalentIcon } from './ItemIcons';
 
 export default function SingleTalent({ singleTalent }) {
@@ -11,13 +10,9 @@ export default function SingleTalent({ singleTalent }) {
     <>
       <HeadSEO seoTag={singleTalent.name} />
       <>
-        <h1
-          className={`single-gear-item__heading ${
-            singleTalent.isNamed === 'YES' ? 'named-item' : null
-          } ${singleTalent.isExotic === 'YES' ? 'exotic-item' : null}`}
-        >
-          {singleTalent.name}
-        </h1>
+        <div className="single-gear-item__title-bar">
+          <h1 className="single-gear-item__heading">{singleTalent.name}</h1>
+        </div>
 
         {armourPieceIcon !== '' && (
           <img
@@ -41,20 +36,23 @@ export default function SingleTalent({ singleTalent }) {
 
         <div className="single-gear-item__content">
           <div className="single-item__details">
-            <h2 className="single-gear-item__subheading">Characteristics</h2>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">Characteristics</h2>
+            </div>
             {singleTalent.__typename === 'ArmourTalent' && (
               <>
                 <p>{singleTalent.type}</p>
-                <p>Available on: {singleTalent.piece}</p>
               </>
             )}
             <p>
-              <span>PVE:</span> {singleTalent.descriptionPVE}
+              <span className="single-gear-item__sub-subheading">PVE:</span>{' '}
+              {singleTalent.descriptionPVE}
             </p>
             {singleTalent.descriptionPVP && (
               <>
                 <p>
-                  <span>PVP:</span> {singleTalent.descriptionPVP}
+                  <span className="single-gear-item__sub-subheading">PVP:</span>{' '}
+                  {singleTalent.descriptionPVP}
                 </p>
               </>
             )}
@@ -62,13 +60,7 @@ export default function SingleTalent({ singleTalent }) {
 
           <div className="item-image">
             <img
-              className={`${
-                singleTalent.isNamed === 'YES' ? 'named-item' : 'standard-item'
-              } ${
-                singleTalent.isExotic === 'YES'
-                  ? 'exotic-item'
-                  : 'standard-item'
-              }`}
+              className="standard-item"
               src={singleTalent.image?.image.publicUrlTransformed}
               alt={singleTalent.image?.altText}
             />
