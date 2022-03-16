@@ -11,8 +11,9 @@ export default function SingleBrand({ brand }) {
         <div className="single-gear-item__title-bar">
           <h1 className="single-gear-item__heading">{brand.name}</h1>
         </div>
+
         <div className="single-gear-item__content">
-          <div className="single-item__details">
+          <div className="single-gear-item__details">
             {stringToParagraphs(brand.notes)}
             <div className="single-gear-item__title-bar">
               <h2 className="single-gear-item__subheading">
@@ -24,6 +25,7 @@ export default function SingleBrand({ brand }) {
             <div className="single-gear-item__title-bar">
               <h2 className="single-gear-item__subheading">Set Bonuses</h2>
             </div>
+            <p>Whilst wearing:</p>
             <p>
               <span className="single-gear-item__sub-subheading">
                 1 piece -{' '}
@@ -43,6 +45,7 @@ export default function SingleBrand({ brand }) {
               {brand.setBonusThree}
             </p>
           </div>
+
           <div className="item-image">
             <img
               className="standard-item"

@@ -10,7 +10,7 @@ import {
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 import { useQuery } from '@apollo/client';
-import { SINGLE_WEAPON_QUERY } from '../queries/WeaponQueries';
+import { SINGLE_AVERAGE_WEAPON_QUERY } from '../queries/WeaponQueries';
 import DisplayError from './ErrorMessage';
 import {
   displayPercentage,
@@ -24,8 +24,8 @@ import { deAbbreviate } from '../lib/abbreviationsDictionary';
 import SingleWeaponStyles from './styles/SingleWeaponStyles';
 import LinkSmallWeaponTalent from './LinkSmallWeaponTalent';
 
-export default function SingleWeapon({ id }) {
-  const { data, loading, error } = useQuery(SINGLE_WEAPON_QUERY, {
+export default function SingleAverageWeapon({ id }) {
+  const { data, loading, error } = useQuery(SINGLE_AVERAGE_WEAPON_QUERY, {
     variables: {
       id,
     },
@@ -33,8 +33,9 @@ export default function SingleWeapon({ id }) {
   if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
 
-  const weapon = data.allWeapons[0];
-  const avgWeapon = weapon.averageWeapon;
+  const weapon = data.allAverageWeapons[0];
+
+  // console.log(weapon);
 
   ChartJS.register(
     RadialLinearScale,
@@ -58,9 +59,9 @@ export default function SingleWeapon({ id }) {
       },
     },
     plugins: {
-      legend: {
-        position: 'top',
-      },
+      // legend: {
+      //   position: 'top',
+      // },
       tooltip: {
         callbacks: {
           label(context) {
@@ -74,32 +75,14 @@ export default function SingleWeapon({ id }) {
               weapon.modSlots,
               `${millisecondsToSeconds(weapon.reloadSpeed)} sec`,
               `${millisecondsToSeconds(weapon.reloadSpeedFromEmpty)} sec`,
-              `${humanReadableNumber(weapon.damageWt5) || 0}`,
+              `${humanReadableNumber(weapon.damageWT5) || 0}`,
               `${humanReadableNumber(weapon.damageLevel40)}`,
-            ];
-
-            const AverageWeaponDataSet = [
-              `${displayPercentage(avgWeapon.accuracy)}%`,
-              `${displayPercentage(avgWeapon.stability)}%`,
-              avgWeapon.magazineSize,
-              avgWeapon.rpm,
-              `${avgWeapon.optimalRange}m`,
-              `${avgWeapon.maxRange}m`,
-              avgWeapon.modSlots,
-              `${millisecondsToSeconds(avgWeapon.reloadSpeed)} sec`,
-              `${millisecondsToSeconds(avgWeapon.reloadSpeedFromEmpty)} sec`,
-              `${humanReadableNumber(avgWeapon.damageWT5)}`,
-              `${humanReadableNumber(avgWeapon.damageLevel40)}`,
             ];
 
             let labelValues = [];
 
-            if (context.dataset.label === weapon.model)
+            if (context.dataset.label === weapon.class)
               labelValues = weaponDataSet;
-            if (
-              context.dataset.label === `Average ${titleCase(avgWeapon.class)}`
-            )
-              labelValues = AverageWeaponDataSet;
             const label = labelValues[context.dataIndex];
             return label;
           },
@@ -126,61 +109,31 @@ export default function SingleWeapon({ id }) {
   ];
 
   const weaponDatasetComputed = [
-    (weapon.accuracy / avgWeapon.accuracy) * 100,
-    (weapon.stability / avgWeapon.stability) * 100,
-    (weapon.magazineSize / avgWeapon.magazineSize) * 100,
-    (weapon.rpm / avgWeapon.rpm) * 100,
-    (weapon.optimalRange / avgWeapon.optimalRange) * 100,
-    (weapon.maxRange / avgWeapon.maxRange) * 100,
-    (weapon.modSlots / avgWeapon.modSlots) * 100,
-    (weapon.reloadSpeed / avgWeapon.reloadSpeed) * 100,
-    (weapon.reloadSpeedFromEmpty / avgWeapon.reloadSpeedFromEmpty) * 100,
-    (weapon.damageWt5 / avgWeapon.damageWT5) * 100,
-    (weapon.damageLevel40 / avgWeapon.damageLevel40) * 100,
+    (weapon.accuracy / weapon.accuracy) * 100,
+    (weapon.stability / weapon.stability) * 100,
+    (weapon.magazineSize / weapon.magazineSize) * 100,
+    (weapon.rpm / weapon.rpm) * 100,
+    (weapon.optimalRange / weapon.optimalRange) * 100,
+    (weapon.maxRange / weapon.maxRange) * 100,
+    (weapon.modSlots / weapon.modSlots) * 100,
+    (weapon.reloadSpeed / weapon.reloadSpeed) * 100,
+    (weapon.reloadSpeedFromEmpty / weapon.reloadSpeedFromEmpty) * 100,
+    (weapon.damageWT5 / weapon.damageWT5) * 100,
+    (weapon.damageLevel40 / weapon.damageLevel40) * 100,
   ];
 
-  const averageWeaponDatasetComputed = [
-    (avgWeapon.accuracy / avgWeapon.accuracy) * 100,
-    (avgWeapon.stability / avgWeapon.stability) * 100,
-    (avgWeapon.magazineSize / avgWeapon.magazineSize) * 100,
-    (avgWeapon.rpm / avgWeapon.rpm) * 100,
-    (avgWeapon.optimalRange / avgWeapon.optimalRange) * 100,
-    (avgWeapon.maxRange / avgWeapon.maxRange) * 100,
-    (avgWeapon.modSlots / avgWeapon.modSlots) * 100,
-    (avgWeapon.reloadSpeed / avgWeapon.reloadSpeed) * 100,
-    (avgWeapon.reloadSpeedFromEmpty / avgWeapon.reloadSpeedFromEmpty) * 100,
-    (avgWeapon.damageWT5 / avgWeapon.damageWT5) * 100,
-    (avgWeapon.damageLevel40 / avgWeapon.damageLevel40) * 100,
-  ];
-
-  // change the background colour of the chart dataset fill depending on weapon type
-  let backgroundColorComputed = 'rgba(255, 109, 16, 0.6)';
-  if (weapon.isExotic === 'YES')
-    backgroundColorComputed = 'rgba(255, 111, 54, 0.6)';
-  if (weapon.isNamed === 'YES')
-    backgroundColorComputed = 'rgba(234, 162, 19, 0.6';
-
-  // change the colour of the chart dataset border line depending on weapon type
-  let borderColorComputed = 'rgba(255, 109, 16, 1)';
-  if (weapon.isExotic === 'YES') borderColorComputed = 'rgba(255, 111, 54, 1)';
-  if (weapon.isNamed === 'YES') borderColorComputed = 'rgba(234, 162, 19, 1)';
+  const backgroundColorComputed = 'rgba(255, 109, 16, 0.6)';
+  const borderColorComputed = 'rgba(255, 109, 16, 1)';
 
   const chartData = {
     labels: chartLabels,
     datasets: [
       {
-        label: `${weapon.model}`,
+        label: `${weapon.class}`,
         data: weaponDatasetComputed,
         backgroundColor: backgroundColorComputed,
         borderColor: borderColorComputed,
         borderWidth: 2,
-      },
-      {
-        label: `Average ${titleCase(avgWeapon.class)}`,
-        data: averageWeaponDatasetComputed,
-        backgroundColor: 'rgba(58, 58, 58, 0.3)',
-        borderColor: 'rgba(58, 58, 58, 0.8)',
-        borderWidth: 1,
       },
     ],
   };
@@ -192,22 +145,17 @@ export default function SingleWeapon({ id }) {
         <div className="single-weapon__content">
           <div className="single-weapon__details">
             <div className="single-weapon__title-bar">
-              <h1 className="single-weapon__heading">{weapon.model}</h1>
+              <h1 className="single-weapon__heading">{weapon.class}</h1>
             </div>
             {weapon.flavourText !== '' && (
               <blockquote>{weapon.flavourText}</blockquote>
             )}
 
-            <p>
-              {titleCase(weapon.class)} {weapon.family}
-            </p>
             <div className="single-weapon__title-bar">
               <h3 className="single-weapon__subheading">Base Damage</h3>
             </div>
             <p>{humanReadableNumber(weapon.damageLevel40)} (Level 40)</p>
-            <p>
-              {humanReadableNumber(weapon.damageWt5) || 'N/A'} (World Tier 5)
-            </p>
+            <p>{humanReadableNumber(weapon.damageWT5)} (World Tier 5)</p>
             <div className="single-weapon__title-bar">
               <h3 className="single-weapon__subheading">Specifications</h3>
             </div>
@@ -247,10 +195,10 @@ export default function SingleWeapon({ id }) {
           </div>
         </div>
 
-        <div className="single-weapon__title-bar">
+        {/* <div className="single-weapon__title-bar">
           <h1 className="single-weapon__heading">Compatible Weapon Talents</h1>
         </div>
-        <LinkSmallWeaponTalent weapon={weapon} />
+        <LinkSmallWeaponTalent weapon={weapon} /> */}
       </SingleWeaponStyles>
     </>
   );

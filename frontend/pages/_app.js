@@ -4,6 +4,7 @@ import Router from 'next/router';
 import Page from '../components/Page';
 import '../components/styles/nprogress.css';
 import withData from '../lib/withData';
+import { MenuStateProvider } from '../lib/menuState';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());

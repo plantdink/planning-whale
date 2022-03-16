@@ -42,7 +42,7 @@ const SingleWeaponStyles = styled.div`
     background: var(--orange);
     display: inline;
     line-height: 1.3;
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem);
     color: var(--text);
     /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1); */
     padding: 0 1rem;
@@ -54,7 +54,7 @@ const SingleWeaponStyles = styled.div`
     background: var(--orange);
     display: inline;
     line-height: 2;
-    font-size: 2rem;
+    font-size: clamp(1rem, 3vw, 2rem);
     font-weight: 600;
     color: var(--text);
     /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1); */
@@ -77,12 +77,25 @@ const SingleWeaponStyles = styled.div`
     font-size: 1.6rem;
   }
 
+  small {
+    color: var(--text);
+    font-size: 1.2rem;
+    padding: 0 2.4rem;
+  }
+
   .named-weapon {
     background: var(--namedGold);
   }
 
   .exotic-weapon {
     background: var(--exoticOrange);
+  }
+
+  @media (max-width: 35em) {
+    .single-weapon__content {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;
 

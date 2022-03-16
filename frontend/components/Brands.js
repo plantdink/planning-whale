@@ -17,12 +17,12 @@ export default function Brands({ page }) {
   if (error) return <DisplayError error={error} />;
 
   return (
-    <div>
+    <>
       <ListStyles>
         {data.allBrands.map((brand) => (
           <Brand key={brand.id} brand={brand} />
         ))}
       </ListStyles>
-    </div>
+    </>
   );
 }

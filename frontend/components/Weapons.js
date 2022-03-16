@@ -72,6 +72,12 @@ export default function Weapons() {
             <Link href="/weapons/exoticWeapons">Exotic Weapons</Link>
           </ListTitle>
         </ListItem>
+        <ListItem>
+          <img src={exoticIcon} alt="Average Weapon" />
+          <ListTitle>
+            <Link href="/weapons/averageWeapons">Average Weapons</Link>
+          </ListTitle>
+        </ListItem>
       </ListStyles>
     </>
   );

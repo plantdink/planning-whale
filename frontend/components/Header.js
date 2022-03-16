@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Logo, HeaderStyles } from './styles/HeaderStyles';
-import Nav from './Nav';
+import Navigation from './Navigation';
 import Search from './Search';
 
 // mount Search component on client to stop infinite rerenders
@@ -23,7 +23,7 @@ export default function Header() {
         <Logo>
           <Link href="/">Agent Field Manual</Link>
         </Logo>
-        <Nav />
+        <Navigation />
       </div>
       <div className="sub-bar">
         <ClientOnly>

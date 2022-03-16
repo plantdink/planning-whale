@@ -84,5 +84,20 @@ export const AverageWeapon = list({
       ref: "Weapon.averageWeapon",
       many: true,
     }),
+    weaponTalent: relationship({
+      label: "Related Talents",
+      ref: "WeaponTalent.averageWeapon",
+      many: true,
+    }),
+    image: relationship({
+      label: "Weapon Image",
+      ref: "FieldManualImage.averageWeapon",
+      ui: {
+        displayMode: "cards",
+        cardFields: ["image", "altText"],
+        inlineCreate: { fields: ["image", "altText"] },
+        inlineEdit: { fields: ["image", "altText"] },
+      },
+    }),
   },
 });

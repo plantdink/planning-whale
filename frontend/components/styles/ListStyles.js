@@ -1,22 +1,23 @@
 import styled from 'styled-components';
 
 export const ListStyles = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 60px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: 3rem;
+  /* padding: 1rem 0 2rem 0; */
 `;
 
 export const ListItem = styled.div`
   background: var(--orangeShade);
   border: 1px solid var(--lightGrey);
   box-shadow: var(--bs);
-  width: 400px;
+  max-width: 40rem;
   position: relative;
   display: flex;
   flex-direction: column;
   img {
-    width: 400px;
-    height: 400px;
+    min-width: 40rem;
     object-fit: cover;
     object-position: 50% 50%;
   }

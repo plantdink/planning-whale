@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import NamedWeapon from './NamedWeapon';
-import ItemListStyles from './styles/ItemListStyles';
+import { ListStyles } from './styles/ListStyles';
 import { ALL_NAMED_WEAPONS_QUERY } from '../queries/WeaponQueries';
 import { perPage } from '../config';
 import DisplayError from './ErrorMessage';
@@ -18,11 +18,11 @@ export default function NamedWeapons({ page }) {
 
   return (
     <div>
-      <ItemListStyles>
+      <ListStyles>
         {data.allWeapons.map((namedWeapon) => (
           <NamedWeapon key={namedWeapon.id} namedWeapon={namedWeapon} />
         ))}
-      </ItemListStyles>
+      </ListStyles>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { SINGLE_GEARSET_QUERY } from '../queries/ArmourPieceQueries';
+import { SINGLE_GEARSET_QUERY } from '../queries/GearsetQueries';
 import DisplayError from './ErrorMessage';
 import HeadSEO from './HeadSEO';
 import SingleGearItemStyle from './styles/SingleGearItemStyles';
@@ -37,8 +37,12 @@ export default function SingleGearset({ id }) {
               <p>{singleGearset.coreAttributeValueLevel40} (Level 40)</p>
               <p>{singleGearset.coreAttributeValueWT5} (World Tier 5) </p>
               <div className="single-gear-item__title-bar">
-                <h2 className="single-gear-item__subheading">Set Bonuses</h2>
+                <h2 className="single-gear-item__subheading">
+                  Gear Set Bonuses
+                </h2>
               </div>
+              <p>Whilst wearing:</p>
+
               <p>
                 <span className="single-gear-item__sub-subheading">
                   1 Piece -{' '}
@@ -53,19 +57,26 @@ export default function SingleGearset({ id }) {
               </p>
               <p>
                 <span className="single-gear-item__sub-subheading">
-                  3 Piece -{' '}
+                  3 Piece - {singleGearset.setBonusName}
                 </span>
-                {singleGearset.setBonusThree}
               </p>
+              <p>{singleGearset.setBonusThree}</p>
+              <div className="single-gear-item__title-bar">
+                <h2 className="single-gear-item__subheading">
+                  Gear Set Talents
+                </h2>
+              </div>
+
+              <p>Whilst wearing:</p>
               <p>
                 <span className="single-gear-item__sub-subheading">
-                  Chest -{' '}
+                  Chest: {singleGearset.setChestTalentName} -{' '}
                 </span>
                 {singleGearset.setChestTalent}
               </p>
               <p>
                 <span className="single-gear-item__sub-subheading">
-                  Backpack -{' '}
+                  Backpack: {singleGearset.setBackpackTalentName} -{' '}
                 </span>
                 {singleGearset.setBackpackTalent}
               </p>

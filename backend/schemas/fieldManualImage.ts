@@ -51,5 +51,9 @@ export const FieldManualImage = list({
       ref: "Gearset.image",
       many: true,
     }),
+    averageWeapon: relationship({
+      ref: "AverageWeapon.image",
+      many: true,
+    }),
   },
 });

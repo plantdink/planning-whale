@@ -8,6 +8,7 @@ export default function Nav() {
       <Link href="/gear">Armour</Link>
       <Link href="/exotics">Exotics</Link>
       <Link href="/talents">Talents</Link>
+      <Link href="/intel">Intel</Link>
     </NavStyles>
   );
 }

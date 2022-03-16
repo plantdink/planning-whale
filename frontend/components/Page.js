@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
   html {
     --text: #444444;
     --offWhite: #dfdfdf;
-    --orange: #ff6d10;
+    --orange: #ff6d10; //ff7f00 - ff6813
     --orangeShade: rgba(255, 109, 16, 0.3);
     --black: #393939;
     --grey: #3a3a3a;
@@ -21,10 +21,15 @@ const GlobalStyles = createGlobalStyle`
     --namedGold: #eaa213;
     --exoticOrange: #ff6f36;
     --gearsetGreen: #01ff90;
+    --rogueRed: #e61f1e;
+    --superior: #99109c;
+    --specialized: #1937e0;
+    --standard: #11ab2b;
+    --background: #f9f9f9;
     --minWidth: 900px;
     --maxWidth: 1200px;
     --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.5);
-    background: #f9f9f9;
+    background: var(--background);
     box-sizing: border-box;
     font-size: 62.5%;
   }
@@ -35,6 +40,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
+    /* overflow-x: hidden; //check for mobile menu */
   }
   a {
     text-decoration: none;
@@ -51,17 +57,14 @@ const GlobalStyles = createGlobalStyle`
 const ContentStyle = styled.div`
   min-height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
+  /* grid-template-rows: auto 1fr auto; */
+  /* grid-template-columns: 100%; */
 `;
 
 const InnerStyles = styled.div`
-  /* display: grid;
-  justify-items: center;
-  align-items: center; */
   max-width: var(--maxWidth);
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0 0 0;
 `;
 
 export default function Page({ children }) {

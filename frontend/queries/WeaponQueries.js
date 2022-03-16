@@ -51,6 +51,60 @@ export const SINGLE_WEAPON_QUERY = gql`
   }
 `;
 
+// ------------- Average Weapon Queries -----------
+
+export const ALL_AVERAGE_WEAPONS_QUERY = gql`
+  query ALL_AVERAGE_WEAPONS_QUERY {
+    allAverageWeapons {
+      id
+      class
+      modSlots
+      rpm
+      magazineSize
+      headshotMultiplier
+      accuracy
+      stability
+      optimalRange
+      maxRange
+      reloadSpeed
+      reloadSpeedFromEmpty
+      damageLevel40
+      damageWT5
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
+    }
+  }
+`;
+
+export const SINGLE_AVERAGE_WEAPON_QUERY = gql`
+  query SINGLE_AVERAGE_WEAPONS_QUERY($id: ID!) {
+    allAverageWeapons(where: { id: $id }) {
+      id
+      class
+      modSlots
+      rpm
+      magazineSize
+      headshotMultiplier
+      accuracy
+      stability
+      optimalRange
+      maxRange
+      reloadSpeed
+      reloadSpeedFromEmpty
+      damageLevel40
+      damageWT5
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
+    }
+  }
+`;
+
 //  ------------ Exotic Weapon Queries -------------
 
 export const ALL_EXOTIC_WEAPONS_QUERY = gql`

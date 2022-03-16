@@ -6,7 +6,6 @@ import { chestIcon, backpackIcon } from './ItemIcons';
 // this will create a link to a piece
 
 export default function LinkSmallPiece({ piece }) {
-  console.log('LinkSmallPiece', piece);
   const classArray = [];
 
   // set classArray for a chest talent, link to generic chest

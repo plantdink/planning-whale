@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { ALL_GEARSETS_QUERY } from '../queries/ArmourPieceQueries';
+import { ALL_GEARSETS_QUERY } from '../queries/GearsetQueries';
 import { ListStyles } from './styles/ListStyles';
 import Gearset from './Gearset';
 import { perPage } from '../config';

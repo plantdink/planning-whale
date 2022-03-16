@@ -27,12 +27,13 @@ const SingleGearItemStyle = styled.div`
   }
   
   .single-gear-item__icon-image {
+    justify-self: center;
     align-self: end;
     position: absolute;
     z-index: 1;
     right: 35px;
     top: 25px;
-    width: 40px;
+    width: clamp(2vw, 4vw, 40px);
     object-fit: contain;
   }
   
@@ -46,17 +47,19 @@ const SingleGearItemStyle = styled.div`
   .single-gear-item__content {
     display: flex;
   }
+
+  .single-gear-item__sub-content {
+    margin-top: 2rem;
+  }
   
   .single-gear-item__details {
-    flex: 1;
     flex-direction: column;
   }
 }
 
 .item-image {
-  flex: 5;
   img {
-    height: 150px;
+    max-width: clamp(10vw, 25vw, 150px);
     object-fit: contain;
   }
 }
@@ -76,7 +79,7 @@ const SingleGearItemStyle = styled.div`
   /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1); */
   background: var(--orange);
   line-height: 1.3;
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
   color: var(--text);
   padding: 0 1rem;
 }
@@ -89,20 +92,24 @@ const SingleGearItemStyle = styled.div`
   background: var(--orange);
   display: inline;
   line-height: 2;
-  font-size: 3rem;
+  font-size: clamp(1rem, 3vw, 2rem);
   font-weight: 600;
   color: var(--text);
   padding: 0 1rem;
 }
 
+.single-gear-item__subheading:first-child {
+  margin-top: 0rem;
+}
+
 .single-gear-item__h3subheading {
-  margin: 0 1rem;
+  margin: 0;
   margin-top: -3rem;
   /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1); */
   background: var(--orange);
   display: inline;
   line-height: 2;
-  font-size: 2rem;
+  font-size: clamp(1rem, 3vw, 1.8rem);
   font-weight: 600;
   color: var(--text);
   padding: 0 1rem;
@@ -118,17 +125,24 @@ const SingleGearItemStyle = styled.div`
 
 ul {
   margin: 0;
-  font-weight: 300;
-  font-size: 1.5rem;
+  color: var(--text);
+  font-weight: 400;
+  font-size: 1.6rem;
+  padding: 0;
   list-style-type: none;
 }
 
+li {
+  padding: 0.5rem 0 0 1.5rem;
+}
+
 p {
+  color: var(--text);
   justify-self: start;
   flex: auto;
   padding: 0 1rem 0 1rem;
   margin: 0.5rem 0;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.3;
   font-feature-settings: 'tnum';
@@ -136,9 +150,10 @@ p {
 }
 
 blockquote {
+  color: var(--text);
   margin: 0.75rem 0;
   padding: 0 1rem;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 1.6rem;
 }
 

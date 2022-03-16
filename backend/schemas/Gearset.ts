@@ -48,7 +48,7 @@ export const Gearset = list({
         { label: "Weapon Damage", value: "Weapon Damage" },
         { label: "Weapon Damage / Armour", value: "Weapon Damage / Armour" },
         { label: "Armour", value: "Armour" },
-        { label: "Skill Tier", value: "Skill Tier" },
+        { label: "Utility", value: "Utility" },
       ],
     }),
     coreAttributeValueLevel40: select({
@@ -68,7 +68,7 @@ export const Gearset = list({
       isRequired: true,
     }),
     coreAttributeValueWT5: select({
-      label: "Core Attribute Max Value (World Tier 5",
+      label: "Core Attribute Max Value (World Tier 5)",
       options: [
         { label: "9.9% Weapon Damage", value: "9.9% Weapon Damage" },
         { label: "42,458 Armour", value: "42,458 Armour" },
@@ -81,20 +81,23 @@ export const Gearset = list({
     }),
     setBonusOne: text({ label: "Set Bonus (2 pieces)" }),
     setBonusTwo: text({ label: "Set Bonus (3 pieces)" }),
+    setBonusName: text({ label: "Set Bonus Name (4 pieces)" }),
     setBonusThree: text({
-      label: "Set Bonus (4 pieces)",
+      label: "Set Bonus details (4 pieces)",
       ui: {
         displayMode: "textarea",
       },
     }),
+    setChestTalentName: text({ label: "Name of Set Chest Talent" }),
     setChestTalent: text({
-      label: "Set Chest Talent",
+      label: "Details of Set Chest Talent",
       ui: {
         displayMode: "textarea",
       },
     }),
+    setBackpackTalentName: text({ label: "Name of Set Backpack Talent" }),
     setBackpackTalent: text({
-      label: "Set Backpack talent",
+      label: "Details of Set Backpack talent",
       ui: {
         displayMode: "textarea",
       },

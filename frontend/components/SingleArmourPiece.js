@@ -7,17 +7,7 @@ export default function SingleArmourPiece({ armourPiece }) {
       <HeadSEO seoTag={armourPiece.name} />
       <>
         <div className="single-gear-item__title-bar">
-          <h1
-            className={`single-gear-item__heading ${
-              armourPiece.isNamed === 'YES' ? 'named-item' : null
-            } ${
-              armourPiece.__typename === 'ExoticArmourPiece'
-                ? 'exotic-item'
-                : null
-            }`}
-          >
-            {armourPiece.name}
-          </h1>
+          <h1 className="single-gear-item__heading">{armourPiece.name}</h1>
         </div>
         <img
           className="single-gear-item__icon-image"
@@ -31,18 +21,6 @@ export default function SingleArmourPiece({ armourPiece }) {
             )}
             <p>{armourPiece.piece}</p>
             {armourPiece.notes !== '' && <p>{armourPiece.notes}</p>}
-            {armourPiece.modSlots > 0 && (
-              <>
-                <div className="single-gear-item__title-bar">
-                  <h3 className="single-gear-item__h3subheading">
-                    Number of Mod Slots
-                  </h3>
-                </div>
-                <ul>
-                  <li>{armourPiece.modSlots}</li>
-                </ul>
-              </>
-            )}
           </div>
         </>
 
@@ -81,7 +59,7 @@ export default function SingleArmourPiece({ armourPiece }) {
                   <>
                     <div className="single-gear-item__title-bar">
                       <h3 className="single-gear-item__h3subheading">
-                        Secondary Attributes
+                        Minor Attributes
                       </h3>
                     </div>
                     <ul>
@@ -117,7 +95,7 @@ export default function SingleArmourPiece({ armourPiece }) {
                   </ul>
                   <div className="single-gear-item__title-bar">
                     <h3 className="single-gear-item__h3subheading">
-                      Secondary Attributes
+                      Minor Attributes
                     </h3>
                   </div>
                   <ul>
@@ -139,172 +117,17 @@ export default function SingleArmourPiece({ armourPiece }) {
         {/* -------- High end & named items Level 40 -------- */}
         <>
           {armourPiece.coreAttributeTypeOne && (
-            <div className="single-gear-item__content">
-              <div className="single-gear-item__details">
-                <div className="single-gear-item__title-bar">
-                  <h2 className="single-gear-item__subheading">
-                    Level 40 Stats
-                  </h2>
-                </div>
-                <div className="single-gear-item__title-bar">
-                  <h3 className="single-gear-item__h3subheading">
-                    Core Attributes
-                  </h3>
-                </div>
-
-                <ul>
-                  {armourPiece.coreAttributeTypeOne !== 'N/A' && (
-                    <li>
-                      {displayPercentage(
-                        armourPiece.maxCoreDamageLevel40.toString()
-                      )}
-                      % {armourPiece.coreAttributeTypeOne}
-                    </li>
-                  )}
-                  {armourPiece.coreAttributeTypeTwo !== 'N/A' && (
-                    <li>
-                      {humanReadableNumber(
-                        armourPiece.maxCoreArmourLevel40.toString()
-                      )}{' '}
-                      {armourPiece.coreAttributeTypeTwo}
-                    </li>
-                  )}
-                  {armourPiece.coreAttributeTypeThree !== 'N/A' && (
-                    <li>
-                      {armourPiece.maxCoreSkillTierLevel40.toString()}{' '}
-                      {armourPiece.coreAttributeTypeThree}
-                    </li>
-                  )}
-                </ul>
-
-                <>
-                  <div className="single-gear-item__title-bar">
-                    <h3 className="single-gear-item__h3subheading">
-                      Offensive Attributes
-                    </h3>
-                  </div>
-                  <ul>
-                    <li>{armourPiece.attributeOneType}</li>
-                    <li>{armourPiece.attributeTwoType}</li>
-                  </ul>
-                </>
-
-                {armourPiece.coreAttributeTypeOne && (
-                  <>
-                    <ul>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.offensiveAttributeOneMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.offensiveAttributeOneLevel40}
-                      </li>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.offensiveAttributeTwoMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.offensiveAttributeTwoLevel40}
-                      </li>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.offensiveAttributeThreeMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.offensiveAttributeThreeLevel40}
-                      </li>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.offensiveAttributeFourMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.offensiveAttributeFourLevel40}
-                      </li>
-                    </ul>
-                  </>
-                )}
-
-                {armourPiece.coreAttributeTypeTwo && (
-                  <>
-                    <div className="single-gear-item__title-bar">
-                      <h3 className="single-gear-item__h3subheading">
-                        Defensive Attributes
-                      </h3>
-                    </div>
-                    <ul>
-                      <li>
-                        {humanReadableNumber(
-                          armourPiece.defensiveAttributeOneMaxValueLevel40.toString()
-                        )}{' '}
-                        per second {armourPiece.defensiveAttributeOneLevel40}
-                      </li>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.defensiveAttributeTwoMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.defensiveAttributeTwoLevel40}
-                      </li>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.defensiveAttributeThreeMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.defensiveAttributeThreeLevel40}
-                      </li>
-                      <li>
-                        {humanReadableNumber(
-                          armourPiece.defensiveAttributeFourMaxValueLevel40.toString()
-                        )}{' '}
-                        {armourPiece.defensiveAttributeFourLevel40}
-                      </li>
-                    </ul>
-                  </>
-                )}
-
-                {armourPiece.coreAttributeTypeTwo && (
-                  <>
-                    <div className="single-gear-item__title-bar">
-                      <h3 className="single-gear-item__h3subheading">
-                        Skill Attributes
-                      </h3>
-                    </div>
-                    <ul>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.utilityAttributeOneMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.utilityAttributeOneLevel40}
-                      </li>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.utilityAttributeTwoMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.utilityAttributeTwoLevel40}
-                      </li>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.utilityAttributeThreeMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.utilityAttributeThreeLevel40}
-                      </li>
-                      <li>
-                        {displayPercentage(
-                          armourPiece.utilityAttributeFourMaxValueLevel40.toString()
-                        )}
-                        % {armourPiece.utilityAttributeFourLevel40}
-                      </li>
-                    </ul>
-                  </>
-                )}
-              </div>
-
-              {/* ------------- World Tier 5 below ----------- */}
-
-              {armourPiece.availableWT5 === 'Yes' && (
-                <div className="single-item-details">
+            <>
+              <div className="single-gear-item__content">
+                <div className="single-gear-item__details">
                   <div className="single-gear-item__title-bar">
                     <h2 className="single-gear-item__subheading">
-                      World Tier 5 Stats
+                      Level 40 Stats
                     </h2>
                   </div>
                   <div className="single-gear-item__title-bar">
                     <h3 className="single-gear-item__h3subheading">
-                      Core Attributes
+                      Core Attribute
                     </h3>
                   </div>
 
@@ -312,7 +135,7 @@ export default function SingleArmourPiece({ armourPiece }) {
                     {armourPiece.coreAttributeTypeOne !== 'N/A' && (
                       <li>
                         {displayPercentage(
-                          armourPiece.maxCoreValueDamageLevel30.toString()
+                          armourPiece.maxCoreDamageLevel40.toString()
                         )}
                         % {armourPiece.coreAttributeTypeOne}
                       </li>
@@ -320,73 +143,51 @@ export default function SingleArmourPiece({ armourPiece }) {
                     {armourPiece.coreAttributeTypeTwo !== 'N/A' && (
                       <li>
                         {humanReadableNumber(
-                          armourPiece.maxCoreArmourLevel30.toString()
+                          armourPiece.maxCoreArmourLevel40.toString()
                         )}{' '}
                         {armourPiece.coreAttributeTypeTwo}
                       </li>
                     )}
                     {armourPiece.coreAttributeTypeThree !== 'N/A' && (
                       <li>
-                        {armourPiece.maxCoreSkillTierLevel30.toString()}{' '}
+                        {armourPiece.maxCoreSkillTierLevel40.toString()}{' '}
                         {armourPiece.coreAttributeTypeThree}
                       </li>
                     )}
                   </ul>
 
-                  {armourPiece.coreOne && (
-                    <>
-                      <div className="single-gear-item__title-bar">
-                        <h3 className="single-gear-item__h3subheading">
-                          Attribute One
-                        </h3>
-                      </div>
-                      <ul>
-                        <li>
-                          {armourPiece.attributeOneType} -{' '}
-                          {armourPiece.attributeOneValueLevel30}%
-                        </li>
-                      </ul>
-                    </>
-                  )}
-
-                  {armourPiece.coreAttributeTypeOne && (
-                    <>
-                      <div className="single-gear-item__title-bar">
-                        <h3 className="single-gear-item__h3subheading">
-                          Offensive Attributes
-                        </h3>
-                      </div>
-                      <ul>
-                        <li>{armourPiece.attributeOneType}</li>
-                        <li>{armourPiece.attributeTwoType}</li>
-                      </ul>
-                    </>
-                  )}
+                  <>
+                    <div className="single-gear-item__title-bar">
+                      <h3 className="single-gear-item__h3subheading">
+                        Minor Attributes - Offensive
+                      </h3>
+                    </div>
+                  </>
 
                   {armourPiece.coreAttributeTypeOne && (
                     <>
                       <ul>
                         <li>
                           {displayPercentage(
-                            armourPiece.offensiveAttributeOneMaxValueLevel30.toString()
+                            armourPiece.offensiveAttributeOneMaxValueLevel40.toString()
                           )}
                           % {armourPiece.offensiveAttributeOneLevel40}
                         </li>
                         <li>
                           {displayPercentage(
-                            armourPiece.offensiveAttributeTwoMaxValueLevel30.toString()
+                            armourPiece.offensiveAttributeTwoMaxValueLevel40.toString()
                           )}
                           % {armourPiece.offensiveAttributeTwoLevel40}
                         </li>
                         <li>
                           {displayPercentage(
-                            armourPiece.offensiveAttributeThreeMaxValueLevel30.toString()
+                            armourPiece.offensiveAttributeThreeMaxValueLevel40.toString()
                           )}
                           % {armourPiece.offensiveAttributeThreeLevel40}
                         </li>
                         <li>
                           {displayPercentage(
-                            armourPiece.offensiveAttributeFourMaxValueLevel30.toString()
+                            armourPiece.offensiveAttributeFourMaxValueLevel40.toString()
                           )}
                           % {armourPiece.offensiveAttributeFourLevel40}
                         </li>
@@ -398,31 +199,31 @@ export default function SingleArmourPiece({ armourPiece }) {
                     <>
                       <div className="single-gear-item__title-bar">
                         <h3 className="single-gear-item__h3subheading">
-                          Defensive Attributes
+                          Minor Attributes - Defensive
                         </h3>
                       </div>
                       <ul>
                         <li>
                           {humanReadableNumber(
-                            armourPiece.defensiveAttributeOneMaxValueLevel30.toString()
+                            armourPiece.defensiveAttributeOneMaxValueLevel40.toString()
                           )}{' '}
                           per second {armourPiece.defensiveAttributeOneLevel40}
                         </li>
                         <li>
                           {displayPercentage(
-                            armourPiece.defensiveAttributeTwoMaxValueLevel30.toString()
+                            armourPiece.defensiveAttributeTwoMaxValueLevel40.toString()
                           )}
                           % {armourPiece.defensiveAttributeTwoLevel40}
                         </li>
                         <li>
                           {displayPercentage(
-                            armourPiece.defensiveAttributeThreeMaxValueLevel30.toString()
+                            armourPiece.defensiveAttributeThreeMaxValueLevel40.toString()
                           )}
                           % {armourPiece.defensiveAttributeThreeLevel40}
                         </li>
                         <li>
                           {humanReadableNumber(
-                            armourPiece.defensiveAttributeFourMaxValueLevel30.toString()
+                            armourPiece.defensiveAttributeFourMaxValueLevel40.toString()
                           )}{' '}
                           {armourPiece.defensiveAttributeFourLevel40}
                         </li>
@@ -434,31 +235,31 @@ export default function SingleArmourPiece({ armourPiece }) {
                     <>
                       <div className="single-gear-item__title-bar">
                         <h3 className="single-gear-item__h3subheading">
-                          Skill Attributes
+                          Minor Attributes - Utility
                         </h3>
                       </div>
                       <ul>
                         <li>
                           {displayPercentage(
-                            armourPiece.utilityAttributeOneMaxValueLevel30.toString()
+                            armourPiece.utilityAttributeOneMaxValueLevel40.toString()
                           )}
                           % {armourPiece.utilityAttributeOneLevel40}
                         </li>
                         <li>
                           {displayPercentage(
-                            armourPiece.utilityAttributeTwoMaxValueLevel30.toString()
+                            armourPiece.utilityAttributeTwoMaxValueLevel40.toString()
                           )}
                           % {armourPiece.utilityAttributeTwoLevel40}
                         </li>
                         <li>
                           {displayPercentage(
-                            armourPiece.utilityAttributeThreeMaxValueLevel30.toString()
+                            armourPiece.utilityAttributeThreeMaxValueLevel40.toString()
                           )}
                           % {armourPiece.utilityAttributeThreeLevel40}
                         </li>
                         <li>
                           {displayPercentage(
-                            armourPiece.utilityAttributeFourMaxValueLevel30.toString()
+                            armourPiece.utilityAttributeFourMaxValueLevel40.toString()
                           )}
                           % {armourPiece.utilityAttributeFourLevel40}
                         </li>
@@ -466,8 +267,216 @@ export default function SingleArmourPiece({ armourPiece }) {
                     </>
                   )}
                 </div>
+
+                {/* ------------- World Tier 5 below ----------- */}
+
+                {armourPiece.availableWT5 === 'Yes' && (
+                  <div className="single-gear-item__details">
+                    <div className="single-gear-item__title-bar">
+                      <h2 className="single-gear-item__subheading">
+                        World Tier 5 Stats
+                      </h2>
+                    </div>
+                    <div className="single-gear-item__title-bar">
+                      <h3 className="single-gear-item__h3subheading">
+                        Core Attributes
+                      </h3>
+                    </div>
+
+                    <ul>
+                      {armourPiece.coreAttributeTypeOne !== 'N/A' && (
+                        <li>
+                          {displayPercentage(
+                            armourPiece.maxCoreValueDamageLevel30.toString()
+                          )}
+                          % {armourPiece.coreAttributeTypeOne}
+                        </li>
+                      )}
+                      {armourPiece.coreAttributeTypeTwo !== 'N/A' && (
+                        <li>
+                          {humanReadableNumber(
+                            armourPiece.maxCoreArmourLevel30.toString()
+                          )}{' '}
+                          {armourPiece.coreAttributeTypeTwo}
+                        </li>
+                      )}
+                      {armourPiece.coreAttributeTypeThree !== 'N/A' && (
+                        <li>
+                          {armourPiece.maxCoreSkillTierLevel30.toString()}{' '}
+                          {armourPiece.coreAttributeTypeThree}
+                        </li>
+                      )}
+                    </ul>
+
+                    {armourPiece.coreOne && (
+                      <>
+                        <div className="single-gear-item__title-bar">
+                          <h3 className="single-gear-item__h3subheading">
+                            Attribute One
+                          </h3>
+                        </div>
+                        <ul>
+                          <li>
+                            {armourPiece.attributeOneType} -{' '}
+                            {armourPiece.attributeOneValueLevel30}%
+                          </li>
+                        </ul>
+                      </>
+                    )}
+
+                    {armourPiece.coreAttributeTypeOne && (
+                      <>
+                        <div className="single-gear-item__title-bar">
+                          <h3 className="single-gear-item__h3subheading">
+                            Minor Attributes - Offensive
+                          </h3>
+                        </div>
+                        <ul>
+                          <li>{armourPiece.attributeOneType}</li>
+                          <li>{armourPiece.attributeTwoType}</li>
+                        </ul>
+                      </>
+                    )}
+
+                    {armourPiece.coreAttributeTypeOne && (
+                      <>
+                        <ul>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.offensiveAttributeOneMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.offensiveAttributeOneLevel40}
+                          </li>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.offensiveAttributeTwoMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.offensiveAttributeTwoLevel40}
+                          </li>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.offensiveAttributeThreeMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.offensiveAttributeThreeLevel40}
+                          </li>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.offensiveAttributeFourMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.offensiveAttributeFourLevel40}
+                          </li>
+                        </ul>
+                      </>
+                    )}
+
+                    {armourPiece.coreAttributeTypeTwo && (
+                      <>
+                        <div className="single-gear-item__title-bar">
+                          <h3 className="single-gear-item__h3subheading">
+                            Minor Attributes - Defensive
+                          </h3>
+                        </div>
+                        <ul>
+                          <li>
+                            {humanReadableNumber(
+                              armourPiece.defensiveAttributeOneMaxValueLevel30.toString()
+                            )}{' '}
+                            per second{' '}
+                            {armourPiece.defensiveAttributeOneLevel40}
+                          </li>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.defensiveAttributeTwoMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.defensiveAttributeTwoLevel40}
+                          </li>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.defensiveAttributeThreeMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.defensiveAttributeThreeLevel40}
+                          </li>
+                          <li>
+                            {humanReadableNumber(
+                              armourPiece.defensiveAttributeFourMaxValueLevel30.toString()
+                            )}{' '}
+                            {armourPiece.defensiveAttributeFourLevel40}
+                          </li>
+                        </ul>
+                      </>
+                    )}
+
+                    {armourPiece.coreAttributeTypeTwo && (
+                      <>
+                        <div className="single-gear-item__title-bar">
+                          <h3 className="single-gear-item__h3subheading">
+                            Minor Attributes - Utility
+                          </h3>
+                        </div>
+                        <ul>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.utilityAttributeOneMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.utilityAttributeOneLevel40}
+                          </li>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.utilityAttributeTwoMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.utilityAttributeTwoLevel40}
+                          </li>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.utilityAttributeThreeMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.utilityAttributeThreeLevel40}
+                          </li>
+                          <li>
+                            {displayPercentage(
+                              armourPiece.utilityAttributeFourMaxValueLevel30.toString()
+                            )}
+                            % {armourPiece.utilityAttributeFourLevel40}
+                          </li>
+                        </ul>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {(armourPiece.uniqueAttribute || armourPiece.modSlots > 0) && (
+                <div className="single-gear-item__sub-content">
+                  <div className="single-gear-item__details">
+                    {armourPiece.uniqueAttribute && (
+                      <>
+                        <div className="single-gear-item__title-bar">
+                          <h3 className="single-gear-item__h3subheading">
+                            Item Unique Attribute
+                          </h3>
+                        </div>
+                        <ul>
+                          <li>{armourPiece.uniqueAttribute}</li>
+                        </ul>
+                      </>
+                    )}
+
+                    {armourPiece.modSlots > 0 && (
+                      <>
+                        <div className="single-gear-item__title-bar">
+                          <h3 className="single-gear-item__h3subheading">
+                            Number of Mod Slots
+                          </h3>
+                        </div>
+                        <ul>
+                          <li>{armourPiece.modSlots}</li>
+                        </ul>
+                      </>
+                    )}
+                  </div>
+                </div>
               )}
-            </div>
+            </>
           )}
         </>
       </>

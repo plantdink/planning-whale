@@ -15,7 +15,7 @@ export function millisecondsToSeconds(number = 0) {
 
 export function humanReadableNumber(num = 0, lang = null) {
   if (!num) return;
-  const locale = lang || document.documentElement.lang || 'en';
+  const locale = lang || 'en'; // removed || document.documentElement.lang
   const number = parseFloat(num, 10);
   return number.toLocaleString(locale);
 }

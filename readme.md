@@ -104,8 +104,8 @@ So from someone you have never met, many thanks.
 ### [Divison Subreddit](https://www.reddit.com/r/thedivision/)
 
 - D3ltafr0st for the link to an older gearsheet
-- Vikeman45 for the some of the stats that really drive the visualisations in this application
+- Vikeman45 for the important stats that really drive the weapon visualisations in this application
 
 ## License
 
-Creative Commons Attribution Share Alike 4.0
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)

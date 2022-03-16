@@ -61,23 +61,31 @@ export const Brand = list({
       label: "Brand Core Attribute",
       options: [
         { label: "Weapon Damage", value: "Weapon Damage" },
-        { label: "Weapon Damage / Armour", value: "Weapon Damage / Armour" },
         { label: "Armour", value: "Armour" },
-        { label: "Skill Tier", value: "Skill Tier" },
+        { label: "Utility", value: "Utility" },
+        { label: "Weapon Damage / Armour", value: "Weapon Damage / Armour" },
+        {
+          label: "Weapon Damage / Armour / Utility",
+          value: "Weapon Damage / Armour / Utility",
+        },
       ],
     }),
     coreAttributeValueLevel40: select({
       label: "Core Attribute Max Value (Level 40)",
       options: [
         { label: "15% Weapon Damage", value: "15% Weapon Damage" },
-        {
-          label: "15% Weapon Damage / 170,000 Armour",
-          value: "15% Weapon Damage / 170,000 Armour",
-        },
         { label: "170,000 Armour", value: "170,000 Armour" },
         {
           label: "+1 Skill Tier",
           value: "+1 Skill Tier",
+        },
+        {
+          label: "15% Weapon Damage / 170,000 Armour",
+          value: "15% Weapon Damage / 170,000 Armour",
+        },
+        {
+          label: "15% Weapon Damage / 170,000 Armour / + 1 Skill Tier",
+          value: "15% Weapon Damage / 170,000 Armour / + 1 Skill Tier",
         },
       ],
       isRequired: true,
@@ -90,6 +98,10 @@ export const Brand = list({
         {
           label: "+1 Skill Tier",
           value: "+1 Skill Tier",
+        },
+        {
+          label: "9.9% Weapon Damage / 42,458 Armour / + 1 Skill Tier",
+          value: "9.9% Weapon Damage / 42,458 Armour / + 1 Skill Tier",
         },
       ],
       isRequired: true,

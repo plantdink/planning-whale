@@ -51,6 +51,7 @@ export const SINGLE_ARMOUR_PIECE_QUERY = gql`
       utilityAttributeTwoMaxValueLevel30
       utilityAttributeThreeMaxValueLevel30
       utilityAttributeFourMaxValueLevel30
+      uniqueAttribute
       notes
       flavourText
       availableWT5
@@ -93,6 +94,11 @@ export const ALL_EXOTIC_ARMOUR_PIECES_QUERY = gql`
     allExoticArmourPieces(skip: $skip, first: $first) {
       id
       name
+      image {
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;
@@ -209,6 +215,7 @@ export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
       utilityAttributeTwoMaxValueLevel30
       utilityAttributeThreeMaxValueLevel30
       utilityAttributeFourMaxValueLevel30
+      uniqueAttribute
       notes
       flavourText
       availableWT5
@@ -256,46 +263,6 @@ export const ALL_ARMOUR_TYPES_QUERY = gql`
           publicUrlTransformed
         }
       }
-    }
-  }
-`;
-
-//  -------------- Gearset Queries ----------------
-
-export const ALL_GEARSETS_QUERY = gql`
-  query ALL_GEARSETS_QUERY($skip: Int = 0, $first: Int) {
-    allGearsets(first: $first, skip: $skip) {
-      id
-      name
-      image {
-        image {
-          publicUrlTransformed
-        }
-        altText
-      }
-    }
-  }
-`;
-
-export const SINGLE_GEARSET_QUERY = gql`
-  query SINGLE_GEARSET_QUERY($id: ID!) {
-    allGearsets(where: { id: $id }) {
-      name
-      coreAttribute
-      coreAttributeValueLevel40
-      coreAttributeValueWT5
-      setBonusOne
-      setBonusTwo
-      setBonusThree
-      setBackpackTalent
-      setChestTalent
-      image {
-        image {
-          publicUrlTransformed
-        }
-        altText
-      }
-      notes
     }
   }
 `;

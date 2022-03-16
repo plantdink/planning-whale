@@ -42,7 +42,7 @@ export const ExoticArmourPiece = list({
       options: [
         { label: "Weapon Damage", value: "Weapon Damage" },
         { label: "Armour", value: "Armour" },
-        { label: "+1 Skill Tier", value: "Skill Tier" },
+        { label: "Utility", value: "Utility" },
       ],
       isRequired: true,
     }),
@@ -67,7 +67,7 @@ export const ExoticArmourPiece = list({
       options: [
         { label: "Weapon Damage", value: "Weapon Damage" },
         { label: "Armour", value: "Armour" },
-        { label: "+1 Skill Tier", value: "Skill Tier" },
+        { label: "Utility", value: "Utility" },
       ],
     }),
     maxCoreTwoValueLevel40: select({
@@ -75,7 +75,7 @@ export const ExoticArmourPiece = list({
       options: [
         { label: "15%", value: "15%" },
         { label: "170,000", value: "170,000" },
-        { label: "+1 Skill Tier (World Tier 5 & Lvl 40)", value: "1" },
+        { label: "Utility (World Tier 5 & Lvl 40)", value: "1" },
       ],
     }),
     maxCoreTwoValueLevel30: select({
@@ -91,7 +91,7 @@ export const ExoticArmourPiece = list({
       options: [
         { label: "Weapon Damage", value: "Weapon Damage" },
         { label: "Armour", value: "Armour" },
-        { label: "+1 Skill Tier", value: "Skill Tier" },
+        { label: "Utility", value: "Utility" },
       ],
     }),
     maxCoreThreeValueLevel40: select({

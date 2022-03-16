@@ -1,44 +1,82 @@
 import Link from 'next/link';
-import styled from 'styled-components';
 import SignOut from './SignOut';
 import { useUser } from './User';
+import FooterStyles from './styles/FooterStyles';
 
-const FooterStyles = styled.footer`
-  .footer {
-    grid-row-start: 2;
-    grid-row-end: 3;
-    font-size: 1rem;
-    padding: 1rem;
-    background-color: var(--orange);
-    border-top: 10px solid var(--black, black);
-    a {
-      margin-left: 2rem;
-      color: white;
-      text-decoration: none;
-      text-transform: uppercase;
-      padding: 0.5rem 1rem;
-    }
-  }
-`;
+//  Support Links
+const websiteFaults = 'https://github.com/plantdink/planning-whale/issues';
+const contactMe = '';
+const githubRepo = 'https://github.com/plantdink/planning-whale';
+
+//  Community Site Links
+const div2Builds = 'https://mxswat.github.io/mx-division-builds/#/';
+const weeklyVendorReset =
+  'http://rubenalamina.mx/the-division-weekly-vendor-reset/';
+const subReddit = 'https://www.reddit.com/r/thedivision/';
+
+//  Admin Links
+const backend = '';
+const signIn = '/signin';
 
 export default function Footer() {
   const user = useUser();
 
   return (
     <FooterStyles>
-      <div className="footer">
-        {user && (
-          <>
-            <Link href="/">Admin Backend</Link>
-            <SignOut />
-          </>
-        )}
-        {!user && (
-          <>
-            <Link href="/signin">Admin Login</Link>
-          </>
-        )}
-      </div>
+      <nav className="footer-content__parent">
+        <div className="footer-content__child">
+          <h4>Support</h4>
+          <ul>
+            <li>
+              <a href={websiteFaults}>Report Website Issues, Bugs</a>
+            </li>
+            <li>
+              <a href={contactMe}>Contact the Developer</a>
+            </li>
+            <li>
+              <a href={githubRepo}>Code Repository</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="footer-content__child">
+          <h4>Community Sites</h4>
+          <ul>
+            <li>
+              <a href={div2Builds}>Div2 Builds</a>
+            </li>
+            <li>
+              <a href={weeklyVendorReset}>Weekly Vendor Reset</a>
+            </li>
+            <li>
+              <a href={subReddit}>Division 2 SubReddit</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="footer-content__child">
+          <h4>Admin Portal</h4>
+          <ul>
+            {user && (
+              <>
+                <li>
+                  <Link href={backend}>Admin Backend</Link>
+                </li>
+                <li>
+                  <SignOut />
+                </li>
+              </>
+            )}
+            {!user && (
+              <>
+                <li>
+                  <Link href={signIn}>Admin Login</Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </nav>
     </FooterStyles>
   );
 }

@@ -10,8 +10,7 @@ export const LinkStyles = styled.div`
 
   img {
     justify-self: end;
-    width: 70px;
-    height: 70px;
+    width: clamp(3vw, 10vw, 70px);
     object-fit: contain;
   }
 
@@ -42,7 +41,7 @@ export const TitleLink = styled.h3`
     border: 1px solid var(--orange);
     display: inline;
     line-height: 1.3;
-    font-size: 2.8rem;
+    font-size: clamp(1.5rem, 5vw, 2.8rem);
     text-align: center;
     color: var(--orange);
     padding: 0 1rem;

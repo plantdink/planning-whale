@@ -57,3 +57,9 @@ export const armourTalentImage =
 
 export const weaponTalentImage =
   'https://res.cloudinary.com/dbm1h5w02/image/upload/v1643601001/agent-field-manual/61f75c67bf8ae52333c9766c.png';
+
+export const landingSvgOutline =
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1645770225/agent-field-manual/621875f0ee33360e6ea165fd.svg';
+
+export const landingSvgColoured =
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1646026058/agent-field-manual/621c5d49d12c2d09fee24f2d.svg';

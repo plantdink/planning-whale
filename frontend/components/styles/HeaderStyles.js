@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Logo = styled.h1`
   font-size: 4rem;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
   position: relative;
   z-index: 2;
   background: #ff6d10;
@@ -17,11 +17,12 @@ export const Logo = styled.h1`
 
 export const HeaderStyles = styled.header`
   .bar {
+    padding-inline: 2rem;
     border-bottom: 10px solid var(--black, black);
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: stretch;
+    gap: var(--gap, 1rem);
   }
 
   .sub-bar {
