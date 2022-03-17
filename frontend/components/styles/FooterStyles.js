@@ -36,6 +36,12 @@ const FooterStyles = styled.footer`
   a {
     color: var(--text);
   }
+
+  @media (max-width: 425px) {
+    .footer-content__parent {
+      flex-direction: column;
+    }
+  }
 `;
 
 export default FooterStyles;

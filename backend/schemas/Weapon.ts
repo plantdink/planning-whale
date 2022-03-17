@@ -12,7 +12,7 @@ export const Weapon = list({
   ui: {
     hideCreate: (args) => !permissions.canEditItems(args),
     hideDelete: (args) => !permissions.canEditItems(args),
-    isHidden: (args) => !permissions.canEditItems(args),
+    isHidden: (args) => !permissions.canViewAdminSite(args),
     labelField: "model",
     listView: {
       initialColumns: ["class", "model", "family"],
@@ -20,7 +20,7 @@ export const Weapon = list({
         field: "class",
         direction: "ASC",
       },
-      pageSize: 24,
+      pageSize: 50,
     },
   },
   fields: {

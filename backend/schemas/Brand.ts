@@ -12,7 +12,7 @@ export const Brand = list({
   ui: {
     hideCreate: (args) => !permissions.canEditItems(args),
     hideDelete: (args) => !permissions.canEditItems(args),
-    isHidden: (args) => !permissions.canEditItems(args),
+    isHidden: (args) => !permissions.canViewAdminSite(args),
     labelField: "name",
     listView: {
       initialColumns: ["name"],
@@ -20,7 +20,7 @@ export const Brand = list({
         field: "name",
         direction: "ASC",
       },
-      pageSize: 30,
+      pageSize: 50,
     },
   },
   fields: {

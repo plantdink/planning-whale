@@ -25,6 +25,10 @@ export const permissionFields = {
     defaultValue: false,
     label: "User has external access to GraphQL API & can edit items",
   }),
+  canViewAdminSite: checkbox({
+    defaultValue: false,
+    label: "User can view admin site",
+  }),
 };
 
 export type Permission = keyof typeof permissionFields;

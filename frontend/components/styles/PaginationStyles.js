@@ -13,12 +13,12 @@ export const PaginationStyles = styled.div`
   align-items: center;
   justify-content: center;
   align-content: center;
-  margin: 2rem auto;
+  margin: 1rem auto;
   border: 1px solid var(--lightGrey);
   border-radius: 10px;
   & > * {
     margin: 0;
-    padding: 15px 30px;
+    padding: 5px 12px;
     border-right: 1px solid var(--lightGrey);
     &:last-child {
       border-right: 0;
@@ -27,5 +27,16 @@ export const PaginationStyles = styled.div`
   a[aria-disabled='true'] {
     color: grey;
     pointer-events: none;
+  }
+
+  @media (min-width: 425px) {
+    margin: 2rem auto;
+      & > * {
+    margin: 0;
+    padding: 15px 30px;
+    border-right: 1px solid var(--lightGrey);
+    &:last-child {
+      border-right: 0;
+    }
   }
 `;

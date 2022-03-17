@@ -12,15 +12,17 @@ export const ExoticArmourPiece = list({
   ui: {
     hideCreate: (args) => !permissions.canEditItems(args),
     hideDelete: (args) => !permissions.canEditItems(args),
-    isHidden: (args) => !permissions.canEditItems(args),
+    isHidden: (args) => !permissions.canViewAdminSite(args),
     labelField: "name",
+    description:
+      "Include the core attribute, minor attributes and link to the items image and unique talents",
     listView: {
       initialColumns: ["name", "piece", "level"],
       initialSort: {
         field: "name",
         direction: "ASC",
       },
-      pageSize: 24,
+      pageSize: 50,
     },
   },
   fields: {

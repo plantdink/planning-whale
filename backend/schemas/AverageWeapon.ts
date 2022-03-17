@@ -12,7 +12,7 @@ export const AverageWeapon = list({
   ui: {
     hideCreate: (args) => !permissions.canEditItems(args),
     hideDelete: (args) => !permissions.canEditItems(args),
-    isHidden: (args) => !permissions.canEditItems(args),
+    isHidden: (args) => !permissions.canViewAdminSite(args),
     labelField: "class",
     listView: {
       initialColumns: ["class"],

@@ -20,10 +20,10 @@ export const smgIcon =
   'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644287904/agent-field-manual/6201d79fd9301f0836548a5c.png';
 
 export const chestIcon =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644893840/agent-field-manual/620b16903f985c08074b794c.png';
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1647494848/agent-field-manual/6232c6beec80b2199ff2b18f.png';
 
 export const backpackIcon =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644893810/agent-field-manual/620b16713f985c08074b7886.png';
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644893810/agent-field-manual/620b16723f985c08074b7887.png';
 
 export const weaponTalentIcon =
   'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644908183/agent-field-manual/620b4e963f985c08074b7a63.png';
@@ -47,16 +47,16 @@ export const gearsetIconLink =
   'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644195289/agent-field-manual/62006dd83e5849082bd94367.png';
 
 export const armourPiecesIconLink =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644114295/agent-field-manual/61ff31765b249912fe4458b6.png';
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1647494848/agent-field-manual/6232c6beec80b2199ff2b18f.png';
 
 export const namedArmourPiecesIconLink =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644114403/agent-field-manual/61ff31e25b249912fe445a00.png';
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1647495810/agent-field-manual/6232ca81ec80b2199ff2b7a7.png';
 
 export const armourTalentImage =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644114295/agent-field-manual/61ff31765b249912fe4458b6.png';
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1647494848/agent-field-manual/6232c6beec80b2199ff2b18f.png';
 
 export const weaponTalentImage =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1643601001/agent-field-manual/61f75c67bf8ae52333c9766c.png';
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1647497201/agent-field-manual/6232cfefec80b2199ff2b992.png';
 
 export const landingSvgOutline =
   'https://res.cloudinary.com/dbm1h5w02/image/upload/v1645770225/agent-field-manual/621875f0ee33360e6ea165fd.svg';

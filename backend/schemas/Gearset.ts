@@ -20,7 +20,7 @@ export const Gearset = list({
         field: "name",
         direction: "ASC",
       },
-      pageSize: 24,
+      pageSize: 50,
     },
   },
   fields: {

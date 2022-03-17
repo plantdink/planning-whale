@@ -9,6 +9,11 @@ const NavigationStyles = styled.div`
   display: flex;
   justify-self: end;
 
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+
   .flex {
     display: flex;
     gap: var(--gap, 1rem);
@@ -51,8 +56,8 @@ const NavigationStyles = styled.div`
   }
 
   @media (min-width: 35rem) {
-    a,
-    button {
+    a, button
+    {
       padding-top: 1rem;
       padding-bottom: 1rem;
       padding-left: 3rem;
@@ -84,7 +89,7 @@ const NavigationStyles = styled.div`
       }
 
       &:after {
-        height: 2px;
+        height: 3px;
         background: var(--orange);
         content: '';
         width: 0;
@@ -92,7 +97,7 @@ const NavigationStyles = styled.div`
         transform: translateX(-50%);
         transition: width 0.4s;
         transition-timing-function: cubic-bezier(1, -0.65, 0, 2.31);
-        left: 50%;
+        left: 54%;
         margin-top: 2rem;
       }
 
@@ -100,7 +105,7 @@ const NavigationStyles = styled.div`
       &:focus {
         outline: none;
         &:after {
-          width: calc(100% - 60px);
+          width: calc(100% - 5rem);
         }
       }
     }
@@ -144,18 +149,18 @@ const NavigationStyles = styled.div`
       display: block;
       position: absolute;
       z-index: 9999;
-      background-image: url('https://res.cloudinary.com/dbm1h5w02/image/upload/v1647146607/agent-field-manual/622d766ea42bdc1a56b8f08f.svg');
+      background-image: url('https://res.cloudinary.com/dbm1h5w02/image/upload/v1647480872/agent-field-manual/62329027ec80b2199ff2ab8b.svg');
       background-repeat: no-repeat;
       background-color: transparent;
       border: 0;
-      width: 2rem;
+      width: 2.5rem;
       aspect-ratio: 1;
       top: 2rem;
       right: 2rem;
     }
 
     .mobile-nav-toggle[aria-expanded='true'] {
-      background-image: url('https://res.cloudinary.com/dbm1h5w02/image/upload/v1647205286/agent-field-manual/622e5ba4b7440b082870371e.svg');
+      background-image: url('https://res.cloudinary.com/dbm1h5w02/image/upload/v1647480812/agent-field-manual/62328fecec80b2199ff2aa87.svg');
       background-color: transparent;
     }
   }

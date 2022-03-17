@@ -9,7 +9,7 @@ export default function Talents() {
       <HeadSEO seoTag="Talents" />
       <ListStyles>
         <ListItem>
-          <img src={armourTalentImage} alt="Generic armour talent" />
+          <img src={armourTalentImage} alt="Generic armour piece" />
           <ListTitle>
             <Link href="/talents/armourTalents">Armour Talents</Link>
           </ListTitle>

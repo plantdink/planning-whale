@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DamageTag, DamageTagText } from './styles/DamageTag';
+import { DamageTag, DamageTagText } from './styles/DamageTagStyles';
 import { ListItem, ListTitle } from './styles/ListStyles';
 
 export default function AssaultRifle({ assaultRifle }) {

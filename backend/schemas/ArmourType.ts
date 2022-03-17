@@ -12,7 +12,7 @@ export const ArmourType = list({
   ui: {
     hideCreate: (args) => !permissions.canEditItems(args),
     hideDelete: (args) => !permissions.canEditItems(args),
-    isHidden: (args) => !permissions.canEditItems(args),
+    isHidden: (args) => !permissions.canViewAdminSite(args),
     labelField: "name",
     listView: {
       initialColumns: ["name", "piece", "isNamed"],
@@ -20,7 +20,7 @@ export const ArmourType = list({
         field: "piece",
         direction: "ASC",
       },
-      pageSize: 24,
+      pageSize: 50,
     },
   },
   fields: {

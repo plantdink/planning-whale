@@ -12,7 +12,7 @@ export const WeaponTalent = list({
   ui: {
     hideCreate: (args) => !permissions.canEditItems(args),
     hideDelete: (args) => !permissions.canEditItems(args),
-    isHidden: (args) => !permissions.canEditItems(args),
+    isHidden: (args) => !permissions.canViewAdminSite(args),
     labelField: "name",
     listView: {
       initialColumns: ["name", "type"],
@@ -20,7 +20,7 @@ export const WeaponTalent = list({
         field: "name",
         direction: "ASC",
       },
-      pageSize: 40,
+      pageSize: 50,
     },
   },
   fields: {

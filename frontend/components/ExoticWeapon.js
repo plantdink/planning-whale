@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ListItem, ListTitle } from './styles/ListStyles';
 
-import { DamageTag, DamageTagText } from './styles/DamageTag';
+import { DamageTag, DamageTagText } from './styles/DamageTagStyles';
 
 export default function ExoticWeapon({ exoticWeapon }) {
   return (

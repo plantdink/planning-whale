@@ -17,9 +17,15 @@ export const ListItem = styled.div`
   display: flex;
   flex-direction: column;
   img {
-    min-width: 40rem;
+    max-width: clamp(10vw, 95vw, 280px);
     object-fit: cover;
     object-position: 50% 50%;
+  }
+
+  @media (min-width: 35rem) {
+    img {
+      max-width: 40rem;
+    }
   }
 `;
 
@@ -34,9 +40,15 @@ export const ListTitle = styled.h3`
     display: inline;
     line-height: 1.3;
     text-transform: uppercase;
-    font-size: 3rem;
+    font-size: clamp(1rem, 40vw, 2rem);
     text-align: center;
     color: var(--text);
     padding: 0 1rem;
+  }
+
+  @media (min-width: 35rem) {
+    a {
+      font-size: 3rem;
+    }
   }
 `;

@@ -92,7 +92,10 @@ const SingleWeaponStyles = styled.div`
   }
 
   @media (max-width: 35em) {
+    padding: 0;
     .single-weapon__content {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
       display: flex;
       flex-direction: column;
     }
