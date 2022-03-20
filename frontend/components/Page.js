@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 import Footer from './Footer';
 import Header from './Header';
+import ScrollToTopBtn from './ScrollToTopBtn/ScrollToTopBtn';
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -73,6 +74,7 @@ export default function Page({ children }) {
       <GlobalStyles />
       <Header />
       <InnerStyles>{children}</InnerStyles>
+      <ScrollToTopBtn />
       <Footer />
     </ContentStyle>
   );

@@ -63,3 +63,6 @@ export const landingSvgOutline =
 
 export const landingSvgColoured =
   'https://res.cloudinary.com/dbm1h5w02/image/upload/v1646026058/agent-field-manual/621c5d49d12c2d09fee24f2d.svg';
+
+export const scrollToTopIcon =
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1647727811/agent-field-manual/623654c25ba0d809ea227afc.svg';
