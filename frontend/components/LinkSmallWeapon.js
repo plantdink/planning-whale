@@ -135,11 +135,9 @@ export default function LinkSmallWeapon({ talent }) {
           </div>
         )}
         {classArray.map((arrayItem) => (
-          <LinkStyles>
+          <LinkStyles key={arrayItem.id}>
             <TitleLink>
-              <Link key={arrayItem.id} href={arrayItem.link}>
-                {arrayItem.title}
-              </Link>
+              <Link href={arrayItem.link}>{arrayItem.title}</Link>
             </TitleLink>
             <img
               className="standard-item"

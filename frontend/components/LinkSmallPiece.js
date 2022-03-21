@@ -48,7 +48,7 @@ export default function LinkSmallPiece({ piece }) {
       title: `${piece.piece}`,
       link: `/gear/armourType/61e4fb8f4568c11c0804cd7c`,
       image: backpackIcon,
-      id: `620b16713f985c08074b7886`,
+      id: `620b16713f985c08074b7887`,
     });
   }
 
@@ -117,11 +117,9 @@ export default function LinkSmallPiece({ piece }) {
         <>
           <div className="single-gear-item__details">
             {classArray.map((arrayItem) => (
-              <LinkStyles>
+              <LinkStyles key={arrayItem.id}>
                 <TitleLink>
-                  <Link key={arrayItem.id} href={arrayItem.link}>
-                    {arrayItem.title}
-                  </Link>
+                  <Link href={arrayItem.link}>{arrayItem.title}</Link>
                 </TitleLink>
                 <img
                   className="standard-item"
