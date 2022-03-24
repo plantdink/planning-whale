@@ -1,41 +1,27 @@
-import { useQuery } from '@apollo/client';
-import { SINGLE_GEARSET_QUERY } from '../queries/GearsetQueries';
-import DisplayError from './ErrorMessage';
 import HeadSEO from './HeadSEO';
 import SingleGearItemStyle from './styles/SingleGearItemStyles';
 import { stringToParagraphs } from '../lib/displayStrings';
 
-export default function SingleGearset({ id }) {
-  const { data, loading, error } = useQuery(SINGLE_GEARSET_QUERY, {
-    variables: {
-      id,
-    },
-  });
-
-  if (loading) return <p>Loading....</p>;
-  if (error) return <DisplayError error={error} />;
-
-  const singleGearset = data.allGearsets[0];
-
+export default function SingleGearset({ gearset }) {
   return (
     <>
-      <HeadSEO seoTag={singleGearset.name} />
+      <HeadSEO seoTag={gearset.name} />
       <SingleGearItemStyle>
         <>
           <div className="single-gear-item__title-bar">
-            <h1 className="single-gear-item__heading">{singleGearset.name}</h1>
+            <h1 className="single-gear-item__heading">{gearset.name}</h1>
           </div>
           <div className="single-gear-item__content">
             <div className="single-item__details">
-              {stringToParagraphs(singleGearset.notes)}
+              {stringToParagraphs(gearset.notes)}
               <div className="single-gear-item__title-bar">
                 <h2 className="single-gear-item__subheading">
-                  Core Attribute - {singleGearset.coreAttribute}
+                  Core Attribute Type - {gearset.coreAttribute}
                 </h2>
               </div>
 
-              <p>{singleGearset.coreAttributeValueLevel40} (Level 40)</p>
-              <p>{singleGearset.coreAttributeValueWT5} (World Tier 5) </p>
+              <p>{gearset.coreAttributeValueLevel40} (Level 40)</p>
+              <p>{gearset.coreAttributeValueWT5} (World Tier 5) </p>
               <div className="single-gear-item__title-bar">
                 <h2 className="single-gear-item__subheading">
                   Gear Set Bonuses
@@ -47,20 +33,20 @@ export default function SingleGearset({ id }) {
                 <span className="single-gear-item__sub-subheading">
                   1 Piece -{' '}
                 </span>
-                {singleGearset.setBonusOne}
+                {gearset.setBonusOne}
               </p>
               <p>
                 <span className="single-gear-item__sub-subheading">
                   2 Piece -{' '}
                 </span>
-                {singleGearset.setBonusTwo}
+                {gearset.setBonusTwo}
               </p>
               <p>
                 <span className="single-gear-item__sub-subheading">
-                  3 Piece - {singleGearset.setBonusName}
+                  3 Piece - {gearset.setBonusName}
                 </span>
               </p>
-              <p>{singleGearset.setBonusThree}</p>
+              <p>{gearset.setBonusThree}</p>
               <div className="single-gear-item__title-bar">
                 <h2 className="single-gear-item__subheading">
                   Gear Set Talents
@@ -70,22 +56,22 @@ export default function SingleGearset({ id }) {
               <p>Whilst wearing:</p>
               <p>
                 <span className="single-gear-item__sub-subheading">
-                  Chest: {singleGearset.setChestTalentName} -{' '}
+                  Chest: {gearset.setChestTalentName} -{' '}
                 </span>
-                {singleGearset.setChestTalent}
+                {gearset.setChestTalent}
               </p>
               <p>
                 <span className="single-gear-item__sub-subheading">
-                  Backpack: {singleGearset.setBackpackTalentName} -{' '}
+                  Backpack: {gearset.setBackpackTalentName} -{' '}
                 </span>
-                {singleGearset.setBackpackTalent}
+                {gearset.setBackpackTalent}
               </p>
             </div>
             <div className="item-image">
               <img
                 className="standard-item"
-                src={singleGearset.image?.image.publicUrlTransformed}
-                alt={singleGearset.image?.altText}
+                src={gearset.image?.image.publicUrlTransformed}
+                alt={gearset.image?.altText}
               />
             </div>
           </div>

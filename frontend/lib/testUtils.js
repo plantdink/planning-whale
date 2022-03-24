@@ -153,11 +153,10 @@ const fakeWeaponTalent = () => ({
 
 // stats are same as ACR-E AR
 const fakeWeapon = () => ({
-  __typename: 'Weapon',
-  id: '61dd3d32598cb7333ed90914',
+  id: 'lkuhblcHNOINU',
   class: 'ASSAULT RIFLE',
-  family: 'ACR',
-  model: 'ACR-E',
+  family: 'Test ACR',
+  model: 'Test ACR-E',
   modSlots: 4,
   magazineSize: 30,
   rpm: 650,
@@ -173,9 +172,261 @@ const fakeWeapon = () => ({
   damageLevel40: 53124,
   damageWt5: 11770,
   notes: '',
+  isNamed: 'NO',
+  isExotic: 'NO',
+  weaponTalent: [
+    {
+      id: 'lnjczc',
+      name: 'Fake Talent 1',
+      image: {
+        altText: 'Fake talent 1',
+        image: {
+          publicUrlTransformed: 'FakeTalent01.jpg',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'WeaponTalent',
+    },
+    {
+      id: 'pojcuyg834',
+      name: 'FakeTalent 2',
+      image: {
+        altText: 'Fake Talent 2',
+        image: {
+          publicUrlTransformed: 'FakeTalent02.jpg',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'WeaponTalent',
+    },
+  ],
+  averageWeapon: {
+    id: 'njuhebCVKJLR',
+    class: 'ASSAULT RIFLE',
+    magazineSize: 30,
+    rpm: 730,
+    modSlots: 3,
+    reloadSpeed: 2013,
+    reloadSpeedFromEmpty: 3365,
+    accuracy: 422,
+    stability: 594,
+    optimalRange: 31,
+    maxRange: 69,
+    headshotMultiplier: 155,
+    damageLevel40: 54403,
+    damageWt5: 8990,
+    __typename: 'AverageWeapon',
+  },
+  flavourText: null,
+  image: {
+    image: {
+      publicUrlTransformed: 'FakeWeaponImage.jpg',
+    },
+  },
+  __typename: 'Weapon',
+});
+
+const fakeAverageWeapon = () => ({
+  id: 'njuhebCVKJLR',
+  class: 'ASSAULT RIFLE',
+  magazineSize: 30,
+  rpm: 730,
+  modSlots: 3,
+  reloadSpeed: 2013,
+  reloadSpeedFromEmpty: 3365,
+  accuracy: 422,
+  stability: 594,
+  optimalRange: 31,
+  maxRange: 69,
+  headshotMultiplier: 155,
+  damageLevel40: 54403,
+  damageWt5: 8990,
+  __typename: 'AverageWeapon',
+});
+
+const fakeWeaponQuery = () => ({
+  id: 'lkuhblcHNOINU',
+  class: 'ASSAULT RIFLE',
+  model: 'Test Maniac',
+  family: 'AK-47',
+  magazineSize: 30,
+  rpm: 600,
+  modSlots: 4,
+  reloadSpeed: 2200,
+  reloadSpeedFromEmpty: 2700,
+  accuracy: 477,
+  stability: 640,
+  optimalRange: 31,
+  maxRange: 68,
+  headshotMultiplier: 155,
+  weaponBonusType: 'DTH',
+  maxBonusValue: 21,
+  damageLevel40: 60645,
+  damageWt5: 13437,
   flavourText: null,
   isNamed: 'NO',
   isExotic: 'NO',
+  weaponTalent: [
+    {
+      id: 'lnulbvclbcgl',
+      name: 'Fake Weapon Talent',
+      image: {
+        image: {
+          publicUrlTransformed: 'FakeWeapon.png',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'WeaponTalent',
+    },
+  ],
+  averageWeapon: {
+    class: 'ASSAULT RIFLE',
+    magazineSize: 30,
+    rpm: 730,
+    modSlots: 3,
+    reloadSpeed: 2013,
+    reloadSpeedFromEmpty: 3365,
+    accuracy: 422,
+    stability: 594,
+    optimalRange: 31,
+    maxRange: 69,
+    headshotMultiplier: 155,
+    damageLevel40: 54403,
+    damageWT5: 8990,
+    __typename: 'AverageWeapon',
+  },
+  __typename: 'Weapon',
+});
+
+const fakeAverageWeaponQuery = () => ({
+  id: 'hvgrdexvkTFc',
+  class: 'ASSAULT RIFLE',
+  modSlots: 3,
+  rpm: 730,
+  magazineSize: 30,
+  headshotMultiplier: 155,
+  accuracy: 422,
+  stability: 594,
+  optimalRange: 31,
+  maxRange: 69,
+  reloadSpeed: 2013,
+  reloadSpeedFromEmpty: 3365,
+  damageLevel40: 54403,
+  damageWT5: 8990,
+  weaponTalent: [
+    {
+      id: 'mijqioj898',
+      name: 'Fake Talent 1',
+      image: {
+        image: {
+          publicUrlTransformed: 'FakeTalent.png',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'WeaponTalent',
+    },
+    {
+      id: 'bilwubcoiuqhb75',
+      name: 'Fake Talent 2',
+      image: {
+        image: {
+          publicUrlTransformed: 'FakeTalent2.png',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'WeaponTalent',
+    },
+    {
+      id: 'mijmncOICB6',
+      name: 'Fake Talent 3',
+      image: {
+        image: {
+          publicUrlTransformed: 'FakeTalent3.png',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'WeaponTalent',
+    },
+  ],
+  image: {
+    image: {
+      publicUrlTransformed: 'AverageWeaponImage.jpg',
+      __typename: 'CloudinaryImage_File',
+    },
+    __typename: 'FieldManualImage',
+  },
+  __typename: 'AverageWeapon',
+});
+
+const fakeBrand = () => ({
+  name: 'Maxx Tactical',
+  coreAttribute: 'Armour',
+  coreAttributeValueLevel40: '170,000 Armour',
+  coreAttributeValueWT5: '42,458 Armour',
+  setBonusOne: '10% Health',
+  setBonusTwo: '20% Extra Incoming Healing',
+  setBonusThree: '10% Hazard Protection',
+  image: {
+    image: {
+      publicUrlTransformed: 'FakeNamedBrand.jpg',
+      __typename: 'CloudinaryImage_File',
+    },
+    __typename: 'FieldManualImage',
+  },
+  notes:
+    'Strategic Homeland Division has approved multiple Brand manufacturers to supply equipment for SHD agents. There are also numerous non-approved Brands that an agent may find during the conduct of operations and agents are authorised to use any equipment they need in order to complete their mission. Each Brand provides different benefits to an agent and their ability to conduct operations. Equipping items from the same brand will unlock different benefits, with 3 equipped providing the maximum Brand-specific benefit. Agents are encouraged to mix and match Brands to provide the best benefit to their preferred operational style.',
+  armourTalent: [],
+  armourType: [
+    {
+      id: 'cresdhjvjytfj',
+      name: 'Deathgrips',
+      piece: 'Gloves',
+      isNamed: 'YES',
+      image: {
+        image: {
+          publicUrlTransformed: 'FakeNamedItemImage01.jpg',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'ArmourType',
+    },
+  ],
+  __typename: 'Brand',
+});
+
+const fakeGearset = () => ({
+  name: 'Fake Protocol',
+  coreAttribute: 'Utility',
+  coreAttributeValueLevel40: '+1 Skill Tier',
+  coreAttributeValueWT5: '+1 Skill Tier',
+  setBonusOne: '15% Status Effects',
+  setBonusTwo: '15% Skill Haste, 30% Hazard Protection',
+  setBonusName: 'Contagion',
+  setBonusThree:
+    'Enemies that die while affected by your status effects spread those status effects to another enemy within 10m and refresh the duration.',
+  setBackpackTalentName: 'Symptom Aggravator',
+  setBackpackTalent:
+    'Amplifies all damage you deal to status affected targets by 30%',
+  setChestTalentName: 'Proliferation',
+  setChestTalent: 'Increase contagion range from 10m to 15m',
+  image: {
+    image: {
+      publicUrlTransformed: 'FakeGearsetImage.png',
+      __typename: 'CloudinaryImage_File',
+    },
+    altText: 'Eclipse Protocol gearset icon',
+    __typename: 'FieldManualImage',
+  },
+  notes:
+    'A Gear Set is a unique combination of equipment pieces that an Agent can obtain. Each Gear Set revolves around a specific operational capability and can strongly influence an agents overall approach to any situation they might face.\nUnlike a Brand set, the Chest and Backpack from a Gear Set do not have a specific Talent associated with them. Once a certain number of pieces of the same Gear Set are equipped, an agent will obtain various Set bonuses with all the bonuses available when four pieces are equipped. An agent must equip the Chest piece and Backpack in order to access the bonuses associated with each of these items.',
+  __typename: 'Gearset',
 });
 
 export {
@@ -185,4 +436,9 @@ export {
   fakeBackpackArmourTalent,
   fakeWeaponTalent,
   fakeWeapon,
+  fakeAverageWeapon,
+  fakeWeaponQuery,
+  fakeAverageWeaponQuery,
+  fakeBrand,
+  fakeGearset,
 };

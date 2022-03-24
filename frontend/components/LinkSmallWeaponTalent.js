@@ -7,9 +7,15 @@ export default function LinkSmallWeaponTalent({ weapon }) {
     <>
       {weapon.weaponTalent !== [] && (
         <>
+          <div className="single-weapon__title-bar">
+            <h1 className="single-weapon__heading">
+              Compatible Weapon Talents
+            </h1>
+          </div>
+
           {weapon.weaponTalent.map((talent) => (
-            <LinkStyles>
-              <TitleLink key={talent.id}>
+            <LinkStyles key={talent.id}>
+              <TitleLink>
                 <Link href={`/talents/weaponTalent/${talent.id}`}>
                   {talent.name}
                 </Link>

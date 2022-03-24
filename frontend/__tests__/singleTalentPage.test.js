@@ -1,18 +1,30 @@
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import SingleTalent from '../components/SingleTalent';
+import LinkSmallPiece from '../components/LinkSmallPiece';
 import {
   fakeChestArmourTalent,
   fakeBackpackArmourTalent,
 } from '../lib/testUtils';
 
-afterEach(cleanup);
-
-describe('<SingleTalent />', () => {
+describe('<SingleTalent /> <LinkSmallPiece />', () => {
   let armourTalent = fakeChestArmourTalent();
-  it('renders correctly for a Chest talent', () => {
+  it('renders both components correctly for a Chest talent', () => {
     const { container, debug } = render(
-      <SingleTalent singleTalent={armourTalent} />
+      <>
+        <SingleTalent singleTalent={armourTalent} />
+        {armourTalent.piece !== '' && (
+          <>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">
+                Compatible Equipment
+              </h2>
+            </div>
+            <LinkSmallPiece piece={armourTalent} />
+          </>
+        )}
+      </>
     );
+    // debug();
 
     const singleTalentTitle = screen.getByText(armourTalent.name);
     expect(singleTalentTitle).toBeInTheDocument();
@@ -31,13 +43,29 @@ describe('<SingleTalent />', () => {
 
     const talentPVPDescription = screen.getByText(armourTalent.descriptionPVP);
     expect(talentPVPDescription).toBeInTheDocument();
+
+    const link = container.querySelector('a');
+    expect(link).toHaveTextContent(armourTalent.piece);
   });
 
-  it('renders correctly for a Backpack talent', () => {
+  it('renders both components correctly for a Backpack talent', () => {
     armourTalent = fakeBackpackArmourTalent();
     const { container, debug } = render(
-      <SingleTalent singleTalent={armourTalent} />
+      <>
+        <SingleTalent singleTalent={armourTalent} />
+        {armourTalent.piece !== '' && (
+          <>
+            <div className="single-gear-item__title-bar">
+              <h2 className="single-gear-item__subheading">
+                Compatible Equipment
+              </h2>
+            </div>
+            <LinkSmallPiece piece={armourTalent} />
+          </>
+        )}
+      </>
     );
+    // debug();
 
     const singleTalentTitle = screen.getByText(armourTalent.name);
     expect(singleTalentTitle).toBeInTheDocument();
@@ -56,5 +84,8 @@ describe('<SingleTalent />', () => {
 
     const talentPVPDescription = screen.getByText(armourTalent.descriptionPVP);
     expect(talentPVPDescription).toBeInTheDocument();
+
+    const link = container.querySelector('a');
+    expect(link).toHaveTextContent(armourTalent.piece);
   });
 });

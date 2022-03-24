@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 export const SINGLE_WEAPON_QUERY = gql`
   query SINGLE_WEAPON_QUERY($id: ID!) {
     allWeapons(where: { id: $id }) {
+      id
       class
       model
       family
@@ -70,6 +71,15 @@ export const ALL_AVERAGE_WEAPONS_QUERY = gql`
       reloadSpeedFromEmpty
       damageLevel40
       damageWT5
+      weaponTalent {
+        id
+        name
+        image {
+          image {
+            publicUrlTransformed
+          }
+        }
+      }
       image {
         image {
           publicUrlTransformed
@@ -96,6 +106,15 @@ export const SINGLE_AVERAGE_WEAPON_QUERY = gql`
       reloadSpeedFromEmpty
       damageLevel40
       damageWT5
+      weaponTalent {
+        id
+        name
+        image {
+          image {
+            publicUrlTransformed
+          }
+        }
+      }
       image {
         image {
           publicUrlTransformed

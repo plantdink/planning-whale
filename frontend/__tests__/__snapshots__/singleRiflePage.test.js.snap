@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SingleRiflePage /> loads the data and renders both components with data correctly for a single rifle page 1`] = `
+<div>
+  <div
+    class="SingleWeaponStyles-sc-sgdo2r-0 jfqnnv"
+    data-testid="singleWeaponTest"
+  >
+    <div
+      class="single-weapon__content"
+    >
+      <div
+        class="single-weapon__details"
+      >
+        <div
+          class="single-weapon__title-bar"
+        >
+          <h1
+            class="single-weapon__heading"
+          >
+            Test Maniac
+          </h1>
+        </div>
+        <blockquote />
+        <p>
+          Assault Rifle
+           
+          AK-47
+        </p>
+        <div
+          class="single-weapon__title-bar"
+        >
+          <h3
+            class="single-weapon__subheading"
+          >
+            Base Damage
+          </h3>
+        </div>
+        <p>
+          60,645
+           (Level 40)
+        </p>
+        <p>
+          13,437
+           (World Tier 5)
+        </p>
+        <div
+          class="single-weapon__title-bar"
+        >
+          <h3
+            class="single-weapon__subheading"
+          >
+            Specifications
+          </h3>
+        </div>
+        <p>
+          21
+          % 
+          Damage to Health
+        </p>
+        <p>
+          1.55
+           x Headshot Multiplier
+        </p>
+        <p>
+          600
+           rounds per minute rate of fire
+        </p>
+        <p>
+          30
+           round magazine
+        </p>
+        <p>
+          4
+           modification slots
+        </p>
+        <p>
+          47.7
+          % accuracy
+        </p>
+        <p>
+          64
+          % stability
+        </p>
+        <p>
+          31
+          m optimal range
+        </p>
+        <p>
+          68
+          m max range
+        </p>
+        <p>
+          2.20
+           seconds reload speed
+        </p>
+        <p>
+          2.70
+           seconds reload speed (empty magazine)
+        </p>
+      </div>
+      <div
+        class="single-weapon__details"
+      >
+        <div
+          class="single-weapon__title-bar"
+        >
+          <h3
+            class="single-weapon__subheading"
+          >
+            Stats Comparison
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div
+      class="single-weapon__title-bar"
+    >
+      <h1
+        class="single-weapon__heading"
+      >
+        Compatible Weapon Talents
+      </h1>
+    </div>
+    <div
+      class="LinkStyles-sc-13ozdoc-0 cAIPNR"
+    >
+      <h3
+        class="LinkStyles__TitleLink-sc-13ozdoc-1 fwvCaf"
+      >
+        <a
+          href="/talents/weaponTalent/lnulbvclbcgl"
+        >
+          Fake Weapon Talent
+        </a>
+      </h3>
+      <img
+        class="standard-item"
+        src="FakeWeapon.png"
+      />
+    </div>
+  </div>
+</div>
+`;

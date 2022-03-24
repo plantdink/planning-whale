@@ -9,9 +9,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
-import { useQuery } from '@apollo/client';
-import { SINGLE_AVERAGE_WEAPON_QUERY } from '../queries/WeaponQueries';
-import DisplayError from './ErrorMessage';
 import {
   displayPercentage,
   hsDisplay,
@@ -19,24 +16,9 @@ import {
   humanReadableNumber,
 } from '../lib/displayNumbers';
 import HeadSEO from './HeadSEO';
-import { titleCase } from '../lib/displayStrings';
 import { deAbbreviate } from '../lib/abbreviationsDictionary';
-import SingleWeaponStyles from './styles/SingleWeaponStyles';
-import LinkSmallWeaponTalent from './LinkSmallWeaponTalent';
 
-export default function SingleAverageWeapon({ id }) {
-  const { data, loading, error } = useQuery(SINGLE_AVERAGE_WEAPON_QUERY, {
-    variables: {
-      id,
-    },
-  });
-  if (loading) return <p>Loading...</p>;
-  if (error) return <DisplayError error={error} />;
-
-  const weapon = data.allAverageWeapons[0];
-
-  // console.log(weapon);
-
+export default function SingleAverageWeapon({ weapon }) {
   ChartJS.register(
     RadialLinearScale,
     PointElement,
@@ -141,65 +123,58 @@ export default function SingleAverageWeapon({ id }) {
   return (
     <>
       <HeadSEO seoTag={weapon.model} />
-      <SingleWeaponStyles>
-        <div className="single-weapon__content">
-          <div className="single-weapon__details">
-            <div className="single-weapon__title-bar">
-              <h1 className="single-weapon__heading">{weapon.class}</h1>
-            </div>
-            {weapon.flavourText !== '' && (
-              <blockquote>{weapon.flavourText}</blockquote>
-            )}
-
-            <div className="single-weapon__title-bar">
-              <h3 className="single-weapon__subheading">Base Damage</h3>
-            </div>
-            <p>{humanReadableNumber(weapon.damageLevel40)} (Level 40)</p>
-            <p>{humanReadableNumber(weapon.damageWT5)} (World Tier 5)</p>
-            <div className="single-weapon__title-bar">
-              <h3 className="single-weapon__subheading">Specifications</h3>
-            </div>
-            {weapon.maxBonusValue > 1 && (
-              <p>
-                {weapon.maxBonusValue}% {deAbbreviate(weapon.weaponBonusType)}
-              </p>
-            )}
-            <p>{hsDisplay(weapon.headshotMultiplier)} x Headshot Multiplier</p>
-            <p>{weapon.rpm} rounds per minute rate of fire</p>
-            <p> {weapon.magazineSize} round magazine</p>
-            {weapon.modSlots === 0 && <p>No adjustable modification slots</p>}
-            {weapon.modSlots > 0 && <p>{weapon.modSlots} modification slots</p>}
-            <p>{displayPercentage(weapon.accuracy)}% accuracy</p>
-            <p>{displayPercentage(weapon.stability)}% stability</p>
-            <p>{weapon.optimalRange}m optimal range</p>
-            <p>{weapon.maxRange}m max range</p>
-            <p>
-              {millisecondsToSeconds(weapon.reloadSpeed)} seconds reload speed
-            </p>
-            <p>
-              {millisecondsToSeconds(weapon.reloadSpeedFromEmpty)} seconds
-              reload speed (empty magazine)
-            </p>
-            {(!weapon.accuracy || !weapon.stability) && (
-              <>
-                <small>Note: 0 indicates no value available</small>
-              </>
-            )}
+      <div className="single-weapon__content">
+        <div className="single-weapon__details">
+          <div className="single-weapon__title-bar">
+            <h1 className="single-weapon__heading">{weapon.class}</h1>
           </div>
-          <div className="single-weapon__details">
-            <div className="single-weapon__title-bar">
-              <h3 className="single-weapon__subheading">Stats Comparison</h3>
-            </div>
+          {weapon.flavourText !== '' && (
+            <blockquote>{weapon.flavourText}</blockquote>
+          )}
 
-            <Radar data={chartData} options={options} />
+          <div className="single-weapon__title-bar">
+            <h3 className="single-weapon__subheading">Base Damage</h3>
           </div>
+          <p>{humanReadableNumber(weapon.damageLevel40)} (Level 40)</p>
+          <p>{humanReadableNumber(weapon.damageWT5)} (World Tier 5)</p>
+          <div className="single-weapon__title-bar">
+            <h3 className="single-weapon__subheading">Specifications</h3>
+          </div>
+          {weapon.maxBonusValue > 1 && (
+            <p>
+              {weapon.maxBonusValue}% {deAbbreviate(weapon.weaponBonusType)}
+            </p>
+          )}
+          <p>{hsDisplay(weapon.headshotMultiplier)} x Headshot Multiplier</p>
+          <p>{weapon.rpm} rounds per minute rate of fire</p>
+          <p> {weapon.magazineSize} round magazine</p>
+          {weapon.modSlots === 0 && <p>No adjustable modification slots</p>}
+          {weapon.modSlots > 0 && <p>{weapon.modSlots} modification slots</p>}
+          <p>{displayPercentage(weapon.accuracy)}% accuracy</p>
+          <p>{displayPercentage(weapon.stability)}% stability</p>
+          <p>{weapon.optimalRange}m optimal range</p>
+          <p>{weapon.maxRange}m max range</p>
+          <p>
+            {millisecondsToSeconds(weapon.reloadSpeed)} seconds reload speed
+          </p>
+          <p>
+            {millisecondsToSeconds(weapon.reloadSpeedFromEmpty)} seconds reload
+            speed (empty magazine)
+          </p>
+          {(!weapon.accuracy || !weapon.stability) && (
+            <>
+              <small>Note: 0 indicates no value available</small>
+            </>
+          )}
         </div>
+        <div className="single-weapon__details">
+          <div className="single-weapon__title-bar">
+            <h3 className="single-weapon__subheading">Stats Comparison</h3>
+          </div>
 
-        {/* <div className="single-weapon__title-bar">
-          <h1 className="single-weapon__heading">Compatible Weapon Talents</h1>
+          <Radar data={chartData} options={options} />
         </div>
-        <LinkSmallWeaponTalent weapon={weapon} /> */}
-      </SingleWeaponStyles>
+      </div>
     </>
   );
 }
