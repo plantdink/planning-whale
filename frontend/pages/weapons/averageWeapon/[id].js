@@ -1,8 +1,9 @@
 import { useQuery } from '@apollo/client';
 import DisplayError from '../../../components/ErrorMessage';
-import { SINGLE_AVERAGE_WEAPON_QUERY } from '../../../queries/WeaponQueries';
-import SingleWeaponStyles from '../../../components/styles/SingleWeaponStyles';
-import SingleAverageWeapon from '../../../components/SingleAverageWeapon';
+import SingleAverageWeapon, {
+  SINGLE_AVERAGE_WEAPON_QUERY,
+} from '../../../components/SingleAverageWeapon';
+import { SingleWeaponStyles } from '../../../components/SingleWeapon';
 import LinkSmallWeaponTalent from '../../../components/LinkSmallWeaponTalent';
 
 export default function SingleAverageWeaponPage({ query }) {

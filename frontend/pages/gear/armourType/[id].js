@@ -1,7 +1,8 @@
 import { useQuery } from '@apollo/client';
 import DisplayError from '../../../components/ErrorMessage';
-import { SINGLE_ARMOUR_PIECE_QUERY } from '../../../queries/ArmourPieceQueries';
-import SingleArmourPiece from '../../../components/SingleArmourPiece';
+import SingleArmourPiece, {
+  SINGLE_ARMOUR_PIECE_QUERY,
+} from '../../../components/SingleArmourPiece';
 import LinkSmallTalent from '../../../components/LinkSmallTalent';
 import SingleGearItemStyle from '../../../components/styles/SingleGearItemStyles';
 import LinkSmallBrand from '../../../components/LinkSmallBrand';
@@ -17,8 +18,6 @@ export default function SingleArmourTypePage({ query }) {
 
   const { ...armourPiece } =
     data.allArmourTypes[0] || data.allExoticArmourPieces[0];
-
-  console.log(armourPiece);
 
   return (
     <>

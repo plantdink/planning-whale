@@ -14,7 +14,7 @@ const ScrollToTopBtnStyles = styled.div`
     width: 5rem;
     aspect-ratio: 1;
     background-repeat: no-repeat;
-    background-image: url('https://res.cloudinary.com/dbm1h5w02/image/upload/v1647727811/agent-field-manual/623654c25ba0d809ea227afc.svg');
+    background-image: url('https://res.cloudinary.com/dbm1h5w02/image/upload/v1648165819/agent-field-manual/623d03ba8c594220010f2316.svg');
     background-color: transparent;
   }
 

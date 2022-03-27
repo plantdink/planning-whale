@@ -1,8 +1,9 @@
 import { useQuery } from '@apollo/client';
 import DisplayError from '../../../components/ErrorMessage';
-import { SINGLE_WEAPON_QUERY } from '../../../queries/WeaponQueries';
-import SingleWeaponStyles from '../../../components/styles/SingleWeaponStyles';
-import SingleWeapon from '../../../components/SingleWeapon';
+import SingleWeapon, {
+  SINGLE_WEAPON_QUERY,
+  SingleWeaponStyles,
+} from '../../../components/SingleWeapon';
 import LinkSmallWeaponTalent from '../../../components/LinkSmallWeaponTalent';
 
 export default function SingleLightMachineGunPage({ query }) {

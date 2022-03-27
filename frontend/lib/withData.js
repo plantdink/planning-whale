@@ -4,7 +4,7 @@ import { getDataFromTree } from '@apollo/react-ssr';
 import { createUploadLink } from 'apollo-upload-client';
 import withApollo from 'next-with-apollo';
 import { endpoint, prodEndpoint } from '../config';
-// import paginationField from './paginationField';
+import paginationField from './paginationField';
 
 function createClient({ headers, initialState }) {
   return new ApolloClient({
@@ -36,7 +36,7 @@ function createClient({ headers, initialState }) {
         Query: {
           fields: {
             // TODO: include fields when they are ready
-            // allAssaultRifles: paginationField(),
+            // allWeapons: paginationField(),
           },
         },
       },

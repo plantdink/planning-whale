@@ -64,33 +64,17 @@ export const SINGLE_TALENT_QUERY = gql`
   }
 `;
 
-export const ALL_ARMOUR_TALENTS_QUERY = gql`
-  query ALL_ARMOUR_TALENTS_QUERY($skip: Int = 0, $first: Int) {
-    allArmourTalents(first: $first, skip: $skip) {
-      id
-      name
-      image {
-        image {
-          publicUrlTransformed
-        }
-        altText
-      }
-    }
-  }
-`;
-
-export const ALL_WEAPON_TALENTS_QUERY = gql`
-  query ALL_WEAPON_TALENTS_QUERY($skip: Int = 0, $first: Int) {
-    allWeaponTalents(first: $first, skip: $skip) {
-      id
-      name
-      image {
-        image {
-          publicUrlTransformed
-        }
-        altText
-      }
-    }
-  }
-`;
-//
+// export const ALL_WEAPON_TALENTS_QUERY = gql`
+//   query ALL_WEAPON_TALENTS_QUERY($skip: Int = 0, $first: Int) {
+//     allWeaponTalents(first: $first, skip: $skip) {
+//       id
+//       name
+//       image {
+//         image {
+//           publicUrlTransformed
+//         }
+//         altText
+//       }
+//     }
+//   }
+// `;

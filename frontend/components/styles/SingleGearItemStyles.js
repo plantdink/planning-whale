@@ -38,10 +38,19 @@ const SingleGearItemStyle = styled.div`
   }
   
   .multiple-gear-item__icon-image {
+        justify-self: center;
+    align-self: end;
     position: absolute;
+    z-index: 1;
+    right: -3px;
+    top: 4px;
+    width: clamp(2vw, 6vw, 40px);
+    object-fit: contain;
+
+    /* position: absolute;
     top: 3px;
     width: 50px;
-    object-fit: contain;
+    object-fit: contain; */
   }
   
   .single-gear-item__content {

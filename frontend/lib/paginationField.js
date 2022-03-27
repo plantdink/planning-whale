@@ -1,4 +1,4 @@
-import { WEAPON_PAGINATION_QUERY } from '../components/Pagination';
+import { WEAPON_PAGINATION_QUERY } from '../queries/PaginationQueries';
 
 export default function paginationField() {
   // apollo will ask read for items.
