@@ -1,5 +1,53 @@
 import Head from 'next/head';
-import ItemColourStyles from './ItemColourStyles';
+import styled from 'styled-components';
+
+export const ItemColourStyles = styled.div`
+  .gear-color {
+    display: inline-block;
+    height: 20px;
+    width: 40px;
+  }
+
+  .high-end {
+    background-color: var(--highEndGold);
+  }
+
+  .superior {
+    background-color: var(--superior);
+  }
+
+  .specialized {
+    background-color: var(--specialized);
+  }
+
+  .standard {
+    background-color: var(--standard);
+  }
+
+  .gear-set {
+    background-color: var(--gearsetGreen);
+  }
+
+  .exotic {
+    background-color: var(--exoticOrange);
+  }
+
+  .named-item {
+    background-color: var(--namedGold);
+  }
+
+  .weapon-damage {
+    background-color: var(--damageRed);
+  }
+
+  .armour {
+    background-color: var(--armorBlue);
+  }
+
+  .skill-tier {
+    background-color: var(--skillYellow);
+  }
+`;
 
 export default function ItemColour() {
   return (
@@ -9,7 +57,7 @@ export default function ItemColour() {
       </Head>
       <>
         <div className="single-gear-item__title-bar">
-          <h1 className="single-gear-item__heading">Equipment Quality</h1>
+          <h1 className="single-gear-item__heading">Gear Quality</h1>
         </div>
 
         <div className="single-gear-item__content">
@@ -41,7 +89,7 @@ export default function ItemColour() {
             <ItemColourStyles>
               <div className="single-gear-item__title-bar">
                 <h3 className="single-gear-item__h3subheading">
-                  Equipment (highest to lowest)
+                  Weapon & Gear Quality (highest to lowest)
                 </h3>
               </div>
               <p>
@@ -64,13 +112,14 @@ export default function ItemColour() {
                 </h3>
               </div>
               <p>
-                <span className="gear-color gear-set" /> - Gear Set
+                <span className="gear-color gear-set" /> - Gear Set (Gear only)
               </p>
               <p>
-                <span className="gear-color named-item" /> - Named
+                <span className="gear-color named-item" /> - Named (Weapons &
+                Gear)
               </p>
               <p>
-                <span className="gear-color exotic" /> - Exotic
+                <span className="gear-color exotic" /> - Exotic (Weapons & Gear)
               </p>
             </ItemColourStyles>
           </div>

@@ -2,9 +2,9 @@ import { useQuery } from '@apollo/client';
 import DisplayError from '../../../components/ErrorMessage';
 import SingleArmourPiece, {
   SINGLE_ARMOUR_PIECE_QUERY,
+  SingleGearItemStyle,
 } from '../../../components/SingleArmourPiece';
 import LinkSmallTalent from '../../../components/LinkSmallTalent';
-import SingleGearItemStyle from '../../../components/styles/SingleGearItemStyles';
 import LinkSmallBrand from '../../../components/LinkSmallBrand';
 
 export default function SingleArmourTypePage({ query }) {

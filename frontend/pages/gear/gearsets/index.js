@@ -1,8 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import EquipmentPagination from '../../../components/GearPagination';
+import { PaginationContainerStyles } from '../../../components/Pagination';
 import Gearsets from '../../../components/Gearsets';
 import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
-import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 
 export default function GearsetsPage() {
   const { query } = useRouter();

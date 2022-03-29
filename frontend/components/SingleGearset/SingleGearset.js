@@ -1,6 +1,33 @@
+import { gql } from '@apollo/client';
 import HeadSEO from '../HeadSEO';
-import SingleGearItemStyle from '../styles/SingleGearItemStyles';
+import { SingleGearItemStyle } from '../SingleArmourPiece';
 import { stringToParagraphs } from '../../lib/displayStrings';
+
+export const SINGLE_GEARSET_QUERY = gql`
+  query SINGLE_GEARSET_QUERY($id: ID!) {
+    allGearsets(where: { id: $id }) {
+      name
+      coreAttribute
+      coreAttributeValueLevel40
+      coreAttributeValueWT5
+      setBonusOne
+      setBonusTwo
+      setBonusName
+      setBonusThree
+      setBackpackTalentName
+      setBackpackTalent
+      setChestTalentName
+      setChestTalent
+      image {
+        image {
+          publicUrlTransformed
+        }
+        altText
+      }
+      notes
+    }
+  }
+`;
 
 export default function SingleGearset({ gearset }) {
   return (

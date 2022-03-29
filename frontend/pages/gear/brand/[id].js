@@ -1,58 +1,11 @@
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import DisplayError from '../../../components/ErrorMessage';
-// import { SINGLE_BRAND_QUERY } from '../../../queries/BrandQueries';
-import SingleBrand from '../../../components/SingleBrand';
+import SingleBrand, {
+  SINGLE_BRAND_QUERY,
+} from '../../../components/SingleBrand';
 import LinkSmallPiece from '../../../components/LinkSmallPiece';
 import LinkSmallTalent from '../../../components/LinkSmallTalent';
-import SingleGearItemStyle from '../../../components/styles/SingleGearItemStyles';
-
-export const SINGLE_BRAND_QUERY = gql`
-  query SINGLE_BRAND_QUERY($id: ID!) {
-    allBrands(where: { id: $id }) {
-      name
-      coreAttribute
-      coreAttributeValueLevel40
-      coreAttributeValueWT5
-      setBonusOne
-      setBonusTwo
-      setBonusThree
-      image {
-        image {
-          publicUrlTransformed
-        }
-      }
-      notes
-      armourTalent {
-        id
-        name
-        piece
-        descriptionPVE
-        isNamed
-        isExotic
-        image {
-          image {
-            publicUrlTransformed
-          }
-        }
-        namedArmourPiece {
-          id
-          name
-        }
-      }
-      armourType {
-        id
-        name
-        piece
-        isNamed
-        image {
-          image {
-            publicUrlTransformed
-          }
-        }
-      }
-    }
-  }
-`;
+import { SingleGearItemStyle } from '../../../components/SingleArmourPiece';
 
 export default function SingleBrandPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_BRAND_QUERY, {
@@ -64,7 +17,6 @@ export default function SingleBrandPage({ query }) {
   if (error) return <DisplayError error={error} />;
 
   const singleBrand = data.allBrands[0];
-  // console.log('SingleBrand', singleBrand);
 
   return (
     <>

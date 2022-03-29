@@ -1,8 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import Brands from '../../../components/Brands';
 import GearPagination from '../../../components/GearPagination';
+import { PaginationContainerStyles } from '../../../components/Pagination';
 import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
-import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 
 export default function BrandsPage() {
   const { query } = useRouter();

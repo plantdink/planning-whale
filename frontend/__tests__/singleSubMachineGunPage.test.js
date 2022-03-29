@@ -1,7 +1,7 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
 import { fakeWeaponQuery } from '../lib/testUtils';
-import { SINGLE_WEAPON_QUERY } from '../queries/WeaponQueries';
+import { SINGLE_WEAPON_QUERY } from '../components/SingleWeapon';
 import SingleSubMachineGunPage from '../pages/weapons/subMachineGun/[id]';
 
 afterEach(cleanup);

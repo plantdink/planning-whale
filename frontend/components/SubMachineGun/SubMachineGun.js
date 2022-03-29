@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { ListItem, ListTitle } from '../styles/ListStyles';
-
-import { DamageTag, DamageTagText } from '../styles/DamageTagStyles';
+import { DamageTag, DamageTagText } from '../DamageTag';
 
 export default function SubMachineGun({ subMachineGun }) {
   return (

@@ -1,8 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import NamedArmourPieces from '../../../components/NamedArmourPieces';
 import GearPagination from '../../../components/GearPagination';
+import { PaginationContainerStyles } from '../../../components/Pagination';
 import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
-import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 
 export default function NamedArmourPiecesPage() {
   const { query } = useRouter();

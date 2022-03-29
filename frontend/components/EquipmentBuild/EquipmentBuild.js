@@ -1,10 +1,10 @@
-import ItemColourStyles from '../ItemColour/ItemColourStyles';
+import { ItemColourStyles } from '../ItemColour';
 
 export default function EquipmentBuild() {
   return (
     <>
       <div className="single-gear-item__title-bar">
-        <h1 className="single-gear-item__heading">Equipment Specifications</h1>
+        <h1 className="single-gear-item__heading">Gear Specifications</h1>
       </div>
 
       <div className="single-gear-item__content">

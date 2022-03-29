@@ -1,7 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
-import Pagination from '../../../components/Pagination';
+import Pagination, {
+  PaginationContainerStyles,
+} from '../../../components/Pagination';
 import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
-import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 import SubMachineGuns from '../../../components/SubMachineGuns';
 
 export default function SubMachineGunsPage() {

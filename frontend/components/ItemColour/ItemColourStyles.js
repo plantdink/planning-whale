@@ -1,51 +1,51 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-const ItemColourStyles = styled.div`
-  .gear-color {
-    display: inline-block;
-    height: 20px;
-    width: 40px;
-  }
+// const ItemColourStyles = styled.div`
+//   .gear-color {
+//     display: inline-block;
+//     height: 20px;
+//     width: 40px;
+//   }
 
-  .high-end {
-    background-color: var(--highEndGold);
-  }
+//   .high-end {
+//     background-color: var(--highEndGold);
+//   }
 
-  .superior {
-    background-color: var(--superior);
-  }
+//   .superior {
+//     background-color: var(--superior);
+//   }
 
-  .specialized {
-    background-color: var(--specialized);
-  }
+//   .specialized {
+//     background-color: var(--specialized);
+//   }
 
-  .standard {
-    background-color: var(--standard);
-  }
+//   .standard {
+//     background-color: var(--standard);
+//   }
 
-  .gear-set {
-    background-color: var(--gearsetGreen);
-  }
+//   .gear-set {
+//     background-color: var(--gearsetGreen);
+//   }
 
-  .exotic {
-    background-color: var(--exoticOrange);
-  }
+//   .exotic {
+//     background-color: var(--exoticOrange);
+//   }
 
-  .named-item {
-    background-color: var(--namedGold);
-  }
+//   .named-item {
+//     background-color: var(--namedGold);
+//   }
 
-  .weapon-damage {
-    background-color: var(--damageRed);
-  }
+//   .weapon-damage {
+//     background-color: var(--damageRed);
+//   }
 
-  .armour {
-    background-color: var(--armorBlue);
-  }
+//   .armour {
+//     background-color: var(--armorBlue);
+//   }
 
-  .skill-tier {
-    background-color: var(--skillYellow);
-  }
-`;
+//   .skill-tier {
+//     background-color: var(--skillYellow);
+//   }
+// `;
 
-export default ItemColourStyles;
+// export default ItemColourStyles;

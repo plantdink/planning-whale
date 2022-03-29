@@ -1,8 +1,9 @@
 import { useRouter } from 'next/dist/client/router';
 import NamedWeapons from '../../../components/NamedWeapons';
-import Pagination from '../../../components/Pagination';
+import Pagination, {
+  PaginationContainerStyles,
+} from '../../../components/Pagination';
 import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
-import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 
 export default function NamedWeaponsPage() {
   const { query } = useRouter();

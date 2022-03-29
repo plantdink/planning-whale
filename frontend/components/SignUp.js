@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import Form from './styles/FormStyles';
+import Form from './Reset';
 import useForm from '../lib/useForm';
 import { CURRENT_USER_QUERY } from './User';
 import Error from './ErrorMessage';

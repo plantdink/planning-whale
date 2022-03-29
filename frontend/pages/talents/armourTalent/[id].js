@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client';
 import DisplayError from '../../../components/ErrorMessage';
 import { SINGLE_TALENT_QUERY } from '../../../queries/TalentQueries';
+import { SingleGearItemStyle } from '../../../components/SingleArmourPiece';
 import SingleTalent from '../../../components/SingleTalent';
 import LinkSmallPiece from '../../../components/LinkSmallPiece';
-import SingleGearItemStyle from '../../../components/styles/SingleGearItemStyles';
 
 export default function SingleArmourTalentPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_TALENT_QUERY, {

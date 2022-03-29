@@ -1,7 +1,7 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
 import { fakeAverageWeaponQuery } from '../lib/testUtils';
-import { SINGLE_AVERAGE_WEAPON_QUERY } from '../queries/WeaponQueries';
+import { SINGLE_AVERAGE_WEAPON_QUERY } from '../components/SingleAverageWeapon';
 import SingleAverageWeaponPage from '../pages/weapons/averageWeapon/[id]';
 
 afterEach(cleanup);
