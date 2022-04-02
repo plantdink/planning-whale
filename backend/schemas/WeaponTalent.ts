@@ -101,6 +101,7 @@ export const WeaponTalent = list({
     averageWeapon: relationship({
       label: "Average Weapon",
       ref: "AverageWeapon.weaponTalent",
+      many: true,
     }),
     availableWT5: select({
       label: "Is this available in World Tier 5?",

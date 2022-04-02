@@ -75,7 +75,7 @@ export const Weapon = list({
       isRequired: true,
     }),
     weaponBonusType: select({
-      label: "Weapon Bonus",
+      label: "Weapon Bonus One",
       options: [
         { label: "Critical Hit Chance", value: "CHC" },
         { label: "Critical Hit Damage", value: "CHD" },
@@ -88,7 +88,24 @@ export const Weapon = list({
       isRequired: true,
     }),
     maxBonusValue: integer({
-      label: "Bonus Percent",
+      label: "Bonus One Percent",
+      defaultValue: 0,
+      isRequired: true,
+    }),
+    weaponBonusTypeTwo: select({
+      label: "Weapon Bonus Two",
+      options: [
+        { label: "Critical Hit Chance", value: "CHC" },
+        { label: "Critical Hit Damage", value: "CHD" },
+        { label: "Damage to Armour", value: "DTA" },
+        { label: "Damage to Health", value: "DTH" },
+        { label: "Headshot Damage", value: "HSD" },
+        { label: "Damage to Targets out of Cover", value: "OOC" },
+        { label: "-----", value: "NA" },
+      ],
+    }),
+    maxBonusTwoValue: integer({
+      label: "Bonus Two Percent (Whole number 9.5% = 95)",
       defaultValue: 0,
       isRequired: true,
     }),

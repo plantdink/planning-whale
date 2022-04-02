@@ -43,6 +43,24 @@ export const AverageWeapon = list({
       label: "Headshot Multiplier",
       isRequired: true,
     }),
+    classBonusType: select({
+      label: "Class Bonus Type",
+      options: [
+        { label: "Critical Hit Chance", value: "CHC" },
+        { label: "Critical Hit Damage", value: "CHD" },
+        { label: "Damage to Armour", value: "DTA" },
+        { label: "Damage to Health", value: "DTH" },
+        { label: "Headshot Damage", value: "HSD" },
+        { label: "Damage to Targets out of Cover", value: "OOC" },
+        { label: "-----", value: "NA" },
+      ],
+      isRequired: true,
+    }),
+    maxClassBonusValue: integer({
+      label: "Bonus Type Percent",
+      defaultValue: 0,
+      isRequired: true,
+    }),
     accuracy: integer({
       label: "Accuracy",
       defaultValue: 0,
@@ -87,6 +105,11 @@ export const AverageWeapon = list({
     weaponTalent: relationship({
       label: "Related Talents",
       ref: "WeaponTalent.averageWeapon",
+      many: true,
+    }),
+    weaponThirdAttribute: relationship({
+      label: "Class Third Attributes",
+      ref: "WeaponThirdAttribute.averageWeapon",
       many: true,
     }),
     image: relationship({

@@ -2,7 +2,7 @@ export default function WeaponClasses() {
   return (
     <>
       <div className="single-gear-item__title-bar">
-        <h1 className="single-gear-item__heading">Weapons</h1>
+        <h1 className="single-gear-item__heading">Weapon Stats</h1>
       </div>
 
       <div className="single-gear-item__content">
@@ -22,27 +22,64 @@ export default function WeaponClasses() {
             When the tactical situation dictates, an Agent will be required to
             conduct operations with up to 7 other agents. By utilising a mix of
             weapon classes and understanding the strengths and weaknesses of
-            each class, a group of agents will have a large impact on an enemy
-            group that is many times larger.
+            each class, a group of agents will have an exponential impact on an
+            enemy group that is many times larger.
           </p>
 
           <div className="single-gear-item__title-bar">
-            <h2 className="single-gear-item__subheading">Weapon Stats</h2>
+            <h3 className="single-gear-item__subheading">Weapon Attributes</h3>
           </div>
           <p>
-            All weapons that an agent will use during operations come with a
-            total of 3 attributes, Weapon damage, a class specific fixed second
-            attribute, a random third attribute and a single random talent. Each
-            weapon will also have from 1 - 4 modification slots that agents can
-            mount a range of attachments to in order to customise each weapon to
-            their particular preferences.
+            All weapons that an agent will use during operations come with the
+            following attributes:
+          </p>
+          <ul>
+            <li>weapon damage</li>
+            <li>bonus damage type (class specific & fixed)</li>
+            <li>third attribute (random)</li>
+            <li>talent (class specific & random)</li>
+          </ul>
+          <p>
+            Each weapon will also have from 1 - 4 modification slots that allow
+            an agent to mount a range of attachments in order to customise each
+            weapon to their particular preferences or operational requirements.
           </p>
           <p>
             A Named weapon will usually come with a fixed talent that has a
-            higher value than the normal version of the talent. Exotic weapons
-            may come with more than one talent, or have a combination of class
-            specific attributes. Exotic weapons will also have fixed
-            modification slots that are unable to be modified by an agent.
+            higher value than the normal version of the talent or , sometimes, a
+            fixed attribute that is of a higher value than the normal attribute
+            value. Exotic weapons may come with more than one talent, or have a
+            combination of class specific attributes. Exotic weapons will also
+            have fixed modification slots that are unable to be modified by an
+            agent.
+          </p>
+
+          <div className="single-gear-item__title-bar">
+            <h3 className="single-gear-item__subheading">Third Attribute</h3>
+          </div>
+          <p>
+            A weapons third attribute type and value is random but does depend
+            on the weapon class. It can be any of the following list:
+          </p>
+          <ul>
+            <li>Damage to Armour</li>
+            <li>Critical Hit Chance</li>
+            <li>Health Damage</li>
+            <li>Damage to Targets out of Cover</li>
+            <li>Headshot Damage</li>
+            <li>Critical Hit Damage</li>
+            <li>Reload Speed</li>
+            <li>Stability</li>
+            <li>Accuracy</li>
+            <li>Optimal Range</li>
+            <li>Magazine Size</li>
+            <li>Rate of Fire</li>
+            <li>Swap Speed</li>
+          </ul>
+          <p>
+            See each the Average weapon section for further details about each
+            of the weapon classes, including how the weapons class will affect
+            its second & third attribute.
           </p>
         </div>
       </div>

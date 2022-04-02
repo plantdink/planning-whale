@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import Title from '../styles/Title';
-import { ListItem } from '../styles/ListStyles';
+import { ListItem, ListTitle } from '../styles/ListStyles';
 
 export default function NamedArmourPiece({ armourType }) {
   return (
@@ -9,11 +8,11 @@ export default function NamedArmourPiece({ armourType }) {
         src={armourType.image?.image.publicUrlTransformed}
         alt={`${armourType.name} icon`}
       />
-      <Title>
+      <ListTitle>
         <Link href={`/gear/namedArmourPiece/${armourType.id}`}>
           {armourType.name}
         </Link>
-      </Title>
+      </ListTitle>
     </ListItem>
   );
 }

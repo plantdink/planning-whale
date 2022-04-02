@@ -189,20 +189,20 @@ export default function Navigation() {
           >
             <>
               <li className="active">
-                <Link href="/intel">Intel</Link>
+                <Link href="/gear">Armour</Link>
               </li>
             </>
-            <li>
-              <Link href="/weapons">Weapons</Link>
-            </li>
-            <li>
-              <Link href="/gear">Armour</Link>
-            </li>
             <li>
               <Link href="/exotics">Exotics</Link>
             </li>
             <li>
+              <Link href="/intel">Intel</Link>
+            </li>
+            <li>
               <Link href="/talents">Talents</Link>
+            </li>
+            <li>
+              <Link href="/weapons">Weapons</Link>
             </li>
           </ul>
         </nav>

@@ -4,6 +4,7 @@ import { SINGLE_TALENT_QUERY } from '../../../queries/TalentQueries';
 import { SingleGearItemStyle } from '../../../components/SingleArmourPiece';
 import SingleTalent from '../../../components/SingleTalent';
 import LinkSmallPiece from '../../../components/LinkSmallPiece';
+import HeadSEOTag from '../../../components/HeadSEOTag';
 
 export default function SingleArmourTalentPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_TALENT_QUERY, {
@@ -19,6 +20,7 @@ export default function SingleArmourTalentPage({ query }) {
   return (
     <>
       <SingleGearItemStyle>
+        <HeadSEOTag item={singleTalent} string={null} />
         <SingleTalent singleTalent={singleTalent} />
         {singleTalent.piece !== '' && (
           <>

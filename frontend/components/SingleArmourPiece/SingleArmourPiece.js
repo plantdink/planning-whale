@@ -4,7 +4,6 @@ import {
   displayPercentage,
   humanReadableNumber,
 } from '../../lib/displayNumbers';
-import HeadSEO from '../HeadSEO';
 
 export const SingleGearItemStyle = styled.div`
   position: relative;
@@ -44,7 +43,7 @@ export const SingleGearItemStyle = styled.div`
   }
   
   .multiple-gear-item__icon-image {
-        justify-self: center;
+    justify-self: center;
     align-self: end;
     position: absolute;
     z-index: 1;
@@ -322,7 +321,6 @@ export const SINGLE_EXOTIC_ARMOUR_PIECE_QUERY = gql`
 export default function SingleArmourPiece({ armourPiece }) {
   return (
     <>
-      <HeadSEO seoTag={armourPiece.name} />
       <>
         <div className="single-gear-item__title-bar">
           <h1 className="single-gear-item__heading">{armourPiece.name}</h1>

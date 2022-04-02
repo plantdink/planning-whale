@@ -1,5 +1,4 @@
 import { useQuery, gql } from '@apollo/client';
-// import { ALL_WEAPON_TALENTS_QUERY } from '../../queries/TalentQueries';
 import WeaponTalent from '../WeaponTalent';
 import { ListStyles } from '../styles/ListStyles';
 import { perPage } from '../../config';

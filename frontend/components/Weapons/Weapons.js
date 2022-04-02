@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { ListStyles, ListItem, ListTitle } from '../styles/ListStyles';
-import HeadSEO from '../HeadSEO';
 import {
   arIcon,
   lmgIcon,
@@ -16,7 +15,6 @@ import {
 export default function Weapons() {
   return (
     <>
-      <HeadSEO seoTag="Weapon Classes" />
       <ListStyles>
         <ListItem>
           <img src={arIcon} alt="Assault Rifle" />

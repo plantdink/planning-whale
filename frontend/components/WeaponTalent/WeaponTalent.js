@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import Title from '../styles/Title';
-import { ListItem } from '../styles/ListStyles';
+import { ListItem, ListTitle } from '../styles/ListStyles';
 
 export default function WeaponTalent({ weaponTalent }) {
   return (
@@ -9,11 +8,11 @@ export default function WeaponTalent({ weaponTalent }) {
         src={weaponTalent.image?.image.publicUrlTransformed}
         alt={`${weaponTalent.name} talent`}
       />
-      <Title>
+      <ListTitle>
         <Link href={`/talents/weaponTalent/${weaponTalent.id}`}>
           {weaponTalent.name}
         </Link>
-      </Title>
+      </ListTitle>
     </ListItem>
   );
 }

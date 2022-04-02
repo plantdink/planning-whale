@@ -1,5 +1,4 @@
 import { useQuery, gql } from '@apollo/client';
-// import { ALL_ARMOUR_TYPES_QUERY } from '../../queries/ArmourPieceQueries';
 import ArmourType from '../ArmourType';
 import { ListStyles } from '../styles/ListStyles';
 import DisplayError from '../ErrorMessage';

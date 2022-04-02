@@ -5,6 +5,7 @@ import SingleArmourPiece, {
   SingleGearItemStyle,
 } from '../../../components/SingleArmourPiece';
 import LinkSmallTalent from '../../../components/LinkSmallTalent';
+import HeadSEOTag from '../../../components/HeadSEOTag';
 
 export default function SingleExoticArmourPiecePage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_EXOTIC_ARMOUR_PIECE_QUERY, {
@@ -20,6 +21,7 @@ export default function SingleExoticArmourPiecePage({ query }) {
   return (
     <>
       <SingleGearItemStyle>
+        <HeadSEOTag item={exoticArmourPiece} string={null} />
         <SingleArmourPiece armourPiece={exoticArmourPiece} />
         {exoticArmourPiece.exoticArmourTalent.length < 2 && (
           <>

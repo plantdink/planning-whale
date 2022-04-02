@@ -3,17 +3,15 @@ export default function AssaultRifleClassNotes() {
     <>
       <div className="single-weapon__details">
         <div className="single-weapon__title-bar">
-          <h3 className="single-weapon__subheading">
-            Assault Rifle Class Description
-          </h3>
+          <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
 
         <p>
           An assault rifle is a short, compact, selective-fire weapon that fires
-          a cartridge, typically either 5.56mm or 7.62mm, that has more power
+          a cartridge (typically either 5.56mm or 7.62mm) that has more power
           than a pistol or submachine gun but less power than a standard rifle
           or battle rifle. An assault rifle is designed for medium to long range
-          engagements however it can function well in CQB depending on the
+          engagements however it will perform well in CQB depending on the
           agents skill.
         </p>
 
@@ -34,20 +32,17 @@ export function LightMachineGunClassNotes() {
     <>
       <div className="single-weapon__details">
         <div className="single-weapon__title-bar">
-          <h3 className="single-weapon__subheading">
-            Light Machine Gun Class Description
-          </h3>
+          <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
 
         <p>
           A light machine gun (LMG) is a light-weight weapon designed to be
-          operated by a single agent, with or without an assistant, as a support
-          weapon. LMGs generally include a larger magazine, a heavier barrel to
-          resist overheating, a more robust mechanism to support sustained fire
-          and a bipod. They are also designed to be fired from the hip or on the
-          move as a form of suppressive fire intended to pin down the enemy.
-          Typically they are best suited to a support fire role at medium to
-          long range.
+          operated by a single agent as a support weapon. LMGs generally include
+          a larger magazine, a heavier barrel to resist overheating, a more
+          robust mechanism to support sustained fire and a bipod. They are also
+          designed to be fired from the hip or on the move as a form of
+          suppressive fire intended to pin down the enemy. Typically they are
+          best suited to a support fire role at medium to long range.
         </p>
 
         <p>
@@ -67,26 +62,21 @@ export function MarksmanRifleClassNotes() {
     <>
       <div className="single-weapon__details">
         <div className="single-weapon__title-bar">
-          <h3 className="single-weapon__subheading">
-            Marksman Rifle Class Description
-          </h3>
+          <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
 
         <p>
           The marksman rifle class covers both designated marksman rifle (DMR)
           weapons and sniper rifles. A DMR is a modern scoped high-precision
-          rifle used by agents in the designated marksman (DM) role. It is best
-          suited to support fire at long range.
-        </p>
-
-        <p>
-          A sniper rifle is a high-precision, long-range rifle. Requirements
-          include accuracy, reliability, mobility, concealment and optics for
+          rifle used by agents in the designated marksman (DM) role. A sniper
+          rifle is a high-precision, long-range rifle. Requirements include
+          accuracy, reliability, mobility, concealment and optics for
           anti-personnel, anti-materiel and surveillance uses. The modern sniper
           rifle is a portable shoulder-fired weapon system with a choice between
           bolt-action or semi-automatic action, fitted with a telescopic sight
           for extreme accuracy and chambered for a high-ballistic performance
-          center-fire cartridge.
+          center-fire cartridge. The class is best suited to the support fire at
+          long range role.
         </p>
 
         <p>
@@ -108,16 +98,14 @@ export function PistolClassNotes() {
     <>
       <div className="single-weapon__details">
         <div className="single-weapon__title-bar">
-          <h3 className="single-weapon__subheading">
-            Pistol Class Description
-          </h3>
+          <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
 
         <p>
           A pistol is a handgun, more specifically one with the chamber integral
           to its gun barrel. A pistol may be a revolver style, semi-automatic or
-          fully automatic with a detachable magazine. A pistol provides close
-          range protection option that an agent can switch to in the event of a
+          fully automatic with a detachable magazine. A pistol provides a close
+          range protection option that an agent can utilise in the event of a
           main weapon stoppage or malfunction. Pistols can also be fitted with a
           range of attachments including sights, fore-grips and muzzle
           attachments, like a suppressor.
@@ -132,7 +120,7 @@ export function RifleClassNotes() {
     <>
       <div className="single-weapon__details">
         <div className="single-weapon__title-bar">
-          <h3 className="single-weapon__subheading">Rifle Class Description</h3>
+          <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
 
         <p>
@@ -162,7 +150,7 @@ export function ShotgunClassNotes() {
   return (
     <>
       <div className="single-weapon__title-bar">
-        <h3 className="single-weapon__subheading">Shotgun Class Description</h3>
+        <h2 className="single-weapon__section-heading">Class Description</h2>
       </div>
 
       <p>
@@ -191,7 +179,7 @@ export function ShotgunClassNotes() {
       <p>
         Shotguns can be fitted with a range of attachments including including
         sights, fore-grips and muzzle attachments, like a suppressor. Some
-        models of shotgun can be fitted with a drum magazine.
+        models can be fitted with a drum magazine.
       </p>
     </>
   );
@@ -201,9 +189,7 @@ export function SubMachineGunClassNotes() {
   return (
     <>
       <div className="single-weapon__title-bar">
-        <h3 className="single-weapon__subheading">
-          Sub Machine Gun Class Description
-        </h3>
+        <h2 className="single-weapon__section-heading">Class Description</h2>
       </div>
 
       <p>

@@ -13,6 +13,10 @@ import AssaultRifleClassNotes, {
   ShotgunClassNotes,
   SubMachineGunClassNotes,
 } from '../../../components/WeaponClassNotes';
+import WeaponClassThirdAttribute from '../../../components/WeaponClassThirdAttribute';
+import SingleRadarChart from '../../../components/SingleRadarChart';
+import TitleBar, { SubHeadingBar } from '../../../components/TitleBar';
+import HeadSEOTag from '../../../components/HeadSEOTag';
 
 export default function SingleAverageWeaponPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_AVERAGE_WEAPON_QUERY, {
@@ -28,7 +32,14 @@ export default function SingleAverageWeaponPage({ query }) {
   return (
     <>
       <SingleWeaponStyles data-testid="singleAverageWeaponPageTest">
-        <SingleAverageWeapon weapon={weapon} />
+        <HeadSEOTag item={weapon} />
+        <TitleBar item={weapon} />
+        <SingleRadarChart weapon={weapon} avgWeapon={null} />
+        <SubHeadingBar subHeading="Weapon Stats" />
+        <div className="single-weapon__sub-content">
+          <SingleAverageWeapon weapon={weapon} />
+          <WeaponClassThirdAttribute weapon={weapon} />
+        </div>
         {weapon.class === 'ASSAULT RIFLE' && <AssaultRifleClassNotes />}
         {weapon.class === 'LIGHT MACHINE GUN' && <LightMachineGunClassNotes />}
         {weapon.class === 'MARKSMAN RIFLE' && <MarksmanRifleClassNotes />}

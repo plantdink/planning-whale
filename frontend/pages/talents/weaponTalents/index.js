@@ -1,10 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import WeaponTalents from '../../../components/WeaponTalents';
-import GearPagination, {
-  PaginationContainerStyles,
-} from '../../../components/Pagination';
+import GearPagination from '../../../components/GearPagination';
+import { PaginationContainerStyles } from '../../../components/Pagination';
 import { ContentContainerStyles } from '../../../components/styles/ContainerStyles';
-// import { PaginationContainerStyles } from '../../../components/styles/PaginationStyles';
 
 export default function WeaponTalentsPage() {
   const { query } = useRouter();

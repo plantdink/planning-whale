@@ -16,6 +16,7 @@ import { Gearset } from "./schemas/Gearset";
 import { Role } from "./schemas/Role";
 import { FieldManualImage } from "./schemas/fieldManualImage";
 import { AverageWeapon } from "./schemas/AverageWeapon";
+import { WeaponThirdAttribute } from "./schemas/WeaponThirdAttribute";
 import "dotenv/config";
 import { sendPasswordResetEmail } from "./lib/mail";
 import { permissionsList } from "./schemas/fields";
@@ -75,6 +76,7 @@ export default withAuth(
       WeaponTalent,
       FieldManualImage,
       AverageWeapon,
+      WeaponThirdAttribute,
     }),
     ui: {
       // TODO: change for roles

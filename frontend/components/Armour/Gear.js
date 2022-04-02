@@ -6,12 +6,10 @@ import {
   armourPiecesIconLink,
   namedArmourPiecesIconLink,
 } from '../ItemIcons';
-import HeadSEO from '../HeadSEO';
 
 export default function Gear() {
   return (
     <>
-      <HeadSEO seoTag="Equipment" />
       <ListStyles>
         <ListItem>
           <img src={brandIconLink} alt="All Brands" />

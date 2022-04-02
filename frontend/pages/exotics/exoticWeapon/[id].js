@@ -1,5 +1,10 @@
 import SingleWeapon from "../../../components/SingleWeapon";
+import HeadSEOTag from '../../../components/HeadSEOTag';
+
 
 export default function SingleWeaponPage()({ query }) {
-    return <SingleWeapon id={query.id} />;
+    return (
+        // <HeadSEOTag seoTag={} />
+        <SingleWeapon id={query.id} />
+    );
 }

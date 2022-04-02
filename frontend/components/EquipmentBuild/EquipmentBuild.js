@@ -14,9 +14,8 @@ export default function EquipmentBuild() {
           </div>
           <p>
             Each piece of SHD approved equipment uses comes with 1 Core
-            attribute per item.
+            attribute per item. A Core attribute is one of the following types:
           </p>
-          <p>A Core attribute is one of the following types:</p>
           <ItemColourStyles>
             <ul>
               <li>
@@ -34,7 +33,7 @@ export default function EquipmentBuild() {
           <p>Each Core attribute will provide the following bonus per core:</p>
           <ul>
             <li>Offensive: + % Weapon Damage</li>
-            <li>Defensive: + amount of additional Armour</li>
+            <li>Defensive: + additional Armour</li>
             <li>Utility: + 1 Skill Tier</li>
           </ul>
 

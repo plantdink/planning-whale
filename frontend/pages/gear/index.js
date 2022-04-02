@@ -1,10 +1,14 @@
 import { Spacer } from '../../components/styles/GridStyles';
+import HeadSEOTag from '../../components/HeadSEOTag';
 import Gear from '../../components/Armour';
 
 export default function gear() {
   return (
-    <Spacer>
-      <Gear />
-    </Spacer>
+    <>
+      <HeadSEOTag item={null} string="Equipment" />
+      <Spacer>
+        <Gear />
+      </Spacer>
+    </>
   );
 }
