@@ -7,7 +7,6 @@ import {
   millisecondsToSeconds,
   humanReadableNumber,
 } from '../../lib/displayNumbers';
-import { titleCase } from '../../lib/displayStrings';
 import { deAbbreviate } from '../../lib/abbreviationsDictionary';
 
 export const SingleWeaponStyles = styled.div`
@@ -167,6 +166,8 @@ export const SINGLE_WEAPON_QUERY = gql`
       headshotMultiplier
       weaponBonusType
       maxBonusValue
+      weaponBonusTypeTwo
+      maxBonusTwoValue
       damageLevel40
       damageWt5
       flavourText
@@ -180,6 +181,20 @@ export const SINGLE_WEAPON_QUERY = gql`
             publicUrlTransformed
           }
         }
+      }
+      exoticWeaponAttachment {
+        opticsSlot
+        opticsValueLevel40
+        opticsValueWT5
+        magazineSlot
+        magazineValueLevel40
+        magazineValueWT5
+        underbarrelSlot
+        underbarrelValueLevel40
+        underbarrelValueWT5
+        muzzleSlot
+        muzzleValueLevel40
+        muzzleValueWT5
       }
       averageWeapon {
         id
@@ -226,6 +241,7 @@ export const SINGLE_WEAPON_QUERY = gql`
 `;
 
 export default function SingleWeapon({ weapon }) {
+  // console.log(weapon);
   return (
     <>
       <div className="single-weapon__content">
@@ -241,6 +257,12 @@ export default function SingleWeapon({ weapon }) {
           {weapon.maxBonusValue > 1 && (
             <p>
               {weapon.maxBonusValue}% {deAbbreviate(weapon.weaponBonusType)}
+            </p>
+          )}
+          {weapon.maxBonusTwoValue > 1 && (
+            <p>
+              {displayPercentage(weapon.maxBonusTwoValue)}%{' '}
+              {deAbbreviate(weapon.weaponBonusTypeTwo)}
             </p>
           )}
           <p>{hsDisplay(weapon.headshotMultiplier)} x Headshot Multiplier</p>

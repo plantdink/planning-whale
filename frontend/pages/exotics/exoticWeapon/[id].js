@@ -1,10 +1,42 @@
-import SingleWeapon from "../../../components/SingleWeapon";
+import { useQuery } from '@apollo/client';
+import DisplayError from '../../../components/ErrorMessage';
+import SingleWeapon, {
+  SINGLE_WEAPON_QUERY,
+  SingleWeaponStyles,
+} from '../../../components/SingleWeapon';
+import LinkSmallWeaponTalent from '../../../components/LinkSmallWeaponTalent';
 import HeadSEOTag from '../../../components/HeadSEOTag';
+import TitleBar, { SubHeadingBar } from '../../../components/TitleBar';
+import ClassAndFamilyText from '../../../components/ClassAndFamilyText';
+import FlavourText from '../../../components/FlavourText';
+import SingleRadarChart from '../../../components/SingleRadarChart';
 
 
-export default function SingleWeaponPage()({ query }) {
+export default function SingleExoticWeaponPage()({ query }) {
+      const { data, loading, error } = useQuery(SINGLE_WEAPON_QUERY, {
+    variables: {
+      id: query.id,
+    },
+  });
+  if (loading) return <p>Loading...</p>;
+    if (error) return <DisplayError error={error} />;
+    
+      const weapon = data.allWeapons[0];
+  const avgWeapon = weapon.averageWeapon;
+
     return (
-        // <HeadSEOTag seoTag={} />
-        <SingleWeapon id={query.id} />
+        <>
+            <SingleWeaponStyles data-testid="singleExoticWeaponTest">
+                <TitleBar item={weapon} />
+                <ClassAndFamilyText weapon={weapon} />
+                <SingleRadarChart weapon={weapon} avgWeapon={avgWeapon} />
+                <SubHeadingBar subHeading="Weapon Stats" />
+                <FlavourText weapon={weapon} />
+                <div className="single-weapon__sub-content">
+                    <SingleWeapon weapon={weapon} />
+                </div>
+                <LinkSmallWeaponTalent weapon={weapon} />
+            </SingleWeaponStyles>
+        </>
     );
 }

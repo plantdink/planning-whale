@@ -17,6 +17,7 @@ import { Role } from "./schemas/Role";
 import { FieldManualImage } from "./schemas/fieldManualImage";
 import { AverageWeapon } from "./schemas/AverageWeapon";
 import { WeaponThirdAttribute } from "./schemas/WeaponThirdAttribute";
+import { ExoticWeaponAttachment } from "./schemas/ExoticWeaponAttachment";
 import "dotenv/config";
 import { sendPasswordResetEmail } from "./lib/mail";
 import { permissionsList } from "./schemas/fields";
@@ -77,6 +78,7 @@ export default withAuth(
       FieldManualImage,
       AverageWeapon,
       WeaponThirdAttribute,
+      ExoticWeaponAttachment,
     }),
     ui: {
       // TODO: change for roles

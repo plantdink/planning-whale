@@ -101,6 +101,7 @@ export const Weapon = list({
         { label: "Damage to Health", value: "DTH" },
         { label: "Headshot Damage", value: "HSD" },
         { label: "Damage to Targets out of Cover", value: "OOC" },
+        { label: "Magazine Size", value: "Magazine Size" },
         { label: "-----", value: "NA" },
       ],
     }),
@@ -163,6 +164,11 @@ export const Weapon = list({
       ui: {
         displayMode: "segmented-control",
       },
+    }),
+    exoticWeaponAttachment: relationship({
+      label: "Exotic Weapon Attachment",
+      ref: "ExoticWeaponAttachment.weapon",
+      many: true,
     }),
     averageWeapon: relationship({
       label: "Average Weapon",

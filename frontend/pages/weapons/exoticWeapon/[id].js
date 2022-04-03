@@ -10,8 +10,7 @@ import TitleBar, { SubHeadingBar } from '../../../components/TitleBar';
 import ClassAndFamilyText from '../../../components/ClassAndFamilyText';
 import FlavourText from '../../../components/FlavourText';
 import SingleRadarChart from '../../../components/SingleRadarChart';
-// below is accessed through the avgWeapon -> weapon={avgWeapon}
-import WeaponClassThirdAttribute from '../../../components/WeaponClassThirdAttribute';
+import ExoticWeaponAttachment from '../../../components/ExoticWeaponAttachment/ExoticWeaponAttachment';
 
 export default function SingleExoticWeaponPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_WEAPON_QUERY, {
@@ -36,7 +35,7 @@ export default function SingleExoticWeaponPage({ query }) {
         <FlavourText weapon={weapon} />
         <div className="single-weapon__sub-content">
           <SingleWeapon weapon={weapon} />
-          <WeaponClassThirdAttribute weapon={avgWeapon} />
+          {/* <ExoticWeaponAttachment weapon={weapon} /> */}
         </div>
         <LinkSmallWeaponTalent weapon={weapon} />
       </SingleWeaponStyles>
