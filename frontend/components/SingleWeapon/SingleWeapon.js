@@ -110,6 +110,41 @@ export const SingleWeaponStyles = styled.div`
     font-size: 1.6rem;
   }
 
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text);
+    font-size: 1.6rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  th {
+    font-weight: 500;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 2rem;
+    text-align: left;
+  }
+
+  thead th:nth-child(1) {
+    width: 20%;
+  }
+
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+
+  thead th:nth-child(3) {
+    width: 20%;
+  }
+
+  thead th:nth-child(4) {
+    width: 20%;
+  }
+
   blockquote {
     color: var(--text);
     margin: 0.85rem 0;
@@ -183,16 +218,19 @@ export const SINGLE_WEAPON_QUERY = gql`
         }
       }
       exoticWeaponAttachment {
-        opticsSlot
-        opticsValueLevel40
+        id
+        name
+        attachmentSlot
+        opticsSlotBonusType
+        opticsBonusValueLevel40
         opticsValueWT5
-        magazineSlot
+        magazineSlotBonusType
         magazineValueLevel40
         magazineValueWT5
-        underbarrelSlot
+        underbarrelSlotBonusType
         underbarrelValueLevel40
         underbarrelValueWT5
-        muzzleSlot
+        muzzleSlotBonusType
         muzzleValueLevel40
         muzzleValueWT5
       }
@@ -241,7 +279,6 @@ export const SINGLE_WEAPON_QUERY = gql`
 `;
 
 export default function SingleWeapon({ weapon }) {
-  // console.log(weapon);
   return (
     <>
       <div className="single-weapon__content">
@@ -249,43 +286,115 @@ export default function SingleWeapon({ weapon }) {
           <div className="single-weapon__title-bar">
             <h3 className="single-weapon__subheading">Base Damage</h3>
           </div>
-          <p>{humanReadableNumber(weapon.damageLevel40)} (Level 40)</p>
-          <p>{humanReadableNumber(weapon.damageWt5) || 'N/A'} (World Tier 5)</p>
+          <table>
+            <tbody>
+              <tr>
+                <th scope="row">Level 40</th>
+                <td>{humanReadableNumber(weapon.damageLevel40)}</td>
+              </tr>
+              <tr>
+                <th scope="row">World Tier 5</th>
+                <td>{humanReadableNumber(weapon.damageWt5) || 'N/A'}</td>
+              </tr>
+            </tbody>
+          </table>
           <div className="single-weapon__title-bar">
             <h3 className="single-weapon__subheading">Specifications</h3>
           </div>
-          {weapon.maxBonusValue > 1 && (
-            <p>
-              {weapon.maxBonusValue}% {deAbbreviate(weapon.weaponBonusType)}
-            </p>
-          )}
-          {weapon.maxBonusTwoValue > 1 && (
-            <p>
-              {displayPercentage(weapon.maxBonusTwoValue)}%{' '}
-              {deAbbreviate(weapon.weaponBonusTypeTwo)}
-            </p>
-          )}
-          <p>{hsDisplay(weapon.headshotMultiplier)} x Headshot Multiplier</p>
-          <p>{weapon.rpm} rounds per minute rate of fire</p>
-          <p>{weapon.magazineSize} round magazine</p>
-          {weapon.modSlots === 0 && <p>No adjustable modification slots</p>}
-          {weapon.modSlots > 0 && <p>{weapon.modSlots} modification slots</p>}
-          <p>{displayPercentage(weapon.accuracy)}% accuracy</p>
-          <p>{displayPercentage(weapon.stability)}% stability</p>
-          <p>{weapon.optimalRange}m optimal range</p>
-          <p>{weapon.maxRange}m max range</p>
-          <p>
-            {millisecondsToSeconds(weapon.reloadSpeed)} seconds reload speed
-          </p>
-          <p>
-            {millisecondsToSeconds(weapon.reloadSpeedFromEmpty)} seconds reload
-            speed (empty magazine)
-          </p>
-          {(!weapon.accuracy || !weapon.stability) && (
-            <>
-              <small>Note: 0 indicates no value available</small>
-            </>
-          )}
+          <table>
+            <thead>
+              <th scope="col">Title</th>
+              <th scope="col">Value</th>
+            </thead>
+            {(!weapon.accuracy || !weapon.stability) && (
+              <>
+                <tfoot>
+                  <tr>
+                    <td colSpan="2">
+                      <small>
+                        0 indicates no community-sourced value available
+                      </small>
+                    </td>
+                  </tr>
+                </tfoot>
+              </>
+            )}
+
+            <tbody>
+              {weapon.maxBonusValue > 1 && (
+                <>
+                  <tr>
+                    <th scope="row">{deAbbreviate(weapon.weaponBonusType)}</th>
+                    <td>{weapon.maxBonusValue} %</td>
+                  </tr>
+                </>
+              )}
+              {weapon.maxBonusTwoValue > 1 && (
+                <>
+                  <tr>
+                    <th scope="row">
+                      {deAbbreviate(weapon.weaponBonusTypeTwo)}
+                    </th>
+                    <td>{displayPercentage(weapon.maxBonusTwoValue)} %</td>
+                  </tr>
+                </>
+              )}
+              <tr>
+                <th scope="row">Headshot Multiplier</th>
+                <td>x {hsDisplay(weapon.headshotMultiplier)}</td>
+              </tr>
+              <tr>
+                <th scope="row">Rate of Fire</th>
+                <td>{weapon.rpm} rounds per minute</td>
+              </tr>
+              <tr>
+                <th scope="row">Magazine</th>
+                <td>{weapon.magazineSize}</td>
+              </tr>
+              {weapon.modSlots === 0 && (
+                <>
+                  <tr>
+                    <th scope="row">Mod Slots</th>
+                    <td>Nil adjustable</td>
+                  </tr>
+                </>
+              )}
+              {weapon.modSlots > 0 && (
+                <>
+                  <tr>
+                    <th scope="row">Mod Slots</th>
+                    <td>{weapon.modSlots}</td>
+                  </tr>
+                </>
+              )}
+              <tr>
+                <th scope="row">Accuracy</th>
+                <td>{displayPercentage(weapon.accuracy)} %</td>
+              </tr>
+              <tr>
+                <th scope="row">Stability</th>
+                <td>{displayPercentage(weapon.stability)} %</td>
+              </tr>
+              <tr>
+                <th scope="row">Optimal Range</th>
+                <td>{weapon.optimalRange} m</td>
+              </tr>
+              <tr>
+                <th scope="row">Max Range</th>
+                <td>{weapon.maxRange} m</td>
+              </tr>
+              <tr>
+                <th scope="row">Reload Speed</th>
+                <td>{millisecondsToSeconds(weapon.reloadSpeed)} seconds</td>
+              </tr>
+              <tr>
+                <th scope="row">Reload Speed (empty magazine)</th>
+                <td>
+                  {millisecondsToSeconds(weapon.reloadSpeedFromEmpty)} seconds
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </>

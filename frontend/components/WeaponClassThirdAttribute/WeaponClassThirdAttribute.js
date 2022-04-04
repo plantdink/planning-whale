@@ -1,3 +1,5 @@
+import { displayPercentage } from '../../lib/displayNumbers';
+
 export default function WeaponClassThirdAttribute({ weapon }) {
   // console.log('Weapon', weapon);
   const classDisplayArray = [];
@@ -58,28 +60,25 @@ export default function WeaponClassThirdAttribute({ weapon }) {
           <div className="single-weapon__details">
             <div className="single-weapon__title-bar">
               <h3 className="single-weapon__subheading">
-                Third Attribute (Level 40)
+                Class Compatible Attributes
               </h3>
             </div>
-            <ul>
-              {classDisplayArray.length > 0 &&
-                classDisplayArray.map((attribute) => (
-                  <li key={attribute.id}>{attribute.valueLevel40}</li>
+            {classDisplayArray.length > 0 && (
+              <table>
+                <thead>
+                  <th scope="col">Name</th>
+                  <th scope="col">Level 40</th>
+                  <th scope="col">World Tier 5</th>
+                </thead>
+                {classDisplayArray.map((attribute) => (
+                  <tr key={attribute.id}>
+                    <th scope="row">{attribute.attribute}</th>
+                    <td>{displayPercentage(attribute.valueLevel40)} %</td>
+                    <td>{displayPercentage(attribute.valueWT5)} %</td>
+                  </tr>
                 ))}
-            </ul>
-          </div>
-          <div className="single-weapon__details">
-            <div className="single-weapon__title-bar">
-              <h3 className="single-weapon__subheading">
-                Third Attribute (World Tier 5)
-              </h3>
-            </div>
-            <ul>
-              {classDisplayArray.length > 0 &&
-                classDisplayArray.map((attribute) => (
-                  <li key={attribute.id}>{attribute.valueWT5}</li>
-                ))}
-            </ul>
+              </table>
+            )}
           </div>
         </>
       )}

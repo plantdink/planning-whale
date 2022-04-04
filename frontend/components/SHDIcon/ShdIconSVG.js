@@ -134,13 +134,13 @@ const ShdStyles = styled.div`
   }
 `;
 
-export default function ShdIconSVG(width, height) {
+export default function ShdIconSVG() {
   return (
     <ShdStyles>
       <svg
         id="shd-icon-svg"
-        width={width}
-        height={height}
+        width="100%"
+        height="100%"
         viewBox="0 0 67.733 67.733"
         xmlns="http://www.w3.org/2000/svg"
       >

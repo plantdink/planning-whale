@@ -67,7 +67,7 @@ export default function LandingPortal() {
           </div>
 
           <div className="shd-icon">
-            <ShdIconSVG width="400px" height="400px" />
+            <ShdIconSVG />
           </div>
         </div>
       </LandingStyles>

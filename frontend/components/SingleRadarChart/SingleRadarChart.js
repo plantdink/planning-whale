@@ -28,6 +28,7 @@ export default function SingleRadarChart({ weapon, avgWeapon }) {
   // this sets the default size for the whole chart & tooltips, doesn't affect the individual point labels
   ChartJS.defaults.font.size = 14;
 
+  // set empty containers so chart can be used with 1 weapon, or to compare 2 weapons
   let options = {};
   let weaponDataComputed = [];
   let chartData = [];
@@ -120,7 +121,7 @@ export default function SingleRadarChart({ weapon, avgWeapon }) {
     ],
   };
 
-  //  ------------ Dual chart below ------------------
+  //  ------------ Dual chart options below ------------------
   if (avgWeapon !== null) {
     options = {
       responsive: true,
@@ -248,113 +249,16 @@ export default function SingleRadarChart({ weapon, avgWeapon }) {
     };
   }
 
-  // ---- Avg Weapon working below --------
-  // ChartJS.register(
-  //   RadialLinearScale,
-  //   PointElement,
-  //   LineElement,
-  //   Filler,
-  //   Tooltip,
-  //   Legend
-  // );
-
-  // // this sets the default size for the whole chart & tooltips, doesn't affect the individual point labels
-  // ChartJS.defaults.font.size = 14;
-
-  // const options = {
-  //   responsive: true,
-  //   scales: {
-  //     r: {
-  //       ticks: {
-  //         display: false,
-  //       },
-  //     },
-  //   },
-  //   plugins: {
-  //     // legend: {
-  //     //   position: 'top',
-  //     // },
-  //     tooltip: {
-  //       callbacks: {
-  //         label(context) {
-  //           const weaponDataSet = [
-  //             `${displayPercentage(weapon.accuracy)}%`,
-  //             `${displayPercentage(weapon.stability)}%`,
-  //             weapon.magazineSize,
-  //             weapon.rpm,
-  //             `${weapon.optimalRange}m`,
-  //             `${weapon.maxRange}m`,
-  //             weapon.modSlots,
-  //             `${millisecondsToSeconds(weapon.reloadSpeed)} sec`,
-  //             `${millisecondsToSeconds(weapon.reloadSpeedFromEmpty)} sec`,
-  //             `${humanReadableNumber(weapon.damageWT5) || 0}`,
-  //             `${humanReadableNumber(weapon.damageLevel40)}`,
-  //           ];
-
-  //           let labelValues = [];
-
-  //           if (context.dataset.label === weapon.class)
-  //             labelValues = weaponDataSet;
-  //           const label = labelValues[context.dataIndex];
-  //           return label;
-  //         },
-  //         beforeTitle(context) {
-  //           return context[0].dataset.label;
-  //         },
-  //       },
-  //     },
-  //   },
-  // };
-
-  // const chartLabels = [
-  //   'Accuracy',
-  //   'Stability',
-  //   'Magazine Size',
-  //   'RPM',
-  //   'Optimal Range',
-  //   'Max Range',
-  //   'Mod Slots',
-  //   'Reload Speed',
-  //   'Reload from empty',
-  //   'Damage (World Tier 5)',
-  //   'Damage (Level 40)',
-  // ];
-
-  // const weaponDatasetComputed = [
-  //   (weapon.accuracy / weapon.accuracy) * 100,
-  //   (weapon.stability / weapon.stability) * 100,
-  //   (weapon.magazineSize / weapon.magazineSize) * 100,
-  //   (weapon.rpm / weapon.rpm) * 100,
-  //   (weapon.optimalRange / weapon.optimalRange) * 100,
-  //   (weapon.maxRange / weapon.maxRange) * 100,
-  //   (weapon.modSlots / weapon.modSlots) * 100,
-  //   (weapon.reloadSpeed / weapon.reloadSpeed) * 100,
-  //   (weapon.reloadSpeedFromEmpty / weapon.reloadSpeedFromEmpty) * 100,
-  //   (weapon.damageWT5 / weapon.damageWT5) * 100,
-  //   (weapon.damageLevel40 / weapon.damageLevel40) * 100,
-  // ];
-
-  // const backgroundColorComputed = 'rgba(255, 109, 16, 0.6)';
-  // const borderColorComputed = 'rgba(255, 109, 16, 1)';
-
-  // const chartData = {
-  //   labels: chartLabels,
-  //   datasets: [
-  //     {
-  //       label: `${weapon.class}`,
-  //       data: weaponDatasetComputed,
-  //       backgroundColor: backgroundColorComputed,
-  //       borderColor: borderColorComputed,
-  //       borderWidth: 2,
-  //     },
-  //   ],
-  // };
-
   return (
     <>
       <div className="single-weapon__details">
         <div className="single-weapon__title-bar">
-          <h3 className="single-weapon__subheading">Stats Visualisation</h3>
+          {weapon.__typename === 'AverageWeapon' && (
+            <h3 className="single-weapon__subheading">Stats Visualisation</h3>
+          )}
+          {weapon.__typename === 'Weapon' && (
+            <h3 className="single-weapon__subheading">Stats Comparison</h3>
+          )}
         </div>
         <Radar data={chartData} options={options} />
       </div>

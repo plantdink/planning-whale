@@ -35,7 +35,7 @@ export default function SingleExoticWeaponPage({ query }) {
         <FlavourText weapon={weapon} />
         <div className="single-weapon__sub-content">
           <SingleWeapon weapon={weapon} />
-          {/* <ExoticWeaponAttachment weapon={weapon} /> */}
+          <ExoticWeaponAttachment weapon={weapon} />
         </div>
         <LinkSmallWeaponTalent weapon={weapon} />
       </SingleWeaponStyles>

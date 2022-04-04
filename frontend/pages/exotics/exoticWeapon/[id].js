@@ -10,6 +10,8 @@ import TitleBar, { SubHeadingBar } from '../../../components/TitleBar';
 import ClassAndFamilyText from '../../../components/ClassAndFamilyText';
 import FlavourText from '../../../components/FlavourText';
 import SingleRadarChart from '../../../components/SingleRadarChart';
+import ExoticWeaponAttachment from '../../../components/ExoticWeaponAttachment/ExoticWeaponAttachment';
+
 
 
 export default function SingleExoticWeaponPage()({ query }) {
@@ -33,7 +35,8 @@ export default function SingleExoticWeaponPage()({ query }) {
                 <SubHeadingBar subHeading="Weapon Stats" />
                 <FlavourText weapon={weapon} />
                 <div className="single-weapon__sub-content">
-                    <SingleWeapon weapon={weapon} />
+                  <SingleWeapon weapon={weapon} />
+                  <ExoticWeaponAttachment weapon={weapon} />
                 </div>
                 <LinkSmallWeaponTalent weapon={weapon} />
             </SingleWeaponStyles>
