@@ -19,6 +19,7 @@ export const SINGLE_GEARSET_QUERY = gql`
       setChestTalentName
       setChestTalent
       image {
+        id
         image {
           publicUrlTransformed
         }

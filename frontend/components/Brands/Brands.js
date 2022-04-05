@@ -11,6 +11,7 @@ export const ALL_BRANDS_QUERY = gql`
       id
       name
       image {
+        id
         image {
           publicUrlTransformed
         }

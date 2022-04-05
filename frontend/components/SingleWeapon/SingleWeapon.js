@@ -212,6 +212,7 @@ export const SINGLE_WEAPON_QUERY = gql`
         id
         name
         image {
+          id
           image {
             publicUrlTransformed
           }
@@ -255,6 +256,7 @@ export const SINGLE_WEAPON_QUERY = gql`
           id
           name
           image {
+            id
             image {
               publicUrlTransformed
             }
@@ -303,8 +305,10 @@ export default function SingleWeapon({ weapon }) {
           </div>
           <table>
             <thead>
-              <th scope="col">Title</th>
-              <th scope="col">Value</th>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Value</th>
+              </tr>
             </thead>
             {(!weapon.accuracy || !weapon.stability) && (
               <>
@@ -332,7 +336,7 @@ export default function SingleWeapon({ weapon }) {
               {weapon.maxBonusTwoValue > 1 && (
                 <>
                   <tr>
-                    <th scope="row">
+                    <th scope="row" data-testid="secondDamageBonusTest">
                       {deAbbreviate(weapon.weaponBonusTypeTwo)}
                     </th>
                     <td>{displayPercentage(weapon.maxBonusTwoValue)} %</td>

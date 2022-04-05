@@ -33,6 +33,7 @@ export const ALL_LIGHT_MACHINE_GUNS_QUERY = gql`
       isNamed
       isExotic
       image {
+        id
         image {
           publicUrlTransformed
         }

@@ -28,6 +28,7 @@ export const ALL_RIFLES_QUERY = gql`
       isNamed
       isExotic
       image {
+        id
         image {
           publicUrlTransformed
         }

@@ -28,7 +28,7 @@ export default function SingleNamedWeaponPage({ query }) {
   return (
     <>
       <SingleWeaponStyles data-testid="singleWeaponTest">
-        <HeadSEOTag item={weapon} string={null} />
+        <HeadSEOTag item={weapon} />
         <TitleBar item={weapon} />
         <ClassAndFamilyText weapon={weapon} />
         <SingleRadarChart weapon={weapon} avgWeapon={avgWeapon} />

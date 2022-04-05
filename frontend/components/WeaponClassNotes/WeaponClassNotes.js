@@ -1,7 +1,7 @@
 export default function AssaultRifleClassNotes() {
   return (
     <>
-      <div className="single-weapon__details">
+      <div className="single-weapon__details" data-testid="testARNotes">
         <div className="single-weapon__title-bar">
           <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
@@ -30,7 +30,7 @@ export default function AssaultRifleClassNotes() {
 export function LightMachineGunClassNotes() {
   return (
     <>
-      <div className="single-weapon__details">
+      <div className="single-weapon__details" data-testid="testLMGNotes">
         <div className="single-weapon__title-bar">
           <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
@@ -60,7 +60,7 @@ export function LightMachineGunClassNotes() {
 export function MarksmanRifleClassNotes() {
   return (
     <>
-      <div className="single-weapon__details">
+      <div className="single-weapon__details" data-testid="testMMRNotes">
         <div className="single-weapon__title-bar">
           <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
@@ -96,7 +96,7 @@ export function MarksmanRifleClassNotes() {
 export function PistolClassNotes() {
   return (
     <>
-      <div className="single-weapon__details">
+      <div className="single-weapon__details" data-testid="testPistolNotes">
         <div className="single-weapon__title-bar">
           <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
@@ -118,7 +118,7 @@ export function PistolClassNotes() {
 export function RifleClassNotes() {
   return (
     <>
-      <div className="single-weapon__details">
+      <div className="single-weapon__details" data-testid="testRifleNotes">
         <div className="single-weapon__title-bar">
           <h2 className="single-weapon__section-heading">Class Description</h2>
         </div>
@@ -149,38 +149,40 @@ export function RifleClassNotes() {
 export function ShotgunClassNotes() {
   return (
     <>
-      <div className="single-weapon__title-bar">
-        <h2 className="single-weapon__section-heading">Class Description</h2>
+      <div className="single-weapon__details" data-testid="testShotgunNotes">
+        <div className="single-weapon__title-bar">
+          <h2 className="single-weapon__section-heading">Class Description</h2>
+        </div>
+
+        <p>
+          A shotgun is a long-barreled firearm designed to shoot a
+          straight-walled cartridge, which usually discharges numerous small
+          pellet-like sub-projectiles, or sometimes a single solid projectile
+          called a slug. Shotguns are most commonly smoothbore firearms, meaning
+          that their gun barrels have no rifling on the inner wall, but rifled
+          barrels for shooting slugs (slug barrels) are also available. Shotguns
+          also come in a range of different action types, both single-shot and
+          repeating. For non-repeating designs, break action shotguns are by far
+          the most common variant. Most modern repeating shotguns are either
+          pump-action or semi-automatic, and can also be fully automatic.
+        </p>
+
+        <p>
+          Shotguns are very effective at close range which makes them ideal for
+          use in urban combat environments. When compared to handguns, shotguns
+          are heavier, larger, and not as maneuverable in close quarters, but do
+          have several advantages including that they are generally much more
+          powerful, they allow an agent to engage multiple targets faster than
+          with a handgun and a shotgun is generally perceived as more
+          intimidating.
+        </p>
+
+        <p>
+          Shotguns can be fitted with a range of attachments including including
+          sights, fore-grips and muzzle attachments, like a suppressor. Some
+          models can be fitted with a drum magazine.
+        </p>
       </div>
-
-      <p>
-        A shotgun is a long-barreled firearm designed to shoot a straight-walled
-        cartridge, which usually discharges numerous small pellet-like
-        sub-projectiles, or sometimes a single solid projectile called a slug.
-        Shotguns are most commonly smoothbore firearms, meaning that their gun
-        barrels have no rifling on the inner wall, but rifled barrels for
-        shooting slugs (slug barrels) are also available. Shotguns also come in
-        a range of different action types, both single-shot and repeating. For
-        non-repeating designs, break action shotguns are by far the most common
-        variant. Most modern repeating shotguns are either pump-action or
-        semi-automatic, and can also be fully automatic.
-      </p>
-
-      <p>
-        Shotguns are very effective at close range which makes them ideal for
-        use in urban combat environments. When compared to handguns, shotguns
-        are heavier, larger, and not as maneuverable in close quarters, but do
-        have several advantages including that they are generally much more
-        powerful, they allow an agent to engage multiple targets faster than
-        with a handgun and a shotgun is generally perceived as more
-        intimidating.
-      </p>
-
-      <p>
-        Shotguns can be fitted with a range of attachments including including
-        sights, fore-grips and muzzle attachments, like a suppressor. Some
-        models can be fitted with a drum magazine.
-      </p>
     </>
   );
 }
@@ -188,28 +190,30 @@ export function ShotgunClassNotes() {
 export function SubMachineGunClassNotes() {
   return (
     <>
-      <div className="single-weapon__title-bar">
-        <h2 className="single-weapon__section-heading">Class Description</h2>
+      <div className="single-weapon__details" data-testid="testSMGNotes">
+        <div className="single-weapon__title-bar">
+          <h2 className="single-weapon__section-heading">Class Description</h2>
+        </div>
+
+        <p>
+          A submachine gun (SMG) is a magazine-fed, automatic carbine designed
+          to fire handgun cartridges. They are ideal for close-quarters battle
+          (CQB) because they are a pistol-caliber weapon that's easy to control
+          due to their reduced size, recoil and muzzle blast. SMGs are also less
+          likely to over-penetrate the target. They also lend themselves to the
+          use of suppressors, particularly when loaded with subsonic ammunition.
+          Some variants have integral suppressors. SMGs are best suited to short
+          to medium range engagements.
+        </p>
+
+        <p>
+          Weapons in the SMG class come in a variety of calibers ranging from
+          9mm to .45ACP and appear in both traditional and bullpup layouts. SMGs
+          can be fitted with extended magazines as well as a range of
+          attachments including including sights, fore-grips and muzzle
+          attachments, like a suppressor.
+        </p>
       </div>
-
-      <p>
-        A submachine gun (SMG) is a magazine-fed, automatic carbine designed to
-        fire handgun cartridges. They are ideal for close-quarters battle (CQB)
-        because they are a pistol-caliber weapon that's easy to control due to
-        their reduced size, recoil and muzzle blast. SMGs are also less likely
-        to over-penetrate the target. They also lend themselves to the use of
-        suppressors, particularly when loaded with subsonic ammunition. Some
-        variants have integral suppressors. SMGs are best suited to short to
-        medium range engagements.
-      </p>
-
-      <p>
-        Weapons in the SMG class come in a variety of calibers ranging from 9mm
-        to .45ACP and appear in both traditional and bullpup layouts. SMGs can
-        be fitted with extended magazines as well as a range of attachments
-        including including sights, fore-grips and muzzle attachments, like a
-        suppressor.
-      </p>
     </>
   );
 }

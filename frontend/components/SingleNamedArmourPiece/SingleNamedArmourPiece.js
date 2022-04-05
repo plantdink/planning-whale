@@ -59,6 +59,7 @@ export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
       availableWT5
       isNamed
       image {
+        id
         image {
           publicUrlTransformed
         }
@@ -68,6 +69,7 @@ export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
         id
         name
         image {
+          id
           image {
             publicUrlTransformed
           }
@@ -81,6 +83,7 @@ export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
         isNamed
         isExotic
         image {
+          id
           image {
             publicUrlTransformed
           }

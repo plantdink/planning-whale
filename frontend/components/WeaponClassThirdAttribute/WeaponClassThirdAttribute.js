@@ -57,7 +57,10 @@ export default function WeaponClassThirdAttribute({ weapon }) {
     <>
       {classDisplayArray.length > 0 && (
         <>
-          <div className="single-weapon__details">
+          <div
+            className="single-weapon__details"
+            data-testid="thirdAttributeTest"
+          >
             <div className="single-weapon__title-bar">
               <h3 className="single-weapon__subheading">
                 Class Compatible Attributes
@@ -66,17 +69,21 @@ export default function WeaponClassThirdAttribute({ weapon }) {
             {classDisplayArray.length > 0 && (
               <table>
                 <thead>
-                  <th scope="col">Name</th>
-                  <th scope="col">Level 40</th>
-                  <th scope="col">World Tier 5</th>
-                </thead>
-                {classDisplayArray.map((attribute) => (
-                  <tr key={attribute.id}>
-                    <th scope="row">{attribute.attribute}</th>
-                    <td>{displayPercentage(attribute.valueLevel40)} %</td>
-                    <td>{displayPercentage(attribute.valueWT5)} %</td>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Level 40</th>
+                    <th scope="col">World Tier 5</th>
                   </tr>
-                ))}
+                </thead>
+                <tbody>
+                  {classDisplayArray.map((attribute) => (
+                    <tr key={attribute.id}>
+                      <th scope="row">{attribute.attribute}</th>
+                      <td>{displayPercentage(attribute.valueLevel40)} %</td>
+                      <td>{displayPercentage(attribute.valueWT5)} %</td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             )}
           </div>

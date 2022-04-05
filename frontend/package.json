@@ -6,7 +6,8 @@
     "dev": "next -p 7777",
     "build": "next build",
     "start": "next start -p 7777",
-    "test": "NODE_ENV=test jest --watch"
+    "test": "NODE_ENV=test jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "author": "plantdink",
   "license": "ISC",

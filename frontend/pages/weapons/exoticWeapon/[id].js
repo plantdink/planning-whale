@@ -11,6 +11,14 @@ import ClassAndFamilyText from '../../../components/ClassAndFamilyText';
 import FlavourText from '../../../components/FlavourText';
 import SingleRadarChart from '../../../components/SingleRadarChart';
 import ExoticWeaponAttachment from '../../../components/ExoticWeaponAttachment/ExoticWeaponAttachment';
+import AssaultRifleClassNotes, {
+  LightMachineGunClassNotes,
+  MarksmanRifleClassNotes,
+  PistolClassNotes,
+  RifleClassNotes,
+  ShotgunClassNotes,
+  SubMachineGunClassNotes,
+} from '../../../components/WeaponClassNotes';
 
 export default function SingleExoticWeaponPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_WEAPON_QUERY, {
@@ -24,10 +32,23 @@ export default function SingleExoticWeaponPage({ query }) {
   const weapon = data.allWeapons[0];
   const avgWeapon = weapon.averageWeapon;
 
+  let notesComponent;
+  if (weapon.class === 'ASSAULT RIFLE')
+    notesComponent = <AssaultRifleClassNotes />;
+  if (weapon.class === 'LIGHT MACHINE GUN')
+    notesComponent = <LightMachineGunClassNotes />;
+  if (weapon.class === 'MARKSMAN RIFLE')
+    notesComponent = <MarksmanRifleClassNotes />;
+  if (weapon.class === 'PISTOL') notesComponent = <PistolClassNotes />;
+  if (weapon.class === 'RIFLE') notesComponent = <RifleClassNotes />;
+  if (weapon.class === 'SHOTGUN') notesComponent = <ShotgunClassNotes />;
+  if (weapon.class === 'SUB MACHINE GUN')
+    notesComponent = <SubMachineGunClassNotes />;
+
   return (
     <>
       <SingleWeaponStyles data-testid="singleWeaponTest">
-        <HeadSEOTag item={weapon} string={null} />
+        <HeadSEOTag item={weapon} />
         <TitleBar item={weapon} />
         <ClassAndFamilyText weapon={weapon} />
         <SingleRadarChart weapon={weapon} avgWeapon={avgWeapon} />
@@ -37,6 +58,7 @@ export default function SingleExoticWeaponPage({ query }) {
           <SingleWeapon weapon={weapon} />
           <ExoticWeaponAttachment weapon={weapon} />
         </div>
+        {notesComponent}
         <LinkSmallWeaponTalent weapon={weapon} />
       </SingleWeaponStyles>
     </>

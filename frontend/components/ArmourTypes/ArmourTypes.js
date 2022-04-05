@@ -10,6 +10,7 @@ export const ALL_ARMOUR_TYPES_QUERY = gql`
       id
       name
       image {
+        id
         image {
           publicUrlTransformed
         }

@@ -52,26 +52,40 @@ exports[`<SingleWeapon /> renders the data correctly for a single weapon 1`] = `
       </div>
       <table>
         <thead>
-          <th
-            scope="col"
-          >
-            Title
-          </th>
-          <th
-            scope="col"
-          >
-            Value
-          </th>
+          <tr>
+            <th
+              scope="col"
+            >
+              Title
+            </th>
+            <th
+              scope="col"
+            >
+              Value
+            </th>
+          </tr>
         </thead>
         <tbody>
           <tr>
             <th
               scope="row"
             >
-              Damage to Health
+              Damage to Armour
             </th>
             <td>
               21
+               %
+            </td>
+          </tr>
+          <tr>
+            <th
+              data-testid="secondDamageBonusTest"
+              scope="row"
+            >
+              Damage to Health
+            </th>
+            <td>
+              9.5
                %
             </td>
           </tr>

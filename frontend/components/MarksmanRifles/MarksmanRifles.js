@@ -29,6 +29,7 @@ export const ALL_MARKSMAN_RIFLES_QUERY = gql`
       isNamed
       isExotic
       image {
+        id
         image {
           publicUrlTransformed
         }

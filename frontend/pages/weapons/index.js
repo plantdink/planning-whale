@@ -5,7 +5,7 @@ import HeadSEOTag from '../../components/HeadSEOTag';
 export default function weapons() {
   return (
     <>
-      <HeadSEOTag item={null} string="Weapon Classes" />
+      <HeadSEOTag string="Weapon Classes" />
       <Spacer>
         <Weapons />
       </Spacer>

@@ -13,6 +13,7 @@ export const SINGLE_BRAND_QUERY = gql`
       setBonusTwo
       setBonusThree
       image {
+        id
         image {
           publicUrlTransformed
         }
@@ -26,6 +27,7 @@ export const SINGLE_BRAND_QUERY = gql`
         isNamed
         isExotic
         image {
+          id
           image {
             publicUrlTransformed
           }

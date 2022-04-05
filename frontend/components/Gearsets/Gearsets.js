@@ -10,6 +10,7 @@ export const ALL_GEARSETS_QUERY = gql`
       id
       name
       image {
+        id
         image {
           publicUrlTransformed
         }

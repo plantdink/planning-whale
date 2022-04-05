@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { titleCase } from '../../lib/displayStrings';
 
-export default function HeadSEOTag({ item, string }) {
+export default function HeadSEOTag({ item = null, string = null }) {
   let seoTag;
   if (item === null) seoTag = string;
 

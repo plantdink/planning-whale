@@ -16,7 +16,7 @@ exports[`<SingleShotgunPage /> loads the data and renders both components with d
       </h1>
     </div>
     <p>
-      Assault Rifle
+      Shotgun
        
       AK-47
     </p>
@@ -96,26 +96,40 @@ exports[`<SingleShotgunPage /> loads the data and renders both components with d
           </div>
           <table>
             <thead>
-              <th
-                scope="col"
-              >
-                Title
-              </th>
-              <th
-                scope="col"
-              >
-                Value
-              </th>
+              <tr>
+                <th
+                  scope="col"
+                >
+                  Title
+                </th>
+                <th
+                  scope="col"
+                >
+                  Value
+                </th>
+              </tr>
             </thead>
             <tbody>
               <tr>
                 <th
                   scope="row"
                 >
-                  Damage to Health
+                  Damage to Armour
                 </th>
                 <td>
                   21
+                   %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  data-testid="secondDamageBonusTest"
+                  scope="row"
+                >
+                  Damage to Health
+                </th>
+                <td>
+                  9.5
                    %
                 </td>
               </tr>
@@ -231,25 +245,112 @@ exports[`<SingleShotgunPage /> loads the data and renders both components with d
           </table>
         </div>
       </div>
+      <div
+        class="single-weapon__details"
+        data-testid="thirdAttributeTest"
+      >
+        <div
+          class="single-weapon__title-bar"
+        >
+          <h3
+            class="single-weapon__subheading"
+          >
+            Class Compatible Attributes
+          </h3>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th
+                scope="col"
+              >
+                Name
+              </th>
+              <th
+                scope="col"
+              >
+                Level 40
+              </th>
+              <th
+                scope="col"
+              >
+                World Tier 5
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th
+                scope="row"
+              >
+                Accuracy
+              </th>
+              <td>
+                12
+                 %
+              </td>
+              <td>
+                7.9
+                 %
+              </td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+              >
+                Critical Hit Chance
+              </th>
+              <td>
+                9.5
+                 %
+              </td>
+              <td>
+                6.5
+                 %
+              </td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+              >
+                Critical Hit Damage
+              </th>
+              <td>
+                10
+                 %
+              </td>
+              <td>
+                7
+                 %
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div
-      class="single-weapon__title-bar"
+      class="single-weapon__details"
+      data-testid="testShotgunNotes"
     >
-      <h2
-        class="single-weapon__section-heading"
+      <div
+        class="single-weapon__title-bar"
       >
-        Class Description
-      </h2>
+        <h2
+          class="single-weapon__section-heading"
+        >
+          Class Description
+        </h2>
+      </div>
+      <p>
+        A shotgun is a long-barreled firearm designed to shoot a straight-walled cartridge, which usually discharges numerous small pellet-like sub-projectiles, or sometimes a single solid projectile called a slug. Shotguns are most commonly smoothbore firearms, meaning that their gun barrels have no rifling on the inner wall, but rifled barrels for shooting slugs (slug barrels) are also available. Shotguns also come in a range of different action types, both single-shot and repeating. For non-repeating designs, break action shotguns are by far the most common variant. Most modern repeating shotguns are either pump-action or semi-automatic, and can also be fully automatic.
+      </p>
+      <p>
+        Shotguns are very effective at close range which makes them ideal for use in urban combat environments. When compared to handguns, shotguns are heavier, larger, and not as maneuverable in close quarters, but do have several advantages including that they are generally much more powerful, they allow an agent to engage multiple targets faster than with a handgun and a shotgun is generally perceived as more intimidating.
+      </p>
+      <p>
+        Shotguns can be fitted with a range of attachments including including sights, fore-grips and muzzle attachments, like a suppressor. Some models can be fitted with a drum magazine.
+      </p>
     </div>
-    <p>
-      A shotgun is a long-barreled firearm designed to shoot a straight-walled cartridge, which usually discharges numerous small pellet-like sub-projectiles, or sometimes a single solid projectile called a slug. Shotguns are most commonly smoothbore firearms, meaning that their gun barrels have no rifling on the inner wall, but rifled barrels for shooting slugs (slug barrels) are also available. Shotguns also come in a range of different action types, both single-shot and repeating. For non-repeating designs, break action shotguns are by far the most common variant. Most modern repeating shotguns are either pump-action or semi-automatic, and can also be fully automatic.
-    </p>
-    <p>
-      Shotguns are very effective at close range which makes them ideal for use in urban combat environments. When compared to handguns, shotguns are heavier, larger, and not as maneuverable in close quarters, but do have several advantages including that they are generally much more powerful, they allow an agent to engage multiple targets faster than with a handgun and a shotgun is generally perceived as more intimidating.
-    </p>
-    <p>
-      Shotguns can be fitted with a range of attachments including including sights, fore-grips and muzzle attachments, like a suppressor. Some models can be fitted with a drum magazine.
-    </p>
     <div
       class="single-weapon__details"
     >

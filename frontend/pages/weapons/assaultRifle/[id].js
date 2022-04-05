@@ -10,9 +10,10 @@ import TitleBar, { SubHeadingBar } from '../../../components/TitleBar';
 import ClassAndFamilyText from '../../../components/ClassAndFamilyText';
 import FlavourText from '../../../components/FlavourText';
 import SingleRadarChart from '../../../components/SingleRadarChart';
+import AssaultRifleClassNotes from '../../../components/WeaponClassNotes';
+import ExoticWeaponAttachment from '../../../components/ExoticWeaponAttachment';
 // below is accessed through the avgWeapon -> weapon={avgWeapon}
 import WeaponClassThirdAttribute from '../../../components/WeaponClassThirdAttribute';
-import AssaultRifleClassNotes from '../../../components/WeaponClassNotes';
 
 export default function SingleAssaultRiflePage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_WEAPON_QUERY, {
@@ -29,7 +30,7 @@ export default function SingleAssaultRiflePage({ query }) {
   return (
     <>
       <SingleWeaponStyles data-testid="singleWeaponTest">
-        <HeadSEOTag item={weapon} string={null} />
+        <HeadSEOTag item={weapon} />
         <TitleBar item={weapon} />
         <ClassAndFamilyText weapon={weapon} />
         <SingleRadarChart weapon={weapon} avgWeapon={avgWeapon} />
@@ -37,7 +38,12 @@ export default function SingleAssaultRiflePage({ query }) {
         <FlavourText weapon={weapon} />
         <div className="single-weapon__sub-content">
           <SingleWeapon weapon={weapon} />
-          <WeaponClassThirdAttribute weapon={avgWeapon} />
+          {weapon.isExotic === 'NO' && (
+            <WeaponClassThirdAttribute weapon={avgWeapon} />
+          )}
+          {weapon.isExotic === 'YES' && (
+            <ExoticWeaponAttachment weapon={weapon} />
+          )}
         </div>
         <AssaultRifleClassNotes />
         <LinkSmallWeaponTalent weapon={weapon} />

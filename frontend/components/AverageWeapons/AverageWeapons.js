@@ -31,6 +31,7 @@ export const ALL_AVERAGE_WEAPONS_QUERY = gql`
         }
       }
       image {
+        id
         image {
           publicUrlTransformed
         }

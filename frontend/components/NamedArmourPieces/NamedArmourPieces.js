@@ -11,11 +11,13 @@ export const ALL_NAMED_ARMOUR_PIECES_QUERY = gql`
       id
       name
       image {
+        id
         image {
           publicUrlTransformed
         }
       }
       armourTalent {
+        id
         name
       }
     }

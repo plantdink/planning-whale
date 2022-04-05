@@ -21,7 +21,7 @@ export default function SingleExoticArmourPiecePage({ query }) {
   return (
     <>
       <SingleGearItemStyle>
-        <HeadSEOTag item={exoticArmourPiece} string={null} />
+        <HeadSEOTag item={exoticArmourPiece} />
         <SingleArmourPiece armourPiece={exoticArmourPiece} />
         {exoticArmourPiece.exoticArmourTalent.length < 2 && (
           <>

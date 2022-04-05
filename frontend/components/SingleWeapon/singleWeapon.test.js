@@ -13,7 +13,7 @@ const weapon = fakeWeapon();
 const avgWeapon = fakeAverageWeapon();
 
 describe('<SingleWeapon />', () => {
-  it('renders the data correctly for a single weapon', () => {
+  it('renders the data correctly for a single weapon', async () => {
     const { container, debug } = render(
       <SingleWeapon weapon={weapon} avgWeapon={avgWeapon} />
     );
@@ -21,160 +21,96 @@ describe('<SingleWeapon />', () => {
 
     expect(container).toMatchSnapshot();
 
-    const weaponTitle = screen.getByText(weapon.model);
-    expect(weaponTitle).toBeInTheDocument();
-
-    const weaponDamageLvl40 = `${humanReadableNumber(
-      weapon.damageLevel40
-    )} (Level 40)`;
+    const weaponDamageLvl40 = humanReadableNumber(weapon.damageLevel40);
     const testLvl40WeaponDamage = screen.getByText(weaponDamageLvl40);
     expect(testLvl40WeaponDamage).toBeInTheDocument();
 
-    const weaponDamageWT5 = `${humanReadableNumber(
-      weapon.damageWt5
-    )} (World Tier 5)`;
+    const weaponDamageWT5 = humanReadableNumber(weapon.damageWt5);
     const testWT5WeaponDamage = screen.getByText(weaponDamageWT5);
     expect(testWT5WeaponDamage).toBeInTheDocument();
 
-    // flavour text blockquote should not be visible if the weapon has null or an empty string
-    if (weapon.flavourText !== null || '') {
-      const flavourText = container.querySelector('blockquote');
-      expect(flavourText).not.toBeInTheDocument();
-    }
-
-    const weaponTestBonusDamage = `${weapon.maxBonusValue}% ${deAbbreviate(
-      weapon.weaponBonusType
-    )}`;
-    // https://polvara.me/posts/five-things-you-didnt-know-about-testing-library
-    const screenBonusDamage = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestBonusDamage;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
+    //  Class Bonus Damage type & value
+    const weaponTestBonusDamage = screen.getByRole('rowheader', {
+      name: /damage to armour/i,
     });
-    expect(screenBonusDamage).toBeInTheDocument();
-
-    const weaponTestHSDMultiplier = `${hsDisplay(
-      weapon.headshotMultiplier
-    )} x Headshot Multiplier`;
-    const screenHSDMultiplier = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestHSDMultiplier;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
+    expect(weaponTestBonusDamage).toHaveTextContent(
+      deAbbreviate(weapon.weaponBonusType)
+    );
+    const weaponTestBonusDamageValue = screen.getByRole('cell', {
+      name: /21 %/i,
     });
-    expect(screenHSDMultiplier).toBeInTheDocument();
+    expect(weaponTestBonusDamageValue).toHaveTextContent(
+      `${weapon.maxBonusValue} %`
+    );
 
-    const weaponTestRPM = `${weapon.rpm} rounds per minute rate of fire`;
-    const screenRPM = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestRPM;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
+    // weapon HSD multiplier title & value
+    const weaponTestHSDMultiplier = screen.getByRole('rowheader', {
+      name: /headshot multiplier/i,
     });
-    expect(screenRPM).toBeInTheDocument();
+    expect(weaponTestHSDMultiplier).toHaveTextContent('Headshot Multiplier');
+    const weaponTestHSDMultiplierValue = screen.getByRole('cell', {
+      name: /x 1\.55/i,
+    });
+    expect(weaponTestHSDMultiplierValue).toHaveTextContent(
+      hsDisplay(weapon.headshotMultiplier)
+    );
 
-    const weaponTestMagazineSize = `${weapon.magazineSize} round magazine`;
-    const screenMagazineSize = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestMagazineSize;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
+    //  weapon rpm heading & value
+    const weaponTestRPM = screen.getByRole('row', {
+      name: /rate of fire/i,
     });
-    expect(screenMagazineSize).toBeInTheDocument();
+    expect(weaponTestRPM).toHaveTextContent(`${weapon.rpm} rounds per minute`);
 
-    const weaponTestModSlots = `${weapon.modSlots} modification slots`;
-    const screenModSlots = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestModSlots;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
+    //  weapon mag heading & size
+    const weaponTestMagazineSize = screen.getByRole('row', {
+      name: /magazine 30/i,
     });
-    expect(screenModSlots).toBeInTheDocument();
+    expect(weaponTestMagazineSize).toHaveTextContent(weapon.magazineSize);
 
-    const weaponTestAccuracy = `${displayPercentage(
-      weapon.accuracy
-    )}% accuracy`;
-    const screenAccuracy = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestAccuracy;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
+    // weapon mod slots
+    const weaponTestModSlots = screen.getByRole('row', {
+      name: /mod slots/i,
     });
-    expect(screenAccuracy).toBeInTheDocument();
+    expect(weaponTestModSlots).toHaveTextContent(weapon.modSlots);
 
-    const weaponTestStability = `${displayPercentage(
-      weapon.stability
-    )}% stability`;
-    const screenStability = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestStability;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
-    });
-    expect(screenStability).toBeInTheDocument();
+    // weapon accuracy
+    const weaponTestAccuracy = screen.getByRole('row', { name: /accuracy/i });
+    expect(weaponTestAccuracy).toHaveTextContent(
+      displayPercentage(weapon.accuracy)
+    );
 
-    const weaponTestOptimalRange = `${weapon.optimalRange}m optimal range`;
-    const screenOptimalRange = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestOptimalRange;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
-    });
-    expect(screenOptimalRange).toBeInTheDocument();
+    // weapon stability
+    const weaponTestStability = screen.getByRole('row', { name: /stability/i });
+    expect(weaponTestStability).toHaveTextContent(
+      displayPercentage(weapon.stability)
+    );
 
-    const weaponTestMaxRange = `${weapon.maxRange}m max range`;
-    const screenMaxRange = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestMaxRange;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
+    // weapon optimal range
+    const weaponTestOptimalRange = screen.getByRole('row', {
+      name: /optimal range/i,
     });
-    expect(screenMaxRange).toBeInTheDocument();
+    expect(weaponTestOptimalRange).toHaveTextContent(
+      `${weapon.optimalRange} m`
+    );
 
-    const weaponTestReloadSpeed = `${millisecondsToSeconds(
-      weapon.reloadSpeed
-    )} seconds reload speed`;
-    const screenReloadSpeed = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestReloadSpeed;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
-    });
-    expect(screenReloadSpeed).toBeInTheDocument();
+    const weaponTestMaxRange = screen.getByRole('row', { name: /max range/i });
+    expect(weaponTestMaxRange).toHaveTextContent(`${weapon.maxRange} m`);
 
-    const weaponTestEmptyReloadSpeed = `${millisecondsToSeconds(
-      weapon.reloadSpeedFromEmpty
-    )} seconds reload speed (empty magazine)`;
-    const screenEmptyReload = screen.getByText((content, node) => {
-      const hasText = (node) => node.textContent === weaponTestEmptyReloadSpeed;
-      const nodeHasText = hasText(node);
-      const childrenDontHaveText = Array.from(node.children).every(
-        (child) => !hasText(child)
-      );
-      return nodeHasText && childrenDontHaveText;
+    // weapon reload speed
+    const weaponTestReloadSpeed = screen.getByRole('cell', {
+      name: /2\.00 seconds/i,
     });
-    expect(screenEmptyReload).toBeInTheDocument();
+    expect(weaponTestReloadSpeed).toHaveTextContent(
+      `${millisecondsToSeconds(weapon.reloadSpeed)} seconds`
+    );
+
+    // weapon empty mag reload speed
+    const weaponTestEmptyReloadSpeed = screen.getByRole('cell', {
+      name: /2\.50 seconds/i,
+    });
+    expect(weaponTestEmptyReloadSpeed).toHaveTextContent(
+      `${millisecondsToSeconds(weapon.reloadSpeedFromEmpty)} seconds`
+    );
 
     if (weapon.accuracy || weapon.stability > 0) {
       const small = container.querySelector('small');

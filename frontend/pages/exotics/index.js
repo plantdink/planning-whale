@@ -5,7 +5,7 @@ import HeadSEOTag from '../../components/HeadSEOTag';
 export default function exotics() {
   return (
     <>
-      <HeadSEOTag item={null} string="Exotic Equipment" />
+      <HeadSEOTag string="Exotic Equipment" />
       <Spacer>
         <Exotics />
       </Spacer>

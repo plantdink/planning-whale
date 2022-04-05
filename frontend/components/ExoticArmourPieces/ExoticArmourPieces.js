@@ -11,6 +11,7 @@ export const ALL_EXOTIC_ARMOUR_PIECES_QUERY = gql`
       id
       name
       image {
+        id
         image {
           publicUrlTransformed
         }

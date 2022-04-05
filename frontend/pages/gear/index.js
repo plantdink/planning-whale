@@ -5,7 +5,7 @@ import Gear from '../../components/Armour';
 export default function gear() {
   return (
     <>
-      <HeadSEOTag item={null} string="Equipment" />
+      <HeadSEOTag string="Equipment" />
       <Spacer>
         <Gear />
       </Spacer>

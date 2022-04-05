@@ -31,12 +31,14 @@ export const SINGLE_AVERAGE_WEAPON_QUERY = gql`
         id
         name
         image {
+          id
           image {
             publicUrlTransformed
           }
         }
       }
       image {
+        id
         image {
           publicUrlTransformed
         }

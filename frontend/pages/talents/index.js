@@ -5,7 +5,7 @@ import HeadSEOTag from '../../components/HeadSEOTag';
 export default function talents() {
   return (
     <>
-      <HeadSEOTag item={null} string="Armour & Weapon Talents" />
+      <HeadSEOTag string="Armour & Weapon Talents" />
       <Spacer>
         <Talents />
       </Spacer>

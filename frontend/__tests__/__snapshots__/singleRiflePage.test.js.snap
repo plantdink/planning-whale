@@ -16,7 +16,7 @@ exports[`<SingleRiflePage /> loads the data and renders both components with dat
       </h1>
     </div>
     <p>
-      Assault Rifle
+      Rifle
        
       AK-47
     </p>
@@ -96,26 +96,40 @@ exports[`<SingleRiflePage /> loads the data and renders both components with dat
           </div>
           <table>
             <thead>
-              <th
-                scope="col"
-              >
-                Title
-              </th>
-              <th
-                scope="col"
-              >
-                Value
-              </th>
+              <tr>
+                <th
+                  scope="col"
+                >
+                  Title
+                </th>
+                <th
+                  scope="col"
+                >
+                  Value
+                </th>
+              </tr>
             </thead>
             <tbody>
               <tr>
                 <th
                   scope="row"
                 >
-                  Damage to Health
+                  Damage to Armour
                 </th>
                 <td>
                   21
+                   %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  data-testid="secondDamageBonusTest"
+                  scope="row"
+                >
+                  Damage to Health
+                </th>
+                <td>
+                  9.5
                    %
                 </td>
               </tr>
@@ -231,9 +245,77 @@ exports[`<SingleRiflePage /> loads the data and renders both components with dat
           </table>
         </div>
       </div>
+      <div
+        class="single-weapon__details"
+        data-testid="thirdAttributeTest"
+      >
+        <div
+          class="single-weapon__title-bar"
+        >
+          <h3
+            class="single-weapon__subheading"
+          >
+            Class Compatible Attributes
+          </h3>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th
+                scope="col"
+              >
+                Name
+              </th>
+              <th
+                scope="col"
+              >
+                Level 40
+              </th>
+              <th
+                scope="col"
+              >
+                World Tier 5
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th
+                scope="row"
+              >
+                Accuracy
+              </th>
+              <td>
+                12
+                 %
+              </td>
+              <td>
+                7.9
+                 %
+              </td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+              >
+                Critical Hit Chance
+              </th>
+              <td>
+                9.5
+                 %
+              </td>
+              <td>
+                6.5
+                 %
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div
       class="single-weapon__details"
+      data-testid="testRifleNotes"
     >
       <div
         class="single-weapon__title-bar"

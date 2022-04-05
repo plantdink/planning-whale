@@ -55,7 +55,7 @@ describe('<SingleAverageWeaponPage />', () => {
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  it('loads the data and renders both components with data correctly for a single average weapon page', async () => {
+  it('loads the data and renders all components with data correctly for a single average weapon page', async () => {
     const { container, debug, findByText } = render(
       <>
         <MockedProvider mocks={mocks}>

@@ -20,7 +20,7 @@ export default function SingleArmourTalentPage({ query }) {
   return (
     <>
       <SingleGearItemStyle>
-        <HeadSEOTag item={singleTalent} string={null} />
+        <HeadSEOTag item={singleTalent} />
         <SingleTalent singleTalent={singleTalent} />
         {singleTalent.piece !== '' && (
           <>

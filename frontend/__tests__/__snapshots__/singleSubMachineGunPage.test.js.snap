@@ -16,7 +16,7 @@ exports[`<SingleSubMachineGunPage /> loads the data and renders both components 
       </h1>
     </div>
     <p>
-      Assault Rifle
+      Sub Machine Gun
        
       AK-47
     </p>
@@ -96,26 +96,40 @@ exports[`<SingleSubMachineGunPage /> loads the data and renders both components 
           </div>
           <table>
             <thead>
-              <th
-                scope="col"
-              >
-                Title
-              </th>
-              <th
-                scope="col"
-              >
-                Value
-              </th>
+              <tr>
+                <th
+                  scope="col"
+                >
+                  Title
+                </th>
+                <th
+                  scope="col"
+                >
+                  Value
+                </th>
+              </tr>
             </thead>
             <tbody>
               <tr>
                 <th
                   scope="row"
                 >
-                  Damage to Health
+                  Damage to Armour
                 </th>
                 <td>
                   21
+                   %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  data-testid="secondDamageBonusTest"
+                  scope="row"
+                >
+                  Damage to Health
+                </th>
+                <td>
+                  9.5
                    %
                 </td>
               </tr>
@@ -231,22 +245,94 @@ exports[`<SingleSubMachineGunPage /> loads the data and renders both components 
           </table>
         </div>
       </div>
+      <div
+        class="single-weapon__details"
+        data-testid="thirdAttributeTest"
+      >
+        <div
+          class="single-weapon__title-bar"
+        >
+          <h3
+            class="single-weapon__subheading"
+          >
+            Class Compatible Attributes
+          </h3>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th
+                scope="col"
+              >
+                Name
+              </th>
+              <th
+                scope="col"
+              >
+                Level 40
+              </th>
+              <th
+                scope="col"
+              >
+                World Tier 5
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th
+                scope="row"
+              >
+                Accuracy
+              </th>
+              <td>
+                12
+                 %
+              </td>
+              <td>
+                7.9
+                 %
+              </td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+              >
+                Critical Hit Damage
+              </th>
+              <td>
+                10
+                 %
+              </td>
+              <td>
+                7
+                 %
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div
-      class="single-weapon__title-bar"
+      class="single-weapon__details"
+      data-testid="testSMGNotes"
     >
-      <h2
-        class="single-weapon__section-heading"
+      <div
+        class="single-weapon__title-bar"
       >
-        Class Description
-      </h2>
+        <h2
+          class="single-weapon__section-heading"
+        >
+          Class Description
+        </h2>
+      </div>
+      <p>
+        A submachine gun (SMG) is a magazine-fed, automatic carbine designed to fire handgun cartridges. They are ideal for close-quarters battle (CQB) because they are a pistol-caliber weapon that's easy to control due to their reduced size, recoil and muzzle blast. SMGs are also less likely to over-penetrate the target. They also lend themselves to the use of suppressors, particularly when loaded with subsonic ammunition. Some variants have integral suppressors. SMGs are best suited to short to medium range engagements.
+      </p>
+      <p>
+        Weapons in the SMG class come in a variety of calibers ranging from 9mm to .45ACP and appear in both traditional and bullpup layouts. SMGs can be fitted with extended magazines as well as a range of attachments including including sights, fore-grips and muzzle attachments, like a suppressor.
+      </p>
     </div>
-    <p>
-      A submachine gun (SMG) is a magazine-fed, automatic carbine designed to fire handgun cartridges. They are ideal for close-quarters battle (CQB) because they are a pistol-caliber weapon that's easy to control due to their reduced size, recoil and muzzle blast. SMGs are also less likely to over-penetrate the target. They also lend themselves to the use of suppressors, particularly when loaded with subsonic ammunition. Some variants have integral suppressors. SMGs are best suited to short to medium range engagements.
-    </p>
-    <p>
-      Weapons in the SMG class come in a variety of calibers ranging from 9mm to .45ACP and appear in both traditional and bullpup layouts. SMGs can be fitted with extended magazines as well as a range of attachments including including sights, fore-grips and muzzle attachments, like a suppressor.
-    </p>
     <div
       class="single-weapon__details"
     >

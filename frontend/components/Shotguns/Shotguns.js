@@ -29,6 +29,7 @@ export const ALL_SHOTGUNS_QUERY = gql`
       isNamed
       isExotic
       image {
+        id
         image {
           publicUrlTransformed
         }

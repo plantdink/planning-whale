@@ -2,7 +2,7 @@ export default function ExoticWeaponAttachment({ weapon }) {
   const checkAttachment = weapon.exoticWeaponAttachment[0];
   return (
     <>
-      <div className="single-weapon__details">
+      <div className="single-weapon__details" data-testid="exoticWeaponTest">
         <div className="single-weapon__title-bar">
           <h3 className="single-weapon__subheading">Weapon Attachments</h3>
         </div>

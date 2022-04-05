@@ -7,7 +7,7 @@ import HeadSEOTag from '../../components/HeadSEOTag';
 export default function intel() {
   return (
     <>
-      <HeadSEOTag item={null} string="Intelligence Briefing" />
+      <HeadSEOTag string="Intelligence Briefing" />
       <SingleGearItemStyle>
         <WeaponClasses />
         <ItemColour />
