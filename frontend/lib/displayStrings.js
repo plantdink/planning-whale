@@ -22,7 +22,7 @@ export function titleCase(string) {
 
 export function stringToParagraphs(string) {
   const sentences = string.split(/(?<=\.)/g);
-  return sentences.map((sentence) => <p>{sentence}</p>);
+  return sentences.map((sentence, index) => <p key={index}>{sentence}</p>);
 }
 
 export function lowerCaseLink(string) {

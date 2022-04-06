@@ -121,6 +121,7 @@ export const SingleWeaponStyles = styled.div`
 
   th {
     font-weight: 500;
+    /* width: 100%; */
   }
 
   th,
@@ -129,7 +130,7 @@ export const SingleWeaponStyles = styled.div`
     text-align: left;
   }
 
-  thead th:nth-child(1) {
+  /* thead th:nth-child(1) {
     width: 20%;
   }
 
@@ -143,7 +144,7 @@ export const SingleWeaponStyles = styled.div`
 
   thead th:nth-child(4) {
     width: 20%;
-  }
+  } */
 
   blockquote {
     color: var(--text);
@@ -285,10 +286,13 @@ export default function SingleWeapon({ weapon }) {
     <>
       <div className="single-weapon__content">
         <div className="single-weapon__details">
-          <div className="single-weapon__title-bar">
-            <h3 className="single-weapon__subheading">Base Damage</h3>
-          </div>
+          <div />
           <table>
+            <thead className="single-weapon__title-bar">
+              <tr>
+                <th className="single-weapon__subheading">Base Damage</th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
                 <th scope="row">Level 40</th>
@@ -299,32 +303,27 @@ export default function SingleWeapon({ weapon }) {
                 <td>{humanReadableNumber(weapon.damageWt5) || 'N/A'}</td>
               </tr>
             </tbody>
-          </table>
-          <div className="single-weapon__title-bar">
-            <h3 className="single-weapon__subheading">Specifications</h3>
-          </div>
-          <table>
-            <thead>
+            <thead className="single-weapon__title-bar">
               <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Value</th>
+                <th className="single-weapon__subheading">Specifications</th>
               </tr>
             </thead>
-            {(!weapon.accuracy || !weapon.stability) && (
-              <>
-                <tfoot>
-                  <tr>
-                    <td colSpan="2">
-                      <small>
-                        0 indicates no community-sourced value available
-                      </small>
-                    </td>
-                  </tr>
-                </tfoot>
-              </>
-            )}
 
             <tbody>
+              {(!weapon.accuracy || !weapon.stability) && (
+                <>
+                  <tfoot>
+                    <tr>
+                      <td colSpan="2">
+                        <small>
+                          0 indicates no community-sourced value available
+                        </small>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </>
+              )}
+
               {weapon.maxBonusValue > 1 && (
                 <>
                   <tr>
@@ -333,6 +332,7 @@ export default function SingleWeapon({ weapon }) {
                   </tr>
                 </>
               )}
+
               {weapon.maxBonusTwoValue > 1 && (
                 <>
                   <tr>
@@ -343,6 +343,7 @@ export default function SingleWeapon({ weapon }) {
                   </tr>
                 </>
               )}
+
               <tr>
                 <th scope="row">Headshot Multiplier</th>
                 <td>x {hsDisplay(weapon.headshotMultiplier)}</td>
@@ -355,6 +356,7 @@ export default function SingleWeapon({ weapon }) {
                 <th scope="row">Magazine</th>
                 <td>{weapon.magazineSize}</td>
               </tr>
+
               {weapon.modSlots === 0 && (
                 <>
                   <tr>
@@ -363,6 +365,7 @@ export default function SingleWeapon({ weapon }) {
                   </tr>
                 </>
               )}
+
               {weapon.modSlots > 0 && (
                 <>
                   <tr>
@@ -371,6 +374,7 @@ export default function SingleWeapon({ weapon }) {
                   </tr>
                 </>
               )}
+
               <tr>
                 <th scope="row">Accuracy</th>
                 <td>{displayPercentage(weapon.accuracy)} %</td>

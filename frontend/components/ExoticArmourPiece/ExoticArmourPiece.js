@@ -2,9 +2,8 @@ import Link from 'next/link';
 import { ListItem, ListTitle } from '../styles/ListStyles';
 
 export default function ExoticArmourPiece({ exoticArmourPiece }) {
-  console.log(exoticArmourPiece);
   return (
-    <ListItem>
+    <ListItem key={exoticArmourPiece.id}>
       <img
         src={exoticArmourPiece.image?.image.publicUrlTransformed}
         alt={`${exoticArmourPiece.name} icon`}

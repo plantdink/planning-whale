@@ -1,22 +1,60 @@
 export default function TitleBar({ item }) {
   let title;
-  // if (item.__typename === 'Weapon') title =  item.model;
-  if (item.__typename === 'AverageWeapon') title = item.class;
-  if (item.__typename === 'Weapon') title = item.model;
+  let divClass;
+  let headingClass;
+
+  if (item.__typename === 'AverageWeapon') {
+    title = item.class;
+    divClass = 'single-weapon__title-bar';
+    headingClass = 'single-weapon__heading';
+  }
+
+  if (item.__typename === 'Weapon') {
+    title = item.model;
+    divClass = 'single-weapon__title-bar';
+    headingClass = 'single-weapon__heading';
+  }
+
+  if (item.__typename === 'ArmourType') {
+    title = item.name;
+    divClass = 'single-gear-item__title-bar';
+    headingClass = 'single-gear-item__heading';
+  }
+
+  if (item.__typename === 'ExoticArmourPiece') {
+    title = item.name;
+    divClass = 'single-gear-item__title-bar';
+    headingClass = 'single-gear-item__heading';
+  }
+
   return (
     <>
-      <div className="single-weapon__title-bar">
-        <h1 className="single-weapon__heading">{title}</h1>
+      <div className={divClass}>
+        <h1 className={headingClass}>{title}</h1>
       </div>
     </>
   );
 }
 
-export function SubHeadingBar({ subHeading }) {
+// ------------- SubHeadingBar below --------------
+export function SubHeadingBar({ subHeading = null, layout = null }) {
+  let styleDivClass;
+  let styleSubHeadingClass;
+
+  if (layout === 'item') {
+    styleDivClass = 'single-gear-item__title-bar';
+    styleSubHeadingClass = 'single-gear-item__subheading';
+  }
+
+  if (layout === 'weapon' || null) {
+    styleDivClass = 'single-weapon__title-bar';
+    styleSubHeadingClass = 'single-weapon__section-heading';
+  }
+
   return (
     <>
-      <div className="single-weapon__title-bar">
-        <h3 className="single-weapon__section-heading">{subHeading}</h3>
+      <div className={styleDivClass}>
+        <h3 className={styleSubHeadingClass}>{subHeading}</h3>
       </div>
     </>
   );

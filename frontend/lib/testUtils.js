@@ -1892,6 +1892,7 @@ const fakeBrand = () => ({
   setBonusThree: '10% Hazard Protection',
   image: {
     id: 'ohin3541',
+    altText: 'Fake Brand image alt text',
     image: {
       publicUrlTransformed: 'FakeNamedBrand.jpg',
       __typename: 'CloudinaryImage_File',
@@ -1909,6 +1910,7 @@ const fakeBrand = () => ({
       isNamed: 'YES',
       image: {
         id: 'luyvkljcB84615',
+        altText: 'Fake Brand ArmourType image alt text',
         image: {
           publicUrlTransformed: 'FakeNamedItemImage01.jpg',
           __typename: 'CloudinaryImage_File',

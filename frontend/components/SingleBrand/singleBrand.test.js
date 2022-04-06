@@ -10,32 +10,47 @@ describe('<SingleBrand />', () => {
   it('renders correctly for a single brand', () => {
     const { container, debug } = render(<SingleBrand brand={brand} />);
 
-    // debug();
     const testBrandTitle = screen.getByText(brand.name);
     expect(testBrandTitle).toBeInTheDocument();
 
-    const testBrandCoreAttribute = screen.getByRole('heading', {
+    const testBrandCoreAttribute = screen.getByRole('row', {
       name: /core attribute type \- armour/i,
     });
-    expect(testBrandCoreAttribute).toBeInTheDocument();
+    expect(testBrandCoreAttribute).toHaveTextContent(brand.coreAttribute);
 
-    const testCoreAttribute40Value = screen.getByText(
-      /170,000 armour \(level 40\)/i
+    const testCoreAttribute40Value = screen.getByRole('cell', {
+      name: /\+ 170,000 armour/i,
+    });
+    expect(testCoreAttribute40Value).toHaveTextContent(
+      brand.coreAttributeValueLevel40
     );
-    expect(testCoreAttribute40Value).toBeInTheDocument();
 
-    const testCoreAttributeWT5Value = screen.getByText(
-      /42,458 armour \(world tier 5\)/i
+    const testCoreAttributeWT5Value = screen.getByRole('cell', {
+      name: /\+ 42,458 armour/i,
+    });
+    expect(testCoreAttributeWT5Value).toHaveTextContent(
+      brand.coreAttributeValueWT5
     );
-    expect(testCoreAttributeWT5Value).toBeInTheDocument();
 
-    const testSetBonusOne = screen.getByText(brand.setBonusOne);
-    expect(testSetBonusOne).toBeInTheDocument();
-    const testSetBonusTwo = screen.getByText(brand.setBonusTwo);
-    expect(testSetBonusTwo).toBeInTheDocument();
-    const testSetBonusThree = screen.getByText(brand.setBonusThree);
-    expect(testSetBonusThree).toBeInTheDocument();
+    const testSetBonusOne = screen.getByRole('row', { name: /1 piece/i });
+    expect(testSetBonusOne).toHaveTextContent(brand.setBonusOne);
 
-    // debug();
+    const testSetBonusTwo = screen.getByRole('row', { name: /2 piece/i });
+    expect(testSetBonusTwo).toBeInTheDocument(brand.setBonusTwo);
+
+    const testSetBonusThree = screen.getByRole('row', {
+      name: /3 piece/i,
+    });
+    expect(testSetBonusThree).toBeInTheDocument(brand.setBonusThree);
+
+    const testBrandImage = screen.getByRole('img', {
+      name: /fake brand image alt text/i,
+    });
+    expect(testBrandImage).toBeInTheDocument();
+    expect(testBrandImage).toHaveAttribute(
+      'src',
+      `${brand.image.image.publicUrlTransformed}`
+    );
+    expect(testBrandImage).toHaveAttribute('alt', `${brand.image.altText}`);
   });
 });

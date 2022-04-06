@@ -14,6 +14,7 @@ export const SINGLE_BRAND_QUERY = gql`
       setBonusThree
       image {
         id
+        altText
         image {
           publicUrlTransformed
         }
@@ -28,6 +29,7 @@ export const SINGLE_BRAND_QUERY = gql`
         isExotic
         image {
           id
+          altText
           image {
             publicUrlTransformed
           }
@@ -43,6 +45,8 @@ export const SINGLE_BRAND_QUERY = gql`
         piece
         isNamed
         image {
+          id
+          altText
           image {
             publicUrlTransformed
           }
@@ -66,40 +70,56 @@ export default function SingleBrand({ brand }) {
         <div className="single-gear-item__content">
           <div className="single-gear-item__details">
             {stringToParagraphs(brand.notes)}
-            <div className="single-gear-item__title-bar">
-              <h2 className="single-gear-item__subheading">
-                Core Attribute Type - {brand.coreAttribute}
-              </h2>
-            </div>
-            <p>{brand.coreAttributeValueLevel40} (Level 40)</p>
-            <p>{brand.coreAttributeValueWT5} (World Tier 5)</p>
-            <div className="single-gear-item__title-bar">
-              <h2 className="single-gear-item__subheading">Set Bonuses</h2>
-            </div>
-            <p>Whilst wearing:</p>
-            <p>
-              <span className="single-gear-item__sub-subheading">
-                1 piece -{' '}
-              </span>
-              {brand.setBonusOne}
-            </p>
-            <p>
-              <span className="single-gear-item__sub-subheading">
-                2 piece -{' '}
-              </span>
-              {brand.setBonusTwo}
-            </p>
-            <p>
-              <span className="single-gear-item__sub-subheading">
-                3 piece -{' '}
-              </span>
-              {brand.setBonusThree}
-            </p>
+            <table>
+              <thead className="single-gear-item__title-bar">
+                <tr>
+                  <th className="single-gear-item__subheading">
+                    Core Attribute Type - {brand.coreAttribute}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Level 40</th>
+                  <td>+ {brand.coreAttributeValueLevel40}</td>
+                </tr>
+                <tr>
+                  <th scope="row">World Tier 5</th>
+                  <td>+ {brand.coreAttributeValueWT5}</td>
+                </tr>
+              </tbody>
+              <thead className="single-gear-item__title-bar">
+                <tr>
+                  <th className="single-gear-item__subheading">Set Bonuses</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Whilst wearing:</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="single-gear-item__sub-subheading">
+                    1 Piece
+                  </th>
+                  <td>{brand.setBonusOne}</td>
+                </tr>
+                <tr>
+                  <th scope="row">2 Piece</th>
+                  <td>{brand.setBonusTwo}</td>
+                </tr>
+                <tr>
+                  <th scope="row">3 Piece</th>
+                  <td>{brand.setBonusThree}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
-          <div className="item-image">
+          <div className="item-image" data-testid="testImage">
             <img
               className="standard-item"
+              id="brand-page__image"
+              alt={brand.image?.altText}
               src={brand.image?.image.publicUrlTransformed}
             />
           </div>

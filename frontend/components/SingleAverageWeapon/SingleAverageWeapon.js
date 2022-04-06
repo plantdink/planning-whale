@@ -32,6 +32,7 @@ export const SINGLE_AVERAGE_WEAPON_QUERY = gql`
         name
         image {
           id
+          altText
           image {
             publicUrlTransformed
           }
@@ -39,6 +40,7 @@ export const SINGLE_AVERAGE_WEAPON_QUERY = gql`
       }
       image {
         id
+        altText
         image {
           publicUrlTransformed
         }
@@ -65,10 +67,12 @@ export default function SingleAverageWeapon({ weapon }) {
     <>
       <div className="single-weapon__content">
         <div className="single-weapon__details">
-          <div className="single-weapon__title-bar">
-            <h3 className="single-weapon__subheading">Base Damage</h3>
-          </div>
           <table>
+            <thead className="single-weapon__title-bar">
+              <tr>
+                <td className="single-weapon__subheading">Base Damage</td>
+              </tr>
+            </thead>
             <tbody>
               <tr>
                 <th scope="row">Level 40</th>
@@ -79,32 +83,27 @@ export default function SingleAverageWeapon({ weapon }) {
                 <td>{humanReadableNumber(weapon.damageWT5) || 'N/A'}</td>
               </tr>
             </tbody>
-          </table>
-          <div className="single-weapon__title-bar">
-            <h3 className="single-weapon__subheading">Specifications</h3>
-          </div>
-          <table>
-            <thead>
+            <thead className="single-weapon__title-bar">
               <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Value</th>
+                <h3 className="single-weapon__subheading">Specifications</h3>
               </tr>
             </thead>
-            {(!weapon.accuracy || !weapon.stability) && (
-              <>
-                <tfoot>
-                  <tr>
-                    <td colSpan="2">
-                      <small>
-                        0 indicates no community-sourced value available
-                      </small>
-                    </td>
-                  </tr>
-                </tfoot>
-              </>
-            )}
 
             <tbody>
+              {(!weapon.accuracy || !weapon.stability) && (
+                <>
+                  <tfoot>
+                    <tr>
+                      <td colSpan="2">
+                        <small>
+                          0 indicates no community-sourced value available
+                        </small>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </>
+              )}
+
               {weapon.maxBonusValue > 1 && (
                 <>
                   <tr>

@@ -6,6 +6,8 @@ import SingleArmourPiece, {
 } from '../../../components/SingleArmourPiece';
 import LinkSmallTalent from '../../../components/LinkSmallTalent';
 import LinkSmallBrand from '../../../components/LinkSmallBrand';
+import HeadSEOTag from '../../../components/HeadSEOTag';
+import TitleBar from '../../../components/TitleBar';
 
 export default function SingleArmourTypePage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_ARMOUR_PIECE_QUERY, {
@@ -22,6 +24,8 @@ export default function SingleArmourTypePage({ query }) {
   return (
     <>
       <SingleGearItemStyle>
+        <HeadSEOTag item={armourPiece} />
+        <TitleBar item={armourPiece} />
         <SingleArmourPiece armourPiece={armourPiece} />
         {armourPiece.armourTalent.length > 0 && armourPiece.isNamed === 'NO' && (
           <>
@@ -36,7 +40,7 @@ export default function SingleArmourTypePage({ query }) {
           </>
         )}
 
-        {armourPiece.armourTalent.length > 0 && (
+        {armourPiece.armourTalent.length > 0 && armourPiece.isNamed === 'YES' && (
           <>
             <div className="single-gear-item__title-bar">
               <h2 className="single-gear-item__subheading">

@@ -66,26 +66,24 @@ export default function WeaponClassThirdAttribute({ weapon }) {
                 Class Compatible Attributes
               </h3>
             </div>
-            {classDisplayArray.length > 0 && (
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Level 40</th>
-                    <th scope="col">World Tier 5</th>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col" />
+                  <th scope="col">Level 40</th>
+                  <th scope="col">World Tier 5</th>
+                </tr>
+              </thead>
+              <tbody>
+                {classDisplayArray.map((attribute) => (
+                  <tr key={attribute.id}>
+                    <th scope="row">{attribute.attribute}</th>
+                    <td>{displayPercentage(attribute.valueLevel40)} %</td>
+                    <td>{displayPercentage(attribute.valueWT5)} %</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {classDisplayArray.map((attribute) => (
-                    <tr key={attribute.id}>
-                      <th scope="row">{attribute.attribute}</th>
-                      <td>{displayPercentage(attribute.valueLevel40)} %</td>
-                      <td>{displayPercentage(attribute.valueWT5)} %</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
+                ))}
+              </tbody>
+            </table>
           </div>
         </>
       )}
