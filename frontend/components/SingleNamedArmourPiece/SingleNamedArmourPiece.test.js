@@ -1,29 +1,23 @@
 import { render, screen, cleanup } from '@testing-library/react';
-import SingleArmourPiece from '.';
-import { fakeArmourPiece, fakeNamedArmourPiece } from '../../lib/testUtils';
+import SingleNamedArmourPiece from '.';
+import { fakeNamedArmourPiece } from '../../lib/testUtils';
 
-const armourPiece = fakeArmourPiece();
+const armourPiece = fakeNamedArmourPiece();
 
 afterEach(cleanup);
 
-describe('<SingleArmourPiece />', () => {
+describe('<SingleNamedArmourPiece />', () => {
   it('renders correctly for a single armour piece', async () => {
     const { container, debug } = render(
-      <SingleArmourPiece armourPiece={armourPiece} />
+      <SingleNamedArmourPiece singleNamedPiece={armourPiece} />
     );
 
     await screen.findByTestId('singleArmourPiece');
     expect(container).toMatchSnapshot();
 
-    // Move to SingleBrandPage test
+    // Move to SingleNamedArmourPiecePage test
     // const testArmourPieceTitle = screen.getByText(armourPiece.name);
     // expect(testArmourPieceTitle).toBeInTheDocument();
-
-    // check World Tier 5 stats render if present
-    //     if (fakeQuery.is)
-    // const worldTier5Check = screen.getByRole("columnheader", {
-    //   name: /world tier 5 stats/i,
-    // });
 
     const testArmourPieceIcon = await screen.findByTestId('itemIcon');
     expect(testArmourPieceIcon).toBeInTheDocument();

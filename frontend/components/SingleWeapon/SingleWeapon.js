@@ -108,6 +108,7 @@ export const SingleWeaponStyles = styled.div`
     font-weight: 400;
     padding: 0 2.4rem;
     font-size: 1.6rem;
+    line-height: 1.3;
   }
 
   table {
@@ -115,6 +116,7 @@ export const SingleWeaponStyles = styled.div`
     width: 100%;
     border-collapse: collapse;
     color: var(--text);
+    line-height: 1.3;
     font-size: 1.6rem;
     font-variant-numeric: tabular-nums;
   }
@@ -128,6 +130,7 @@ export const SingleWeaponStyles = styled.div`
   td {
     padding: 0.5rem 2rem;
     text-align: left;
+    vertical-align: baseline;
   }
 
   /* thead th:nth-child(1) {

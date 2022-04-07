@@ -75,7 +75,7 @@ export default function LinkSmallPiece({ piece }) {
         piece.image?.image.publicUrlTransformed ||
         (piece.piece === 'Chest' ? chestIcon : backpackIcon)
       }`,
-      id: `${piece.id}`,
+      // id: `${piece.id}`,
     });
   }
 
@@ -84,7 +84,7 @@ export default function LinkSmallPiece({ piece }) {
       title: `${piece.namedArmourPiece.name}`,
       link: `/gear/armourType/${piece.namedArmourPiece.id}`,
       image: `${piece.piece === 'Chest' ? chestIcon : backpackIcon}`,
-      id: `${piece.id}`,
+      // id: `${piece.id}`,
     });
   }
 
@@ -96,7 +96,7 @@ export default function LinkSmallPiece({ piece }) {
         piece.exoticArmourPiece[0].id
       }`,
       image: `${piece.piece === 'Chest' ? chestIcon : backpackIcon}`,
-      id: `${piece.exoticArmourPiece[0].id}`,
+      // id: `${piece.exoticArmourPiece[0].id}`,
     });
   }
 
@@ -107,7 +107,7 @@ export default function LinkSmallPiece({ piece }) {
         piece.exoticArmourPiece[0].id
       }`,
       image: `${piece.piece === 'Chest' ? chestIcon : backpackIcon}`,
-      id: `${piece.exoticArmourPiece[0].id}`,
+      // id: `${piece.exoticArmourPiece[0].id}`,
     });
   }
 
@@ -116,8 +116,8 @@ export default function LinkSmallPiece({ piece }) {
       {(piece.__typename === 'ArmourType' || 'ArmourTalent') && (
         <>
           <div className="single-gear-item__details">
-            {classArray.map((arrayItem) => (
-              <LinkStyles key={arrayItem.id}>
+            {classArray.map((arrayItem, index) => (
+              <LinkStyles key={index}>
                 <TitleLink>
                   <Link href={arrayItem.link}>{arrayItem.title}</Link>
                 </TitleLink>

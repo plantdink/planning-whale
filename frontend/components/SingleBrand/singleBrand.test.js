@@ -10,8 +10,9 @@ describe('<SingleBrand />', () => {
   it('renders correctly for a single brand', () => {
     const { container, debug } = render(<SingleBrand brand={brand} />);
 
-    const testBrandTitle = screen.getByText(brand.name);
-    expect(testBrandTitle).toBeInTheDocument();
+    // move to SingleBrandPage test
+    // const testBrandTitle = screen.getByText(brand.name);
+    // expect(testBrandTitle).toBeInTheDocument();
 
     const testBrandCoreAttribute = screen.getByRole('row', {
       name: /core attribute type \- armour/i,

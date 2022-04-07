@@ -56,10 +56,8 @@ export default function LinkSmallBrand({ brand }) {
     <>
       <div className="single-gear-item__details">
         <LinkStyles>
-          <TitleLink>
-            <Link key={brand.id} href={brandUrl}>
-              {brand.name}
-            </Link>
+          <TitleLink key={brand.id}>
+            <Link href={brandUrl}>{brand.name}</Link>
           </TitleLink>
           <img
             className="standard-item"

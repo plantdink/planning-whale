@@ -106,9 +106,9 @@ export const Brand = list({
       ],
       isRequired: true,
     }),
-    setBonusOne: text({ label: "First Set Bonus" }),
-    setBonusTwo: text({ label: "Second Set Bonus" }),
-    setBonusThree: text({ label: "Third Set Bonus" }),
+    setBonusOne: text({ label: "First Set Bonus (Level 40)" }),
+    setBonusTwo: text({ label: "Second Set Bonus (Level 40)" }),
+    setBonusThree: text({ label: "Third Set Bonus (Level 40)" }),
     armourTalent: relationship({
       label: "Unique Brand Talents",
       ref: "ArmourTalent.brand",

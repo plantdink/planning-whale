@@ -35,7 +35,7 @@ export default function SingleAverageWeaponPage({ query }) {
         <HeadSEOTag item={weapon} />
         <TitleBar item={weapon} />
         <SingleRadarChart weapon={weapon} avgWeapon={null} />
-        <SubHeadingBar subHeading="Weapon Stats" />
+        <SubHeadingBar subHeading="Weapon Stats" layout="weapon" />
         <div className="single-weapon__sub-content">
           <SingleAverageWeapon weapon={weapon} />
           <WeaponClassThirdAttribute weapon={weapon} />

@@ -27,6 +27,18 @@ export default function TitleBar({ item }) {
     headingClass = 'single-gear-item__heading';
   }
 
+  if (item.__typename === 'Brand') {
+    title = item.name;
+    divClass = 'single-gear-item__title-bar';
+    headingClass = 'single-gear-item__heading';
+  }
+
+  if (item.__typename === 'Gearset') {
+    title = item.name;
+    divClass = 'single-gear-item__title-bar';
+    headingClass = 'single-gear-item__heading';
+  }
+
   return (
     <>
       <div className={divClass}>

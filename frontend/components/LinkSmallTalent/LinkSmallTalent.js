@@ -65,8 +65,8 @@ export default function LinkSmallTalent({ talent }) {
         <>
           <div className="single-gear-item__details">
             {classArray.map((arrayItem) => (
-              <LinkStyles>
-                <TitleLink key={arrayItem.id}>
+              <LinkStyles key={arrayItem.id}>
+                <TitleLink>
                   <Link href={arrayItem.link}>{arrayItem.title}</Link>
                 </TitleLink>
                 <img

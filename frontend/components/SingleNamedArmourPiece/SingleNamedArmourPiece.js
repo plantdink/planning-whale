@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-import HeadSEO from '../HeadSEO';
 import SingleArmourPiece from '../SingleArmourPiece';
 
 export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
@@ -60,6 +59,7 @@ export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
       isNamed
       image {
         id
+        altText
         image {
           publicUrlTransformed
         }
@@ -70,6 +70,7 @@ export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
         name
         image {
           id
+          altText
           image {
             publicUrlTransformed
           }
@@ -84,6 +85,7 @@ export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
         isExotic
         image {
           id
+          altText
           image {
             publicUrlTransformed
           }
@@ -96,7 +98,6 @@ export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
 export default function SingleNamedArmourPiece({ singleNamedPiece }) {
   return (
     <>
-      <HeadSEO seoTag={singleNamedPiece.name} />
       <SingleArmourPiece armourPiece={singleNamedPiece} />
     </>
   );

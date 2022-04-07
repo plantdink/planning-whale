@@ -6,6 +6,8 @@ import SingleBrand, {
 import LinkSmallPiece from '../../../components/LinkSmallPiece';
 import LinkSmallTalent from '../../../components/LinkSmallTalent';
 import { SingleGearItemStyle } from '../../../components/SingleArmourPiece';
+import HeadSEOTag from '../../../components/HeadSEOTag';
+import TitleBar from '../../../components/TitleBar';
 
 export default function SingleBrandPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_BRAND_QUERY, {
@@ -21,6 +23,8 @@ export default function SingleBrandPage({ query }) {
   return (
     <>
       <SingleGearItemStyle>
+        <HeadSEOTag item={singleBrand} />
+        <TitleBar item={singleBrand} />
         <SingleBrand brand={singleBrand} />
 
         {singleBrand.armourTalent.length === 1 && (
@@ -31,7 +35,7 @@ export default function SingleBrandPage({ query }) {
               </h2>
             </div>
             {singleBrand.armourTalent.map((talent) => (
-              <LinkSmallTalent key={talent.id} talent={talent} />
+              <LinkSmallTalent talent={talent} />
             ))}
           </>
         )}
@@ -44,7 +48,7 @@ export default function SingleBrandPage({ query }) {
               </h2>
             </div>
             {singleBrand.armourTalent.map((talent) => (
-              <LinkSmallTalent key={talent.id} talent={talent} />
+              <LinkSmallTalent talent={talent} />
             ))}
           </>
         )}

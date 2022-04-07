@@ -10,48 +10,57 @@ describe('<SingleGearset />', () => {
   it('renders correctly for a single gearset', () => {
     const { container, debug } = render(<SingleGearset gearset={gearset} />);
 
-    const testGearsetTitle = screen.getByText(gearset.name);
-    expect(testGearsetTitle).toBeInTheDocument();
+    // move to singleGearsetPage test
+    // const testGearsetTitle = screen.getByText(gearset.name);
+    // expect(testGearsetTitle).toBeInTheDocument();
 
     const testGearsetImage = screen.getByAltText(gearset.image.altText);
     expect(testGearsetImage).toBeInTheDocument();
 
-    const testGearsetCoreAttribute = screen.getByRole('heading', {
-      name: /core attribute type \- utility/i,
+    const testGearsetCoreAttribute = screen.getByRole('row', {
+      name: /core attribute type \- armour/i,
     });
-    expect(testGearsetCoreAttribute).toBeInTheDocument();
+    expect(testGearsetCoreAttribute).toHaveTextContent(gearset.coreAttribute);
 
-    const testGearsetCoreAttribute40Value = screen.getByText(
-      /\+1 skill tier \(level 40\)/i
+    const testGearsetCoreAttribute40Value = screen.getByRole('row', {
+      name: /170,000/i,
+    });
+    expect(testGearsetCoreAttribute40Value).toHaveTextContent(
+      gearset.coreAttributeValueLevel40
     );
-    expect(testGearsetCoreAttribute40Value).toBeInTheDocument();
 
-    const testGearsetCoreAttributeWT5Value = screen.getByText(
-      /\+1 skill tier \(world tier 5\)/i
+    const testGearsetCoreAttributeWT5Value = screen.getByRole('cell', {
+      name: /42,935/i,
+    });
+    expect(testGearsetCoreAttributeWT5Value).toHaveTextContent(
+      gearset.coreAttributeValueWT5
     );
-    expect(testGearsetCoreAttributeWT5Value).toBeInTheDocument();
 
-    const testGearsetSetBonusOne = screen.getByText(/15% status effects/i);
-    expect(testGearsetSetBonusOne).toBeInTheDocument();
+    const testGearsetSetBonusOne = screen.getByRole('cell', {
+      name: /15% status effects/i,
+    });
+    expect(testGearsetSetBonusOne).toHaveTextContent(gearset.setBonusOne);
 
-    const testGearsetSetBonusTwo = screen.getByText(
-      /15% skill haste, 30% hazard protection/i
+    const testGearsetSetBonusTwo = screen.getByRole('row', {
+      name: /\+ 15% skill haste, \+ 30% hazard protection/i,
+    });
+    expect(testGearsetSetBonusTwo).toHaveTextContent(gearset.setBonusTwo);
+
+    const testGearsetSetBonusThree = screen.getByRole('cell', {
+      name: /enemies that die while affected by your status effects spread those status effects to another enemy within 10m and refresh the duration\./i,
+    });
+    expect(testGearsetSetBonusThree).toHaveTextContent(gearset.setBonusThree);
+
+    const testGearsetChestTalent = screen.getByRole('cell', {
+      name: /proliferation\: increase contagion range from 10m to 15m/i,
+    });
+    expect(testGearsetChestTalent).toHaveTextContent(gearset.setChestTalent);
+
+    const testGearsetBackpackTalent = screen.getByRole('cell', {
+      name: /symptom aggravator\: amplifies all damage you deal to status affected targets by 30%/i,
+    });
+    expect(testGearsetBackpackTalent).toHaveTextContent(
+      gearset.setBackpackTalent
     );
-    expect(testGearsetSetBonusTwo).toBeInTheDocument();
-
-    const testGearsetSetBonusThree = screen.getByText(
-      /enemies that die while affected by your status effects spread those status effects to another enemy within 10m and refresh the duration\./i
-    );
-    expect(testGearsetSetBonusThree).toBeInTheDocument();
-
-    const testGearsetChestTalent = screen.getByText(
-      /increase contagion range from 10m to 15m/i
-    );
-    expect(testGearsetChestTalent).toBeInTheDocument();
-
-    const testGearsetBackpackTalent = screen.getByText(
-      /amplifies all damage you deal to status affected targets by 30%/i
-    );
-    expect(testGearsetBackpackTalent).toBeInTheDocument();
   });
 });

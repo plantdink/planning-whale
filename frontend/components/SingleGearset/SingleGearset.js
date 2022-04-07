@@ -1,6 +1,4 @@
 import { gql } from '@apollo/client';
-import HeadSEO from '../HeadSEO';
-import { SingleGearItemStyle } from '../SingleArmourPiece';
 import { stringToParagraphs } from '../../lib/displayStrings';
 
 export const SINGLE_GEARSET_QUERY = gql`
@@ -20,10 +18,10 @@ export const SINGLE_GEARSET_QUERY = gql`
       setChestTalent
       image {
         id
+        altText
         image {
           publicUrlTransformed
         }
-        altText
       }
       notes
     }
@@ -33,78 +31,105 @@ export const SINGLE_GEARSET_QUERY = gql`
 export default function SingleGearset({ gearset }) {
   return (
     <>
-      <HeadSEO seoTag={gearset.name} />
-      <SingleGearItemStyle>
-        <>
-          <div className="single-gear-item__title-bar">
-            <h1 className="single-gear-item__heading">{gearset.name}</h1>
-          </div>
-          <div className="single-gear-item__content">
-            <div className="single-item__details">
-              {stringToParagraphs(gearset.notes)}
-              <div className="single-gear-item__title-bar">
-                <h2 className="single-gear-item__subheading">
+      <div className="single-gear-item__content">
+        <div className="single-item__details">
+          {stringToParagraphs(gearset.notes)}
+          <table>
+            <thead>
+              <tr className="single-gear-item__title-bar">
+                <td className="single-gear-item__subheading">
                   Core Attribute Type - {gearset.coreAttribute}
-                </h2>
-              </div>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Level 40</th>
+                <td>+ {gearset.coreAttributeValueLevel40}</td>
+              </tr>
+              <tr>
+                <th scope="row">World Tier 5</th>
+                <td>+ {gearset.coreAttributeValueWT5}</td>
+              </tr>
+            </tbody>
+          </table>
 
-              <p>{gearset.coreAttributeValueLevel40} (Level 40)</p>
-              <p>{gearset.coreAttributeValueWT5} (World Tier 5) </p>
-              <div className="single-gear-item__title-bar">
-                <h2 className="single-gear-item__subheading">
+          <table>
+            <thead>
+              <tr className="single-gear-item__title-bar">
+                <td className="single-gear-item__subheading">
                   Gear Set Bonuses
-                </h2>
-              </div>
-              <p>Whilst wearing:</p>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Whilst wearing:</td>
+              </tr>
+              <tr>
+                <th scope="row" className="single-gear-item__sub-subheading">
+                  1 Piece
+                </th>
+                <td>{gearset.setBonusOne}</td>
+              </tr>
+              <tr>
+                <th scope="row" className="single-gear-item__sub-subheading">
+                  2 Piece
+                </th>
+                <td>{gearset.setBonusTwo}</td>
+              </tr>
+              <tr>
+                <th scope="row" className="single-gear-item__sub-subheading">
+                  3 Piece
+                </th>
+                <td>
+                  {gearset.setBonusName}: {gearset.setBonusThree}
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-              <p>
-                <span className="single-gear-item__sub-subheading">
-                  1 Piece -{' '}
-                </span>
-                {gearset.setBonusOne}
-              </p>
-              <p>
-                <span className="single-gear-item__sub-subheading">
-                  2 Piece -{' '}
-                </span>
-                {gearset.setBonusTwo}
-              </p>
-              <p>
-                <span className="single-gear-item__sub-subheading">
-                  3 Piece - {gearset.setBonusName}
-                </span>
-              </p>
-              <p>{gearset.setBonusThree}</p>
-              <div className="single-gear-item__title-bar">
-                <h2 className="single-gear-item__subheading">
+          <table>
+            <thead>
+              <tr className="single-gear-item__title-bar">
+                <td className="single-gear-item__subheading">
                   Gear Set Talents
-                </h2>
-              </div>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Whilst wearing:</td>
+              </tr>
+              <tr>
+                <th scope="row" className="single-gear-item__sub-subheading">
+                  Chest
+                </th>
+                <td>
+                  {gearset.setChestTalentName}: {gearset.setChestTalent}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" className="single-gear-item__sub-subheading">
+                  Backpack
+                </th>
+                <td>
+                  {gearset.setBackpackTalentName}: {gearset.setBackpackTalent}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-              <p>Whilst wearing:</p>
-              <p>
-                <span className="single-gear-item__sub-subheading">
-                  Chest: {gearset.setChestTalentName} -{' '}
-                </span>
-                {gearset.setChestTalent}
-              </p>
-              <p>
-                <span className="single-gear-item__sub-subheading">
-                  Backpack: {gearset.setBackpackTalentName} -{' '}
-                </span>
-                {gearset.setBackpackTalent}
-              </p>
-            </div>
-            <div className="item-image">
-              <img
-                className="standard-item"
-                src={gearset.image?.image.publicUrlTransformed}
-                alt={gearset.image?.altText}
-              />
-            </div>
-          </div>
-        </>
-      </SingleGearItemStyle>
+        <div className="item-image" data-testid="testGearsetImage">
+          <img
+            className="standard-item"
+            id="gearset-page__image"
+            src={gearset.image?.image.publicUrlTransformed}
+            alt={gearset.image?.altText}
+          />
+        </div>
+      </div>
     </>
   );
 }

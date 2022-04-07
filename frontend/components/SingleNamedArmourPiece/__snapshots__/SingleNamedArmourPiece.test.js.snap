@@ -1,28 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SingleArmourPiece /> renders correctly for a single armour piece 1`] = `
+exports[`<SingleNamedArmourPiece /> renders correctly for a single armour piece 1`] = `
 <div>
   <img
-    alt="Mask icon"
+    alt="Chest icon"
     class="single-gear-item__icon-image"
     data-testid="itemIcon"
-    src="https://res.cloudinary.com/dbm1h5w02/image/upload/v1647498165/agent-field-manual/6232d3b4ec80b2199ff2c03a.png"
+    src="FakeArmourPiece.jpg"
   />
   <div>
     <blockquote
       data-testid="flavourText"
     >
-      Through glass and steel; looking at you; a view so cruel.
+      "These guys came out of nowhere. Dressed to kill and armed to the teeth. Turns out, we were the ones they were sent to kill." - Division Agent
     </blockquote>
     <p
       data-testid="itemPiece"
     >
-      Mask
+      Chest
     </p>
     <p
       data-testid="itemNotes"
     >
-      This mask has been manufactured by Gila Guard and comes with Armour as the primary Core attribute. It has one fixed minor attribute - 100% Scanner Pulse Haste - and one random minor attribute which can be any of the stats listed below. It also has one gear mod slot.
+      This chest is manufactured by Golan Gear Ltd. It comes with Armour as its primary Core attribute, two minor attributes, Perfect Intimidate as the talent, one gear mod slot and can be found with any combination of stats listed below. A chest is a vital piece of an agents load-out and should be considered mandatory if you wish to survive.
     </p>
   </div>
   <div
@@ -112,7 +112,7 @@ exports[`<SingleArmourPiece /> renders correctly for a single armour piece 1`] =
             <td>
               +
                
-              15
+              12
                
               %
             </td>

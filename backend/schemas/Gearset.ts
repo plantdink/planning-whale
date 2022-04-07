@@ -62,7 +62,7 @@ export const Gearset = list({
         { label: "170,000 Armour", value: "170,000 Armour" },
         {
           label: "+1 Skill Tier",
-          value: "+1 Skill Tier",
+          value: "1 Skill Tier",
         },
       ],
       isRequired: true,
@@ -74,7 +74,7 @@ export const Gearset = list({
         { label: "42,458 Armour", value: "42,458 Armour" },
         {
           label: "+1 Skill Tier",
-          value: "+1 Skill Tier",
+          value: "1 Skill Tier",
         },
       ],
       isRequired: true,

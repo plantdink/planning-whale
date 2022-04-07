@@ -164,6 +164,7 @@ export const SingleGearItemStyle = styled.div`
   table {
     table-layout: fixed;
     width: 100%;
+    line-height: 1.3;
     border-collapse: collapse;
     color: var(--text);
     font-size: 1.6rem;
@@ -178,6 +179,7 @@ export const SingleGearItemStyle = styled.div`
   td {
     padding: 0.5rem 2rem;
     text-align: left;
+    vertical-align: baseline;
   }
 
   thead th:nth-child(1) {
@@ -234,6 +236,7 @@ export const SingleGearItemStyle = styled.div`
 export const SINGLE_ARMOUR_PIECE_QUERY = gql`
   query SINGLE_ARMOUR_PIECE_QUERY($id: ID!) {
     allArmourTypes(where: { id: $id }) {
+      id
       name
       piece
       modSlots
@@ -288,15 +291,18 @@ export const SINGLE_ARMOUR_PIECE_QUERY = gql`
       availableWT5
       isNamed
       image {
+        id
+        altText
         image {
           publicUrlTransformed
         }
-        altText
       }
       brand {
         id
         name
         image {
+          id
+          altText
           image {
             publicUrlTransformed
           }
@@ -310,6 +316,8 @@ export const SINGLE_ARMOUR_PIECE_QUERY = gql`
         isNamed
         isExotic
         image {
+          id
+          altText
           image {
             publicUrlTransformed
           }
@@ -322,6 +330,7 @@ export const SINGLE_ARMOUR_PIECE_QUERY = gql`
 export const SINGLE_EXOTIC_ARMOUR_PIECE_QUERY = gql`
   query SINGLE_EXOTIC_ARMOUR_PIECE_QUERY($id: ID!) {
     allExoticArmourPieces(where: { id: $id }) {
+      id
       name
       piece
       modSlots
@@ -366,7 +375,6 @@ export const SINGLE_EXOTIC_ARMOUR_PIECE_QUERY = gql`
 `;
 
 export default function SingleArmourPiece({ armourPiece }) {
-  // console.log(armourPiece);
   return (
     <>
       <>
@@ -378,11 +386,6 @@ export default function SingleArmourPiece({ armourPiece }) {
         />
         <>
           <div>
-            {armourPiece.flavourText !== null && (
-              <blockquote data-testid="flavourText">
-                {armourPiece.flavourText}
-              </blockquote>
-            )}
             <p data-testid="itemPiece">{armourPiece.piece}</p>
             {armourPiece.notes !== '' && (
               <p data-testid="itemNotes">{armourPiece.notes}</p>
@@ -393,90 +396,117 @@ export default function SingleArmourPiece({ armourPiece }) {
         {/* ----------Exotic Items layout ---------- */}
         <>
           {armourPiece.__typename === 'ExoticArmourPiece' && (
-            <div className="single-gear-item__content">
-              <div className="single-gear-item__details">
-                <div className="single-gear-item__title-bar">
-                  <h2 className="single-gear-item__subheading">
-                    Level 40 stats
-                  </h2>
-                </div>
+            <>
+              <div className="single-gear-item__content">
+                <div className="single-gear-item__details">
+                  <table data-testid="singleExoticArmourPieceLvl40">
+                    <thead>
+                      <tr className="single-gear-item__title-bar">
+                        <th className="single-gear-item__subheading">
+                          Level 40 stats
+                        </th>
+                      </tr>
+                      <tr className="single-gear-item__title-bar">
+                        <th className="single-gear-item__h3subheading">
+                          Core Attribute
+                        </th>
+                      </tr>
+                    </thead>
 
-                <div className="single-gear-item__title-bar">
-                  <h3 className="single-gear-item__h3subheading">
-                    Core Attribute
-                  </h3>
-                </div>
-                <ul>
-                  <li>
-                    {armourPiece.maxCoreOneValueLevel40} {armourPiece.coreOne}
-                  </li>
-                  {armourPiece.coreTwo !== '' && (
-                    <>
-                      <li>
-                        {armourPiece.maxCoreTwoValueLevel40}{' '}
-                        {armourPiece.coreTwo}
-                      </li>
-                      <li>{armourPiece.coreThree}</li>
-                    </>
+                    <tbody>
+                      <tr>
+                        <td>{armourPiece.coreOne}</td>
+                        <td>+ {armourPiece.maxCoreOneValueLevel40}</td>
+                      </tr>
+                      {armourPiece.coreTwo !== '' && (
+                        <tr>
+                          <td>{armourPiece.coreTwo}</td>
+                          <td>+ {armourPiece.maxCoreTwoValueLevel40}</td>
+                        </tr>
+                      )}
+                      {armourPiece.coreTwo !== '' && (
+                        <tr>
+                          <td>{armourPiece.coreThree}</td>
+                          <td>
+                            + {armourPiece.maxCoreThreeValueLevel40} Skill Tier
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+
+                  {armourPiece.attributeOneType !== '' && (
+                    <table data-testid="singleExoticArmourPieceLvl40Attributes">
+                      <thead>
+                        <tr className="single-gear-item__title-bar">
+                          <th className="single-gear-item__h3subheading">
+                            Minor Attributes
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td>{armourPiece.attributeOneType}</td>
+                          <td>+ {armourPiece.attributeOneValueLevel40}</td>
+                        </tr>
+
+                        <tr>
+                          <td>{armourPiece.attributeTwoType}</td>
+                          <td>+ {armourPiece.attributeTwoValueLevel40}</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   )}
-                </ul>
+                </div>
 
-                {armourPiece.attributeOneType !== '' && (
-                  <>
-                    <div className="single-gear-item__title-bar">
-                      <h3 className="single-gear-item__h3subheading">
-                        Minor Attributes
-                      </h3>
-                    </div>
-                    <ul>
-                      <li>
-                        {armourPiece.attributeOneValueLevel40}{' '}
-                        {armourPiece.attributeOneType}
-                      </li>
-                      <li>
-                        {armourPiece.attributeTwoValueLevel40}{' '}
-                        {armourPiece.attributeTwoType}
-                      </li>
-                    </ul>
-                  </>
+                {armourPiece.availableWT5 === 'Yes' && (
+                  <div className="single-gear-item__details">
+                    <table data-testid="singleExoticArmourPieceWT5">
+                      <thead>
+                        <tr className="single-gear-item__title-bar">
+                          <th className="single-gear-item__subheading">
+                            World Tier 5 Stats
+                          </th>
+                        </tr>
+                        <tr className="single-gear-item__title-bar">
+                          <th className="single-gear-item__h3subheading">
+                            Core Attribute
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td>{armourPiece.coreOne}</td>
+                          <td>+ {armourPiece.maxCoreOneValueLevel30}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <table data-testid="singleExoticArmourPieceWT5Attributes">
+                      <thead>
+                        <tr className="single-gear-item__title-bar">
+                          <td className="single-gear-item__h3subheading">
+                            Minor Attributes
+                          </td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{armourPiece.attributeOneType}</td>
+                          <td>+ {armourPiece.attributeOneValueLevel30}</td>
+                        </tr>
+                        <tr>
+                          <td>{armourPiece.attributeTwoType}</td>
+                          <td>+ {armourPiece.attributeTwoValueLevel30}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 )}
               </div>
-
-              {armourPiece.availableWT5 === 'Yes' && (
-                <div className="single-gear-item__details">
-                  <div className="single-gear-item__title-bar">
-                    <h2 className="single-gear-item__subheading">
-                      World Tier 5 Stats
-                    </h2>
-                  </div>
-                  <div className="single-gear-item__title-bar">
-                    <h3 className="single-gear-item__h3subheading">
-                      Core Attribute
-                    </h3>
-                  </div>
-                  <ul>
-                    <li>
-                      {armourPiece.maxCoreOneValueLevel30} {armourPiece.coreOne}
-                    </li>
-                  </ul>
-                  <div className="single-gear-item__title-bar">
-                    <h3 className="single-gear-item__h3subheading">
-                      Minor Attributes
-                    </h3>
-                  </div>
-                  <ul>
-                    <li>
-                      {armourPiece.attributeOneValueLevel30}{' '}
-                      {armourPiece.attributeOneType}
-                    </li>
-                    <li>
-                      {armourPiece.attributeTwoValueLevel30}{' '}
-                      {armourPiece.attributeTwoType}
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
+            </>
           )}
         </>
 
@@ -489,7 +519,7 @@ export default function SingleArmourPiece({ armourPiece }) {
                 data-testid="singleArmourPiece"
               >
                 <div className="single-gear-item__details">
-                  <table>
+                  <table data-testid="singleYellowArmourPiece">
                     <thead>
                       <tr className="single-gear-item__title-bar">
                         <th className="single-gear-item__subheading">
@@ -716,7 +746,7 @@ export default function SingleArmourPiece({ armourPiece }) {
                 {/* ------------- World Tier 5 below ----------- */}
 
                 <div className="single-gear-item__details">
-                  <table>
+                  <table data-testid="singleYellowArmourPieceWT5">
                     <thead>
                       <tr className="single-gear-item__title-bar">
                         <th className="single-gear-item__subheading">
@@ -941,14 +971,27 @@ export default function SingleArmourPiece({ armourPiece }) {
                 </div>
               </div>
 
-              {(armourPiece.uniqueAttribute || armourPiece.modSlots > 0) && (
+              {armourPiece.modSlots > 0 && (
+                <>
+                  <div className="single-gear-item__title-bar">
+                    <h3 className="single-gear-item__h3subheading">
+                      Number of Mod Slots
+                    </h3>
+                  </div>
+                  <ul>
+                    <li>{armourPiece.modSlots}</li>
+                  </ul>
+                </>
+              )}
+
+              {/* {(armourPiece.uniqueAttribute || armourPiece.modSlots > 0) && (
                 <div className="single-gear-item__sub-content">
                   <div className="single-gear-item__details">
                     {armourPiece.uniqueAttribute && (
                       <>
                         <div className="single-gear-item__title-bar">
                           <h3 className="single-gear-item__h3subheading">
-                            Item Unique Attribute
+                            Item Unique Feature
                           </h3>
                         </div>
                         <ul>
@@ -956,22 +999,9 @@ export default function SingleArmourPiece({ armourPiece }) {
                         </ul>
                       </>
                     )}
-
-                    {armourPiece.modSlots > 0 && (
-                      <>
-                        <div className="single-gear-item__title-bar">
-                          <h3 className="single-gear-item__h3subheading">
-                            Number of Mod Slots
-                          </h3>
-                        </div>
-                        <ul>
-                          <li>{armourPiece.modSlots}</li>
-                        </ul>
-                      </>
-                    )}
                   </div>
                 </div>
-              )}
+              )} */}
             </>
           )}
         </>

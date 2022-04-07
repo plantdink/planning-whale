@@ -6,6 +6,9 @@ import SingleNamedArmourPiece, {
 import { SingleGearItemStyle } from '../../../components/SingleArmourPiece';
 import LinkSmallBrand from '../../../components/LinkSmallBrand';
 import LinkSmallTalent from '../../../components/LinkSmallTalent';
+import HeadSEOTag from '../../../components/HeadSEOTag';
+import TitleBar from '../../../components/TitleBar';
+import ItemUniqueFeature from '../../../components/ItemUniqueFeature';
 
 export default function SingleNamedArmourPiecePage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_NAMED_ARMOUR_PIECE_QUERY, {
@@ -20,7 +23,11 @@ export default function SingleNamedArmourPiecePage({ query }) {
 
   return (
     <SingleGearItemStyle>
+      <HeadSEOTag item={singleNamedPiece} />
+      <TitleBar item={singleNamedPiece} />
       <SingleNamedArmourPiece singleNamedPiece={singleNamedPiece} />
+      <ItemUniqueFeature item={singleNamedPiece} />
+
       {singleNamedPiece.armourTalent.length > 0 && (
         <>
           <div className="single-gear-item__title-bar">
@@ -34,7 +41,7 @@ export default function SingleNamedArmourPiecePage({ query }) {
       {singleNamedPiece.brand.length > 0 && (
         <>
           <div className="single-gear-item__title-bar">
-            <h2 className="single-gear-item__subheading">Brand of Item</h2>
+            <h2 className="single-gear-item__subheading">Item Brand</h2>
           </div>
           {singleNamedPiece.brand.map((brand) => (
             <LinkSmallBrand key={brand.id} brand={brand} />

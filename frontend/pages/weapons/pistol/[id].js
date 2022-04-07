@@ -34,7 +34,7 @@ export default function SinglePistolPage({ query }) {
         <TitleBar item={weapon} />
         <ClassAndFamilyText weapon={weapon} />
         <SingleRadarChart weapon={weapon} avgWeapon={avgWeapon} />
-        <SubHeadingBar subHeading="Weapon Stats" />
+        <SubHeadingBar subHeading="Weapon Stats" layout="weapon" />
         <FlavourText weapon={weapon} />
         <div className="single-weapon__sub-content">
           <SingleWeapon weapon={weapon} />

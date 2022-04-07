@@ -8,6 +8,8 @@ import LinkSmallTalent from '../../../components/LinkSmallTalent';
 import LinkSmallBrand from '../../../components/LinkSmallBrand';
 import HeadSEOTag from '../../../components/HeadSEOTag';
 import TitleBar from '../../../components/TitleBar';
+import ItemUniqueFeature from '../../../components/ItemUniqueFeature';
+import FlavourText from '../../../components/FlavourText';
 
 export default function SingleArmourTypePage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_ARMOUR_PIECE_QUERY, {
@@ -26,7 +28,9 @@ export default function SingleArmourTypePage({ query }) {
       <SingleGearItemStyle>
         <HeadSEOTag item={armourPiece} />
         <TitleBar item={armourPiece} />
+        <FlavourText weapon={armourPiece} />
         <SingleArmourPiece armourPiece={armourPiece} />
+        <ItemUniqueFeature item={armourPiece} />
         {armourPiece.armourTalent.length > 0 && armourPiece.isNamed === 'NO' && (
           <>
             <div className="single-gear-item__title-bar">
@@ -48,7 +52,7 @@ export default function SingleArmourTypePage({ query }) {
               </h2>
             </div>
             {armourPiece.armourTalent.map((talent) => (
-              <LinkSmallTalent key={talent.id} talent={talent} />
+              <LinkSmallTalent talent={talent} />
             ))}
           </>
         )}
@@ -56,7 +60,7 @@ export default function SingleArmourTypePage({ query }) {
         {armourPiece.brand.length > 0 && (
           <>
             <div className="single-gear-item__title-bar">
-              <h2 className="single-gear-item__subheading">Brand of Item</h2>
+              <h2 className="single-gear-item__subheading">Item Brand</h2>
             </div>
             <LinkSmallBrand brand={armourPiece.brand[0]} />
           </>

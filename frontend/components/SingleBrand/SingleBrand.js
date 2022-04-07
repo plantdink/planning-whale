@@ -59,72 +59,66 @@ export const SINGLE_BRAND_QUERY = gql`
 export default function SingleBrand({ brand }) {
   return (
     <>
-      <Head>
-        <title>Agent Field Manual | {brand.name}</title>
-      </Head>
-      <>
-        <div className="single-gear-item__title-bar">
-          <h1 className="single-gear-item__heading">{brand.name}</h1>
+      <div className="single-gear-item__content">
+        <div className="single-gear-item__details">
+          {stringToParagraphs(brand.notes)}
+          <table>
+            <thead className="single-gear-item__title-bar">
+              <tr>
+                <th className="single-gear-item__subheading">
+                  Core Attribute Type - {brand.coreAttribute}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Level 40</th>
+                <td>+ {brand.coreAttributeValueLevel40}</td>
+              </tr>
+              <tr>
+                <th scope="row">World Tier 5</th>
+                <td>+ {brand.coreAttributeValueWT5}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table>
+            <thead className="single-gear-item__title-bar">
+              <tr>
+                <th className="single-gear-item__subheading">Set Bonuses</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Whilst wearing:</td>
+              </tr>
+              <tr>
+                <th scope="row" className="single-gear-item__sub-subheading">
+                  1 Piece
+                </th>
+                <td>{brand.setBonusOne}</td>
+              </tr>
+              <tr>
+                <th scope="row">2 Piece</th>
+                <td>{brand.setBonusTwo}</td>
+              </tr>
+              <tr>
+                <th scope="row">3 Piece</th>
+                <td>{brand.setBonusThree}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div className="single-gear-item__content">
-          <div className="single-gear-item__details">
-            {stringToParagraphs(brand.notes)}
-            <table>
-              <thead className="single-gear-item__title-bar">
-                <tr>
-                  <th className="single-gear-item__subheading">
-                    Core Attribute Type - {brand.coreAttribute}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Level 40</th>
-                  <td>+ {brand.coreAttributeValueLevel40}</td>
-                </tr>
-                <tr>
-                  <th scope="row">World Tier 5</th>
-                  <td>+ {brand.coreAttributeValueWT5}</td>
-                </tr>
-              </tbody>
-              <thead className="single-gear-item__title-bar">
-                <tr>
-                  <th className="single-gear-item__subheading">Set Bonuses</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Whilst wearing:</td>
-                </tr>
-                <tr>
-                  <th scope="row" className="single-gear-item__sub-subheading">
-                    1 Piece
-                  </th>
-                  <td>{brand.setBonusOne}</td>
-                </tr>
-                <tr>
-                  <th scope="row">2 Piece</th>
-                  <td>{brand.setBonusTwo}</td>
-                </tr>
-                <tr>
-                  <th scope="row">3 Piece</th>
-                  <td>{brand.setBonusThree}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="item-image" data-testid="testImage">
-            <img
-              className="standard-item"
-              id="brand-page__image"
-              alt={brand.image?.altText}
-              src={brand.image?.image.publicUrlTransformed}
-            />
-          </div>
+        <div className="item-image" data-testid="testImage">
+          <img
+            className="standard-item"
+            id="brand-page__image"
+            alt={brand.image?.altText}
+            src={brand.image?.image.publicUrlTransformed}
+          />
         </div>
-      </>
+      </div>
     </>
   );
 }

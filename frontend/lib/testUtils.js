@@ -1925,11 +1925,11 @@ const fakeBrand = () => ({
 
 const fakeGearset = () => ({
   name: 'Fake Protocol',
-  coreAttribute: 'Utility',
-  coreAttributeValueLevel40: '+1 Skill Tier',
-  coreAttributeValueWT5: '+1 Skill Tier',
-  setBonusOne: '15% Status Effects',
-  setBonusTwo: '15% Skill Haste, 30% Hazard Protection',
+  coreAttribute: 'Armour',
+  coreAttributeValueLevel40: '170,000',
+  coreAttributeValueWT5: '42,935',
+  setBonusOne: '+ 15% Status Effects',
+  setBonusTwo: '+ 15% Skill Haste, + 30% Hazard Protection',
   setBonusName: 'Contagion',
   setBonusThree:
     'Enemies that die while affected by your status effects spread those status effects to another enemy within 10m and refresh the duration.',
@@ -1940,11 +1940,11 @@ const fakeGearset = () => ({
   setChestTalent: 'Increase contagion range from 10m to 15m',
   image: {
     id: 'kyvjblv68465',
+    altText: 'Eclipse Protocol gearset icon',
     image: {
       publicUrlTransformed: 'FakeGearsetImage.png',
       __typename: 'CloudinaryImage_File',
     },
-    altText: 'Eclipse Protocol gearset icon',
     __typename: 'FieldManualImage',
   },
   notes:
@@ -2037,7 +2037,117 @@ const fakeArmourPiece = () => ({
   __typename: 'ArmourType',
 });
 
+const fakeArmourPieceQuery = () => ({
+  id: '61e77ee9d8e3482403dbb87a',
+  name: 'Hunter-Killer',
+  piece: 'Chest',
+  modSlots: 1,
+  coreAttributeTypeOne: 'N/A',
+  coreAttributeTypeTwo: 'Armour',
+  coreAttributeTypeThree: 'N/A',
+  maxCoreDamageLevel40: 0,
+  maxCoreArmourLevel40: 170000,
+  maxCoreSkillTierLevel40: 0,
+  maxCoreValueDamageLevel30: 99,
+  maxCoreArmourLevel30: 42458,
+  maxCoreSkillTierLevel30: 1,
+  offensiveAttributeOneLevel40: 'Critical Hit Chance',
+  offensiveAttributeTwoLevel40: 'Critical Hit Damage',
+  offensiveAttributeThreeLevel40: 'Headshot Damage',
+  offensiveAttributeFourLevel40: 'Weapon Handling',
+  offensiveAttributeOneMaxValueLevel40: 60,
+  offensiveAttributeTwoMaxValueLevel40: 120,
+  offensiveAttributeThreeMaxValueLevel40: 100,
+  offensiveAttributeFourMaxValueLevel40: 80,
+  offensiveAttributeOneMaxValueLevel30: 51,
+  offensiveAttributeTwoMaxValueLevel30: 79,
+  offensiveAttributeThreeMaxValueLevel30: 69,
+  offensiveAttributeFourMaxValueLevel30: 70,
+  defensiveAttributeOneLevel40: 'Armour Regeneration',
+  defensiveAttributeTwoLevel40: 'Explosive Resistance',
+  defensiveAttributeThreeLevel40: 'Hazard Protection',
+  defensiveAttributeFourLevel40: 'Health',
+  defensiveAttributeOneMaxValueLevel40: 4925,
+  defensiveAttributeTwoMaxValueLevel40: 100,
+  defensiveAttributeThreeMaxValueLevel40: 100,
+  defensiveAttributeFourMaxValueLevel40: 18935,
+  defensiveAttributeOneMaxValueLevel30: 1223,
+  defensiveAttributeTwoMaxValueLevel30: 66,
+  defensiveAttributeThreeMaxValueLevel30: 66,
+  defensiveAttributeFourMaxValueLevel30: 4695,
+  utilityAttributeOneLevel40: 'Skill Damage',
+  utilityAttributeTwoLevel40: 'Skill Haste',
+  utilityAttributeThreeLevel40: 'Skill Repair',
+  utilityAttributeFourLevel40: 'Status Effects',
+  utilityAttributeOneMaxValueLevel40: 100,
+  utilityAttributeTwoMaxValueLevel40: 120,
+  utilityAttributeThreeMaxValueLevel40: 200,
+  utilityAttributeFourMaxValueLevel40: 100,
+  utilityAttributeOneMaxValueLevel30: 69,
+  utilityAttributeTwoMaxValueLevel30: 79,
+  utilityAttributeThreeMaxValueLevel30: 121,
+  utilityAttributeFourMaxValueLevel30: 66,
+  uniqueAttribute: 'Successful Test Attribute',
+  notes:
+    'This chest is manufactured by Golan Gear Ltd. It comes with Armour as its primary Core attribute, two minor attributes, Perfect Intimidate as the talent, one gear mod slot and can be found with any combination of stats listed below. A chest is a vital piece of an agents load-out and should be considered mandatory if you wish to survive.',
+  flavourText:
+    '"These guys came out of nowhere. Dressed to kill and armed to the teeth. Turns out, we were the ones they were sent to kill." - Division Agent',
+  availableWT5: 'No',
+  isNamed: 'NO',
+  image: {
+    id: '61ff31775b249912fe4458b7',
+    altText: 'Chest icon',
+    image: {
+      publicUrlTransformed:
+        'https://res.cloudinary.com/dbm1h5w02/image/upload/v1647498091/agent-field-manual/6232d36aec80b2199ff2bcc8.png',
+      __typename: 'CloudinaryImage_File',
+    },
+    __typename: 'FieldManualImage',
+  },
+  brand: [
+    {
+      id: '61dfa525d1abb420ae6001e8',
+      name: 'Golan Gear Ltd',
+      image: {
+        id: '620075293e5849082bd94b3d',
+        altText: 'Golan Gear Limited brand icon',
+        image: {
+          publicUrlTransformed:
+            'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644197161/agent-field-manual/620075283e5849082bd94b3c.png',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'Brand',
+    },
+  ],
+  armourTalent: [
+    {
+      id: '61e0ce6059432e2a9aaaf057',
+      name: 'Perfect Intimidate',
+      piece: 'Chest',
+      descriptionPVE:
+        'While you have bonus armour, amplifies total weapon damage by 40% to enemies within 10 meters.',
+      isNamed: 'YES',
+      isExotic: 'NO',
+      image: {
+        id: '620065013e5849082bd933c7',
+        altText: 'Intimidate icon',
+        image: {
+          publicUrlTransformed:
+            'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644193025/agent-field-manual/620065003e5849082bd933c6.png',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'ArmourTalent',
+    },
+  ],
+  __typename: 'ArmourType',
+});
+
 const fakeNamedArmourPiece = () => ({
+  id: 'ln36841CE',
   name: 'Fake Hunter-Killer',
   piece: 'Chest',
   modSlots: 1,
@@ -2095,11 +2205,11 @@ const fakeNamedArmourPiece = () => ({
   isNamed: 'YES',
   image: {
     id: '98465gdhcfjgvhbk',
+    altText: 'Chest icon',
     image: {
       publicUrlTransformed: 'FakeArmourPiece.jpg',
       __typename: 'CloudinaryImage_File',
     },
-    altText: 'Chest icon',
     __typename: 'FieldManualImage',
   },
   brand: [
@@ -2108,6 +2218,7 @@ const fakeNamedArmourPiece = () => ({
       name: 'Golan Gear Ltd',
       image: {
         id: '9864fsagh',
+        altText: 'FakeBrandImage alt text',
         image: {
           publicUrlTransformed: 'FakeBrandImage.jpg',
           __typename: 'CloudinaryImage_File',
@@ -2128,6 +2239,7 @@ const fakeNamedArmourPiece = () => ({
       isExotic: 'NO',
       image: {
         id: 'jykubln58SFZRv',
+        altText: 'FakeArmourTalentImage alt text',
         image: {
           publicUrlTransformed: 'FakeArmourTalentImage.jpg',
           __typename: 'CloudinaryImage_File',
@@ -2153,6 +2265,7 @@ export {
   fakeBrand,
   fakeGearset,
   fakeArmourPiece,
+  fakeArmourPieceQuery,
   fakeNamedArmourPiece,
   fakeExoticWeaponQuery,
   fakeARQuery,

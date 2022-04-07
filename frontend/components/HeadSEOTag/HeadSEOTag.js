@@ -16,10 +16,16 @@ export default function HeadSEOTag({ item = null, string = null }) {
     seoTag = item.name;
 
   if (item !== null && item.__typename === 'ArmourTalent')
-    seoTag = `${item.name} Talent`;
+    seoTag = `${item.name} talent`;
 
   if (item !== null && item.__typename === 'WeaponTalent')
-    seoTag = `${item.name} Talent`;
+    seoTag = `${item.name} talent`;
+
+  if (item !== null && item.__typename === 'Brand')
+    seoTag = `${item.name} brand`;
+
+  if (item !== null && item.__typename === 'Gearset')
+    seoTag = `${item.name} gear set`;
 
   return (
     <Head>

@@ -1,8 +1,11 @@
 import { useQuery } from '@apollo/client';
 import DisplayError from '../../../components/ErrorMessage';
+import HeadSEOTag from '../../../components/HeadSEOTag';
 import SingleGearset, {
   SINGLE_GEARSET_QUERY,
 } from '../../../components/SingleGearset';
+import { SingleGearItemStyle } from '../../../components/SingleArmourPiece';
+import TitleBar from '../../../components/TitleBar';
 
 export default function SingleGearsetPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_GEARSET_QUERY, {
@@ -16,5 +19,13 @@ export default function SingleGearsetPage({ query }) {
 
   const gearset = data.allGearsets[0];
 
-  return <SingleGearset gearset={gearset} />;
+  return (
+    <>
+      <SingleGearItemStyle>
+        <HeadSEOTag item={gearset} />
+        <TitleBar item={gearset} />
+        <SingleGearset gearset={gearset} />
+      </SingleGearItemStyle>
+    </>
+  );
 }
