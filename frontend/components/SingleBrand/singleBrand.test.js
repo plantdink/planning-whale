@@ -7,12 +7,11 @@ const brand = fakeBrand();
 afterEach(cleanup);
 
 describe('<SingleBrand />', () => {
-  it('renders correctly for a single brand', () => {
+  it('renders correctly for a single brand', async () => {
     const { container, debug } = render(<SingleBrand brand={brand} />);
 
-    // move to SingleBrandPage test
-    // const testBrandTitle = screen.getByText(brand.name);
-    // expect(testBrandTitle).toBeInTheDocument();
+    await screen.findByTestId('testBrand');
+    expect(container).toMatchSnapshot();
 
     const testBrandCoreAttribute = screen.getByRole('row', {
       name: /core attribute type \- armour/i,

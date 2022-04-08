@@ -23,7 +23,7 @@ export const chestIcon =
   'https://res.cloudinary.com/dbm1h5w02/image/upload/v1647494848/agent-field-manual/6232c6beec80b2199ff2b18f.png';
 
 export const backpackIcon =
-  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644893810/agent-field-manual/620b16723f985c08074b7887.png';
+  'https://res.cloudinary.com/dbm1h5w02/image/upload/v1647498066/agent-field-manual/6232d351ec80b2199ff2bba2.png';
 
 export const weaponTalentIcon =
   'https://res.cloudinary.com/dbm1h5w02/image/upload/v1644908183/agent-field-manual/620b4e963f985c08074b7a63.png';

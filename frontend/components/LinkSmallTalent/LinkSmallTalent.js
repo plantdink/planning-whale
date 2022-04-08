@@ -54,7 +54,7 @@ export default function LinkSmallTalent({ talent }) {
     classArray.push({
       title: `${talent.name}`,
       link: `/talents/${lowerCaseLink(talent.__typename)}/${talent.id}`,
-      image: `${talent.piece === 'Chest' ? chestIcon : backpackIcon}`,
+      image: `${talent.image?.image.publicUrlTransformed}`,
       id: `${talent.id}`,
     });
   }

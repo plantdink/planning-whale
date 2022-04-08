@@ -52,7 +52,6 @@ describe('<SingleArmourTypePage />', () => {
       </>
     );
 
-    //   const loadingText = await screen.findByText('Loading')
     expect(screen.getByText('Loading....')).toBeInTheDocument();
   });
 
@@ -66,6 +65,7 @@ describe('<SingleArmourTypePage />', () => {
     );
 
     await screen.findByTestId('singleYellowArmourPiece');
+    expect(container).toMatchSnapshot();
 
     const testTitle = await screen.findByText(fakeQuery.name);
     expect(testTitle).toBeInTheDocument();
@@ -82,10 +82,24 @@ describe('<SingleArmourTypePage />', () => {
       fakeQuery.armourTalent.length + fakeQuery.brand.length;
     expect(screenLinks.length).toEqual(pageLinksLength);
 
-    // debug();
+    // if mock data has a unique attribute, check it has rendered correctly
     if (fakeQuery.uniqueAttribute !== null) {
       const uniqueAttributeCheck = screen.getByTestId('uniqueAttributeTest');
       expect(uniqueAttributeCheck).toHaveTextContent(fakeQuery.uniqueAttribute);
     }
+  });
+
+  it('Throws an error when an item is not found', async () => {
+    const { container, debug } = render(
+      <>
+        <MockedProvider mocks={errorMocks}>
+          <SingleArmourTypePage query={{ id: `${fakeQuery.id}` }} />
+        </MockedProvider>
+      </>
+    );
+
+    await screen.findByTestId('graphql-error');
+    expect(container).toHaveTextContent('Fucks sake!!');
+    expect(container).toHaveTextContent('Item not found.');
   });
 });

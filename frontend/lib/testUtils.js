@@ -1923,6 +1923,48 @@ const fakeBrand = () => ({
   __typename: 'Brand',
 });
 
+const fakeBrandQuery = () => ({
+  id: 'ctrvjtbkgyj662561',
+  name: 'Maxx Tactical Tactical',
+  coreAttribute: 'Armour',
+  coreAttributeValueLevel40: '170,000 Armour',
+  coreAttributeValueWT5: '42,458 Armour',
+  setBonusOne: '10% Health',
+  setBonusTwo: '20% Extra Incoming Healing',
+  setBonusThree: '10% Hazard Protection',
+  image: {
+    id: 'ohin3541',
+    altText: 'Fake Brand image alt text',
+    image: {
+      publicUrlTransformed: 'FakeNamedBrand.jpg',
+      __typename: 'CloudinaryImage_File',
+    },
+    __typename: 'FieldManualImage',
+  },
+  notes:
+    'Strategic Homeland Division has approved multiple Brand manufacturers to supply equipment for SHD agents. There are also numerous non-approved Brands that an agent may find during the conduct of operations and agents are authorised to use any equipment they need in order to complete their mission. Each Brand provides different benefits to an agent and their ability to conduct operations. Equipping items from the same brand will unlock different benefits, with 3 equipped providing the maximum Brand-specific benefit. Agents are encouraged to mix and match Brands to provide the best benefit to their preferred operational style.',
+  armourTalent: [],
+  armourType: [
+    {
+      id: 'cresdhjvjytfj',
+      name: 'Deathgrips',
+      piece: 'Gloves',
+      isNamed: 'YES',
+      image: {
+        id: 'luyvkljcB84615',
+        altText: 'Fake Brand ArmourType image alt text',
+        image: {
+          publicUrlTransformed: 'FakeNamedItemImage01.jpg',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'ArmourType',
+    },
+  ],
+  __typename: 'Brand',
+});
+
 const fakeGearset = () => ({
   name: 'Fake Protocol',
   coreAttribute: 'Armour',
@@ -1949,6 +1991,35 @@ const fakeGearset = () => ({
   },
   notes:
     'A Gear Set is a unique combination of equipment pieces that an Agent can obtain. Each Gear Set revolves around a specific operational capability and can strongly influence an agents overall approach to any situation they might face.\nUnlike a Brand set, the Chest and Backpack from a Gear Set do not have a specific Talent associated with them. Once a certain number of pieces of the same Gear Set are equipped, an agent will obtain various Set bonuses with all the bonuses available when four pieces are equipped. An agent must equip the Chest piece and Backpack in order to access the bonuses associated with each of these items.',
+  __typename: 'Gearset',
+});
+
+const fakeGearsetQuery = () => ({
+  id: 'chcml31894',
+  name: 'Fake Protocol',
+  coreAttribute: 'Weapon Damage',
+  coreAttributeValueLevel40: '15% Weapon damage',
+  coreAttributeValueWT5: '9.9% Weapon Damage',
+  setBonusOne: '+ 15% Marksman Rifle Damage',
+  setBonusTwo: '+ 30% Headshot Damage',
+  setBonusName: "Dead Man's Hand",
+  setBonusThree:
+    'Flip a card when landing shots with a Marksman Rifle. After 5 cards are flipped, the damage of your next shot is amplified by 30%. More shots are enhanced, the better the hand revealed. Four of a Kind: 4 shots. Full House: 3 shots. Aces and Eights: 2 shots. Flip an additional card on headshots.',
+  setBackpackTalentName: 'Ace in the Sleeve',
+  setBackpackTalent: 'Amplifies 1 extra shot when revealing your hand.',
+  setChestTalentName: 'No Limit',
+  setChestTalent: "Increases Dead Man's Hand damage bonus from 30% to 50%.",
+  image: {
+    id: 'kyvjblv68465',
+    altText: 'Eclipse Protocol gearset icon',
+    image: {
+      publicUrlTransformed: 'FakeGearsetImage.png',
+      __typename: 'CloudinaryImage_File',
+    },
+    __typename: 'FieldManualImage',
+  },
+  notes:
+    'A Gear Set is a unique combination of equipment pieces that an Agent can obtain. Each Gear Set revolves around a specific operational capability and can strongly influence an agents overall approach to any situation they might face. Unlike a Brand set, the Chest and Backpack from a Gear Set do not have a specific Talent associated with them. Once a certain number of pieces of the same Gear Set are equipped, an agent will obtain various Set bonuses with all the bonuses available when four pieces are equipped. An agent must equip the Chest piece and Backpack in order to access the bonuses associated with each of these items.',
   __typename: 'Gearset',
 });
 
@@ -2252,6 +2323,112 @@ const fakeNamedArmourPiece = () => ({
   __typename: 'ArmourType',
 });
 
+const fakeNamedArmourPieceQuery = () => ({
+  id: '314vsebr317',
+  name: 'Punch Drunk',
+  piece: 'Mask',
+  modSlots: 1,
+  coreAttributeTypeOne: 'Weapon Damage',
+  coreAttributeTypeTwo: 'N/A',
+  coreAttributeTypeThree: 'N/A',
+  maxCoreDamageLevel40: 150,
+  maxCoreArmourLevel40: 0,
+  maxCoreSkillTierLevel40: 0,
+  maxCoreValueDamageLevel30: 99,
+  maxCoreArmourLevel30: 0,
+  maxCoreSkillTierLevel30: 0,
+  offensiveAttributeOneLevel40: 'Critical Hit Chance',
+  offensiveAttributeTwoLevel40: 'Critical Hit Damage',
+  offensiveAttributeThreeLevel40: 'Headshot Damage',
+  offensiveAttributeFourLevel40: 'Weapon Handling',
+  offensiveAttributeOneMaxValueLevel40: 60,
+  offensiveAttributeTwoMaxValueLevel40: 120,
+  offensiveAttributeThreeMaxValueLevel40: 200,
+  offensiveAttributeFourMaxValueLevel40: 80,
+  offensiveAttributeOneMaxValueLevel30: 51,
+  offensiveAttributeTwoMaxValueLevel30: 79,
+  offensiveAttributeThreeMaxValueLevel30: 69,
+  offensiveAttributeFourMaxValueLevel30: 70,
+  defensiveAttributeOneLevel40: 'Armour Regeneration',
+  defensiveAttributeTwoLevel40: 'Explosive Resistance',
+  defensiveAttributeThreeLevel40: 'Hazard Protection',
+  defensiveAttributeFourLevel40: 'Health',
+  defensiveAttributeOneMaxValueLevel40: 4925,
+  defensiveAttributeTwoMaxValueLevel40: 100,
+  defensiveAttributeThreeMaxValueLevel40: 100,
+  defensiveAttributeFourMaxValueLevel40: 18935,
+  defensiveAttributeOneMaxValueLevel30: 1223,
+  defensiveAttributeTwoMaxValueLevel30: 66,
+  defensiveAttributeThreeMaxValueLevel30: 66,
+  defensiveAttributeFourMaxValueLevel30: 4695,
+  utilityAttributeOneLevel40: 'Skill Damage',
+  utilityAttributeTwoLevel40: 'Skill Haste',
+  utilityAttributeThreeLevel40: 'Skill Repair',
+  utilityAttributeFourLevel40: 'Status Effects',
+  utilityAttributeOneMaxValueLevel40: 100,
+  utilityAttributeTwoMaxValueLevel40: 120,
+  utilityAttributeThreeMaxValueLevel40: 200,
+  utilityAttributeFourMaxValueLevel40: 100,
+  utilityAttributeOneMaxValueLevel30: 69,
+  utilityAttributeTwoMaxValueLevel30: 79,
+  utilityAttributeThreeMaxValueLevel30: 121,
+  utilityAttributeFourMaxValueLevel30: 66,
+  uniqueAttribute: '20% Headshot Damage',
+  notes:
+    'This mask has been manufactured by Douglas & Harding and comes with Weapon Damage as the primary Core attribute. It has one fixed minor attribute - 20% Headshot Damage - and one random minor attribute which can be any of the stats listed below. It also has one gear mod slot.',
+  flavourText:
+    "If the first shot doesn't drop 'em, the second one will. Or the third, third's usually good.",
+  availableWT5: null,
+  isNamed: 'YES',
+  image: {
+    id: '98465gdhcfjgvhbk',
+    altText: 'Chest icon',
+    image: {
+      publicUrlTransformed: 'FakeArmourPiece.jpg',
+      __typename: 'CloudinaryImage_File',
+    },
+    __typename: 'FieldManualImage',
+  },
+  brand: [
+    {
+      id: 'nlkbhblhb',
+      name: 'Golan Gear Ltd',
+      image: {
+        id: '9864fsagh',
+        altText: 'FakeBrandImage alt text',
+        image: {
+          publicUrlTransformed: 'FakeBrandImage.jpg',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'Brand',
+    },
+  ],
+  armourTalent: [
+    {
+      id: ' rdvuty23684',
+      name: 'Perfect Intimidate',
+      piece: 'Chest',
+      descriptionPVE:
+        'While you have bonus armour, amplifies total weapon damage by 40% to enemies within 10 meters.',
+      isNamed: 'YES',
+      isExotic: 'NO',
+      image: {
+        id: 'jykubln58SFZRv',
+        altText: 'FakeArmourTalentImage alt text',
+        image: {
+          publicUrlTransformed: 'FakeArmourTalentImage.jpg',
+          __typename: 'CloudinaryImage_File',
+        },
+        __typename: 'FieldManualImage',
+      },
+      __typename: 'ArmourTalent',
+    },
+  ],
+  __typename: 'ArmourType',
+});
+
 export {
   makePaginationMocksFor,
   LocalStorageMock,
@@ -2275,4 +2452,7 @@ export {
   fakeRifleQuery,
   fakeShotgunQuery,
   fakeSMGQuery,
+  fakeBrandQuery,
+  fakeGearsetQuery,
+  fakeNamedArmourPieceQuery,
 };

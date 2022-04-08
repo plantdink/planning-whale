@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client';
-import Head from 'next/head';
 import { stringToParagraphs } from '../../lib/displayStrings';
 
 export const SINGLE_BRAND_QUERY = gql`
   query SINGLE_BRAND_QUERY($id: ID!) {
     allBrands(where: { id: $id }) {
+      id
       name
       coreAttribute
       coreAttributeValueLevel40
@@ -59,7 +59,7 @@ export const SINGLE_BRAND_QUERY = gql`
 export default function SingleBrand({ brand }) {
   return (
     <>
-      <div className="single-gear-item__content">
+      <div className="single-gear-item__content" data-testid="testBrand">
         <div className="single-gear-item__details">
           {stringToParagraphs(brand.notes)}
           <table>

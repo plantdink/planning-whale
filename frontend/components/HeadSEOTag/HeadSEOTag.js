@@ -10,7 +10,8 @@ export default function HeadSEOTag({ item = null, string = null }) {
 
   if (item !== null && item.__typename === 'Weapon') seoTag = item.model;
 
-  if (item !== null && item.__typename === 'ArmourType') seoTag = item.name;
+  if (item !== null && item.__typename === 'ArmourType')
+    seoTag = `${item.name} ${item.piece}`;
 
   if (item !== null && item.__typename === 'ExoticArmourPiece')
     seoTag = item.name;

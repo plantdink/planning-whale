@@ -4,6 +4,7 @@ import SingleArmourPiece from '../SingleArmourPiece';
 export const SINGLE_NAMED_ARMOUR_PIECE_QUERY = gql`
   query SINGLE_NAMED_ARMOUR_PIECE_QUERY($id: ID!) {
     allArmourTypes(where: { id: $id }) {
+      id
       name
       piece
       modSlots

@@ -60,8 +60,8 @@ export default function SingleBrandPage({ query }) {
                 Brand Unique Equipment
               </h2>
             </div>
-            {singleBrand.armourType.map((piece) => (
-              <LinkSmallPiece piece={piece} />
+            {singleBrand.armourType.map((piece, index) => (
+              <LinkSmallPiece key={index} piece={piece} />
             ))}
           </>
         )}

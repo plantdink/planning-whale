@@ -1,4 +1,92 @@
+import { gql } from '@apollo/client';
 import { chestIcon, backpackIcon, weaponTalentIcon } from '../ItemIcons';
+
+export const SINGLE_TALENT_QUERY = gql`
+  query SINGLE_TALENT_QUERY($id: ID!) {
+    allArmourTalents(where: { id: $id }) {
+      id
+      name
+      piece
+      type
+      descriptionPVE
+      descriptionPVP
+      isNamed
+      namedItem
+      namedArmourPiece {
+        id
+        piece
+        name
+        image {
+          id
+          altText
+          image {
+            publicUrlTransformed
+          }
+        }
+      }
+      exoticArmourPiece {
+        id
+        name
+        image {
+          id
+          altText
+          image {
+            publicUrlTransformed
+          }
+        }
+      }
+      brand {
+        id
+        name
+        image {
+          id
+          altText
+          image {
+            publicUrlTransformed
+          }
+        }
+      }
+      isExotic
+      exoticItem
+      image {
+        id
+        altText
+        image {
+          publicUrlTransformed
+        }
+        altText
+      }
+    }
+    allWeaponTalents(where: { id: $id }) {
+      id
+      name
+      type
+      descriptionPVE
+      descriptionPVP
+      classARTalent
+      classLMGTalent
+      classMMRTalent
+      classPistolTalent
+      classRifleTalent
+      classShotgunTalent
+      classSMGTalent
+      isNamed
+      isExotic
+      image {
+        id
+        image {
+          publicUrlTransformed
+        }
+        altText
+      }
+      weaponName {
+        id
+        class
+        model
+      }
+    }
+  }
+`;
 
 export default function SingleTalent({ singleTalent }) {
   let armourPieceIcon = '';
@@ -15,7 +103,7 @@ export default function SingleTalent({ singleTalent }) {
         <img
           className="single-gear-item__icon-image"
           src={armourPieceIcon}
-          alt={singleTalent.piece}
+          alt={`${singleTalent.piece} icon`}
         />
       )}
 

@@ -983,25 +983,6 @@ export default function SingleArmourPiece({ armourPiece }) {
                   </ul>
                 </>
               )}
-
-              {/* {(armourPiece.uniqueAttribute || armourPiece.modSlots > 0) && (
-                <div className="single-gear-item__sub-content">
-                  <div className="single-gear-item__details">
-                    {armourPiece.uniqueAttribute && (
-                      <>
-                        <div className="single-gear-item__title-bar">
-                          <h3 className="single-gear-item__h3subheading">
-                            Item Unique Feature
-                          </h3>
-                        </div>
-                        <ul>
-                          <li>{armourPiece.uniqueAttribute}</li>
-                        </ul>
-                      </>
-                    )}
-                  </div>
-                </div>
-              )} */}
             </>
           )}
         </>

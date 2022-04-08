@@ -4,6 +4,7 @@ import { stringToParagraphs } from '../../lib/displayStrings';
 export const SINGLE_GEARSET_QUERY = gql`
   query SINGLE_GEARSET_QUERY($id: ID!) {
     allGearsets(where: { id: $id }) {
+      id
       name
       coreAttribute
       coreAttributeValueLevel40
@@ -31,7 +32,7 @@ export const SINGLE_GEARSET_QUERY = gql`
 export default function SingleGearset({ gearset }) {
   return (
     <>
-      <div className="single-gear-item__content">
+      <div className="single-gear-item__content" data-testid="testGearset">
         <div className="single-item__details">
           {stringToParagraphs(gearset.notes)}
           <table>
