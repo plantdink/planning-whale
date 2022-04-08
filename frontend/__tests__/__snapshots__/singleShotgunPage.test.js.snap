@@ -3,7 +3,7 @@
 exports[`<SingleShotgunPage /> loads the data and renders both components with data correctly for a single shotgun page 1`] = `
 <div>
   <div
-    class="SingleWeapon__SingleWeaponStyles-sc-1l6wyg4-0 bGyXIt"
+    class="SingleWeapon__SingleWeaponStyles-sc-1l6wyg4-0 iQbJbJ"
     data-testid="singleWeaponTest"
   >
     <div
@@ -52,16 +52,19 @@ exports[`<SingleShotgunPage /> loads the data and renders both components with d
         <div
           class="single-weapon__details"
         >
-          <div
-            class="single-weapon__title-bar"
-          >
-            <h3
-              class="single-weapon__subheading"
-            >
-              Base Damage
-            </h3>
-          </div>
+          <div />
           <table>
+            <thead
+              class="single-weapon__title-bar"
+            >
+              <tr>
+                <th
+                  class="single-weapon__subheading"
+                >
+                  Base Damage
+                </th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
                 <th
@@ -84,28 +87,14 @@ exports[`<SingleShotgunPage /> loads the data and renders both components with d
                 </td>
               </tr>
             </tbody>
-          </table>
-          <div
-            class="single-weapon__title-bar"
-          >
-            <h3
-              class="single-weapon__subheading"
+            <thead
+              class="single-weapon__title-bar"
             >
-              Specifications
-            </h3>
-          </div>
-          <table>
-            <thead>
               <tr>
                 <th
-                  scope="col"
+                  class="single-weapon__subheading"
                 >
-                  Title
-                </th>
-                <th
-                  scope="col"
-                >
-                  Value
+                  Specifications
                 </th>
               </tr>
             </thead>
@@ -263,9 +252,7 @@ exports[`<SingleShotgunPage /> loads the data and renders both components with d
             <tr>
               <th
                 scope="col"
-              >
-                Name
-              </th>
+              />
               <th
                 scope="col"
               >

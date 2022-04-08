@@ -17,7 +17,7 @@ describe('<SingleTalent />', () => {
     const singleTalentTitle = screen.getByText(armourTalent.name);
     expect(singleTalentTitle).toBeInTheDocument();
 
-    const talentPieceIcon = screen.getByAltText(armourTalent.piece);
+    const talentPieceIcon = screen.getByRole('img', { name: /chest icon/i });
     expect(talentPieceIcon).toBeInTheDocument();
 
     const talentImage = screen.getByAltText(armourTalent.image.altText);
@@ -42,7 +42,7 @@ describe('<SingleTalent />', () => {
     const singleTalentTitle = screen.getByText(armourTalent.name);
     expect(singleTalentTitle).toBeInTheDocument();
 
-    const talentPieceIcon = screen.getByAltText(armourTalent.piece);
+    const talentPieceIcon = screen.getByRole('img', { name: /backpack icon/i });
     expect(talentPieceIcon).toBeInTheDocument();
 
     const talentImage = screen.getByAltText(armourTalent.image.altText);

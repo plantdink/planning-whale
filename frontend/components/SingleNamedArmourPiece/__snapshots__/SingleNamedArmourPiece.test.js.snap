@@ -9,11 +9,6 @@ exports[`<SingleNamedArmourPiece /> renders correctly for a single armour piece 
     src="FakeArmourPiece.jpg"
   />
   <div>
-    <blockquote
-      data-testid="flavourText"
-    >
-      "These guys came out of nowhere. Dressed to kill and armed to the teeth. Turns out, we were the ones they were sent to kill." - Division Agent
-    </blockquote>
     <p
       data-testid="itemPiece"
     >

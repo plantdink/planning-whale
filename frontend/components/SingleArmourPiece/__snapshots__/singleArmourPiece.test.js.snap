@@ -9,11 +9,6 @@ exports[`<SingleArmourPiece /> renders correctly for a single armour piece 1`] =
     src="https://res.cloudinary.com/dbm1h5w02/image/upload/v1647498165/agent-field-manual/6232d3b4ec80b2199ff2c03a.png"
   />
   <div>
-    <blockquote
-      data-testid="flavourText"
-    >
-      Through glass and steel; looking at you; a view so cruel.
-    </blockquote>
     <p
       data-testid="itemPiece"
     >

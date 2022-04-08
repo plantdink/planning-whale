@@ -22,11 +22,6 @@ describe('<SingleNamedArmourPiece />', () => {
     const testArmourPieceIcon = await screen.findByTestId('itemIcon');
     expect(testArmourPieceIcon).toBeInTheDocument();
 
-    const testFlavourText = await screen.findByTestId('flavourText');
-    if (armourPiece.flavourText !== null)
-      expect(testFlavourText).toBeInTheDocument();
-    expect(testFlavourText).toHaveTextContent(armourPiece.flavourText);
-
     const testPiece = await screen.findByTestId('itemPiece');
     if (armourPiece.piece !== '') expect(testPiece).toBeInTheDocument();
     expect(testPiece).toHaveTextContent(armourPiece.piece);

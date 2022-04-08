@@ -85,7 +85,7 @@ export default function SingleAverageWeapon({ weapon }) {
             </tbody>
             <thead className="single-weapon__title-bar">
               <tr>
-                <h3 className="single-weapon__subheading">Specifications</h3>
+                <td className="single-weapon__subheading">Specifications</td>
               </tr>
             </thead>
 

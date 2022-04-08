@@ -62,6 +62,7 @@ const fakeChestArmourTalent = () => ({
     name: 'Fake Brand name',
     image: {
       id: 'lk893yagc',
+      altText: 'Chest Talent Fake Brand Alt text',
       image: {
         publicUrlTransformed: 'fakeBrandImage.jpg',
       },
@@ -1836,6 +1837,7 @@ const fakeAverageWeaponQuery = () => ({
       name: 'Fake Talent 1',
       image: {
         id: '634615CValjbnlV',
+        altText: 'Fake talent 1 image alt text',
         image: {
           publicUrlTransformed: 'FakeTalent.png',
           __typename: 'CloudinaryImage_File',
@@ -1849,6 +1851,7 @@ const fakeAverageWeaponQuery = () => ({
       name: 'Fake Talent 2',
       image: {
         id: 'liubhvliyugbl',
+        altText: 'Fake Talent 2 image alt text',
         image: {
           publicUrlTransformed: 'FakeTalent2.png',
           __typename: 'CloudinaryImage_File',
@@ -1862,6 +1865,7 @@ const fakeAverageWeaponQuery = () => ({
       name: 'Fake Talent 3',
       image: {
         id: 'luyv34CLBvlvb',
+        altText: 'Fake Talent 3 image alt text',
         image: {
           publicUrlTransformed: 'FakeTalent3.png',
           __typename: 'CloudinaryImage_File',
@@ -1873,6 +1877,7 @@ const fakeAverageWeaponQuery = () => ({
   ],
   image: {
     id: '684361ljbljblyv',
+    altText: 'Fake Alt Text',
     image: {
       publicUrlTransformed: 'AverageWeaponImage.jpg',
       __typename: 'CloudinaryImage_File',

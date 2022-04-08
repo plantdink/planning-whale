@@ -34,10 +34,10 @@ export default function WeaponClasses() {
             following attributes:
           </p>
           <ul>
-            <li>weapon damage</li>
-            <li>bonus damage type (class specific & fixed)</li>
-            <li>third attribute (random)</li>
-            <li>talent (class specific & random)</li>
+            <li>- weapon damage (random percentage up to level max)</li>
+            <li>- bonus damage type (class specific & fixed)</li>
+            <li>- third attribute (random)</li>
+            <li>- talent (class specific & random)</li>
           </ul>
           <p>
             Each weapon will also have from 1 - 4 modification slots that allow
