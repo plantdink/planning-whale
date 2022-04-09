@@ -1,5 +1,4 @@
 import { useQuery, gql } from '@apollo/client';
-// import { ALL_AVERAGE_WEAPONS_QUERY } from '../../queries/WeaponQueries';
 import DisplayError from '../ErrorMessage';
 import AverageWeapon from '../AverageWeapon';
 import { ListStyles } from '../styles/ListStyles';
