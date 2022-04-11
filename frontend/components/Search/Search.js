@@ -4,8 +4,9 @@ import { resetIdCounter, useCombobox } from 'downshift';
 import { useRouter } from 'next/dist/client/router';
 import debounce from 'lodash.debounce';
 import { SEARCH_MANUAL_QUERY } from '../../queries/SearchBarQueries';
-// import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
 import { lowerCaseFirstLetter } from '../../lib/displayStrings';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 const DropDown = styled.div`
   position: absolute;
@@ -61,7 +62,6 @@ export default function Search() {
     }
   );
 
-  if (error) console.log(error);
   const searchResult = data ? Object.values(data) : [];
   const items = [];
   searchResult.forEach((element) => items.push(...element));
@@ -110,6 +110,9 @@ export default function Search() {
     },
     itemToString: (item) => item?.name || item?.model || '',
   });
+
+  if (loading) return <LoaderSpinner />;
+  if (error) return <DisplayError error={error} />;
 
   return (
     <SearchStyles>

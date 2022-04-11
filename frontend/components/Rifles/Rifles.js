@@ -2,6 +2,7 @@ import { useQuery, gql } from '@apollo/client';
 import Rifle from '../Rifle';
 import { ListStyles } from '../styles/ListStyles';
 import { perPage } from '../../config';
+import LoaderSpinner from '../LoaderSpinner';
 import DisplayError from '../ErrorMessage';
 
 export const ALL_RIFLES_QUERY = gql`
@@ -45,7 +46,7 @@ export default function Rifles({ page }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

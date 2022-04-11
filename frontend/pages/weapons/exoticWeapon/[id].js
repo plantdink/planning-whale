@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client';
-import DisplayError from '../../../components/ErrorMessage';
 import SingleWeapon, {
   SINGLE_WEAPON_QUERY,
   SingleWeaponStyles,
@@ -19,6 +18,8 @@ import AssaultRifleClassNotes, {
   ShotgunClassNotes,
   SubMachineGunClassNotes,
 } from '../../../components/WeaponClassNotes';
+import LoaderSpinner from '../../../components/LoaderSpinner';
+import DisplayError from '../../../components/ErrorMessage';
 
 export default function SingleExoticWeaponPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_WEAPON_QUERY, {
@@ -26,7 +27,8 @@ export default function SingleExoticWeaponPage({ query }) {
       id: query.id,
     },
   });
-  if (loading) return <p>Loading...</p>;
+
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   const weapon = data.allWeapons[0];

@@ -1,9 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
-// import { ALL_NAMED_ARMOUR_PIECES_QUERY } from '../../queries/ArmourPieceQueries';
 import { perPage } from '../../config';
-import DisplayError from '../ErrorMessage';
 import NamedArmourPiece from '../NamedArmourPiece';
 import { ListStyles } from '../styles/ListStyles';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 export const ALL_NAMED_ARMOUR_PIECES_QUERY = gql`
   query ALL_NAMED_ARMOUR_PIECES_QUERY($skip: Int, $first: Int) {
@@ -32,7 +32,7 @@ export default function NamedArmourPieces({ page }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client';
-import DisplayError from '../../../components/ErrorMessage';
 import SingleBrand, {
   SINGLE_BRAND_QUERY,
 } from '../../../components/SingleBrand';
@@ -8,6 +7,8 @@ import LinkSmallTalent from '../../../components/LinkSmallTalent';
 import { SingleGearItemStyle } from '../../../components/SingleArmourPiece';
 import HeadSEOTag from '../../../components/HeadSEOTag';
 import TitleBar from '../../../components/TitleBar';
+import LoaderSpinner from '../../../components/LoaderSpinner';
+import DisplayError from '../../../components/ErrorMessage';
 
 export default function SingleBrandPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_BRAND_QUERY, {
@@ -15,7 +16,8 @@ export default function SingleBrandPage({ query }) {
       id: query.id,
     },
   });
-  if (loading) return <p>Loading.....</p>;
+
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   const singleBrand = data.allBrands[0];

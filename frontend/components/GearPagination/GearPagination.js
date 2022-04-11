@@ -1,9 +1,10 @@
 import { useQuery, gql } from '@apollo/client';
 import Head from 'next/head';
 import Link from 'next/link';
-import DisplayError from '../ErrorMessage';
 import { perPage } from '../../config';
 import { PaginationStyles } from '../Pagination';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 const BRAND_PAGINATION_QUERY = gql`
   query BRAND_PAGINATION_QUERY {
@@ -75,7 +76,7 @@ export default function EquipmentPagination({ page, queryString, gearLink }) {
 
   const { data, error, loading } = useQuery(query);
 
-  if (loading) return 'Loading...';
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   const { count } =

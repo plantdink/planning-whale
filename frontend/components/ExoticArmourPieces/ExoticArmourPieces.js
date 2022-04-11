@@ -1,9 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
-// import { ALL_EXOTIC_ARMOUR_PIECES_QUERY } from '../../queries/ArmourPieceQueries';
 import { perPage } from '../../config';
-import DisplayError from '../ErrorMessage';
 import ExoticArmourPiece from '../ExoticArmourPiece';
 import { ListStyles } from '../styles/ListStyles';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 export const ALL_EXOTIC_ARMOUR_PIECES_QUERY = gql`
   query ALL_EXOTIC_ARMOUR_PIECES_QUERY($skip: Int = 0, $first: Int) {
@@ -28,7 +28,7 @@ export default function ExoticArmourPieces({ page }) {
     },
   });
 
-  if (loading) return <p>Loading.....</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

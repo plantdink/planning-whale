@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client';
-import DisplayError from '../../../components/ErrorMessage';
 import SingleAverageWeapon, {
   SINGLE_AVERAGE_WEAPON_QUERY,
 } from '../../../components/SingleAverageWeapon';
@@ -17,6 +16,8 @@ import WeaponClassThirdAttribute from '../../../components/WeaponClassThirdAttri
 import SingleRadarChart from '../../../components/SingleRadarChart';
 import TitleBar, { SubHeadingBar } from '../../../components/TitleBar';
 import HeadSEOTag from '../../../components/HeadSEOTag';
+import LoaderSpinner from '../../../components/LoaderSpinner';
+import DisplayError from '../../../components/ErrorMessage';
 
 export default function SingleAverageWeaponPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_AVERAGE_WEAPON_QUERY, {
@@ -24,7 +25,8 @@ export default function SingleAverageWeaponPage({ query }) {
       id: query.id,
     },
   });
-  if (loading) return <p>Loading...</p>;
+
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   const weapon = data.allAverageWeapons[0];

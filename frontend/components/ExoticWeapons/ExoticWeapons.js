@@ -1,8 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
 import { perPage } from '../../config';
-import DisplayError from '../ErrorMessage';
 import ExoticWeapon from '../ExoticWeapon';
 import { ListStyles } from '../styles/ListStyles';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 export const ALL_EXOTIC_WEAPONS_QUERY = gql`
   query ALL_EXOTIC_WEAPONS_QUERY($skip: Int = 0, $first: Int) {
@@ -45,7 +46,7 @@ export default function ExoticWeapons({ page }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

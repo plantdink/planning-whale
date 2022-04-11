@@ -1,8 +1,8 @@
 import { useQuery, gql } from '@apollo/client';
-// import { ALL_ASSAULT_RIFLES_QUERY } from '../../queries/WeaponQueries';
 import { perPage } from '../../config';
 import AssaultRifle from '../AssaultRifle';
 import { ListStyles } from '../styles/ListStyles';
+import LoaderSpinner from '../LoaderSpinner';
 import DisplayError from '../ErrorMessage';
 
 export const ALL_ASSAULT_RIFLES_QUERY = gql`
@@ -46,7 +46,7 @@ export default function AssaultRifles({ page }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

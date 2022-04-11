@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client';
-import DisplayError from '../../../components/ErrorMessage';
 import SingleNamedArmourPiece, {
   SINGLE_NAMED_ARMOUR_PIECE_QUERY,
 } from '../../../components/SingleNamedArmourPiece';
@@ -9,6 +8,8 @@ import LinkSmallTalent from '../../../components/LinkSmallTalent';
 import HeadSEOTag from '../../../components/HeadSEOTag';
 import TitleBar from '../../../components/TitleBar';
 import ItemUniqueFeature from '../../../components/ItemUniqueFeature';
+import LoaderSpinner from '../../../components/LoaderSpinner';
+import DisplayError from '../../../components/ErrorMessage';
 
 export default function SingleNamedArmourPiecePage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_NAMED_ARMOUR_PIECE_QUERY, {
@@ -16,7 +17,8 @@ export default function SingleNamedArmourPiecePage({ query }) {
       id: query.id,
     },
   });
-  if (loading) return <p>Loading.....</p>;
+
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   const { ...singleNamedPiece } = data.allArmourTypes[0];

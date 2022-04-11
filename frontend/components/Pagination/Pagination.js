@@ -2,8 +2,9 @@ import { useQuery, gql } from '@apollo/client';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
-import DisplayError from '../ErrorMessage';
 import { perPage } from '../../config';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 export const PaginationContainerStyles = styled.div`
   display: grid;
@@ -79,7 +80,7 @@ export default function Pagination({ page, queryString, weaponLink }) {
     },
   });
 
-  if (loading) return 'Loading....';
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   const { count } = data._allWeaponsMeta;

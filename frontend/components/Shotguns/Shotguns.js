@@ -1,8 +1,8 @@
 import { useQuery, gql } from '@apollo/client';
 import Shotgun from '../Shotgun';
 import { ListStyles } from '../styles/ListStyles';
-// import { ALL_SHOTGUNS_QUERY } from '../../queries/WeaponQueries';
 import { perPage } from '../../config';
+import LoaderSpinner from '../LoaderSpinner';
 import DisplayError from '../ErrorMessage';
 
 export const ALL_SHOTGUNS_QUERY = gql`
@@ -46,7 +46,7 @@ export default function Shotguns({ page }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

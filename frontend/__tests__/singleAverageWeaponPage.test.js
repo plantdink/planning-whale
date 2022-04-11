@@ -1,4 +1,4 @@
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
 import { fakeAverageWeaponQuery } from '../lib/testUtils';
 import { SINGLE_AVERAGE_WEAPON_QUERY } from '../components/SingleAverageWeapon';
@@ -52,7 +52,8 @@ describe('<SingleAverageWeaponPage />', () => {
       </>
     );
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    const loaderSpinner = screen.getByTestId('tail-spin-loading');
+    expect(loaderSpinner).toBeInTheDocument();
   });
 
   it('loads the data and renders all components with data correctly for a single average weapon page', async () => {
@@ -84,8 +85,7 @@ describe('<SingleAverageWeaponPage />', () => {
       </>
     );
 
-    await screen.findByTestId('graphql-error');
-    expect(container).toHaveTextContent('Fucks sake!!');
-    expect(container).toHaveTextContent('Weapon not found.');
+    expect(screen.queryByTestId('graphql-error')).toBeDefined();
+    await waitFor(() => {});
   });
 });

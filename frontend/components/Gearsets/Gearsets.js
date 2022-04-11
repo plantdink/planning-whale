@@ -2,6 +2,7 @@ import { useQuery, gql } from '@apollo/client';
 import { ListStyles } from '../styles/ListStyles';
 import Gearset from '../Gearset';
 import { perPage } from '../../config';
+import LoaderSpinner from '../LoaderSpinner';
 import DisplayError from '../ErrorMessage';
 
 export const ALL_GEARSETS_QUERY = gql`
@@ -27,7 +28,8 @@ export default function Gearsets({ page }) {
       first: perPage,
     },
   });
-  if (loading) return <p>Loading....</p>;
+
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

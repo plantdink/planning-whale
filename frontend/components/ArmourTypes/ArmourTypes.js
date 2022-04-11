@@ -1,8 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
 import ArmourType from '../ArmourType';
 import { ListStyles } from '../styles/ListStyles';
-import DisplayError from '../ErrorMessage';
 import { perPage } from '../../config';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 export const ALL_ARMOUR_TYPES_QUERY = gql`
   query ALL_ARMOUR_TYPES_QUERY($skip: Int = 0, $first: Int) {
@@ -27,7 +28,7 @@ export default function ArmourTypes({ page }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

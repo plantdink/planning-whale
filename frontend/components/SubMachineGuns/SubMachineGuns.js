@@ -1,8 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
 import { ListStyles } from '../styles/ListStyles';
 import { perPage } from '../../config';
-import DisplayError from '../ErrorMessage';
 import SubMachineGun from '../SubMachineGun';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 export const ALL_SUB_MACHINE_GUNS_QUERY = gql`
   query ALL_SUB_MACHINE_GUNS_QUERY($skip: Int = 0, $first: Int) {
@@ -49,7 +50,7 @@ export default function SubMachineGuns({ page }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

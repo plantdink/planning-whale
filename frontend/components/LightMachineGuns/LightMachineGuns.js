@@ -1,9 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
-// import { ALL_LIGHT_MACHINE_GUNS_QUERY } from '../../queries/WeaponQueries';
 import LightMachineGun from '../LightMachineGun';
 import { ListStyles } from '../styles/ListStyles';
-import DisplayError from '../ErrorMessage';
 import { perPage } from '../../config';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 export const ALL_LIGHT_MACHINE_GUNS_QUERY = gql`
   query ALL_LIGHT_MACHINE_GUNS_QUERY($skip: Int, $first: Int) {
@@ -50,7 +50,7 @@ export default function LightMachineGuns({ page }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

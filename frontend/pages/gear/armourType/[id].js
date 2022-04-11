@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client';
-import DisplayError from '../../../components/ErrorMessage';
 import SingleArmourPiece, {
   SINGLE_ARMOUR_PIECE_QUERY,
   SingleGearItemStyle,
@@ -11,13 +10,17 @@ import TitleBar from '../../../components/TitleBar';
 import ItemUniqueFeature from '../../../components/ItemUniqueFeature';
 import FlavourText from '../../../components/FlavourText';
 
+import LoaderSpinner from '../../../components/LoaderSpinner';
+import DisplayError from '../../../components/ErrorMessage';
+
 export default function SingleArmourTypePage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_ARMOUR_PIECE_QUERY, {
     variables: {
       id: query.id,
     },
   });
-  if (loading) return <p>Loading....</p>;
+
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   const { ...armourPiece } =

@@ -96,6 +96,7 @@
     "react": "^17.0.1",
     "react-chartjs-2": "^4.0.0",
     "react-dom": "^17.0.1",
+    "react-loader-spinner": "^6.0.0-0",
     "react-transition-group": "^4.4.1",
     "react-vivus": "^0.0.2",
     "styled-components": "^5.2.1",

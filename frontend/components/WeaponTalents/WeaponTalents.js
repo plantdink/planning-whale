@@ -2,6 +2,7 @@ import { useQuery, gql } from '@apollo/client';
 import WeaponTalent from '../WeaponTalent';
 import { ListStyles } from '../styles/ListStyles';
 import { perPage } from '../../config';
+import LoaderSpinner from '../LoaderSpinner';
 import DisplayError from '../ErrorMessage';
 
 export const ALL_WEAPON_TALENTS_QUERY = gql`
@@ -28,7 +29,7 @@ export default function WeaponTalents({ page }) {
     },
   });
 
-  if (loading) return <p>Loading....</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (

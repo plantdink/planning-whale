@@ -1,11 +1,12 @@
 import { useQuery } from '@apollo/client';
-import DisplayError from '../../../components/ErrorMessage';
 import { SingleGearItemStyle } from '../../../components/SingleArmourPiece';
 import SingleTalent, {
   SINGLE_TALENT_QUERY,
 } from '../../../components/SingleTalent';
 import LinkSmallPiece from '../../../components/LinkSmallPiece';
 import HeadSEOTag from '../../../components/HeadSEOTag';
+import LoaderSpinner from '../../../components/LoaderSpinner';
+import DisplayError from '../../../components/ErrorMessage';
 
 export default function SingleArmourTalentPage({ query }) {
   const { data, loading, error } = useQuery(SINGLE_TALENT_QUERY, {
@@ -13,7 +14,8 @@ export default function SingleArmourTalentPage({ query }) {
       id: query.id,
     },
   });
-  if (loading) return <p>Loading...</p>;
+
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   const { ...singleTalent } = data.allArmourTalents[0];

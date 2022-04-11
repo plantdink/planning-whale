@@ -1,4 +1,4 @@
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
 import { fakeGearsetQuery } from '../lib/testUtils';
 import { SINGLE_GEARSET_QUERY } from '../components/SingleGearset';
@@ -52,7 +52,8 @@ describe('<SingleGearsetPage />', () => {
       </>
     );
 
-    expect(screen.getByText('Loading....')).toBeInTheDocument();
+    const loaderSpinner = screen.getByTestId('tail-spin-loading');
+    expect(loaderSpinner).toBeInTheDocument();
   });
 
   it('matches the snapshot', async () => {
@@ -93,8 +94,7 @@ describe('<SingleGearsetPage />', () => {
       </>
     );
 
-    await screen.findByTestId('graphql-error');
-    expect(container).toHaveTextContent('Fucks sake!!');
-    expect(container).toHaveTextContent('Gear Set not found.');
+    expect(screen.queryByTestId('graphql-error')).toBeDefined();
+    await waitFor(() => {});
   });
 });

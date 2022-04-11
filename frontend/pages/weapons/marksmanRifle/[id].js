@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client';
-import DisplayError from '../../../components/ErrorMessage';
 import SingleWeapon, {
   SINGLE_WEAPON_QUERY,
   SingleWeaponStyles,
@@ -12,6 +11,9 @@ import FlavourText from '../../../components/FlavourText';
 import SingleRadarChart from '../../../components/SingleRadarChart';
 import { MarksmanRifleClassNotes } from '../../../components/WeaponClassNotes';
 import ExoticWeaponAttachment from '../../../components/ExoticWeaponAttachment';
+import LoaderSpinner from '../../../components/LoaderSpinner';
+import DisplayError from '../../../components/ErrorMessage';
+
 // below is accessed through the avgWeapon -> weapon={avgWeapon}
 import WeaponClassThirdAttribute from '../../../components/WeaponClassThirdAttribute';
 
@@ -21,7 +23,8 @@ export default function SingleMarksmanRiflePage({ query }) {
       id: query.id,
     },
   });
-  if (loading) return <p>Loading...</p>;
+
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   const weapon = data.allWeapons[0];

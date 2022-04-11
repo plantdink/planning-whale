@@ -1,9 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
-// import { ALL_PISTOLS_QUERY } from '../../queries/WeaponQueries';
 import { perPage } from '../../config';
-import DisplayError from '../ErrorMessage';
 import Pistol from '../Pistol';
 import { ListStyles } from '../styles/ListStyles';
+import LoaderSpinner from '../LoaderSpinner';
+import DisplayError from '../ErrorMessage';
 
 export const ALL_PISTOLS_QUERY = gql`
   query ALL_PISTOLS_QUERY($skip: Int = 0, $first: Int) {
@@ -44,7 +44,7 @@ export default function Pistols({ page }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoaderSpinner />;
   if (error) return <DisplayError error={error} />;
 
   return (
