@@ -41,6 +41,7 @@ export const ExoticWeaponAttachment = list({
         { label: "Accuracy", value: "Accuracy" },
         { label: "Critical Hit Chance", value: "Critical Hit Chance" },
         { label: "Headshot Damage", value: "Headshot Damage" },
+        { label: "Reload Speed", value: "Reload Speed" },
       ],
     }),
     opticsBonusValueLevel40: select({
@@ -64,6 +65,7 @@ export const ExoticWeaponAttachment = list({
         { label: "30% Headshot Damage", value: "30% Headshot Damage" },
         { label: "40% Headshot Damage", value: "40% Headshot Damage" },
         { label: "45% Headshot Damage", value: "45% Headshot Damage" },
+        { label: "10% Reload Speed", value: "10% Reload Speed" },
       ],
     }),
     opticsValueWT5: select({
@@ -87,6 +89,7 @@ export const ExoticWeaponAttachment = list({
         { label: "30% Headshot Damage", value: "30% Headshot Damage" },
         { label: "40% Headshot Damage", value: "40% Headshot Damage" },
         { label: "45% Headshot Damage", value: "45% Headshot Damage" },
+        { label: "10% Reload Speed", value: "10% Reload Speed" },
       ],
     }),
     magazineSlotBonusType: select({
@@ -137,6 +140,7 @@ export const ExoticWeaponAttachment = list({
         { label: "Critical Hit Chance", value: "Critical Hit Chance" },
         { label: "Critical Hit Damage", value: "Critical Hit Damage" },
         { label: "Stability", value: "Stability" },
+        { label: "Rate of Fire", value: "Rate of Fire" },
       ],
     }),
     muzzleValueLevel40: select({
@@ -147,6 +151,10 @@ export const ExoticWeaponAttachment = list({
         {
           label: "5% Critical Hit Chance",
           value: "5% Critical Hit Chance",
+        },
+        {
+          label: "10% Critical Hit Chance",
+          value: "10% Critical Hit Chance",
         },
         {
           label: "5% Critical Hit Damage",
@@ -161,6 +169,7 @@ export const ExoticWeaponAttachment = list({
           value: "30% Critical Hit Damage",
         },
         { label: "10% Stability", value: "10% Stability" },
+        { label: "10% Rate of Fire", value: "10% Rate of Fire" },
       ],
     }),
     muzzleValueWT5: select({
@@ -171,6 +180,10 @@ export const ExoticWeaponAttachment = list({
         {
           label: "5% Critical Hit Chance",
           value: "5% Critical Hit Chance",
+        },
+        {
+          label: "10% Critical Hit Chance",
+          value: "10% Critical Hit Chance",
         },
         {
           label: "5% Critical Hit Damage",

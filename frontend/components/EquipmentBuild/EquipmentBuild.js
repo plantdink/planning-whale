@@ -31,7 +31,7 @@ export default function EquipmentBuild() {
           </ItemColourStyles>
 
           <p>Each Core attribute will provide the following bonus per core:</p>
-          <ul>
+          <ul className="single-gear-item__intel">
             <li>Offensive: + % Weapon Damage</li>
             <li>Defensive: + additional Armour</li>
             <li>Utility: + 1 Skill Tier</li>
@@ -43,7 +43,7 @@ export default function EquipmentBuild() {
             will be added to the base value for that attribute.
           </p>
           <p>Example:</p>
-          <ul>
+          <ul className="single-gear-item__intel">
             <li>
               <strong>6 x</strong> pieces of equipment with{' '}
               <strong>+ 15%</strong> weapon damage will provide an additional{' '}
@@ -76,7 +76,7 @@ export default function EquipmentBuild() {
           <div className="single-gear-item__title-bar">
             <h3 className="single-gear-item__h3subheading">Offensive</h3>
           </div>
-          <ul>
+          <ul className="single-gear-item__intel">
             <li>Critical Hit Chance</li>
             <li>Critical Hit Damage</li>
             <li>Headshot Damage</li>
@@ -86,7 +86,7 @@ export default function EquipmentBuild() {
           <div className="single-gear-item__title-bar">
             <h3 className="single-gear-item__h3subheading">Defensive</h3>
           </div>
-          <ul>
+          <ul className="single-gear-item__intel">
             <li>Armour Regeneration (per second)</li>
             <li>Explosive Resistance</li>
             <li>Hazard Protection</li>
@@ -96,7 +96,7 @@ export default function EquipmentBuild() {
           <div className="single-gear-item__title-bar">
             <h3 className="single-gear-item__h3subheading">Utility</h3>
           </div>
-          <ul>
+          <ul className="single-gear-item__intel">
             <li>Skill Damage</li>
             <li>Skill Haste</li>
             <li>Skill Repair</li>
@@ -116,7 +116,7 @@ export default function EquipmentBuild() {
             with a single talent. A talent will strengthen an agents preferred
             operational style and will fall into the following broad categories:
           </p>
-          <ul>
+          <ul className="single-gear-item__intel">
             <li>Weapon Damage (DPS)</li>
             <li>Tank and Bruiser</li>
             <li>Sustain</li>

@@ -50,6 +50,7 @@ export const Brand = list({
         { label: "Providence Defense", value: "Providence Defense" },
         { label: "Richter & Kaiser GmbH", value: "Richter & Kaiser GmbH" },
         { label: "Sokolov Concern", value: "Sokolov Concern" },
+        { label: "Uzina Getica", value: "Uzina Getica" },
         { label: "Walker, Harris & Co", value: "Walker, Harris & Co." },
         { label: "Wyvern Wear", value: "Wyvern Wear" },
         { label: "Yaahl Gear", value: "Yaahl Gear" },

@@ -135,6 +135,16 @@ export const SingleGearItemStyle = styled.div`
     line-height: 1.3;
   }
 
+  .single-gear-item__intel {
+    list-style-type: circle;
+    list-style-position: inside;
+    padding-bottom: 1rem;
+  }
+
+  .single-gear-item__intel > li {
+    padding: 0.5rem 0 0 1rem;
+  }
+
   ul {
     margin: 0;
     color: var(--text);

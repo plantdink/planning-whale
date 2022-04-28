@@ -33,11 +33,11 @@ export default function WeaponClasses() {
             All weapons that an agent will use during operations come with the
             following attributes:
           </p>
-          <ul>
-            <li>- weapon damage (random percentage up to level max)</li>
-            <li>- bonus damage type (class specific & fixed)</li>
-            <li>- third attribute (random)</li>
-            <li>- talent (class specific & random)</li>
+          <ul className="single-gear-item__intel">
+            <li>weapon damage (random percentage up to level max)</li>
+            <li>bonus damage type (class specific & fixed)</li>
+            <li>third attribute (random)</li>
+            <li>talent (class specific & random)</li>
           </ul>
           <p>
             Each weapon will also have from 1 - 4 modification slots that allow
@@ -61,7 +61,7 @@ export default function WeaponClasses() {
             A weapons third attribute type and value is random but does depend
             on the weapon class. It can be any of the following list:
           </p>
-          <ul>
+          <ul className="single-gear-item__intel">
             <li>Damage to Armour</li>
             <li>Critical Hit Chance</li>
             <li>Health Damage</li>

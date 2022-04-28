@@ -32,6 +32,7 @@ export const Gearset = list({
         { label: "Foundry Bulwark", value: "Foundry Bulwark" },
         { label: "Future Initiative", value: "Future Initiative" },
         { label: "Hard Wired", value: "Hard Wired" },
+        { label: "Heartbreaker", value: "Heartbreaker" },
         { label: "Hunters Fury", value: "Hunters Fury" },
         { label: "Negotiators Dilemma", value: "Negotiators Dilemma" },
         { label: "Ongoing Directive", value: "Ongoing Directive" },
@@ -48,6 +49,7 @@ export const Gearset = list({
         { label: "Weapon Damage", value: "Weapon Damage" },
         { label: "Weapon Damage / Armour", value: "Weapon Damage / Armour" },
         { label: "Armour", value: "Armour" },
+        { label: "Armour / Utility", value: "Armour / Utility" },
         { label: "Utility", value: "Utility" },
       ],
     }),
@@ -61,6 +63,10 @@ export const Gearset = list({
         },
         { label: "170,000 Armour", value: "170,000 Armour" },
         {
+          label: "170,000 Armour / +1 Skill Tier",
+          value: "170,000 Armour / 1 Skill Tier",
+        },
+        {
           label: "+1 Skill Tier",
           value: "1 Skill Tier",
         },
@@ -71,7 +77,15 @@ export const Gearset = list({
       label: "Core Attribute Max Value (World Tier 5)",
       options: [
         { label: "9.9% Weapon Damage", value: "9.9% Weapon Damage" },
+        {
+          label: "9.9% Weapon Damage / 42,458 Armour",
+          value: "9.9% Weapon Damage / 42,458 Armour",
+        },
         { label: "42,458 Armour", value: "42,458 Armour" },
+        {
+          label: "42,458 Armour / +1 Skill Tier",
+          value: "42,458 Armour / 1 Skill Tier",
+        },
         {
           label: "+1 Skill Tier",
           value: "1 Skill Tier",

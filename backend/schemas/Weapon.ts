@@ -20,7 +20,7 @@ export const Weapon = list({
         field: "class",
         direction: "ASC",
       },
-      pageSize: 50,
+      pageSize: 100,
     },
   },
   fields: {
@@ -38,7 +38,7 @@ export const Weapon = list({
       isRequired: true,
     }),
     family: text({ label: "Weapon Family", isRequired: true }),
-    model: text({ label: "Model", isRequired: true }),
+    model: text({ label: "Model (Weapon Name)", isRequired: true }),
     modSlots: integer({ label: "No of Mod Slots", isRequired: true }),
     magazineSize: integer({ label: "Magazine Size", isRequired: true }),
     rpm: integer({ label: "Rounds Per Minute (RPM)", isRequired: true }),
@@ -75,7 +75,7 @@ export const Weapon = list({
       isRequired: true,
     }),
     weaponBonusType: select({
-      label: "Weapon Bonus One",
+      label: "Weapon Class Bonus One",
       options: [
         { label: "Critical Hit Chance", value: "CHC" },
         { label: "Critical Hit Damage", value: "CHD" },
@@ -108,12 +108,10 @@ export const Weapon = list({
     maxBonusTwoValue: integer({
       label: "Bonus Two Percent (Whole number 9.5% = 95)",
       defaultValue: 0,
-      isRequired: true,
     }),
     damageLevel40: integer({ label: "Level 40 Base Damage", isRequired: true }),
     damageWt5: integer({
       label: "World Tier 5 Base Damage",
-      isRequired: true,
     }),
     notes: text({
       label: "Notes",

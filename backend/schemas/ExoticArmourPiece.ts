@@ -138,6 +138,7 @@ export const ExoticArmourPiece = list({
           value: "Hazard Protection",
         },
         { label: "Health", value: "Health" },
+        { label: "Incoming Repairs", value: "Incoming Repairs" },
         { label: "Skill Damage", value: "Skill Damage" },
         { label: "Skill Haste", value: "Skill Haste" },
         { label: "Skill Repair", value: "Skill Repair" },
